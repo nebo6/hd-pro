@@ -1,0 +1,39 @@
+body
+    font-size: $main-size
+    color: $color-blue
+
+a
+    text-decoration: none
+    color: inherit
+    &:hover
+        color: inherit
+    
+.avatar
+    width: 46px
+    height: 46px
+    border-radius: 50%
+    background: url("#{$img-path}/icons/avatar.svg") center / cover no-repeat
+
+.title
+    color: $color-blue-light
+    line-height: 1.2
+    font-weight: 600
+    &.title_page
+        font-size: 1.5rem
+
+.text_dark
+    color: $color-blue-dark
+
+.text_light
+    color: $color-blue-light
+
+.text_larger
+    font-size: #{$main-size + 1px}
+    
+.text_small
+    font-size: $small-size
+    &.text_larger
+        font-size: #{$small-size + 1px}
+
+.rounded
+    border-radius: $default-radius

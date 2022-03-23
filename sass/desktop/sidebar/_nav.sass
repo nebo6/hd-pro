@@ -1,0 +1,58 @@
+.sidebar
+    .nav__list
+        padding-left: 0
+        margin-bottom: 0
+        width: 100%
+    .nav__item
+        list-style: none
+        margin-bottom: 0.25rem // change nav__item_inner::after calc
+    .nav__link
+        display: block
+    .nav__link_outer
+        color: $color-blue-dark
+        padding: 7px 5px
+        margin: 0 -5px
+    .nav__icon
+        display: block
+        margin-right: 14px
+        color: $color-blue-light
+        svg
+            display: block
+    .nav__item_inner
+        position: relative
+        padding-left: 34px
+        &::before
+            content: ''
+            display: block
+            width: 21px
+            height: 1px
+            background-color: #c4c4c4
+            position: absolute
+            left: 10px
+            top: 50%
+            transform: translateY(-50%)
+        &::after
+            content: '' 
+            display: block
+            width: 1px
+            height: calc(100% + 0.25rem) // 0.25rem nav__item margin
+            background-color: #c4c4c4
+            position: absolute
+            left: 10px
+            top: auto
+            bottom: 50%
+        &:first-child::after
+            height: 20px
+    .nav__link_inner
+        color: $color-gray
+        padding: 0.25rem 0
+    .nav__link_active,
+    .nav__link:hover
+        &.nav__link_outer
+            color: $color-light
+            background-color: $color-red
+            font-weight: 700
+        .nav__icon
+            color: $color-light
+        &.nav__link_inner
+            color: $color-red

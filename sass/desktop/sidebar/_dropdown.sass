@@ -1,0 +1,23 @@
+.sidebar
+    .dropdown__body
+        padding-top: 12px
+    .dropdown__icon
+        transition: transform $transition
+        svg
+            display: block
+    .dropdown__head
+        color: $color-blue-dark
+        padding: 7px 20px 7px 5px
+        margin: 0 -5px
+        cursor: pointer
+        &.active,
+        &:hover
+            color: $color-light
+            background-color: $color-red
+            font-weight: 700
+            .nav__icon
+                color: $color-light
+        &.active
+            .dropdown__icon        
+                transform: rotate(180deg)
+    
