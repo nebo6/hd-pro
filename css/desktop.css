@@ -1,6 +1,7 @@
 body {
   font-size: 13px;
   color: #334D6E;
+  background: #E5E5E5;
 }
 
 a {
@@ -16,7 +17,12 @@ a:hover {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: url("./img/icons/avatar.svg") center/cover no-repeat;
+  background: url("../img/icons/avatar-template.svg") center/cover no-repeat;
+}
+
+.avatar_small {
+  width: 28px;
+  height: 28px;
 }
 
 .title {
@@ -53,8 +59,148 @@ a:hover {
   border-radius: 5px;
 }
 
+*:focus-visible {
+  outline: #DB2927 auto 1px;
+}
+
+.input {
+  border-radius: 5px;
+  background-color: #F8F8F8;
+  position: relative;
+}
+
+.input__control {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.input__control::-webkit-input-placeholder {
+  color: #9F9F9F;
+}
+
+.input__control:-ms-input-placeholder {
+  color: #9F9F9F;
+}
+
+.input__control::-ms-input-placeholder {
+  color: #9F9F9F;
+}
+
+.input__control::placeholder {
+  color: #9F9F9F;
+}
+
+.input__icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  left: auto;
+  z-index: 1;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.input__icon_magnify {
+  width: 14px;
+  height: 14px;
+  background: url("../img/icons/magnify.svg");
+}
+
+.input_gap_right .input__control {
+  padding-right: 34px;
+}
+
+.btn {
+  padding: 5px 15px;
+  font-size: inherit;
+  border-radius: 5px;
+}
+
+.btn_fill {
+  background-color: #DB2927;
+  color: #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.btn_fill:hover {
+  background-color: #A50402;
+  color: #fff;
+}
+
+.btn_outline {
+  border-color: #A50402;
+  color: #A50402;
+}
+
+.btn_outline:hover {
+  color: #A50402;
+  border-color: #fff;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 2px 11px rgba(0, 0, 0, 0.15));
+          filter: drop-shadow(0px 2px 11px rgba(0, 0, 0, 0.15));
+}
+
+.header {
+  padding: 15px 20px;
+  -webkit-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.header__search {
+  width: 208px;
+}
+
+.header__item {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+
+.dot-active {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #DB2927;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.header__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header__icon_bell {
+  background: url("../img/icons/header-bell.svg") center/14px 17px no-repeat;
+}
+
+.header__icon_messages {
+  background: url("../img/icons/header-messages.svg") center/17px 18px no-repeat;
+}
+
 .sidebar {
+  width: 256px;
+  height: 100vh;
   padding: 1.5rem;
+  -webkit-box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+          box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  overflow: auto;
 }
 
 .sidebar .logo {
@@ -162,6 +308,8 @@ a:hover {
   transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .sidebar .dropdown__icon svg {
@@ -173,20 +321,24 @@ a:hover {
   padding: 7px 20px 7px 5px;
   margin: 0 -5px;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.sidebar .dropdown__head.active, .sidebar .dropdown__head:hover {
+.sidebar .dropdown__head.active, .sidebar .dropdown__head.nav__link_active, .sidebar .dropdown__head:hover {
   color: #fff;
   background-color: #DB2927;
   font-weight: 700;
 }
 
-.sidebar .dropdown__head.active .nav__icon, .sidebar .dropdown__head:hover .nav__icon {
+.sidebar .dropdown__head.active .nav__icon, .sidebar .dropdown__head.nav__link_active .nav__icon, .sidebar .dropdown__head:hover .nav__icon {
   color: #fff;
 }
 
 .sidebar .dropdown__head.active .dropdown__icon {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
 }
 /*# sourceMappingURL=desktop.css.map */

@@ -3,6 +3,7 @@
         padding-top: 12px
     .dropdown__icon
         transition: transform $transition
+        transform: rotate(180deg)
         svg
             display: block
     .dropdown__head
@@ -10,7 +11,9 @@
         padding: 7px 20px 7px 5px
         margin: 0 -5px
         cursor: pointer
+        user-select: none
         &.active,
+        &.nav__link_active,
         &:hover
             color: $color-light
             background-color: $color-red
@@ -19,5 +22,5 @@
                 color: $color-light
         &.active
             .dropdown__icon        
-                transform: rotate(180deg)
+                transform: rotate(0)
     

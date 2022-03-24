@@ -1,0 +1,35 @@
+.input
+    border-radius: $default-radius
+    background-color: #F8F8F8
+    position: relative    
+    
+.input__control
+    display: block
+    width: 100%
+    padding: 5px 10px
+    border-radius: $default-radius
+    border: 0
+    box-shadow: none
+    -webkit-appearance: none
+    background-color: transparent
+    font-size: $main-size + 1px
+    &::placeholder
+        color: $color-gray
+
+.input__icon
+    display: block
+    position: absolute
+    top: 50%
+    right: 10px
+    left: auto
+    z-index: 1
+    transform: translateY(-50%)
+
+.input__icon_magnify
+    width: 14px
+    height: 14px
+    background: url("#{$img-path}/icons/magnify.svg")
+
+.input_gap_right
+    .input__control
+        padding-right: 34px

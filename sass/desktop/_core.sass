@@ -1,6 +1,7 @@
 body
     font-size: $main-size
     color: $color-blue
+    background: #E5E5E5
 
 a
     text-decoration: none
@@ -12,8 +13,12 @@ a
     width: 46px
     height: 46px
     border-radius: 50%
-    background: url("#{$img-path}/icons/avatar.svg") center / cover no-repeat
+    background: url("#{$img-path}/icons/avatar-template.svg") center / cover no-repeat
 
+.avatar_small
+    width: 28px
+    height: 28px
+    
 .title
     color: $color-blue-light
     line-height: 1.2
@@ -37,3 +42,6 @@ a
 
 .rounded
     border-radius: $default-radius
+
+*:focus-visible
+    outline: $color-red auto 1px
