@@ -1,0 +1,76 @@
+.dropdown
+    position: absolute
+    top: 100%
+    left: 50%
+    transform: translateX(-50%)
+    padding: 0 11px
+    background-color: #fff
+    box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06)
+    border-radius: $default-radius
+    color: $color-blue-dark
+    visibility: hidden
+    opacity: 0
+    transition: opacity $transition
+
+.dropdown_header
+    margin-top: 34px
+    
+.dropdown_active
+    opacity: 1
+    visibility: visible
+
+.dropdown__list
+    padding-left: 0
+    margin-bottom: 0
+    padding-top: 22px
+    padding-bottom: 14px
+
+.dropdown__item
+    list-style: none
+    text-align: left
+
+.dropdown__action
+    display: flex
+    align-items: center
+    padding: 6px 12px
+    font-size: $main-size - 1px
+    white-space: nowrap
+    border-radius: $default-radius
+    &:hover
+        background-color: $color-gray-light
+        font-weight: 700
+    
+.dropdown__text
+    display: block
+    &::before // for font-weight correct width
+        display: block
+        content: attr(data-title)
+        font-weight: 700
+        height: 0
+        overflow: hidden
+        visibility: hidden
+    
+.dropdown
+    &.arrow
+        &::after
+            content: ''
+            display: block
+            width: 0
+            height: 0
+            border-left: 7px solid transparent
+            border-right: 7px solid transparent
+            border-bottom: 5px solid #fff
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%) translateY(-100%)
+            box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06)
+            z-index: -1
+    &.arrow_top_right
+        border-top-right-radius: 0
+        &::after
+            left: auto
+            right: 0
+            transform: translateY(-100%)
+            border-right: 0
+        
