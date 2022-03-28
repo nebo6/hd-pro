@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="./css/desktop.css">
 </head>
 <body>
-    <div class="d-flex">
-        <div class="col-auto">
+    <div class="wrapper">
+        <div class="wrapper__left">
             <!-- SIDEBAR START-->
             <aside class="sidebar">
                 <!-- LOGO START -->
@@ -149,7 +149,7 @@
             </aside>
             <!-- SIDEBAR END -->
         </div>
-        <div class="col">
+        <div class="wrapper__right">
             <!-- MAIN START -->
             <main role="main">
                 <!-- HEADER -->
@@ -279,13 +279,96 @@
                 <!-- HEADER -->
                 <div class="main-content">
                     <div class="container-fluid">
-                        <div class="card row align-items-center">
-                            <div class="col-auto">
-                                <div class="card__value">3</div>
+                        <!-- STATISTIC START -->
+                        <div class="row justify-content-between statistics__list">
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_light">3</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Количество <br>машин</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <span class="card__label">Количество <br>машин</span>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value">344$</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Общая <br/>стоимость услуг</span>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_green">300$</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Полученный <br>платёж</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_red">44$</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Остаток <br>суммы</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STATISTIC START -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Компания</th>
+                                        <th>Контактное лицо</th>
+                                        <th>Группа клиентов</th>
+                                        <th>Количество проектов </th>
+                                        <th>Стоимость  услуг клиента</th>
+                                        <th>Полученный платёж</th>
+                                        <th>Остаток суммы</th>
+                                        <th>Функции</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Company</td>
+                                        <td>Jhon Doe</td>
+                                        <td>VIP</td>
+                                        <td>5</td>
+                                        <td>5 700$</td>
+                                        <td>5 000$</td>
+                                        <td>670$</td>
+                                        <td>
+                                            <button class="btn btn_clean">+</button>
+                                            <button class="btn btn_clean">-</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Company</td>
+                                        <td>Jhon Doe</td>
+                                        <td>VIP</td>
+                                        <td>5</td>
+                                        <td>5 700$</td>
+                                        <td>5 000$</td>
+                                        <td>670$</td>
+                                        <td>
+                                            <button class="btn btn_clean">+</button>
+                                            <button class="btn btn_clean">-</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

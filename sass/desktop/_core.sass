@@ -4,7 +4,6 @@
 body
     font-size: $main-size
     color: $color-blue
-    background: #E5E5E5
 
 a
     text-decoration: none
@@ -12,8 +11,21 @@ a
     &:hover
         color: inherit
     
+.wrapper
+    display: flex
+    flex-wrap: wrap
+    
+.wrapper__left
+    width: 256px
+    
+.wrapper__right
+    width: calc(100% - 256px)
+    
 .main-content
     padding: 0 12px
+    
+.position-relative
+    position: relative !important
     
 .avatar
     width: 46px
@@ -39,6 +51,12 @@ a
 
 .text_light
     color: $color-blue-light
+
+.text_green
+    color: $color-green
+
+.text_red
+    color: $color-red
 
 .text_larger
     font-size: #{$main-size + 1px}
