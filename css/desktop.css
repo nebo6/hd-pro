@@ -58,7 +58,7 @@ a:hover {
   font-weight: 600;
 }
 
-.title.title_page {
+.title_page {
   font-size: 1.5rem;
   line-height: 1.25;
   margin-bottom: 0;
@@ -92,12 +92,41 @@ a:hover {
   font-size: 11px;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .rounded {
   border-radius: 5px;
 }
 
 *:focus-visible {
   outline: #DB2927 auto 1px;
+}
+
+.gradient-bordered-overlay {
+  padding: 1px;
+  -webkit-box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.gradient-bordered-overlay::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #DB2927, #ffffff);
+  z-index: -1;
+}
+
+.gradient-bordered-overlay > * {
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .input {
@@ -224,6 +253,30 @@ a:hover {
   width: 13px;
   height: 12px;
   background: url("../img/icons/cross-plus.svg") center/13px 12px no-repeat;
+}
+
+.btn__icon_technician {
+  width: 16px;
+  height: 17px;
+  background: url("../img/icons/auth-tech.svg") center/16px 17px no-repeat;
+}
+
+.btn__icon_molar {
+  width: 14px;
+  height: 16px;
+  background: url("../img/icons/auth-molar.svg") center/14px 16px no-repeat;
+}
+
+.btn__icon_manager {
+  width: 14px;
+  height: 14px;
+  background: url("../img/icons/auth-molar.svg") center/14px 14px no-repeat;
+}
+
+.btn__icon_user {
+  width: 14px;
+  height: 16px;
+  background: url("../img/icons/auth-user.svg") center/14px 16px no-repeat;
 }
 
 .dropdown {
@@ -699,5 +752,42 @@ th:last-child {
   max-height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.auth {
+  padding: 115px 0;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth__logo {
+  display: block;
+  margin: 0 auto 110px;
+  width: 88px;
+}
+
+.auth__content {
+  width: 100%;
+  max-width: 320px;
+  margin: -80px auto 0;
+}
+
+.auth__inner {
+  padding-top: 36px;
+  padding-bottom: 15px;
+}
+
+.auth__item {
+  max-width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.75rem;
 }
 /*# sourceMappingURL=desktop.css.map */
