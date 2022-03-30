@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-grid.min.css">
     <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal.css">
+    <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal-default-theme.css">
     <link rel="stylesheet" href="./css/desktop.css">
 </head>
 <body>
@@ -152,7 +154,7 @@
         <div class="wrapper__right">
             <!-- MAIN START -->
             <main role="main">
-                <!-- HEADER -->
+                <!-- HEADER START -->
                 <header class="header">
                     <div class="container-fluid">
                         <div class="row align-items-center">
@@ -160,7 +162,7 @@
                             <div class="col-auto">
                                 <!-- INPUT START -->
                                 <label class="input header__search input_gap_right">
-                                    <input type="text" class="input__control" placeholder="Введите что Вам нужно...">
+                                    <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
                                     <span class="input__icon input__icon_magnify"></span>
                                 </label>
                                 <!-- INPUT END -->
@@ -276,7 +278,7 @@
                         </div>
                     </div>
                 </header>
-                <!-- HEADER -->
+                <!-- HEADER END -->
                 <div class="main-content">
                     <div class="container-fluid">
                         <!-- STATISTIC START -->
@@ -322,7 +324,72 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- STATISTIC START -->
+                        <!-- STATISTIC END -->
+                        <!-- STATISTIC SMALL START -->
+                        <div class="row justify-content-between statistics__list statistics__list_small">
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value">11</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Всего <br/>клиентов</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_green">10</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Активно <br/>клиентов</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_red">1</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Неативно <br>клиентов</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_green">10</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Активные <br/>контакты</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value text_red">1</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Неативные <br>контакты</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics__wrapper">
+                                <div class="statistics d-flex flex-wrap align-items-center">
+                                    <div class="col-auto">
+                                        <div class="statistics__value">1</div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="statistics__label">Контакты <br/>вошли сегодня</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STATISTIC SMALL END -->
+                        <!-- CLIENTS TABLE START -->
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -339,7 +406,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr data-clients-row="1">
                                         <td>1</td>
                                         <td>Company</td>
                                         <td>Jhon Doe</td>
@@ -348,39 +415,40 @@
                                         <td>5 700$</td>
                                         <td>5 000$</td>
                                         <td>670$</td>
-                                        <td>
-                                            <button class="btn btn_clean">+</button>
-                                            <button class="btn btn_clean">-</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Company</td>
-                                        <td>Jhon Doe</td>
-                                        <td>VIP</td>
-                                        <td>5</td>
-                                        <td>5 700$</td>
-                                        <td>5 000$</td>
-                                        <td>670$</td>
-                                        <td>
-                                            <button class="btn btn_clean">+</button>
-                                            <button class="btn btn_clean">-</button>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn_clean" onclick="onClientsRemoved('1')">del</button>
+                                            <button type="button" class="btn btn_clean">opt</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <!-- CLIENTS TABLE END -->
                     </div>
                 </div>
             </main>
             <!-- MAIN END -->
         </div>
     </div>
+    <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
+    <!-- REMOVE CLIENT MODAL START -->
+    <div class="mymodal" data-mymodal-id="remove-modal" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <p class="text_light">
+            <b>Вы уверены, что хотите удалить ID <span class="id">NONE</span>?</b>
+        </p>
+        <div>
+            <button data-mymodal-action="confirm" class="mymodal-confirm">OK</button>
+            <button data-mymodal-action="cancel" class="mymodal-cancel">Cancel</button>
+        </div>
+    </div>
+    <!-- REMOVE CLIENT MODAL END -->
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
     <script src="./libs/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
+    <script src="./libs/remodal-1.1.1/remodal.js"></script>
     <!-- CUSTOM JS -->
     <script src="./js/custom.js"></script>
 </body>

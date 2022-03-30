@@ -3,13 +3,14 @@
     border: 1px solid $color-blue-lighter
     border-radius: $default-radius
     padding: 23px 22px
+    min-height: 100%
     
 .statistics__list
     padding: 28px 0
     
 .statistics__wrapper
-    flex: 0 0 (271/1285*100%)
-    max-width: 271/1285*100%
+    flex: 0 0 (271/1287*100%)
+    max-width: 271/1287*100%
     
 .statistics__value
     font-size: 50px
@@ -23,3 +24,10 @@
     line-height: 1.2
     display: inline-block
     padding-top: 5px
+
+.statistics__list_small
+    .statistics__wrapper
+        flex: 0 0 (145/1142*100%)
+        max-width: 145/1142*100%
+    .statistics__value
+        font-size: 40px
