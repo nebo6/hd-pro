@@ -1,0 +1,46 @@
+.table-responsive
+    display: block
+    width: 100%
+    overflow-x: auto
+    -webkit-overflow-scrolling: touch
+    -ms-overflow-style: -ms-autohiding-scrollbar
+
+.table-responsive
+    .table
+        white-space: nowrap
+    
+.table
+    width: 100%
+    max-width: 100%
+    background-color: transparent
+    
+thead
+    background: $color-red
+    color: $color-light
+
+tbody
+    color: $color-gray
+    tr
+        .radio__list
+            background-color: $color-gray-light
+            .input__control:checked
+                & + .input__label_light
+                    background-color: $color-light
+    tr:nth-child(even)
+        background-color: #F7F7F7
+        .radio__list
+            background-color: $color-light
+            .input__control:checked
+                & + .input__label_light
+                    background-color: $color-gray-light
+td,
+th
+    padding: 8px
+    &:first-child
+        padding-left: 22px
+        border-top-left-radius: $default-radius
+        border-bottom-left-radius: $default-radius
+    &:last-child
+        padding-right: 29px
+        border-top-right-radius: $default-radius
+        border-bottom-right-radius: $default-radius

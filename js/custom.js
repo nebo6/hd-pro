@@ -71,6 +71,10 @@ function onClientsRemoved(id) {
     modal.mymodal().open();
 }
 
+function onEstimatesShowed(id) {
+    alert("show " + id);
+}
+
 $(function() {
     initAccordion();
     initDropdown();

@@ -1,0 +1,25 @@
+.radio__list
+    display: inline-flex
+    flex-wrap: wrap
+    border-radius: 50px
+
+.radio__list_table
+    font-size: $small-size
+    padding: 3px 5px
+    
+.input_radio
+    cursor: pointer
+    background-color: transparent
+    user-select: none
+    .input__label
+        padding: 0 7px
+        font-weight: 700
+        border-radius: 20px
+    .input__control
+        display: none
+        &:checked
+            & + .input__label_light
+                background-color: $color-light
+            & + .input__label_green
+                background-color: $color-green
+                color: $color-light
