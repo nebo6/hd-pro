@@ -477,6 +477,7 @@
                         </div>
                         <!-- STATISTIC SMALL END -->
                         <!-- CLIENTS TABLE START -->
+                        <h3>Профиль клиента + редактировать клиента</h3>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -516,6 +517,7 @@
                         </div>
                         <!-- CLIENTS TABLE END -->
                         <!-- CARS TABLE START -->
+                        <h3>Машина + подробно</h3>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -542,13 +544,14 @@
                                         <td class="text-center">
                                             <div class="radio__list radio__list_table">
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[1]" checked>
+                                                    <input type="radio" class="input__control" name="cars[1]" checked value="0" onchange="onCarsStatusChanged(event, 1)">
                                                     <span class="input__label input__label_light">Готово</span>
-                                                </label>
+                                                </label> <!-- onCarsStatusChanged(event, id) -->
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[1]">
+                                                    <input type="radio" class="input__control" name="cars[1]" value="1" onchange="onCarsStatusChanged(event, 1)">
                                                     <span class="input__label input__label_light">Ожидает</span>
                                                 </label>
+                                                <input type="hidden" class="radio__prev" value="0">
                                             </div>
                                         </td>
                                     </tr>
@@ -563,13 +566,14 @@
                                         <td class="text-center">
                                             <div class="radio__list radio__list_table">
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[2]" checked>
+                                                    <input type="radio" class="input__control" name="cars[2]" checked value="0" onchange="onCarsStatusChanged(event, 2)">
                                                     <span class="input__label input__label_light">Готово</span>
                                                 </label>
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[2]">
+                                                    <input type="radio" class="input__control" name="cars[2]" value="1" onchange="onCarsStatusChanged(event, 2)">
                                                     <span class="input__label input__label_light">Ожидает</span>
                                                 </label>
+                                                <input type="hidden" class="radio__prev" value="0">
                                             </div>
                                         </td>
                                     </tr>
@@ -578,6 +582,7 @@
                         </div>
                         <!-- CARS TABLE END -->
                         <!-- ESTIMATES TABLE START -->
+                        <h3>Сметы</h3>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -603,20 +608,34 @@
                                         <td>10 000$</td>
                                         <td>20 октября 2022 год</td>
                                         <td>
-                                            <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed('1')">
+                                            <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed(1)">
                                                 <span class="table__icon table__icon_show"></span>
                                             </button>
                                         </td>
                                         <td class="text-center">
                                             <div class="radio__list radio__list_table">
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="estimates[1]" checked>
+                                                    <input 
+                                                        type="radio" 
+                                                        class="input__control" 
+                                                        name="estimates[1]" 
+                                                        checked 
+                                                        value="0" 
+                                                        onchange="onEstimatesChanged(event, 1)"
+                                                    > <!-- onEstimatesChanged(event, id) -->
                                                     <span class="input__label input__label_green">Оценено</span>
                                                 </label>
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="estimates[1]">
+                                                    <input 
+                                                        type="radio" 
+                                                        class="input__control" 
+                                                        name="estimates[1]" 
+                                                        value="1" 
+                                                        onchange="onEstimatesChanged(event, 1)"
+                                                    >
                                                     <span class="input__label input__label_green">Отремонтировано</span>
                                                 </label>
+                                                <input type="hidden" class="radio__prev" value="0">
                                             </div>
                                         </td>
                                     </tr>
@@ -624,6 +643,95 @@
                             </table>
                         </div>
                         <!-- ESTIMATES TABLE END -->
+                        <!-- CONTACTS TABLE START -->
+                        <h3>Клиенты</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Компания</th>
+                                        <th>Контактное лицо</th>
+                                        <th>Почта</th>
+                                        <th>Телефон</th>
+                                        <th class="text-center">Активность</th>
+                                        <th>Группа</th>
+                                        <th>Дата создания</th>
+                                        <th class="text-center">Оплата</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-contacts-row="1"> <!-- row id -->
+                                        <td>1</td>
+                                        <td>Company</td>
+                                        <td>Иван Петров</td>
+                                        <td>fgdgdg@gmail.com</td>
+                                        <td>+1 444 444 4444</td>
+                                        <td class="text-center">
+                                            <label class="input input_switch mx-auto">
+                                                <input type="checkbox" class="input__control" name="contacts-active[1]" onchange="onContactsActiveChanged(event, 1)"><!-- row id -->
+                                                <div class="switch__toggler">
+                                                    <div class="switch__icon"></div>
+                                                </div>
+                                            </label>
+                                        </td>
+                                        <td>
+                                           <span class="table__tag">VIP</span> 
+                                           <span class="table__tag">Wholesaler</span> 
+                                        </td>
+                                        <td>20 октября 2022 год</td>
+                                        <td class="text-center">
+                                            <label class="input input_switch mx-auto">
+                                                <input type="checkbox" class="input__control" name="contacts-payment[1]" onchange="onContactsPaymentChanged(event, 1)"><!-- row id -->
+                                                <div class="switch__toggler">
+                                                    <div class="switch__icon"></div>
+                                                </div>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- CONTACTS TABLE END -->
+                        <!-- INVOICES TABLE START СЧЕТА-ФАКТУРЫ -->
+                        <h3>Счета-фактуры</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Клиент</th>
+                                        <th>Машина</th>
+                                        <th>День оплаты</th>
+                                        <th>День окончания</th>
+                                        <th>Общая сумма</th>
+                                        <th>Полученная оплата</th>
+                                        <th class="text-center">Статус оплаты</th>
+                                        <th></th> <!-- should be empty -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-invoices-row="1"> <!-- row id -->
+                                        <td>1</td>
+                                        <td>Иван Григорьев</td>
+                                        <td>Toyota</td>
+                                        <td>19 октября 2022 год</td>
+                                        <td>23 октября 2022 год</td>
+                                        <td>12 500$</td>
+                                        <td>2 500$</td>
+                                        <td class="text-center">
+                                            <span class="table__status table__status_green">Оплачен</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(1)"><!-- row id -->
+                                                <span class="table__icon table__icon_edited_red"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- INVOICES TABLE END СЧЕТА-ФАКТУРЫ -->
                     </div>
                 </div>
             </main>
@@ -643,30 +751,15 @@
     </div>
     <!-- LOADER END -->
     <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
-    <!-- REMOVE CLIENT MODAL START -->
+    <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="remove-modal" data-mymodal-options="hashTracking: false">
-        <!-- <button data-mymodal-action="close" class="mymodal-close"></button> -->
-        <p class="text_light">
-            <b>Вы уверены, что хотите удалить ID <span class="id">NONE</span>?</b>
-        </p>
+        <p class="text_light"><b class="confiramtion-title"></b></p>
         <div>
             <button data-mymodal-action="confirm" class="mymodal-confirm">ДА</button>
             <button data-mymodal-action="cancel" class="mymodal-cancel">НЕТ</button>
         </div>
     </div>
-    <!-- REMOVE CLIENT MODAL END -->
-    <!-- CHANGE CARS STATUS START -->
-    <div class="mymodal mymodal_confirmation" data-mymodal-id="remove-modal" data-mymodal-options="hashTracking: false">
-        <!-- <button data-mymodal-action="close" class="mymodal-close"></button> -->
-        <p class="text_light">
-            <b>Вы уверены, что хотите удалить ID <span class="id">NONE</span>?</b>
-        </p>
-        <div>
-            <button data-mymodal-action="confirm" class="mymodal-confirm">ДА</button>
-            <button data-mymodal-action="cancel" class="mymodal-cancel">НЕТ</button>
-        </div>
-    </div>
-    <!-- CHANGE CARS STATUS END -->
+    <!-- CONFIRMATION MODAL END -->
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>

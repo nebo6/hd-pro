@@ -17,7 +17,9 @@
 }
 
 .loading .loader {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loadingio-spinner-dual-ring-ge3m3n2sva7 {
