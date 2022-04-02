@@ -1,6 +1,12 @@
 function getLanguage() {
     return document.documentElement.lang
 }
+function addBodyLoader() {
+    $("body").addClass("loading");
+}
+function removeBodyLoader() {
+    $("body").removeClass("loading");
+}
 // init simple accordio
 function initAccordion() {
     const accordion = $(".js-accordion");
@@ -47,11 +53,11 @@ function onFileSelected(event) {
 // on clients remove icon clicked callback
 function onClientsRemvoeConfirmed(id) {
     if (isNaN(parseInt(id))) alert("Something went wrong")
-    $("body").addClass("loading");
+    addBodyLoader
     setTimeout(function() {
         const target = $('[data-clients-row="'+id+'"]')
         target.remove()
-        $("body").removeClass("loading");
+        removeBodyLoader
     }, 2000)
 }
 
@@ -125,10 +131,63 @@ function onContactsPaymentChanged(event, id) {
     console.log("contacts payment status changed", id, event.target.checked);
 }
 
+function initDragDropSortable() {
+    let position_updated = false
+    
+    $('.column__list').sortable({
+        connectWith: ".column__list",
+        placeholder: "column__placeholder",
+        forcePlaceholderSize: true,
+        cancel: "select",
+        update: function(e, ui) {
+            position_updated = !ui.sender
+        },
+        stop: function(event, ui) {
+            if (position_updated) {
+                const item = ui.item;
+                const parent = item.parent();
+                const task = parent.attr("data-task"); // task column name
+                const sortedList = parent.sortable("toArray", {attribute: "data-id"}); // list of sorted elements in task
+                /*
+                    addBodyLoader();
+                    request to server
+                    error: function() {
+                        parent.sortable("cancel")
+                    },
+                    finally: function() {
+                        removeBodyLoader();
+                    }
+                */
+                console.log(sortedList);
+                position_updated = false;
+            }
+        },
+        receive: function(event, ui) {
+            const item = ui.item;
+            const parent = item.parent();
+            const sender = item.sender;
+            const task = parent.attr("data-task"); // task column name
+            const sortedList = parent.sortable("toArray", {attribute: "data-id"}); // list of sorted elements in task
+            /*
+                addBodyLoader();
+                request to server
+                error: function() {
+                    sender.sortable("cancel")
+                },
+                finally: function() {
+                    removeBodyLoader();
+                }
+            */
+            console.log(sortedList);
+        }
+    })
+}
+
 $(function() {
     initAccordion();
     initDropdown();
-
     $('.js-form-file').on("change", onFileSelected)
+    initDragDropSortable()
+
     
 })
