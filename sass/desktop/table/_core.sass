@@ -18,7 +18,7 @@ thead
     background: $color-red
     color: $color-light
 
-tbody
+thead + tbody
     color: $color-gray
     tr
         .radio__list
@@ -33,6 +33,23 @@ tbody
             .input__control:checked
                 & + .input__label_light
                     background-color: $color-gray-light
+
+table > tbody:first-child
+        color: $color-gray
+        tr
+            .radio__list
+                background-color: $color-gray-light
+                .input__control:checked
+                    & + .input__label_light
+                        background-color: $color-light
+        tr:nth-child(odd)
+            background-color: #F7F7F7
+            .radio__list
+                background-color: $color-light
+                .input__control:checked
+                    & + .input__label_light
+                        background-color: $color-gray-light
+                    
 td,
 th
     padding: 8px

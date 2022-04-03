@@ -5,6 +5,9 @@
     font-size: 10px
     margin: auto
     border-radius: 50px
-
-.table__status_green
-    background-color: $color-green
+    &[data-status="1"]
+        background-color: $color-green
+    &[data-status="2"]
+        background-color: $color-red
+    &[data-status="0"]
+        background-color: $color-orange

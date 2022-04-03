@@ -159,23 +159,13 @@
                 <header class="header">
                     <div class="container-fluid">
                         <div class="row align-items-center">
-                            <!-- SEARCH FIELD START -->
-                            <div class="col-auto">
-                                <!-- INPUT START -->
-                                <label class="input header__search input_gap_right">
-                                    <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
-                                    <span class="input__icon input__icon_magnify"></span>
-                                </label>
-                                <!-- INPUT END -->
-                            </div>
-                            <!-- SEARCH FIELD END -->
                             <!-- HEADER PAGE TITLE START -->
                             <div class="col-auto">
                                 <div class="page-title d-flex align-items-center">
                                     <div class="page-title__icon">
-                                        <img src="./img/icons/title-tasks.svg" class="img">
+                                        <img src="./img/icons/title-notifications.svg" class="img">
                                     </div>
-                                    <h1 class="title title_page">Задачи</h1>
+                                    <h1 class="title title_page">Объявления</h1>
                                 </div>
                             </div>
                             <!-- HEADER PAGE TITLE END -->
@@ -282,102 +272,58 @@
                 <!-- HEADER END -->
                 <div class="main-content">
                     <div class="container-fluid">
-                        <div class="tasks d-flex">
-                            <div class="column col-4">
-                                <div class="column__header">
-                                    <div class="d-flex align-items-center">
-                                        <div class="dot dot_red"></div>
-                                        <b>Нужно сделать</b>
-                                        <button class="btn btn_clean ms-auto" type="button" onclick="addTask()">
-                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                            </svg>
+                        <section id="notifications">
+                            <div class="tab">
+                                <div class="tab__header d-flex flex-wrap">
+                                    <div class="col-md-3">
+                                        <a href="/tech" class="tab__item">Техники</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="/painters" class="tab__item">Художники</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="/cards" class="tab__item">Временные карты</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="/notifications" class="tab__item active">Объявления</a>
+                                    </div>
+                                </div>
+                                <div class="tab__body">
+                                    <div class="notifications__grid">
+                                        <div class="card" data-id="1">
+                                            <div class="card__header mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="card__date text_light">20 февраля 2022 год</div>
+                                                    <div class="card__options ms-auto"></div>
+                                                </div>
+                                            </div>
+                                            <h4 class="card__title">Починить передовую електрику в дверях</h4>
+                                            <p class="text_darkest notifications__description">Дорогие коллеги, это срочная задача которую нужно сделать очень быстро и качественно!</p>
+                                            <div class="card__action">
+                                                <div class="card__row">
+                                                    <div class="col-md-6">
+                                                        <button class="btn btn_outline" type="button">Добавить файл</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button class="btn btn_outline" type="button">Сохранить</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn_clean notifications__add" onclick="onNotificationsAdd()">
+                                            <div class="d-flex align-items-center">
+                                                <div class="plus">
+                                                    <svg width="55" height="56" viewBox="0 0 55 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M30.159 0.909018L24.091 0.909018V24.966L0.0340177 24.966V31.034L24.091 31.034V55.091L30.159 55.091L30.159 31.034H54.216V24.966H30.159L30.159 0.909018Z" fill="currentColor"/>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="notifications__title">Добавить объявление</h4>
+                                            </div>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="column__list"  data-task="waiting">
-                                    <div class="card" data-id="1">
-                                        <div class="card__header mb-2">
-                                            <div class="d-flex align-items-center">
-                                                <div class="text_darkest me-2">ID: 1</div>
-                                                <div class="card__date text_light">20 февраля 2022 год</div>
-                                                <div class="card__options ms-auto"></div>
-                                            </div>
-                                        </div>
-                                        <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                        <p><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                        <div class="card__action">
-                                            <select name="in_charge[1]" class="select__control">
-                                                <option value="0" label="Андрей Сергеевич" selected></option>
-                                                <option value="1" label="Сергей Андреевич"></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="column col-4">
-                                <div class="column__header">
-                                    <div class="d-flex align-items-center">
-                                        <div class="dot dot_orange"></div>
-                                        <b>В процессе</b>
-                                        <button class="btn btn_clean ms-auto" type="button">
-                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="column__list" data-task="in_process">
-                                    <div class="card" data-id="2">
-                                        <div class="card__header mb-2">
-                                            <div class="d-flex align-items-center">
-                                                <div class="text_darkest me-2">ID: 2</div>
-                                                <div class="card__date text_light">20 февраля 2022 год</div>
-                                            </div>
-                                        </div>
-                                        <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                        <p><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                        <div class="card__action">
-                                            <select name="in_charge[1]" class="select__control">
-                                                <option value="0" label="Андрей Сергеевич" selected></option>
-                                                <option value="1" label="Сергей Андреевич"></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column col-4">
-                                <div class="column__header">
-                                    <div class="d-flex align-items-center">
-                                        <div class="dot dot_green"></div>
-                                        <b>Сделано</b>
-                                        <button class="btn btn_clean ms-auto" type="button">
-                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="column__list" data-task="ready"> 
-                                    <div class="card" data-id="3">
-                                        <div class="card__header mb-2">
-                                            <div class="d-flex align-items-center">
-                                                <div class="text_darkest me-2">ID: 3</div>
-                                                <div class="card__date text_light">20 февраля 2022 год</div>
-                                            </div>
-                                        </div>
-                                        <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                        <p><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                        <div class="card__action">
-                                            <select name="in_charge[1]" class="select__control">
-                                                <option value="0" label="Андрей Сергеевич" selected></option>
-                                                <option value="1" label="Сергей Андреевич"></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </main>
@@ -385,20 +331,24 @@
         </div>
     </div>
     <!-- TEMPLATES FOR CREATING START -->
-    <div class="card task-template" data-id="">
+    <div class="card" data-id="1">
         <div class="card__header mb-2">
             <div class="d-flex align-items-center">
-                <div class="text_darkest me-2" data-t-id></div>
-                <div class="card__date text_light" data-t-date></div>
+                <div class="card__date text_light" data-t-date>20 февраля 2022 год</div>
+                <div class="card__options ms-auto"></div>
             </div>
         </div>
-        <h4 class="card__title" data-t-title></h4>
-        <p><span class="text_light">Дедлайн: </span> <span class="text_darkest" data-t-deadline>23 февраля 2022 год</span></p>
+        <h4 class="card__title" data-t-title>Починить передовую електрику в дверях</h4>
+        <p class="text_darkest notifications__description" data-t-description>Дорогие коллеги, это срочная задача которую нужно сделать очень быстро и качественно!</p>
         <div class="card__action">
-            <select name="in_charge[1]" class="select__control">
-                <option value="0" label="Андрей Сергеевич" selected></option>
-                <option value="1" label="Сергей Андреевич"></option>
-            </select>
+            <div class="card__row">
+                <div class="col-md-6">
+                    <button class="btn btn_outline" type="button" data-t-file>Добавить файл</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn_outline" type="button" data-t-save>Сохранить</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- TEMPLATES FOR CREATING END -->

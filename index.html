@@ -184,7 +184,7 @@
                                 <div class="d-flex flex-wrap align-items-center">
                                     <div class="position-relative" data-dropdown-parent>
                                         <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
-                                            <span class="btn__icon btn__icon_plus"></span>
+                                            <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                             Добавить
                                         </button>
                                         <div class="dropdown dropdown_header arrow" data-dropdown="add">
@@ -720,11 +720,45 @@
                                         <td>12 500$</td>
                                         <td>2 500$</td>
                                         <td class="text-center">
-                                            <span class="table__status table__status_green">Оплачен</span>
+                                            <span class="table__status" data-status="1">Оплачен</span> <!-- data-status 1 — Оплачен | если что менять css тоже | или добавить style="background-color: #2DC959" -->
                                         </td>
                                         <td class="text-center">
                                             <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(1)"><!-- row id -->
-                                                <span class="table__icon table__icon_edited_red"></span>
+                                                <span class="table__icon table__icon_edit_red_fill"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-invoices-row="2"> <!-- row id -->
+                                        <td>1</td>
+                                        <td>Иван Григорьев</td>
+                                        <td>Toyota</td>
+                                        <td>19 октября 2022 год</td>
+                                        <td>23 октября 2022 год</td>
+                                        <td>12 500$</td>
+                                        <td>2 500$</td>
+                                        <td class="text-center">
+                                            <span class="table__status" data-status="0">Пердоплата</span> <!-- data-status 0 — Пердоплата | если что менять css тоже | или добавить style="background-color: #FFB800" -->
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(2)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit_red_fill"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-invoices-row="3"> <!-- row id -->
+                                        <td>1</td>
+                                        <td>Иван Григорьев</td>
+                                        <td>Toyota</td>
+                                        <td>19 октября 2022 год</td>
+                                        <td>23 октября 2022 год</td>
+                                        <td>12 500$</td>
+                                        <td>2 500$</td>
+                                        <td class="text-center">
+                                            <span class="table__status" data-status="2">Остаток</span> <!-- data-status 2 — Остаток | если что менять css тоже | или добавить style="background-color: #FF3B20" -->
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(3)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit_red_fill"></span>
                                             </button>
                                         </td>
                                     </tr>
@@ -732,6 +766,109 @@
                             </table>
                         </div>
                         <!-- INVOICES TABLE END СЧЕТА-ФАКТУРЫ -->
+                        <!-- ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
+                        <h3>Роли</h3>
+                        <div class="d-flex justify-content-end mb-3">
+                            <button class="btn btn_fill btn_with-icon" type="button" onclick="createRole()">
+                                Добавить роль
+                                <span class="btn__icon btn__icon_plus btn__icon_right"></span>
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody data-roles>
+                                    <tr data-roles-row="1"> <!-- row id -->
+                                        <td><b>Техник</b></td>
+                                        <td class="text-right">
+                                            <button class="btn btn_clean" type="button" onclick="onRoleEdited(1)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleOptions(1)">
+                                                <span class="table__icon table__icon_options"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleRemoved(1)">
+                                                <span class="table__icon table__icon_remove"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-roles-row="2"> <!-- row id -->
+                                        <td><b>Менеджер</b></td>
+                                        <td class="text-right">
+                                            <button class="btn btn_clean" type="button" onclick="onRoleEdited(2)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleOptions(2)">
+                                                <span class="table__icon table__icon_options"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleRemoved(2)">
+                                                <span class="table__icon table__icon_remove"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-roles-row="3"> <!-- row id -->
+                                        <td><b>Маляр</b></td>
+                                        <td class="text-right">
+                                            <button class="btn btn_clean" type="button" onclick="onRoleEdited(3)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleOptions(3)">
+                                                <span class="table__icon table__icon_options"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onRoleRemoved(3)">
+                                                <span class="table__icon table__icon_remove"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
+                        <!-- USER ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
+                        <h3>Пользовательские роли</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Члены команды</th>
+                                        <th>Роли</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-user-roles>
+                                    <tr data-user-roles-row="1"> <!-- row id -->
+                                        <td>Имя Фамилия</td>
+                                        <td>Техник</td>
+                                        <td class="text-right">
+                                            <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(1)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(1)">
+                                                <span class="table__icon table__icon_options_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(1)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-user-roles-row="2"> <!-- row id -->
+                                        <td>Имя Фамилия</td>
+                                        <td>Менеджер</td>
+                                        <td class="text-right">
+                                            <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(2)"><!-- row id -->
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(2)">
+                                                <span class="table__icon table__icon_options_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(2)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- USER ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
                     </div>
                 </div>
             </main>
