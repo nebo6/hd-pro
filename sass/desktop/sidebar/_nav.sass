@@ -1,5 +1,4 @@
 .sidebar
-    transition: all 0.3s ease
     .nav__list
         padding-left: 0
         margin-bottom: 0
@@ -7,6 +6,8 @@
     .nav__item
         list-style: none
         margin-bottom: 0.25rem // change nav__item_inner::after calc
+        padding: 0 12px
+        transition: padding $transition ease
     .nav__link
         display: block
     .nav__link_outer
@@ -59,3 +60,15 @@
             color: $color-red
     .nav__text
         white-space: nowrap
+        opacity: 0
+        transition: opacity $transition ease
+
+.sidebar
+    &:hover,
+    &.active
+        .nav__item:not(.nav__item_inner)
+            padding: 0
+        .nav__text
+            opacity: 1
+
+            

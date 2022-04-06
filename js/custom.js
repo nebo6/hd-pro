@@ -14,19 +14,27 @@ function initAccordion() {
     accordion.on("click", ".js-accordion-head", function() {
         $(this).toggleClass("active");
         const body = $(this).siblings(".js-accordion-body");
-        body.stop().slideToggle(250)
+        body.stop().slideToggle(250, function() {
+            if ($(this).closest(".sidebar").length) {
+                $(this).closest(".sidebar").toggleClass("active")
+            }
+        })
     })
 }
 // init simple dropdown
 function initDropdown() {
-    $(document).on("click", function(e) {
-        const target = $(e.target);
-        if (!(target.closest("[data-dropdown-parent]").length)) {
-            $(".dropdown_active").removeClass("dropdown_active")
-        }
+    $(window).on("click", function() {
+        $("[data-dropdown]").removeClass("dropdown_active")
     })
+    // $(document).on("click", function(e) {
+    //     const target = $(e.target);
+    //     if (!(target.closest("[data-dropdown-parent]").length)) {
+    //         $(".dropdown_active").removeClass("dropdown_active")
+    //     }
+    // })
     
-    $(document).on("click", "[data-dropdown-target]", function() {
+    $(document).on("click", "[data-dropdown-target]", function(e) {
+        e.stopPropagation();
         const target = $(this).data("dropdown-target");
         const dropdown = $("[data-dropdown=" + target + "]")
         dropdown.toggleClass("dropdown_active");

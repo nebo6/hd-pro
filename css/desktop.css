@@ -20,26 +20,6 @@ a:hover {
   display: none;
 }
 
-.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.wrapper__left {
-  width: 70px;
-  position: relative;
-}
-
-.wrapper__right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0%;
-          flex: 1 0%;
-  min-width: 0;
-}
-
 .main-content {
   padding: 0 12px;
 }
@@ -536,7 +516,6 @@ a:hover {
           transform: translateX(-50%) translateY(-100%);
   -webkit-box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
           box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
-  z-index: -1;
 }
 
 .dropdown.arrow_top_right {
@@ -848,15 +827,29 @@ th:last-child {
           transform: none;
 }
 
+.main {
+  margin-left: 68px;
+  -webkit-transition: margin 0.2s ease;
+  transition: margin 0.2s ease;
+}
+
 .sidebar {
-  width: 100%;
+  position: fixed;
+  width: 68px;
   height: 100%;
-  min-height: 100vh;
-  padding: 0.75rem;
+  padding: 1rem 0.75rem;
   -webkit-box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
           box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
   background-color: #fff;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-transition: width 0.2s ease, padding 0.2s ease;
+  transition: width 0.2s ease, padding 0.2s ease;
+}
+
+.sidebar:hover, .sidebar.active {
+  width: 256px;
+  padding: 1rem 1.5rem;
 }
 
 .sidebar .logo {
@@ -868,9 +861,8 @@ th:last-child {
   margin-bottom: 32px;
 }
 
-.sidebar {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.sidebar.active + .main, .sidebar:hover + .main {
+  margin-left: 256px;
 }
 
 .sidebar .nav__list {
@@ -882,6 +874,9 @@ th:last-child {
 .sidebar .nav__item {
   list-style: none;
   margin-bottom: 0.25rem;
+  padding: 0 12px;
+  -webkit-transition: padding 0.2s ease;
+  transition: padding 0.2s ease;
 }
 
 .sidebar .nav__link {
@@ -962,6 +957,17 @@ th:last-child {
 
 .sidebar .nav__text {
   white-space: nowrap;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .nav__item:not(.nav__item_inner), .sidebar.active .nav__item:not(.nav__item_inner) {
+  padding: 0;
+}
+
+.sidebar:hover .nav__text, .sidebar.active .nav__text {
+  opacity: 1;
 }
 
 .sidebar .accordion__body {
