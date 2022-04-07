@@ -58,7 +58,121 @@ function onFileSelected(event) {
         reader.readAsDataURL(selectedFile);
     image.css("background-image", "");
 }
-// on clients remove icon clicked callback
+// CLIENTS CALLBACKS
+function updateModal(client) {
+    const {
+        currentCars, // Количество машин в работе
+        summ, // Текущая сумма работы
+        paid, // Оплачанная часть работы
+        debt, // Остаток по работе
+        company, // Название компании клиента
+        allCars, // Все машины клиента
+        bill, // Количество Всех Счетов
+        payments, // Количество Всех платежей
+        estimates, // Количество смет
+        expenses, // Расходы клиента
+        viber,
+        telegram,
+        whatsapp,
+        web,
+        files // файлы (с информацией, добавленной администратором),
+    } = client
+    
+    const template = $(".client-modal-template").clone();
+    template.removeClass("client-modal-template d-none");
+    // top statistics
+    template.find("[data-t-ccars]").text(currentCars)
+    template.find("[data-t-summ]").text(summ)
+    template.find("[data-t-paid]").text(paid)
+    template.find("[data-t-debt]").text(debt)
+    // table info
+    template.find("[data-t-company]").text(company)
+    template.find("[data-t-acars]").text(allCars)
+    template.find("[data-t-bill]").text(bill)
+    template.find("[data-t-payments]").text(payments)
+    template.find("[data-t-estimates]").text(estimates)
+    template.find("[data-t-expenses]").text(expenses)
+    // links
+    viber && template.find("[data-t-viber]")
+        .attr("href", `viber://pa?chatURI=${viber}`)
+        .text(viber)
+    telegram && template.find("[data-t-telegram]")
+        .attr("href", `https://telegram.me/${telegram}`)
+        .text(telegram)
+    whatsapp && template.find("[data-t-whatsapp]")
+        .attr("href", `https://wa.me/${whatsapp}`)
+        .text(whatsapp)
+    web && template.find("[data-t-web]")
+        .attr("href", web)
+        .text(web)
+    // files
+    /*
+        files = [{
+            title — title of file | file.pdf, 
+            href — link to file | /files/file.pdf
+        }]
+    */
+    if (files.length) {
+        template.find("[data-t-web]")
+            .attr("href", files[0].href)
+            .text(files[0].title)
+        
+        if (files.length > 1) {
+            let fileA = template.find("[data-t-web]").clone(); // clone a[data-t-web] to create new files in list
+
+            fileA
+                .attr("href", files[0].href)
+                .text(files[0].title)
+
+            template.append(`
+                <tr>
+                    <th></th>
+                    <td>${fileA[0]}</td>
+                </tr>
+            `)
+        }
+    }
+    
+    $('[data-mymodal-id="show-client"] .mymodal__body').replaceWith(template)
+}
+
+const clientDummyData = {
+    currentCars: 2,
+    summ: "1k$",
+    paid: "613$",
+    debt: "487$",
+    company: "Company Name",
+    allCars: "22",
+    bill: 3,
+    payments: 31,
+    estimates: 41,
+    expenses: 12,
+    viber: "acc",
+    telegram: "olzh_zh",
+    whatsapp: "77777777777",
+    web: "www.somesite.com",
+    files: [{
+        title: "Название_Файла.docx",
+        href: "#"
+    }],
+}
+
+
+function onClientShowed(id) {
+    addBodyLoader();
+    // request to get client's info
+    // if status OK and get client info
+    updateModal(clientDummyData)
+    $('[data-mymodal-id="show-client"]').mymodal().open()
+    // or show error message
+    // on finally 
+    removeBodyLoader()
+}
+
+function onClientEdited(id) {
+    console.log("edit client", id);
+}
+
 function onClientsRemoveConfirmed(id) {
     if (isNaN(parseInt(id))) alert("Something went wrong")
     addBodyLoader()
