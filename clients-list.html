@@ -278,9 +278,28 @@
         <!-- HEADER END -->
         <div class="main-content">
             <div class="container-fluid">
+                <div class="widget">
+                    <div class="row">
+                        <div class="col-auto me-auto">
+                            <button class="btn btn_outline btn_with-icon" onclick="addClient()"> 
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
+                                    <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
+                                </svg>                                    
+                                Добавить
+                            </button>
+                        </div>
+                        <div class="col-auto ps-0"><button class="btn btn_outline" onclick="printDiv('clients')">Print</button></div>
+                        <div class="col-auto ps-0"><button class="btn btn_outline" onclick="exel('clients')">Exel</button></div>
+                        <div class="col-auto ps-0">
+                            <label class="input input_widget">
+                                <input type="text" class="input__control" placeholder="Поиск">
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <!-- CLIENTS EDIT TABLE START -->
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="clients">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -291,7 +310,7 @@
                                 <th>Стоимость  услуг клиента</th>
                                 <th>Полученный платёж</th>
                                 <th>Остаток суммы</th>
-                                <th class="text-center">Функции</th>
+                                <th class="text-center no-print">Функции</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -299,17 +318,27 @@
                                 <td>1</td>
                                 <td>Company</td>
                                 <td>Jhon Doe</td>
-                                <td>VIP</td>
+                                <td><span class="table__tag me-2">VIP</span></td>
                                 <td>5</td>
-                                <td>5 700$</td>
+                                <td>5 670$</td>
                                 <td>5 000$</td>
                                 <td>670$</td>
-                                <td>
+                                <td class="no-print">
                                     <div class="d-flex align-teims-center justify-content-center">
-                                        <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientEdited(1)">
+                                        <button 
+                                            type="button" 
+                                            class="btn btn_clean" 
+                                            onclick="event.stopPropagation(); onClientEdited(1)"
+                                            title="Редактировать"
+                                        >
                                             <span class="table__icon table__icon_edit"></span>
                                         </button>
-                                        <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientsRemoved('1')">
+                                        <button 
+                                            type="button" 
+                                            class="btn btn_clean" 
+                                            onclick="event.stopPropagation(); onClientsRemoved('1')"
+                                            title="Удалить"
+                                        >
                                             <span class="table__icon table__icon_remove"></span>
                                         </button>
                                     </div>
@@ -355,6 +384,7 @@
             <div class="mymodal__body"></div>
         </div>
     </div>
+    <!-- CLIENT'S MODAL BODY CONTENT TEMPLATE -->
     <div class="mymodal__body client-modal-template d-none">
         <div class="row justify-content-between mb-2">
             <div class="col-6 mb-2">
@@ -373,10 +403,10 @@
                 <div class="statistics statistics_small active">
                     <div class="d-flex flex-wrap align-items-center">
                         <div class="col-auto">
-                            <div class="statistics__value">344$</div>
+                            <div class="statistics__value" data-t-summ>344$</div>
                         </div>
                         <div class="col">
-                            <span class="statistics__label" data-t-summ>Общая <br/>стоимость услуг</span>
+                            <span class="statistics__label">Общая <br/>стоимость услуг</span>
                         </div>
                     </div>
                 </div>
@@ -458,12 +488,80 @@
         </div>
     </div>
     <!-- CLIENTS MODAL END -->
+    <!-- CLIENTS EDIT FORM START -->
+    <div class="mymodal maymodal_client" data-mymodal-id="edit-client" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <h2 class="title title_page mb-4">Редактировать клиента</h2>
+            <form method="post" class="form">
+                <div class="input mb-3">
+                    <input type="text" class="input__control" name="company" placeholder="Данные компании*" required>
+                </div>
+                <div class="input mb-3">
+                    <input type="number" class="input__control" name="cars" placeholder="Машины*" min="0" required>
+                </div>
+                <div class="input mb-3">
+                    <input type="number" class="input__control" name="bill" placeholder="Счета*" min="0" required>
+                </div>
+                <div class="input mb-3">
+                    <input type="number" class="input__control" name="payments" placeholder="Платежи*" min="0" required>
+                </div>
+                <div class="input mb-3">
+                    <input type="number" class="input__control" name="estimates" placeholder="Сметы*" min="0" required>
+                </div>
+                <div class="input mb-3">
+                    <input 
+                        type="text" 
+                        class="input__control dollar-mask" 
+                        name="expenses" 
+                        placeholder="Расходы*" 
+                        required
+                        inputmode="numeric"
+                    >
+                </div>
+                <div class="input mb-3">
+                    <input type="text" class="input__control" name="viber" placeholder="Viber">
+                </div>
+                <div class="input mb-3">
+                    <input type="text" class="input__control" name="telegram" placeholder="Telegram">
+                </div>
+                <div class="input mb-3">
+                    <input type="number" class="input__control" name="whatsapp" placeholder="WhatsApp">
+                </div>
+                <div class="input mb-3">
+                    <input type="text" class="input__control" name="web" placeholder="Сайт">
+                </div>
+                <div class="files">
+                    <div class="files__inputs">
+                        <label class="files__upload" data-file-input="0">
+                            <input type="file" name="file[]" class="d-none files__control">
+                            <div class="row align-items-center justify-content-end">
+                                <div class="col-auto">Загрузите файл</div>
+                                <div class="col-auto">
+                                    <span class="table__icon table__icon_upload_red"></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="files__list"></div>
+                </div>
+                <div class="pt-3">
+                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- CLIENTS EDIT FORM START -->
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
     <script src="./libs/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
+    <script src="./libs/jquery.inputmask.min.js"></script>
     <!-- CUSTOM JS -->
+    <script src="./js/core.js"></script>
+    <script src="./js/clients.js"></script>
     <script src="./js/custom.js"></script>
 </body>
 </html>

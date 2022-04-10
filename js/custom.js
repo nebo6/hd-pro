@@ -1,205 +1,20 @@
-function getLanguage() {
-    return document.documentElement.lang
-}
-function addBodyLoader() {
-    $("body").addClass("loading");
-}
-function removeBodyLoader() {
-    $("body").removeClass("loading");
-}
-// init simple accordio
-function initAccordion() {
-    const accordion = $(".js-accordion");
-
-    accordion.on("click", ".js-accordion-head", function() {
-        $(this).toggleClass("active");
-        const body = $(this).siblings(".js-accordion-body");
-        body.stop().slideToggle(250, function() {
-            if ($(this).closest(".sidebar").length) {
-                $(this).closest(".sidebar").toggleClass("active")
-            }
-        })
-    })
-}
-// init simple dropdown
-function initDropdown() {
-    $(window).on("click", function() {
-        $("[data-dropdown]").removeClass("dropdown_active")
-    })
-    // $(document).on("click", function(e) {
-    //     const target = $(e.target);
-    //     if (!(target.closest("[data-dropdown-parent]").length)) {
-    //         $(".dropdown_active").removeClass("dropdown_active")
-    //     }
-    // })
-    
-    $(document).on("click", "[data-dropdown-target]", function(e) {
-        e.stopPropagation();
-        const target = $(this).data("dropdown-target");
-        const dropdown = $("[data-dropdown=" + target + "]")
-        dropdown.toggleClass("dropdown_active");
-        $("[data-dropdown]").not(dropdown).removeClass("dropdown_active")
-    })
-}
-// on input type="file" changed callback
+// REGISTRATION ON INPUT TYPE="FILE" CHANGED CALLBACK
 function onFileSelected(event) {
     const selectedFile = event.target.files[0];
     const reader = new FileReader();
   
     const image = $(this).siblings(".img");
-    // imgtag.title = selectedFile.name;
   
     reader.onload = function(event) {
         image.css("background-image", "url('"+event.target.result+"')");
-        console.log(event.target.result);
     };
   
     if (selectedFile)
         reader.readAsDataURL(selectedFile);
     image.css("background-image", "");
 }
-// CLIENTS CALLBACKS
-function updateModal(client) {
-    const {
-        currentCars, // Количество машин в работе
-        summ, // Текущая сумма работы
-        paid, // Оплачанная часть работы
-        debt, // Остаток по работе
-        company, // Название компании клиента
-        allCars, // Все машины клиента
-        bill, // Количество Всех Счетов
-        payments, // Количество Всех платежей
-        estimates, // Количество смет
-        expenses, // Расходы клиента
-        viber,
-        telegram,
-        whatsapp,
-        web,
-        files // файлы (с информацией, добавленной администратором),
-    } = client
-    
-    const template = $(".client-modal-template").clone();
-    template.removeClass("client-modal-template d-none");
-    // top statistics
-    template.find("[data-t-ccars]").text(currentCars)
-    template.find("[data-t-summ]").text(summ)
-    template.find("[data-t-paid]").text(paid)
-    template.find("[data-t-debt]").text(debt)
-    // table info
-    template.find("[data-t-company]").text(company)
-    template.find("[data-t-acars]").text(allCars)
-    template.find("[data-t-bill]").text(bill)
-    template.find("[data-t-payments]").text(payments)
-    template.find("[data-t-estimates]").text(estimates)
-    template.find("[data-t-expenses]").text(expenses)
-    // links
-    viber && template.find("[data-t-viber]")
-        .attr("href", `viber://pa?chatURI=${viber}`)
-        .text(viber)
-    telegram && template.find("[data-t-telegram]")
-        .attr("href", `https://telegram.me/${telegram}`)
-        .text(telegram)
-    whatsapp && template.find("[data-t-whatsapp]")
-        .attr("href", `https://wa.me/${whatsapp}`)
-        .text(whatsapp)
-    web && template.find("[data-t-web]")
-        .attr("href", web)
-        .text(web)
-    // files
-    /*
-        files = [{
-            title — title of file | file.pdf, 
-            href — link to file | /files/file.pdf
-        }]
-    */
-    if (files.length) {
-        template.find("[data-t-web]")
-            .attr("href", files[0].href)
-            .text(files[0].title)
-        
-        if (files.length > 1) {
-            let fileA = template.find("[data-t-web]").clone(); // clone a[data-t-web] to create new files in list
 
-            fileA
-                .attr("href", files[0].href)
-                .text(files[0].title)
-
-            template.append(`
-                <tr>
-                    <th></th>
-                    <td>${fileA[0]}</td>
-                </tr>
-            `)
-        }
-    }
-    
-    $('[data-mymodal-id="show-client"] .mymodal__body').replaceWith(template)
-}
-
-const clientDummyData = {
-    currentCars: 2,
-    summ: "1k$",
-    paid: "613$",
-    debt: "487$",
-    company: "Company Name",
-    allCars: "22",
-    bill: 3,
-    payments: 31,
-    estimates: 41,
-    expenses: 12,
-    viber: "acc",
-    telegram: "olzh_zh",
-    whatsapp: "77777777777",
-    web: "www.somesite.com",
-    files: [{
-        title: "Название_Файла.docx",
-        href: "#"
-    }],
-}
-
-
-function onClientShowed(id) {
-    addBodyLoader();
-    // request to get client's info
-    // if status OK and get client info
-    updateModal(clientDummyData)
-    $('[data-mymodal-id="show-client"]').mymodal().open()
-    // or show error message
-    // on finally 
-    removeBodyLoader()
-}
-
-function onClientEdited(id) {
-    console.log("edit client", id);
-}
-
-function onClientsRemoveConfirmed(id) {
-    if (isNaN(parseInt(id))) alert("Something went wrong")
-    addBodyLoader()
-    setTimeout(function() {
-        const target = $('[data-clients-row="'+id+'"]')
-        target.remove()
-        removeBodyLoader()
-    }, 2000)
-}
-
-function onClientsRemoved(id) {
-    const modal = $('.mymodal_confirmation'); // get delete confiramation modal
-    $(document).on("opening", modal, function() {
-        const title = getLanguage() === "ru" ? `Вы уверены что хотите удалить ID ${id}` : `Are you sure you want to delete ID${id}`
-        $(this).find(".confiramtion-title").text(title);
-    });
-
-    $(document).on("confirmation", modal, onClientsRemoveConfirmed.bind(this, id));
-
-    $(document).on("closed", modal, function() {
-        $(this).find(".confiramtion-title").text("")
-        $(document).off("confirmation", modal, onClientsRemoveConfirmed);
-    });
-
-    modal.mymodal().open();
-}
-// extimates
+// estimates
 function onEstimatesShowed(id) {
     alert("show " + id);
 }
@@ -479,11 +294,52 @@ function onNotificationsAdd() {
     console.log("add notification");
 }
 
+// table
+const tableStyles = `<style>
+    body { margin: 0; }
+    table {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+    tbody, td, tfoot, th, thead, tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0
+    }
+    thead { text-align: left; }
+    td, th { border: 1px solid #999 }
+    .no-print {
+        display: none
+    }
+</style>`
+
+function printDiv(selector) {
+    var divToPrint = document.getElementById(selector);
+    var newWin=window.open('','Print-Window');
+    newWin.document.open();
+    // onload="window.print()"
+    newWin.document.write(`<html>
+        <body onload="window.print()">
+            ${tableStyles}
+            ${divToPrint.outerHTML}
+        </body></html>`);
+    newWin.document.close();
+    setTimeout(function(){newWin.close();},10);
+}
+
+
 $(function() {
     initAccordion();
     initDropdown();
     $('.js-form-file').on("change", onFileSelected)
     initDragDropSortable()
 
-    
+    $(".dollar-mask").inputmask({
+        alias : "currency",
+        prefix: '$',
+        groupSeparator: " ",
+        rightAlign: false
+    })
 })
