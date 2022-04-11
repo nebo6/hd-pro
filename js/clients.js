@@ -18,7 +18,7 @@ function updateModal(client) {
         files // файлы (с информацией, добавленной администратором),
     } = client
     
-    const template = $(".client-modal-template").clone();
+    const template = $(".client-modal-template").clone(true);
     template.removeClass("client-modal-template d-none");
     // top statistics
     template.find("[data-t-ccars]").text(currentCars)
@@ -146,25 +146,25 @@ function createFileInput(id) {
         </div>
     </label>`
 }
-
-function createClientRow(id, data) {
-    return `<tr data-clients-row="${id}" onclick="onClientShowed(${id})">
-        <td>${id}</td>
+// create new tr for replace old after edit or for prepend to list after create new client
+function createClientRow(data) {
+    return `<tr data-clients-row="${data.id}" onclick="onClientShowed(${data.id})">
+        <td>${data.id}</td>
         <td>${data.company}</td>
         <td>${data.contacts}</td>
         <td>${data.group.map(function(el) {
             return `<span class="table__tag me-2">${el}</span>`
         }).join("")}</td>
         <td>${data.projects}</td>
-        <td${data.summ}</td>
+        <td>${data.summ}</td>
         <td>${data.paid}</td>
         <td>${data.debt}</td>
         <td>
             <div class="d-flex align-teims-center justify-content-center">
-                <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientEdited(${id})" title="${editTitle()}">
+                <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientEdited(${data.id})" title="${editTitle()}">
                     <span class="table__icon table__icon_edit"></span>
                 </button>
-                <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientsRemoved(${id})" title="${deleteTitle()}">
+                <button type="button" class="btn btn_clean" onclick="event.stopPropagation(); onClientsRemoved(${data.id})" title="${deleteTitle()}">
                     <span class="table__icon table__icon_remove"></span>
                 </button>
             </div>
@@ -173,7 +173,8 @@ function createClientRow(id, data) {
 }
 // update form values from server
 function updateClientsForm(data) {
-    const form = $('[data-mymodal-id="edit-client"] .form');
+    const form = $(".client-form-template").clone(true);
+    form.removeClass("client-form-template d-none");
     // update inputs
     form.find('[name="company"]').val(data.company);
     form.find('[name="cars"]').val(data.allCars);
@@ -192,6 +193,7 @@ function updateClientsForm(data) {
     });
     // console.log($(filesList));
     form.find(".files__list").html(filesList);
+    return form;
 }
 // callback when client upload new file 
 function clientFilesUploaded() {
@@ -207,30 +209,50 @@ function clientFilesUploaded() {
     })
 }
 // ON CREATE BUTTON CLICKED
-function addClient() {
-    console.log("add client");
+function onCLientAdd() {
+    const form = $(".client-form-template").clone(true);
+    form.removeClass("client-form-template d-none");
+    form[0].onsubmit = function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+        onClientAddSubmited(data); // on client ADD submited
+    };
+    $('[data-mymodal-id="form-client"] .form').replaceWith(form)
+    $('[data-mymodal-id="form-client"]').mymodal().open()
+
+}
+function onClientAddSubmited(data) {
+    addBodyLoader();
+    // some server request with data
+    // if success get data and create new row
+    const newTr = createClientRow(trDummyData);
+    // then add to list
+    $("#clients tbody").prepend(newTr)
+    $('[data-mymodal-id="form-client"]').mymodal().close()
+    removeBodyLoader();
+    // or refresh a page
 }
 // ON EDIT BUTTON CLICKED
 function onClientEdited(id) {
     // get client's data from server
     // if request success update form data
-    updateClientsForm(clientDummyData);
+    const updatedForm = updateClientsForm(clientDummyData);
     // set new submit function dependent to client's id
-    const form = $('[data-mymodal-id="edit-client"] .form')[0]
-    form.onsubmit = function(e) {
+    updatedForm[0].onsubmit = function(e) {
         e.preventDefault();
         const data = new FormData(this);
-        onClientEditSubmited(id, data);
+        onClientEditSubmited(id, data); //on client EDIT submited
     };
-    $('[data-mymodal-id="edit-client"]').mymodal().open()
+    $('[data-mymodal-id="form-client"] .form').replaceWith(updatedForm)
+    $('[data-mymodal-id="form-client"]').mymodal().open()
     // clear removed files list on form closed
-    $(document).on("closed", '[data-mymodal-id="edit-client"]', function() {
+    $(document).on("closed", '[data-mymodal-id="form-client"]', function() {
         filesToRemove = [];
     })
 }
 // on data submited
 const trDummyData = {
-    id: 1,
+    id: 2,
     company: "Компания",
     contacts: "Контактное лицо",
     group: ["VIP","Группа"],
@@ -241,16 +263,14 @@ const trDummyData = {
 }
 // ON CLIENT'S NEW INFO SUBMITED
 function onClientEditSubmited(id, formData) {
-    console.log("submit client", id);
     addBodyLoader();
     // some ajax with formData and id
     // if request successed
     // get row's data with response
-    $('[data-clients-row="'+id+'"]').replaceWith(createClientRow(id, trDummyData))
-    $('[data-mymodal-id="edit-client"]').mymodal().close()
+    $('[data-clients-row="'+id+'"]').replaceWith(createClientRow(trDummyData))
+    $('[data-mymodal-id="form-client"]').mymodal().close()
     // finally
     removeBodyLoader();
-
 }
 // ON REMOVE BUTTON CLICKED TO REMOVE CLIENT SHOW WARNING
 function onClientsRemoved(id) {

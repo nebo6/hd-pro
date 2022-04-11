@@ -18,19 +18,6 @@ function onFileSelected(event) {
 function onEstimatesShowed(id) {
     alert("show " + id);
 }
-// return radios prev value on request error
-function getRadioPrev(event) {
-    const _target = event.target
-    const list = $(_target).closest(".radio__list")
-    const prevInput = list.find(".radio__prev")
-    const prevValue = prevInput.val()
-
-    return {
-        input: prevInput,
-        value: prevValue,
-        radio: list.find('[value="'+prevValue+'"]')
-    }
-}
 
 function onEstimatesChanged(event, id) {
     const prev = getRadioPrev(event)
@@ -38,19 +25,6 @@ function onEstimatesChanged(event, id) {
     prev.input.val(event.target.value)
     /* 
         if reauqest will fail
-        then change value again to prev
-        prev.radio.prop("checked", true)
-        else change prevInput value to checked
-        prev.input.val(event.target.value)
-    */
-}
-
-function onCarsStatusChanged(event, id) {
-    const prev = getRadioPrev(event)
-    console.log("#", id, "cars status changed to", event.target.value);
-    prev.input.val(event.target.value)
-    /* 
-        if reauqest will fall
         then change value again to prev
         prev.radio.prop("checked", true)
         else change prevInput value to checked
@@ -192,7 +166,7 @@ function onRoleRemoved(id) {
     $(document).on("confirmation", modal, onRolesRemoveConfirmed.bind(this, id));
     $(document).on("closed", modal, function() {
         $(this).find(".confiramtion-title").text("")
-        $(document).off("confirmation", modal, onRolesRemoveConfirmed);
+        $(document).off("confirmation", onRolesRemoveConfirmed);
     });
 
     modal.mymodal().open();
@@ -255,7 +229,7 @@ function onUserRoleRemoved(id) {
     $(document).on("confirmation", modal, onUserRolesRemoveConfirmed.bind(this, id));
     $(document).on("closed", modal, function() {
         $(this).find(".confiramtion-title").text("")
-        $(document).off("confirmation", modal, onUserRolesRemoveConfirmed);
+        $(document).off("confirmation", onUserRolesRemoveConfirmed);
     });
 
     modal.mymodal().open();
@@ -331,11 +305,8 @@ function printDiv(selector) {
 
 
 $(function() {
-    initAccordion();
-    initDropdown();
-    $('.js-form-file').on("change", onFileSelected)
     initDragDropSortable()
-
+    $('.js-form-file').on("change", onFileSelected)
     $(".dollar-mask").inputmask({
         alias : "currency",
         prefix: '$',
