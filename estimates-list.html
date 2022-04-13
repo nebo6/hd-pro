@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal-default-theme.css">
+    <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
 </head>
@@ -157,13 +158,23 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <!-- SEARCH FIELD START -->
+                    <div class="col-auto">
+                        <!-- INPUT START -->
+                        <label class="input header__search input_gap_right">
+                            <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
+                            <span class="input__icon input__icon_magnify"></span>
+                        </label>
+                        <!-- INPUT END -->
+                    </div>
+                    <!-- SEARCH FIELD END -->
                     <!-- HEADER PAGE TITLE START -->
                     <div class="col-auto">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-cars.svg" class="img">
+                                <img src="./img/icons/title-user-outline.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Проекты</h1>
+                            <h1 class="title title_page">Клиенты</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -271,7 +282,7 @@
         <div class="main-content">
             <section class="page-section">
                 <div class="container-fluid">
-                    <!-- WIDGETS START -->
+                    <!-- ESTIMATES TABLE START -->
                     <div class="widget my-3">
                         <div class="row">
                             <div class="col-auto me-auto">
@@ -282,153 +293,70 @@
                                     Добавить
                                 </button>
                             </div>
-                            <div class="col-auto ps-0">
-                                <div class="select select_widget">
-                                    <select name="clients" class="select__control">
-                                        <option value="" selected>Клиент</option>
-                                        <option value="0" label="Имя Клиента 0"></option>
-                                        <option value="1" label="Имя Клиента 1"></option>
-                                        <option value="2" label="Имя Клиента 2"></option>
-                                        <option value="3" label="Имя Клиента 3"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="select select_widget">
-                                    <select name="time" class="select__control">
-                                        <option value="" selected>Период времени</option>
-                                        <option value="0" label="День"></option>
-                                        <option value="1" label="Неделя"></option>
-                                        <option value="2" label="Месяц"></option>
-                                        <option value="3" label="Год"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="select select_widget">
-                                    <select name="master" class="select__control">
-                                        <option value="" selected>Мастер</option>
-                                        <option value="0" label="Имя Мастера 0"></option>
-                                        <option value="1" label="Имя Мастера 1"></option>
-                                        <option value="2" label="Имя Мастера 2"></option>
-                                        <option value="3" label="Имя Мастера 3"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="select select_widget">
-                                    <select name="country" class="select__control">
-                                        <option value="" selected>Страна</option>
-                                        <option value="0" label="Название страны 0"></option>
-                                        <option value="1" label="Название страны 1"></option>
-                                        <option value="2" label="Название страны 2"></option>
-                                        <option value="3" label="Название страны 3"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
-                            <div class="col-auto ps-0">
-                                <div class="select select_widget">
-                                    <select name="outlets" class="select__control">
-                                        <option value="" selected>Точки</option>
-                                        <option value="0" label="Название точки 0"></option>
-                                        <option value="1" label="Название точки 1"></option>
-                                        <option value="2" label="Название точки 2"></option>
-                                        <option value="3" label="Название точки 3"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <!-- WIDGETS END -->
-                    <!-- USER ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
                     <div class="table-responsive">
-                        <table class="table projects-table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Марка автомобиля</th>
                                     <th>VIN-код</th>
                                     <th>Номер машины</th>
-                                    <th>Клиент</th>
+                                    <th>Техник</th>
+                                    <th>Заказчик</th>
                                     <th>Цена</th>
-                                    <th>Дата начала проекта</th>
-                                    <th>Дата окончания проекта</th>
+                                    <th>Дата создания</th>
+                                    <th class="text-center">Просмотр</th>
                                     <th class="text-center">Статус</th>
-                                    <th></th>
                                 </tr>
                             </thead>
-                            <tbody data-project>
-                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
-                                    <td>0</td>
-                                    <td>LAND CRUISER PRADO</td>
-                                    <td>33-443-222233</td>
-                                    <td>AA333432244</td>
-                                    <td>Иван Петров</td>
-                                    <td>2000$</td>
-                                    <td>20 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
-                                    <td class="text-center">
-                                        <div class="radio__list radio__list_table">
-                                            <label class="input input_radio">
-                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
-                                                <span class="input__label input__label_light">Готово</span>
-                                            </label>
-                                            <label class="input input_radio">
-                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
-                                                <span class="input__label input__label_light">Ожидает</span>
-                                            </label>
-                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); ;onEditProject(0)">
-                                            <span class="table__icon table__icon_edit_red"></span>
-                                        </button>
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                            <span class="table__icon table__icon_remove_red"></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                            <tbody>
+                                <tr data-estimates-row="1">
                                     <td>1</td>
                                     <td>LAND CRUISER PRADO</td>
                                     <td>33-443-222233</td>
                                     <td>AA333432244</td>
                                     <td>Иван Петров</td>
-                                    <td>2000$</td>
+                                    <td>Иван Петров</td>
+                                    <td>10 000$</td>
                                     <td>20 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
+                                    <td>
+                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed(1)">
+                                            <span class="table__icon table__icon_show"></span>
+                                        </button>
+                                    </td>
                                     <td class="text-center">
                                         <div class="radio__list radio__list_table">
                                             <label class="input input_radio">
-                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
-                                                <span class="input__label input__label_light">Готово</span>
+                                                <input 
+                                                    type="radio" 
+                                                    class="input__control" 
+                                                    name="estimates[1]" 
+                                                    checked 
+                                                    value="0" 
+                                                    onchange="onEstimatesChanged(event, 1)"
+                                                > <!-- onEstimatesChanged(event, id) -->
+                                                <span class="input__label input__label_green">Оценено</span>
                                             </label>
                                             <label class="input input_radio">
-                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
-                                                <span class="input__label input__label_light">Ожидает</span>
+                                                <input 
+                                                    type="radio" 
+                                                    class="input__control" 
+                                                    name="estimates[1]" 
+                                                    value="1" 
+                                                    onchange="onEstimatesChanged(event, 1)"
+                                                >
+                                                <span class="input__label input__label_green">Отремонтировано</span>
                                             </label>
-                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                            <input type="hidden" class="radio__prev" value="0">
                                         </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
-                                            <span class="table__icon table__icon_edit_red"></span>
-                                        </button>
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
-                                            <span class="table__icon table__icon_remove_red"></span>
-                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- USER ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
+                    <!-- ESTIMATES TABLE END -->
                 </div>
             </section>
         </div>
@@ -475,236 +403,123 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- PROJECT MODAL START -->
-    <div class="mymodal maymodal_project" data-mymodal-id="show-project" data-mymodal-options="hashTracking: false">
+    <!-- ESTIMATES AUTO IMAGES START -->
+    <div class="mymodal mymodal_estimates" data-mymodal-id="estimates-damage" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
         <div class="mymodal__content">
             <header class="mymodal__header">
-                <h4 class="title title_mymodal">LAND CRUISER PRADO</h4>
+                <h4 class="title title_mymodal">Автомобиль</h4>
             </header>
-            <div class="mymodal__body ">
-                <div class="project__image-wrapper">
-                    <img src="" alt="" data-t-img class="project__image">
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>VIN код:</th>
-                                <td data-t-vin></td>
-                            </tr>
-                            <tr>
-                                <th>Год:</th>
-                                <td data-t-year></td>
-                            </tr>
-                            <tr>
-                                <th>Модель:</th>
-                                <td data-t-model></td>
-                            </tr>
-                            <tr>
-                                <th>Цвет:</th>
-                                <td data-t-color></td>
-                            </tr>
-                            <tr>
-                                <th>Пробег:</th>
-                                <td data-t-mileage></td>
-                            </tr>
-                            <tr>
-                                <th>Дата добавления в систему:</th>
-                                <td data-t-date></td>
-                            </tr>
-                            <tr>
-                                <th>Имя техника:</th>
-                                <td data-t-master></td>
-                            </tr>
-                            <tr>
-                                <th>О клиенте:</th>
-                                <td data-t-client></td>
-                            </tr>
-                            <tr>
-                                <th>VIN код:</th>
-                                <td data-t-vin></td>
-                            </tr>
-                            <tr>
-                                <th>Страховка:</th>
-                                <td data-t-insurance></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="mymodal__body">
+                <form action="javascript:;" method="post">
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-fl" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Левая передняя часть</h4>
+                                <!--  -->
+                                <a href="https://lipsum.app/id/1/1024x768"
+                                data-fancybox="gallery"
+                                data-caption="Левая передняя часть">a</a>
+                            </div>
+                        </div>
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-fm" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Капот</h4>
+                                <!--  -->
+                                <a href="https://lipsum.app/id/1/1024x768"
+                                data-fancybox="gallery"
+                                data-caption="Капот">a</a>
+                            </div>
+                        </div>
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-fr" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Правая передняя часть</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-lt" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Левая дверь</h4>
+                            </div>
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-lb" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Левая задняя дверь</h4>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="extimates__car"></div>
+                        </div>
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-rt" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Правая дверь</h4>
+                            </div>
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-rb" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Правая задняя дверь</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-bl" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Левая задняя часть</h4>
+                            </div>
+                        </div>
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-bm" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Багажник</h4>
+                            </div>
+                        </div>
+                        <div class="estimates__wrapper">
+                            <div class="estimates__item">
+                                <label class="input-image input-image_1x1">
+                                    <div class="img"></div>
+                                    <input type="file" name="damage-br" class="js-form-file" accept=".png,.jpg">
+                                </label>
+                                <h4 class="title title_damage">Правая задняя часть</h4>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="mymodal__footer">
-                <a class="btn btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-estimate>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                    </svg>Скачать смету
-                </a>
-            </div>
         </div>
     </div>
-    <div class="mymodal__body project-modal-template d-none">
-        <div class="project__image-wrapper">
-            <img src="" alt="" data-t-img class="project__image">
-        </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>VIN код:</th>
-                        <td data-t-vin></td>
-                    </tr>
-                    <tr>
-                        <th>Год:</th>
-                        <td data-t-year></td>
-                    </tr>
-                    <tr>
-                        <th>Модель:</th>
-                        <td data-t-model></td>
-                    </tr>
-                    <tr>
-                        <th>Цвет:</th>
-                        <td data-t-color></td>
-                    </tr>
-                    <tr>
-                        <th>Пробег:</th>
-                        <td data-t-mileage></td>
-                    </tr>
-                    <tr>
-                        <th>Дата добавления в систему:</th>
-                        <td data-t-date></td>
-                    </tr>
-                    <tr>
-                        <th>Имя техника:</th>
-                        <td data-t-master></td>
-                    </tr>
-                    <tr>
-                        <th>О клиенте:</th>
-                        <td data-t-client></td>
-                    </tr>
-                    <tr>
-                        <th>Страховка:</th>
-                        <td data-t-insurance></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- PROJECT ADD FORM START -->
-    <div class="mymodal maymodal_project" data-mymodal-id="add-project" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Добавить проект</h2>
-            <form method="post" class="form" onsubmit="addProject(event)">
-                <!-- IMAGE INPUT START -->
-                <label class="input-image input-image_16x9 input_group mx-auto">
-                    <div class="img"></div>
-                    <input type="file" name="image" class="js-form-file" accept=".png,.jpg" required>
-                </label>
-                <!-- IMAGE INPUT END -->
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="title" placeholder="Марка автомобиля*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="vin" placeholder="VIN код*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="year" placeholder="Год*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="model" placeholder="Модель*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="color" placeholder="Цвет*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="mileage" placeholder="Пробег*" required>
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="master" class="select__control" required>
-                        <option value="" label="Имя техника*" selected disabled></option>
-                        <option value="0" label="Имя техника 0"></option>
-                        <option value="1" label="Имя техника 1"></option>
-                        <option value="2" label="Имя техника 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="client" class="select__control" required>
-                        <option value="" label="О клиенте*" selected disabled></option>
-                        <option value="0" label="Имя клтента 0"></option>
-                        <option value="1" label="Имя клтента 1"></option>
-                        <option value="2" label="Имя клтента 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="insurance" placeholder="Страховка*" required>
-                </div>
-                <div class="pt-3">
-                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- PROJECT ADD FORM END -->
-    <!-- PROJECT EDIT FORM START -->
-    <div class="mymodal maymodal_project" data-mymodal-id="edit-project" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Редактировать проект</h2>
-            <form method="post" class="form">
-                <!-- IMAGE INPUT START -->
-                <label class="input-image input-image_16x9 input_group mx-auto">
-                    <div class="img"></div>
-                    <input type="file" name="image" class="js-form-file" accept=".png,.jpg">
-                </label>
-                <!-- IMAGE INPUT END -->
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="title" placeholder="Марка автомобиля*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="vin" placeholder="VIN код*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="year" placeholder="Год*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="model" placeholder="Модель*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="color" placeholder="Цвет*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="mileage" placeholder="Пробег*" required>
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="master" class="select__control" required>
-                        <option value="" label="Имя техника*" selected disabled></option>
-                        <option value="0" label="Имя техника 0"></option>
-                        <option value="1" label="Имя техника 1"></option>
-                        <option value="2" label="Имя техника 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="client" class="select__control" required>
-                        <option value="" label="О клиенте*" selected disabled></option>
-                        <option value="0" label="Имя клтента 0"></option>
-                        <option value="1" label="Имя клтента 1"></option>
-                        <option value="2" label="Имя клтента 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="insurance" placeholder="Страховка*" required>
-                </div>
-                <div class="pt-3">
-                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- PROJECT EDIT FORM END -->
+    <!-- ESTIMATES AUTO IMAGES END -->
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
@@ -712,11 +527,12 @@
     <script src="./libs/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
     <script src="./libs/jquery.inputmask.min.js"></script>
+    <script src="./libs/fancybox/fancybox.ui.4.js"></script>
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>
     <script src="./js/projects.js"></script>
+    <script src="./js/estimates.js"></script>
     <script src="./js/custom.js"></script>
-    <!-- script for call alerts on load? -->
 </body>
 </html>

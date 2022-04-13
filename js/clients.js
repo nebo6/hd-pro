@@ -210,6 +210,7 @@ function clientFilesUploaded() {
 }
 // ON CREATE BUTTON CLICKED
 function onCLientAdd() {
+    $('[data-mymodal-id="form-client"] .title').text(getLanguage() === "ru" ? "Добавить клиента" : "Add a client")
     const form = $(".client-form-template").clone(true);
     form.removeClass("client-form-template d-none");
     form[0].onsubmit = function(e) {
@@ -234,6 +235,7 @@ function onClientAddSubmited(data) {
 }
 // ON EDIT BUTTON CLICKED
 function onClientEdited(id) {
+    $('[data-mymodal-id="form-client"] .title').text(getLanguage() === "ru" ? "Редактировать клиента" : "Edit a client")
     // get client's data from server
     // if request success update form data
     const updatedForm = updateClientsForm(clientDummyData);

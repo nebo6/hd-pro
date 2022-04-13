@@ -56,6 +56,15 @@ a:hover {
   margin-bottom: 0;
 }
 
+.title_damage {
+  width: 100%;
+  color: #000;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text_dark {
   color: #192A3E;
 }
@@ -176,6 +185,7 @@ a:hover {
   border-radius: 5px;
   background-color: #F8F8F8;
   position: relative;
+  color: #192A3E;
 }
 
 .input_group {
@@ -277,6 +287,41 @@ a:hover {
   background: center / cover no-repeat;
 }
 
+.input-image input {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0px);
+          transform: translate3d(-50%, -50%, 0px);
+}
+
+.input-image_16x9 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 5px;
+}
+
+.input-image_16x9::before {
+  width: 38px;
+  height: 38px;
+  background-size: 38px 38px;
+}
+
+.input-image_16x9 .img {
+  background-size: contain;
+}
+
+.input-image_1x1 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 5px;
+}
+
 .radio__list {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -356,8 +401,44 @@ a:hover {
   margin-left: 25px;
 }
 
+.select {
+  position: relative;
+}
+
 .select__control {
   width: 100%;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  color: #90A0B7;
+}
+
+.select_widget .select__control {
+  padding: 6px 23px 6px 12px;
+  border-color: #90A0B7;
+}
+
+.select_input {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.select_input .select__control {
+  padding: 12px 10px;
+  border: none;
+  background-color: transparent;
+  color: #192A3E;
+}
+
+.select__icon {
+  display: block;
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+  right: 10px;
+  background: url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.87793 0.707107L1.59168 0L5.27533 3.64938L4.56158 4.35649L0.87793 0.707107Z' fill='%2390A0B7'/%3E%3Cpath d='M4.64811 4.40675L3.93436 3.69965L7.60167 0.0664556L8.31541 0.773562L4.64811 4.40675Z' fill='%2390A0B7'/%3E%3C/svg%3E%0A") center no-repeat;
 }
 
 .files__upload {
@@ -1215,6 +1296,10 @@ th:last-child {
   border: 1px solid #90A0B7;
 }
 
+.page-section {
+  padding-top: 50px;
+}
+
 .page-title__icon {
   width: 42px;
   height: 30px;
@@ -1298,10 +1383,6 @@ th:last-child {
 .tech__input {
   display: block;
   margin-bottom: 19px;
-}
-
-.clients-page {
-  padding-top: 50px;
 }
 
 .client__inner {
@@ -1407,6 +1488,19 @@ th:last-child {
 .projects-table .ready .remove-btn {
   visibility: hidden;
   pointer-events: none;
+}
+
+.project__image-wrapper {
+  margin-bottom: 20px;
+}
+
+.project__image {
+  height: 160px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .alert__list {
@@ -1527,12 +1621,12 @@ th:last-child {
 }
 
 .mymodal {
-  -webkit-box-shadow: 0px 11px 22px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 11px 22px rgba(0, 0, 0, 0.25);
   max-width: 404px;
   border-radius: 5px;
   padding: 0;
   outline: 0;
+  -webkit-box-shadow: 0px 11px 22px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 11px 22px rgba(0, 0, 0, 0.25);
 }
 
 .mymodal-close {
@@ -1564,6 +1658,10 @@ th:last-child {
 .mymodal__content {
   text-align: left;
   padding: 8px 13px 19px;
+}
+
+.mymodal__footer {
+  margin-top: 20px;
 }
 
 .mymodal_confirmation {
@@ -1610,5 +1708,37 @@ th:last-child {
 .maymodal_client .table {
   table-layout: fixed;
   width: 100%;
+}
+
+.mymodal_estimates {
+  max-width: 548px;
+}
+
+.mymodal_estimates .mymodal__content {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 0;
+}
+
+.extimates__car {
+  width: 100%;
+  aspect-ratio: 218/416.59;
+  background: url("../img/estimates-center-car.png") center/contain no-repeat;
+  margin: -26px 0;
+}
+
+.estimates__wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+  max-width: 140px;
+}
+
+.estimates__item {
+  margin-bottom: 26px;
+}
+
+.fancybox__container {
+  z-index: 10001 !important;
 }
 /*# sourceMappingURL=desktop.css.map */

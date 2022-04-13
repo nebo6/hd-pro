@@ -13,24 +13,6 @@ function onFileSelected(event) {
         reader.readAsDataURL(selectedFile);
     image.css("background-image", "");
 }
-
-// estimates
-function onEstimatesShowed(id) {
-    alert("show " + id);
-}
-
-function onEstimatesChanged(event, id) {
-    const prev = getRadioPrev(event)
-    console.log("#", id, "estimated status changed to", event.target.value);
-    prev.input.val(event.target.value)
-    /* 
-        if reauqest will fail
-        then change value again to prev
-        prev.radio.prop("checked", true)
-        else change prevInput value to checked
-        prev.input.val(event.target.value)
-    */
-}
 // INVOICES
 function onInvoicesEdited(id) {
     console.log("edit invoice", id);

@@ -43,7 +43,7 @@ function onStatusChangeConfirmation(onConfirm, onCancel) {
     $(modal).mymodal().open();
     
 }
-
+// REMOVE PROJECT FROM LIST
 function onProjectRemoveConfirmed(id) {
     if (isNaN(parseInt(id))) alert("Something went wrong")
     addBodyLoader()
@@ -67,4 +67,133 @@ function onRemoveProject(id) {
     });
 
     modal.mymodal().open();
+}
+// SHOW PROJECT DETAILS
+const dummyProject = {
+    title: "LAND CRUISER PRADO",
+    vin: "33-443-222233",
+    year: "2020",
+    model: "Модель",
+    color: "Белый",
+    mileage: "40 000",
+    date: "20.04.2022",
+    master: {
+        label: "Имя Мастера",
+        value: 0
+    },
+    client: {
+        label: "Имя Клиента",
+        value: 1
+    },
+    insurance: "Номер страховки",
+    img: "/img/land-cruiser-prado.jpg",
+    file: "/img/land-cruiser-prado.jpg"
+}
+// PROJECT'S DETAIL MODAL WINDOW
+// UPDATE DETAIL DATA ON CLICK ON ROW
+function updateProjectData(data) {
+    const {
+        title,
+        vin,
+        year,
+        model,
+        color,
+        mileage,
+        date,
+        master,
+        client,
+        insurance,
+        img,
+        file
+    } = data
+    const template = $('.project-modal-template').clone(true);
+    template.removeClass("project-modal-template d-none");
+    // update data
+    template.find("[data-t-title]").text(title)
+    template.find("[data-t-vin]").text(vin)
+    template.find("[data-t-year]").text(year)
+    template.find("[data-t-model]").text(model)
+    template.find("[data-t-color]").text(color)
+    template.find("[data-t-mileage]").text(mileage)
+    template.find("[data-t-date]").text(date)
+    template.find("[data-t-master]").text(master.label)
+    template.find("[data-t-client]").text(client.label)
+    template.find("[data-t-insurance]").text(insurance)
+    template.find("[data-t-img]").attr({"src": img, "alt": title})
+    $("[data-t-estimate]").attr("href", file)
+    // append to modal
+    $('[data-mymodal-id="show-project"] .mymodal__body').replaceWith(template)
+}
+// SHOW DETAIL DATA ON CLICK ON ROW
+function onProjectShowed(id) {
+    console.log(id);
+    addBodyLoader();
+    function onSuccess(data) {
+        updateProjectData(data)
+        $('[data-mymodal-id="show-project"]').mymodal().open()
+    }
+    function onError() {
+        alertNotice(errorTitle(), errorDescription(), "danger")
+    }
+    // get project's data from server
+    // onSuccess()
+    onSuccess(dummyProject)
+    // onError()
+    // onFinally
+    removeBodyLoader();
+}
+// ADD NEW PROJECT
+function addProject(event) {
+    event.preventDefault();
+    const form = event.target;
+    const data = new FormData(form)
+    addBodyLoader();
+    function onSuccess(data) {
+        // reload or add row to start of table
+        location.reload();
+    }
+    function onError() {
+        alertNotice(errorTitle(), errorDescription(), "danger")
+    }
+    // create project's data from server
+    // onSuccess()
+    onSuccess(dummyProject)
+    // onError()
+    // onFinally
+    removeBodyLoader();
+}
+// EDIT PROJECT
+function onEditProject(id) {
+    console.log(id);
+    addBodyLoader();
+    function onSuccess(data) {
+        const form = $('[data-mymodal-id="edit-project"] .form').clone(true);
+
+        form.find('.img').css("background-image", "url("+data.img+")");
+        form.find('[name="title"]').val(data.title);
+        form.find('[name="vin"]').val(data.vin);
+        form.find('[name="year"]').val(data.year);
+        form.find('[name="model"]').val(data.model);
+        form.find('[name="color"]').val(data.color);
+        form.find('[name="mileage"]').val(data.mileage);
+        form.find('[name="master"]').val(data.master.value);
+        form.find('[name="client"]').val(data.client.value);
+        form.find('[name="insurance"]').val(data.insurance);
+
+        $('[data-mymodal-id="edit-project"] .form').replaceWith(form)
+        // open modal after request
+        $('[data-mymodal-id="edit-project"]').mymodal().open();
+    }
+    function onError() {
+        alertNotice(errorTitle(), errorDescription(), "danger");
+    }
+    function onFinally() {
+        removeBodyLoader();
+    }
+    // request to get data from server with project's id
+    // if succes
+    onSuccess(dummyProject);
+    // if error 
+    // onError()
+    onFinally();
 }
