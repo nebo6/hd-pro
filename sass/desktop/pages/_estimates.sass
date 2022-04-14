@@ -1,0 +1,32 @@
+.estimates__item
+    &.has-image:hover .estimates__options
+        opacity: 1
+        visibility: visible
+    .btn_edit
+        pointer-events: none
+
+.estimates__options
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    align-content: center
+    background-color: rgba(#343434, 0.7)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    visibility: hidden
+    opacity: 0
+    transition: opacity 0.2s
+
+.estimates__option
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 36px
+    height: 36px
+    margin: 6px
+    background-color: #fff
+    border-radius: 50%

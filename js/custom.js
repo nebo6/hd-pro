@@ -3,15 +3,16 @@ function onFileSelected(event) {
     const selectedFile = event.target.files[0];
     const reader = new FileReader();
   
-    const image = $(this).siblings(".img");
+    const img = $(this).siblings(".img");
   
     reader.onload = function(event) {
-        image.css("background-image", "url('"+event.target.result+"')");
+        img.css("background-image", "url('"+event.target.result+"')");
     };
   
     if (selectedFile)
         reader.readAsDataURL(selectedFile);
-    image.css("background-image", "");
+   
+    img.css("background-image", "");
 }
 // INVOICES
 function onInvoicesEdited(id) {
@@ -295,4 +296,5 @@ $(function() {
         groupSeparator: " ",
         rightAlign: false
     })
+    Fancybox.defaults.Hash = false;
 })
