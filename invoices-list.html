@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal-default-theme.css">
+    <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
 </head>
@@ -157,13 +158,23 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <!-- SEARCH FIELD START -->
+                    <div class="col-auto">
+                        <!-- INPUT START -->
+                        <label class="input header__search input_gap_right">
+                            <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
+                            <span class="input__icon input__icon_magnify"></span>
+                        </label>
+                        <!-- INPUT END -->
+                    </div>
+                    <!-- SEARCH FIELD END -->
                     <!-- HEADER PAGE TITLE START -->
                     <div class="col-auto">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-tasks.svg" class="img">
+                                <img src="./img/icons/title-user-outline.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Задачи</h1>
+                            <h1 class="title title_page">Клиенты</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -172,7 +183,7 @@
                         <div class="d-flex flex-wrap align-items-center">
                             <div class="position-relative" data-dropdown-parent>
                                 <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
-                                    <span class="btn__icon btn__icon_plus"></span>
+                                    <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                     Добавить
                                 </button>
                                 <div class="dropdown dropdown_header arrow" data-dropdown="add">
@@ -269,141 +280,146 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <div class="container-fluid">
-                <div class="tasks d-flex">
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_red"></div>
-                                <b>Нужно сделать</b>
-                                <button class="btn btn_clean ms-auto" type="button" onclick="addTask()">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
+            <section class="page-section">
+                <div class="container-fluid">
+                    <!-- WIDGETS START -->
+                    <div class="widget my-3">
+                        <div class="row">
+                            <div class="col-auto me-auto">
+                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-invoices"> 
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
+                                        <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
+                                    </svg>                                    
+                                    Добавить
                                 </button>
                             </div>
-                        </div>
-                        <div class="column__list"  data-task="waiting">
-                            <div class="card" data-id="1">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 1</div>
-                                        <div class="card__date text_light">20 февраля 2022 год</div>
-                                        <div class="d-flex ms-auto">
-                                            <button class="btn btn_clean" type="button">
-                                                <span class="table__icon table__icon_edit"></span>
-                                            </button>
-                                            <button class="btn btn_clean" type="button">
-                                                <span class="table__icon table__icon_remove"></span>
-                                            </button>
-                                        </div>
-                                    </div>
+                            <div class="col-auto ps-0">
+                                <div class="select select_widget">
+                                    <select name="clients" class="select__control">
+                                        <option value="" selected>Клиент</option>
+                                        <option value="0" label="Имя Клиента 0"></option>
+                                        <option value="1" label="Имя Клиента 1"></option>
+                                        <option value="2" label="Имя Клиента 2"></option>
+                                        <option value="3" label="Имя Клиента 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
                                 </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="in_charge[1]" class="select__control">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
+                            </div>
+                            <div class="col-auto ps-0">
+                                <div class="select select_widget">
+                                    <select name="outlets" class="select__control">
+                                        <option value="" selected>Месяц</option>
+                                        <option value="0" label="Месяц 0"></option>
+                                        <option value="1" label="Месяц 1"></option>
+                                        <option value="2" label="Месяц 2"></option>
+                                        <option value="3" label="Месяц 3"></option>
+                                        <option value="4" label="Месяц 4"></option>
+                                        <option value="5" label="Месяц 5"></option>
+                                        <option value="6" label="Месяц 6"></option>
+                                        <option value="7" label="Месяц 7"></option>
+                                        <option value="8" label="Месяц 8"></option>
+                                        <option value="9" label="Месяц 9"></option>
+                                        <option value="10" label="Месяц 10"></option>
+                                        <option value="11" label="Месяц 11"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto ps-0">
+                                <div class="select select_widget">
+                                    <select name="outlets" class="select__control">
+                                        <option value="" selected>Неделя</option>
+                                        <option value="0" label="Неделя 0"></option>
+                                        <option value="1" label="Неделя 1"></option>
+                                        <option value="2" label="Неделя 2"></option>
+                                        <option value="3" label="Неделя 3"></option>
+                                        <option value="4" label="Неделя 4"></option>
+                                        <option value="5" label="Неделя 5"></option>
+                                        <option value="6" label="Неделя 6"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_orange"></div>
-                                <b>В процессе</b>
-                                <button class="btn btn_clean ms-auto" type="button">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="column__list" data-task="in_process">
-                            <div class="card" data-id="2">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 2</div>
-                                        <div class="card__date text_light">20 февраля 2022 год</div>
-                                    </div>
-                                </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="in_charge[2]" class="select__control">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- WIDGETS END -->
+                    <!-- INVOICES TABLE START СЧЕТА-ФАКТУРЫ -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Клиент</th>
+                                    <th>Машина</th>
+                                    <th>День оплаты</th>
+                                    <th>День окончания</th>
+                                    <th>Общая сумма</th>
+                                    <th>Полученная оплата</th>
+                                    <th class="text-center">Статус оплаты</th>
+                                    <th></th> <!-- should be empty -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-invoices-row="1"> <!-- row id -->
+                                    <td>1</td>
+                                    <td>Иван Григорьев</td>
+                                    <td>Toyota</td>
+                                    <td>19 октября 2022 год</td>
+                                    <td>23 октября 2022 год</td>
+                                    <td>12 500$</td>
+                                    <td>2 500$</td>
+                                    <td class="text-center">
+                                        <span class="table__status" data-status="1">Оплачен</span> <!-- data-status 1 — Оплачен | если что менять css тоже | или добавить style="background-color: #2DC959" -->
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(1)"><!-- row id -->
+                                            <span class="table__icon table__icon_edit_red_fill"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr data-invoices-row="2"> <!-- row id -->
+                                    <td>1</td>
+                                    <td>Иван Григорьев</td>
+                                    <td>Toyota</td>
+                                    <td>19 октября 2022 год</td>
+                                    <td>23 октября 2022 год</td>
+                                    <td>12 500$</td>
+                                    <td>2 500$</td>
+                                    <td class="text-center">
+                                        <span class="table__status" data-status="0">Пердоплата</span> <!-- data-status 0 — Пердоплата | если что менять css тоже | или добавить style="background-color: #FFB800" -->
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(2)"><!-- row id -->
+                                            <span class="table__icon table__icon_edit_red_fill"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr data-invoices-row="3"> <!-- row id -->
+                                    <td>1</td>
+                                    <td>Иван Григорьев</td>
+                                    <td>Toyota</td>
+                                    <td>19 октября 2022 год</td>
+                                    <td>23 октября 2022 год</td>
+                                    <td>12 500$</td>
+                                    <td>2 500$</td>
+                                    <td class="text-center">
+                                        <span class="table__status" data-status="2">Остаток</span> <!-- data-status 2 — Остаток | если что менять css тоже | или добавить style="background-color: #FF3B20" -->
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(3)"><!-- row id -->
+                                            <span class="table__icon table__icon_edit_red_fill"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_green"></div>
-                                <b>Сделано</b>
-                                <button class="btn btn_clean ms-auto" type="button">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="column__list" data-task="ready"> 
-                            <div class="card" data-id="3">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 3</div>
-                                        <div class="card__date text_light">20 февраля 2022 год</div>
-                                    </div>
-                                </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">23 февраля 2022 год</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="in_charge[3]" class="select__control">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- INVOICES TABLE END СЧЕТА-ФАКТУРЫ -->
                 </div>
-            </div>
+            </section>
         </div>
     </main>
     <!-- MAIN END -->
-    <!-- TEMPLATES FOR CREATING START -->
-    <div class="card task-template" data-id="">
-        <div class="card__header mb-2">
-            <div class="d-flex align-items-center">
-                <div class="text_darkest me-2" data-t-id></div>
-                <div class="card__date text_light" data-t-date></div>
-            </div>
-        </div>
-        <h4 class="card__title" data-t-title></h4>
-        <p><span class="text_light">Дедлайн: </span> <span class="text_darkest" data-t-deadline>23 февраля 2022 год</span></p>
-        <div class="card__action">
-            <select name="in_charge[1]" class="select__control">
-                <option value="0" label="Андрей Сергеевич" selected></option>
-                <option value="1" label="Сергей Андреевич"></option>
-            </select>
-        </div>
-    </div>
-    <!-- TEMPLATES FOR CREATING END -->
     <!-- LOADER START -->
     <div class="loader">
         <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">
@@ -412,6 +428,25 @@
                 <div>
                     <div></div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert__list">
+        <div class="alert template" style="display: none;">
+            <button class="btn btn_clean alert__close"></button>
+            <div class="alert__body">
+                <div class="d-flex flex-wrap align-items-center mb-2">
+                    <div class="col-auto">
+                        <span class="alert__icon"></span>
+                    </div>
+                    <div class="col min-w-0">
+                        <h4 class="alert__title">Title</h4>
+                    </div>
+                </div>
+                <p class="alert__description">Description</p>
+            </div>
+            <div class="alert__progress-wrapper">
+                <div class="alert__progress"></div>
             </div>
         </div>
     </div>
@@ -426,13 +461,136 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
+    <!-- INVOICES MODAL FORM -->
+    <div class="mymodal" data-mymodal-id="add-invoices" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Добавить счет-фактуру</h4>
+            </header>
+            <div class="mymodal__body">
+                <form method="post" class="form" onsubmit="addInvoice(event)">
+                    <div class="select select_input mb-3">
+                        <select name="client" class="select__control" required>
+                            <option value="" label="Клиент*" selected disabled></option>
+                            <option value="0" label="Вова"></option>
+                            <option value="1" label="Дима"></option>
+                            <option value="2" label="Володя"></option>
+                        </select>
+                    </div>
+                    <div class="select select_input mb-3">
+                        <select name="project" class="select__control" required>
+                            <option value="" label="Машина*" selected disabled></option>
+                            <option value="0" label="Land Cruiser Prado"></option>
+                            <option value="1" label="BMW"></option>
+                            <option value="2" label="KIA"></option>
+                        </select>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control date-mask" name="payday" placeholder="День оплаты*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control date-mask" name="deadline" placeholder="День окончания*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control dollar-mask" name="summ" placeholder="Общая сумма*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control dollar-mask" name="paid" placeholder="Полученная оплата*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <div class="select select_input mb-3">
+                            <select name="status" class="select__control" required>
+                                <option value="" label="Статус*" selected disabled></option>
+                                <option value="0" label="Оплачен"></option>
+                                <option value="1" label="Предоплата"></option>
+                                <option value="2" label="Остаток "></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <button class="btn btn_fill w-100" type="submit">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- EDIT INVOICES -->
+    <div class="mymodal" data-mymodal-id="edit-invoices" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Редактировать счет-фактуру</h4>
+            </header>
+            <div class="mymodal__body js-invoices-edit-form-wrapper"> <!-- form will be detached and append to this block -->
+                <form method="post" class="form js-invoices-edit-form" onsubmit="event.preventDefault()">
+                    <div class="select select_input mb-3">
+                        <div class="select select_input mb-3">
+                            <select name="client" class="select__control" required>
+                                <option value="" label="Клиент*" selected disabled></option>
+                                <option value="0" label="Клиент Вова"></option>
+                                <option value="1" label="Клиент Дима"></option>
+                                <option value="2" label="Клиент Володя"></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                    </div>
+                    <div class="select select_input mb-3">
+                        <div class="select select_input mb-3">
+                            <select name="project" class="select__control" required>
+                                <option value="" label="Машина*" selected disabled></option>
+                                <option value="0" label="Машина 1"></option>
+                                <option value="1" label="Машина 2"></option>
+                                <option value="2" label="Машина 3"></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control date-mask" name="payday" placeholder="День оплаты*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control date-mask" name="deadline" placeholder="День окончания*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control dollar-mask" name="summ" placeholder="Общая сумма*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <input type="text" class="input__control dollar-mask" name="paid" placeholder="Полученная оплата*" required>
+                    </div>
+                    <div class="input mb-3">
+                        <div class="select select_input mb-3">
+                            <select name="status" class="select__control" required>
+                                <option value="" label="Статус*" selected disabled></option>
+                                <option value="0" label="Оплачен"></option>
+                                <option value="1" label="Предоплата"></option>
+                                <option value="2" label="Остаток "></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <button class="btn btn_fill w-100" type="submit">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
     <script src="./libs/jquery-ui-1.13.1.custom/jquery-ui.min.js"></script>
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
+    <script src="./libs/jquery.inputmask.min.js"></script>
+    <script src="./libs/fancybox/fancybox.ui.4.js"></script>
     <!-- CUSTOM JS -->
+    <script src="./js/core.js"></script>
+    <script src="./js/clients.js"></script>
+    <script src="./js/projects.js"></script>
+    <script src="./js/estimates.js"></script>
+    <script src="./js/invoices.js"></script>
     <script src="./js/custom.js"></script>
 </body>
 </html>

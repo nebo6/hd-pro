@@ -14,10 +14,6 @@ function onFileSelected(event) {
    
     img.css("background-image", "");
 }
-// INVOICES
-function onInvoicesEdited(id) {
-    console.log("edit invoice", id);
-}
 // CONTACTS
 function onContactsActiveChanged(event, id) {
     console.log("contacts active changed", id, event.target.checked);
@@ -295,6 +291,10 @@ $(function() {
         prefix: '$',
         groupSeparator: " ",
         rightAlign: false
+    })
+    $(".date-mask").inputmask({
+        alias: 'datetime', 
+        inputFormat: 'dd/mm/yyyy'
     })
     Fancybox.defaults.Hash = false;
 })
