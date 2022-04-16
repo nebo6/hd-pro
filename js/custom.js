@@ -22,108 +22,7 @@ function onContactsActiveChanged(event, id) {
 function onContactsPaymentChanged(event, id) {
     console.log("contacts payment status changed", id, event.target.checked);
 }
-// TASK LIST SORTING
-function initDragDropSortable() {
-    let position_updated = false
-    
-    $('.column__list').sortable({
-        connectWith: ".column__list",
-        placeholder: "column__placeholder",
-        forcePlaceholderSize: true,
-        cancel: "select",
-        update: function(e, ui) {
-            position_updated = !ui.sender
-        },
-        stop: function(event, ui) {
-            if (position_updated) {
-                const item = ui.item;
-                const parent = item.parent();
-                const task = parent.attr("data-task"); // task column name
-                const sortedList = parent.sortable("toArray", {attribute: "data-id"}); // list of sorted elements in task
-                /*
-                    addBodyLoader();
-                    request to server
-                    error: function() {
-                        parent.sortable("cancel")
-                    },
-                    finally: function() {
-                        removeBodyLoader();
-                    }
-                */
-                console.log(sortedList);
-                position_updated = false;
-            }
-        },
-        receive: function(event, ui) {
-            const item = ui.item;
-            const parent = item.parent();
-            const sender = item.sender;
-            const task = parent.attr("data-task"); // task column name
-            const sortedList = parent.sortable("toArray", {attribute: "data-id"}); // list of sorted elements in task
-            /*
-                addBodyLoader();
-                request to server
-                error: function() {
-                    sender.sortable("cancel")
-                },
-                finally: function() {
-                    removeBodyLoader();
-                }
-            */
-            console.log(sortedList);
-        }
-    })
-}
 
-function addCardToList(data) {
-    const {
-        card: {
-            id,
-            date,
-            title,
-            deadline,
-            in_charge
-        },
-        task
-    } = data
-
-    const list = $("[data-task='"+task+"']");
-
-    if (list.length) {
-        const card = $(".task-template").clone();
-    
-        card.removeClass("task-template").attr("data-id", id);
-        card.find("[data-t-id]").text(id);
-        card.find("[data-t-date]").text(date);
-        card.find("[data-t-title]").text(title);
-        card.find("[data-t-deadline]").text(deadline);
-        
-        const select = card.find("select");
-        select
-            .attr("name", `in_charge[${id}]`)
-            .val(in_charge)
-
-        list.append(card);
-        if (list.hasClass("ui-sortable")) list.sortable("refresh")
-    }
-    
-}
-
-function addTask() {
-    // OPEN MODAL TO CREATE TASK
-    // IF FORM SUBMITED ADD TASK
-    // ELSE SHOW NOTICE
-    addCardToList({
-        card: {
-            id: 100,
-            date: "15 сентябра 2022",
-            title: "Задача ID100",
-            deadline: "15 сентябра 2022",
-            in_charge: 0
-        },
-        task: "waiting"
-    })
-}
 
 // ROLES
 function onRolesRemoveConfirmed(id) {
@@ -282,9 +181,7 @@ function printDiv(selector) {
     setTimeout(function(){newWin.close();},10);
 }
 
-
 $(function() {
-    initDragDropSortable()
     $('.js-form-file').on("change", onFileSelected)
     $(".dollar-mask").inputmask({
         alias : "currency",

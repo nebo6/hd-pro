@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal-default-theme.css">
+    <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
 </head>
@@ -163,7 +164,7 @@
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-tasks.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Задачи</h1>
+                            <h1 class="title title_page">Как это работает</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -269,181 +270,10 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <div class="container-fluid">
-                <div class="tasks d-flex">
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_red"></div>
-                                <b>Нужно сделать</b>
-                                <button class="btn btn_clean ms-auto" type="button" onclick="addTask('waiting')">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="column__list"  data-task="waiting">
-                            <div class="card" data-task-id="1">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 1</div>
-                                        <div class="card__date text_light">20.02.2022</div>
-                                        <div class="d-flex ms-auto">
-                                            <button class="btn btn_clean js-edit-task" type="button">
-                                                <span class="table__icon table__icon_edit"></span>
-                                            </button>
-                                            <button class="btn btn_clean js-remove-task" type="button">
-                                                <span class="table__icon table__icon_remove"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">23.02.2022</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="executor" class="select__control js-task-executer-select">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_orange"></div>
-                                <b>В процессе</b>
-                                <button class="btn btn_clean ms-auto" type="button" onclick="addTask('in_process')">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="column__list" data-task="in_process">
-                            <div class="card" data-task-id="2">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 2</div>
-                                        <div class="card__date text_light">20.02.2022</div>
-                                        <div class="d-flex ms-auto">
-                                            <button class="btn btn_clean js-edit-task" type="button">
-                                                <span class="table__icon table__icon_edit"></span>
-                                            </button>
-                                            <button class="btn btn_clean js-remove-task" type="button">
-                                                <span class="table__icon table__icon_remove"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">20.02.2022</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="executor" class="select__control js-task-executer-select">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column col-4">
-                        <div class="column__header">
-                            <div class="d-flex align-items-center">
-                                <div class="dot dot_green"></div>
-                                <b>Сделано</b>
-                                <button class="btn btn_clean ms-auto" type="button" onclick="addTask('ready')">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9.63125 0.13125H7.86875V7.11875H0.88125V8.88125H7.86875V15.8687H9.63125V8.88125H16.6187V7.11875H9.63125V0.13125Z" fill="#334D6E"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="column__list" data-task="ready"> 
-                            <div class="card" data-task-id="3">
-                                <div class="card__header mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="text_darkest me-2">ID: 3</div>
-                                        <div class="card__date text_light">23.02.2022</div>
-                                        <div class="d-flex ms-auto">
-                                            <button class="btn btn_clean js-edit-task" type="button">
-                                                <span class="table__icon table__icon_edit"></span>
-                                            </button>
-                                            <button class="btn btn_clean js-remove-task" type="button">
-                                                <span class="table__icon table__icon_remove"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4 class="card__title">Починить передовую електрику в дверях</h4>
-                                <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest">23.02.2022</span></p>
-                                <div class="card__action">
-                                    <div class="select select_task">
-                                        <select name="executor" class="select__control js-task-executer-select">
-                                            <option value="0" label="Андрей Сергеевич" selected></option>
-                                            <option value="1" label="Сергей Андреевич"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </main>
     <!-- MAIN END -->
-    <!-- TEMPLATES FOR CREATING START -->
-    <div class="card task-template" data-task-id="">
-        <div class="card__header mb-2">
-            <div class="d-flex align-items-center">
-                <div class="text_darkest me-2" data-t-id></div>
-                <div class="card__date text_light" data-t-date></div>
-                <div class="d-flex ms-auto">
-                    <button class="btn btn_clean js-edit-task" type="button">
-                        <span class="table__icon table__icon_edit"></span>
-                    </button>
-                    <button class="btn btn_clean js-remove-task" type="button">
-                        <span class="table__icon table__icon_remove"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <h4 class="card__title" data-t-title></h4>
-        <p class="mb-2"><span class="text_light">Дедлайн: </span> <span class="text_darkest" data-t-deadline></span></p>
-        <div class="card__action">
-            <div class="select select_task">
-                <select name="executor" class="select__control js-task-executer-select">
-                    <option value="0" label="Андрей Сергеевич" selected></option>
-                    <option value="1" label="Сергей Андреевич"></option>
-                </select>
-                <div class="select__icon"></div>
-            </div>
-        </div>
-    </div>
-    <!-- TEMPLATES FOR CREATING END -->
-    <!-- LOADER START -->
-    <div class="loader">
-        <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">
-            <div class="ldio-une1bimi3to">
-                <div></div>
-                <div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- LOADER END -->
-    <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
     <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="confiramtion-modal" data-mymodal-options="hashTracking: false">
         <p class="text_light"><b class="confiramtion-title"></b></p>
@@ -453,65 +283,6 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- ADD TASK FORM -->
-    <div class="mymodal" data-mymodal-id="add-task" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
-        <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Создать задачу</h2>
-            <form method="post" class="form js-add-task-from">
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="theme" placeholder="Тема*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control date-mask" name="deadline" placeholder="Дедлайн*" required>
-                </div>
-                <div class="input input_textarea mb-3">
-                    <textarea name="message" class="input__control" rows="6" placeholder="Сообщение"></textarea>
-                    <!-- <input type="text" class="input__control date-mask" name="deadline" placeholder="Дедлайн"> -->
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="executor" class="select__control" required>
-                        <option value="" label="Выбрать исполнителя*"></option>
-                        <option value="0" label="Андрей Сергеевич"></option>
-                        <option value="1" label="Сергей Андреевич"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="pt-3">
-                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- EDIT TASK FORM -->
-    <div class="mymodal" data-mymodal-id="edit-task" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
-        <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Редактировать задачу</h2>
-            <form method="post" class="form js-edit-task-form">
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="theme" placeholder="Тема*" required>
-                </div>
-                <div class="input mb-3">
-                    <input type="text" class="input__control date-mask" name="deadline" placeholder="Дедлайн*" required>
-                </div>
-                <div class="input input_textarea mb-3">
-                    <textarea name="message" class="input__control" rows="6" placeholder="Сообщение"></textarea>
-                </div>
-                <div class="select select_input mb-3">
-                    <select name="executor" class="select__control" required>
-                        <option value="" label="Выбрать исполнителя*" selected disabled></option>
-                        <option value="0" label="Андрей Сергеевич"></option>
-                        <option value="1" label="Сергей Андреевич"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="pt-3">
-                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
-    </div>
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>

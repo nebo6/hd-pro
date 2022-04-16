@@ -20,6 +20,10 @@ a:hover {
   cursor: pointer;
 }
 
+option {
+  font-size: inherit;
+}
+
 .template {
   display: none;
 }
@@ -218,6 +222,10 @@ a:hover {
 
 .input__control::placeholder {
   color: #9F9F9F;
+}
+
+.input__control.textarea {
+  min-height: 44px;
 }
 
 .input__control_small {
@@ -1310,6 +1318,23 @@ th:last-child {
   border: 1px solid #90A0B7;
 }
 
+.article {
+  color: #90A0B7;
+}
+
+.article iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 5px;
+}
+
+.article img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
 .page-section {
   padding-top: 50px;
 }
@@ -1573,6 +1598,19 @@ th:last-child {
   border-radius: 50%;
 }
 
+.how-it-works {
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 700px;
+  max-width: 100%;
+  min-width: 75%;
+}
+
+.how-it-works .article {
+  margin-bottom: 40px;
+}
+
 .alert__list {
   position: fixed;
   left: auto;
@@ -1708,6 +1746,16 @@ th:last-child {
 
 .mymodal-close:hover {
   color: #DB2927;
+}
+
+.mymodal-close_large {
+  width: 45px;
+  height: 45px;
+}
+
+.mymodal-close_large::before {
+  font-size: 35px;
+  line-height: 45px;
 }
 
 .mymodal__header {
