@@ -158,23 +158,13 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <!-- SEARCH FIELD START -->
-                    <div class="col-auto">
-                        <!-- INPUT START -->
-                        <label class="input header__search input_gap_right">
-                            <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
-                            <span class="input__icon input__icon_magnify"></span>
-                        </label>
-                        <!-- INPUT END -->
-                    </div>
-                    <!-- SEARCH FIELD END -->
                     <!-- HEADER PAGE TITLE START -->
                     <div class="col-auto">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-user-outline.svg" class="img">
+                                <img src="./img/icons/title-tasks.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Клиенты</h1>
+                            <h1 class="title title_page">Команда</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -183,7 +173,7 @@
                         <div class="d-flex flex-wrap align-items-center">
                             <div class="position-relative" data-dropdown-parent>
                                 <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
-                                    <span class="btn__icon btn__icon_plus btn__icon_left"></span>
+                                    <span class="btn__icon btn__icon_plus"></span>
                                     Добавить
                                 </button>
                                 <div class="dropdown dropdown_header arrow" data-dropdown="add">
@@ -280,91 +270,59 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <section class="page-section">
+            <section class="pt-4">
                 <div class="container-fluid">
-                    <!-- WIDGETS START -->
-                    <div class="widget my-3">
-                        <div class="row">
-                            <div class="col-auto me-auto">
-                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-project"> 
-                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
-                                        <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
-                                    </svg>                                    
-                                    Добавить
-                                </button>
+                    <div class="tab">
+                        <div class="tab__header d-flex flex-wrap">
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item active">Техники</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-master.html" class="tab__item">Художники</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item">Временные карты</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item">Объявления</a>
+                            </div>
+                        </div>
+                        <div class="tab__body py-4">
+                            <div class="row mx-0 team__content">
+                                <div class="col-md-6 team__content-item">
+                                    <div class="table-responsive">
+                                        <table class="table table_clickable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Имя</th>
+                                                    <th>Вид техника</th>
+                                                    <th>Email</th>
+                                                    <th>Телефон:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="js-team-tech" data-tech-id="0">
+                                                    <th>Андрей Петрович</th>
+                                                    <td>Job Title</td>
+                                                    <td>andr@gmail.com</td>
+                                                    <td>+3333333333</td>
+                                                </tr>
+                                                <tr class="js-team-tech active" data-tech-id="1">
+                                                    <th>Андрей Петрович</th>
+                                                    <td>Job Title</td>
+                                                    <td>andr@gmail.com</td>
+                                                    <td>+3333333333</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 team__content-item js-team-card-wrapper">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- WIDGETS END -->
-                    <!-- ESTIMATES TABLE START -->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Марка автомобиля</th>
-                                    <th>VIN-код</th>
-                                    <th>Номер машины</th>
-                                    <th>Техник</th>
-                                    <th>Заказчик</th>
-                                    <th>Цена</th>
-                                    <th>Дата создания</th>
-                                    <th class="text-center">Просмотр</th>
-                                    <th class="text-center">Статус</th>
-                                    <th class="text-center">Функции</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-estimates-row="1">
-                                    <td>1</td>
-                                    <td>LAND CRUISER PRADO</td>
-                                    <td>33-443-222233</td>
-                                    <td>AA333432244</td>
-                                    <td>Иван Петров</td>
-                                    <td>Иван Петров</td>
-                                    <td>10 000$</td>
-                                    <td>20 октября 2022 год</td>
-                                    <td>
-                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed(1)">
-                                            <span class="table__icon table__icon_show"></span>
-                                        </button>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="radio__list radio__list_table">
-                                            <label class="input input_radio">
-                                                <input 
-                                                    type="radio" 
-                                                    class="input__control" 
-                                                    name="estimates[1]" 
-                                                    checked 
-                                                    value="0" 
-                                                    onchange="onEstimatesStatusChanged(event, 1)"
-                                                > <!-- onEstimatesStatusChanged(event, id) -->
-                                                <span class="input__label input__label_green">Оценено</span>
-                                            </label>
-                                            <label class="input input_radio">
-                                                <input 
-                                                    type="radio" 
-                                                    class="input__control" 
-                                                    name="estimates[1]" 
-                                                    value="1" 
-                                                    onchange="onEstimatesStatusChanged(event, 1)"
-                                                >
-                                                <span class="input__label input__label_green">Отремонтировано</span>
-                                            </label>
-                                            <input type="hidden" class="radio__prev" value="0">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesEdited(1)">
-                                            <span class="table__icon table__icon_edit_red_fill"></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- ESTIMATES TABLE END -->
                 </div>
             </section>
         </div>
@@ -381,6 +339,8 @@
             </div>
         </div>
     </div>
+    <!-- LOADER END -->
+    <!-- NOTIFICATIONS LIST START -->
     <div class="alert__list">
         <div class="alert template" style="display: none;">
             <button class="btn btn_clean alert__close"></button>
@@ -400,8 +360,7 @@
             </div>
         </div>
     </div>
-    <!-- LOADER END -->
-    <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
+    <!-- NOTIFICATIONS LIST END -->
     <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="confiramtion-modal" data-mymodal-options="hashTracking: false">
         <p class="text_light"><b class="confiramtion-title"></b></p>
@@ -411,6 +370,59 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
+    <!-- TECHNICIAN PROFILE CARD TEMPLATE -->
+    <div class="team-card tech-template d-none">
+        <div class="row mb-2">
+            <div class="col-auto">
+                <div class="team-card__img" style="background-image: url('./img/technitian.jpg');" data-t-img></div>
+            </div>
+            <div class="col">
+                <div class="team-card__info">
+                    <h3 class="title team-card__title mb-4" data-t-name>Андрей Петрович</h3>
+                    <div class="mb-4">
+                        <div><a href="tel:+34353535345"  data-t-phone>+34353535345</a></div>
+                        <div><a href="mailto:msdesdfsd@mail.ua"  data-t-mail>msdesdfsd@mail.ua</a></div>
+                        <div><span data-t-address>улица Большая Антоновская 56</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto pe-2">
+                            <a href="https://telegram.me/log" class="team-card__social" data-t-tg>
+                                <img class="team-card__social-icon" src="./img/icons/team-tg.svg" alt="https://telegram.me/log">
+                            </a>
+                        </div>
+                        <div class="col-auto px-2">
+                            <a href="https://wa.me/34353535345" class="team-card__social" data-t-wa>
+                                <img class="team-card__social-icon" src="./img/icons/team-wa.svg" alt="https://wa.me/34353535345">
+                            </a>
+                        </div>
+                        <div class="col-auto ps-2">
+                            <a href="viber://pa?chatURI=[public account URI]" class="team-card__social"  data-t-viber>
+                                <img class="team-card__social-icon" src="./img/icons/team-viber.svg" alt="viber://pa?chatURI=[public account URI]">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-card__item mb-4">
+            <p class="text_bolder mb-0">Дата регистрации: <span data-t-reg>22.02.2005</span></p>
+        </div>
+        <div class="team-card__item">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text_bolder mb-0">Заработок за весь период: <b data-t-summ>14 500$</b></p>
+                    <p class="text_bolder mb-0">Оплачено за весь период: <b data-t-paid>3 500$</b></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text_bolder mb-0">Выполненные машины: <b data-t-cars>2</b></p>
+                    <p class="text_bolder mb-0">Все составленные сметы: <b data-t-estimates>0</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="team-card__list">
+            
+        </div>
+    </div>    
     <!-- ESTIMATES AUTO IMAGES START -->
     <div class="mymodal mymodal_estimates" data-mymodal-id="estimates-damage" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
@@ -728,92 +740,6 @@
         </div>
     </div>
     <!-- ESTIMATES AUTO IMAGES END -->
-    <!-- ESTIMATES DETAIL INFO START -->
-    <div class="mymodal" data-mymodal-id="show-estimates" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">LAND CRUISER PRADO</h4>
-            </header>
-            <div class="mymodal__body ">
-                <div class="project__image-wrapper">
-                    <img src="" alt="" data-t-img class="project__image">
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>Выполняемые услуги:</th>
-                                <td data-t-services></td>
-                            </tr>
-                            <tr>
-                                <th>Цена на основе матрицы:</th>
-                                <td data-t-price></td>
-                            </tr>
-                            <tr>
-                                <th>Дополнительные услуги:</th>
-                                <td data-t-additional></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="mymodal__footer">
-                <a class="btn btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-estimate>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                    </svg>Скачать смету
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="mymodal__body project-modal-template d-none">
-        <div class="project__image-wrapper">
-            <img src="" alt="" data-t-img class="project__image">
-        </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>VIN код:</th>
-                        <td data-t-vin></td>
-                    </tr>
-                    <tr>
-                        <th>Год:</th>
-                        <td data-t-year></td>
-                    </tr>
-                    <tr>
-                        <th>Модель:</th>
-                        <td data-t-model></td>
-                    </tr>
-                    <tr>
-                        <th>Цвет:</th>
-                        <td data-t-color></td>
-                    </tr>
-                    <tr>
-                        <th>Пробег:</th>
-                        <td data-t-mileage></td>
-                    </tr>
-                    <tr>
-                        <th>Дата добавления в систему:</th>
-                        <td data-t-date></td>
-                    </tr>
-                    <tr>
-                        <th>Имя техника:</th>
-                        <td data-t-master></td>
-                    </tr>
-                    <tr>
-                        <th>О клиенте:</th>
-                        <td data-t-client></td>
-                    </tr>
-                    <tr>
-                        <th>Страховка:</th>
-                        <td data-t-insurance></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
@@ -827,6 +753,8 @@
     <script src="./js/clients.js"></script>
     <script src="./js/projects.js"></script>
     <script src="./js/estimates.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/team.js"></script>
     <script src="./js/custom.js"></script>
 </body>
 </html>

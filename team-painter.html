@@ -164,7 +164,7 @@
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-tasks.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Как это работает</h1>
+                            <h1 class="title title_page">Команда</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -270,10 +270,151 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            
+            <section class="pt-4">
+                <div class="container-fluid">
+                    <div class="tab">
+                        <div class="tab__header d-flex flex-wrap">
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item">Техники</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-master.html" class="tab__item active">Художники</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item">Временные карты</a>
+                            </div>
+                            <div class="col">
+                                <a href="/team-tech.html" class="tab__item">Объявления</a>
+                            </div>
+                        </div>
+                        <div class="tab__body py-4">
+                            <div class="row mx-0 team__content">
+                                <div class="col-md-6 team__content-item">
+                                    <div class="table-responsive">
+                                        <table class="table table_clickable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Имя</th>
+                                                    <th>Вид техника</th>
+                                                    <th>Email</th>
+                                                    <th>Телефон:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="js-team-tech" data-tech-id="0">
+                                                    <th>Андрей Петрович</th>
+                                                    <td>Job Title</td>
+                                                    <td>andr@gmail.com</td>
+                                                    <td>+3333333333</td>
+                                                </tr>
+                                                <tr class="js-team-tech active" data-tech-id="1">
+                                                    <th>Андрей Петрович</th>
+                                                    <td>Job Title</td>
+                                                    <td>andr@gmail.com</td>
+                                                    <td>+3333333333</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 team__content-item js-team-card-wrapper">
+                                    <div class="team-card">
+                                        <div class="row mb-2">
+                                            <div class="col-auto">
+                                                <div class="team-card__img" style="background-image: url('./img/technitian.jpg');" data-t-img></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="team-card__info">
+                                                    <h3 class="title team-card__title mb-4" data-t-name>Андрей Петрович</h3>
+                                                    <div class="mb-4">
+                                                        <div><a href="tel:+34353535345"  data-t-phone>+34353535345</a></div>
+                                                        <div><a href="mailto:msdesdfsd@mail.ua"  data-t-mail>msdesdfsd@mail.ua</a></div>
+                                                        <div><span data-t-address>улица Большая Антоновская 56</span></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-auto pe-2">
+                                                            <a href="https://telegram.me/log" class="team-card__social" data-t-tg>
+                                                                <img class="team-card__social-icon" src="./img/icons/team-tg.svg" alt="https://telegram.me/log">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-auto px-2">
+                                                            <a href="https://wa.me/34353535345" class="team-card__social" data-t-wa>
+                                                                <img class="team-card__social-icon" src="./img/icons/team-wa.svg" alt="https://wa.me/34353535345">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-auto ps-2">
+                                                            <a href="viber://pa?chatURI=[public account URI]" class="team-card__social"  data-t-viber>
+                                                                <img class="team-card__social-icon" src="./img/icons/team-viber.svg" alt="viber://pa?chatURI=[public account URI]">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="team-card__item mb-4">
+                                            <p class="text_bolder mb-0">Дата регистрации: <span data-t-reg>22.02.2005</span></p>
+                                        </div>
+                                        <div class="team-card__item">
+                                            <h4 class="text_bolder">Зарплата за весь период: <b>14 500$</b></h4>
+                                        </div>
+                                        <div class="team-card__item">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="text_bolder mb-0">Заработок за весь период: <b data-t-summ>14 500$</b></p>
+                                                    <p class="text_bolder mb-0">Оплачено за весь период: <b data-t-paid>3 500$</b></p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="text_bolder mb-0">Выполненные машины: <b data-t-cars>2</b></p>
+                                                    <p class="text_bolder mb-0">Все составленные сметы: <b data-t-estimates>0</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="team-card__datepicker"></div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
     <!-- MAIN END -->
+    <!-- LOADER START -->
+    <div class="loader">
+        <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">
+            <div class="ldio-une1bimi3to">
+                <div></div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LOADER END -->
+    <!-- NOTIFICATIONS LIST START -->
+    <div class="alert__list">
+        <div class="alert template" style="display: none;">
+            <button class="btn btn_clean alert__close"></button>
+            <div class="alert__body">
+                <div class="d-flex flex-wrap align-items-center mb-2">
+                    <div class="col-auto">
+                        <span class="alert__icon"></span>
+                    </div>
+                    <div class="col min-w-0">
+                        <h4 class="alert__title">Title</h4>
+                    </div>
+                </div>
+                <p class="alert__description">Description</p>
+            </div>
+            <div class="alert__progress-wrapper">
+                <div class="alert__progress"></div>
+            </div>
+        </div>
+    </div>
+    <!-- NOTIFICATIONS LIST END -->
     <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="confiramtion-modal" data-mymodal-options="hashTracking: false">
         <p class="text_light"><b class="confiramtion-title"></b></p>
@@ -283,6 +424,60 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
+    <!-- TECHNICIAN PROFILE CARD TEMPLATE -->
+    <div class="team-card painter-template d-none">
+        <div class="row mb-2">
+            <div class="col-auto">
+                <div class="team-card__img" style="background-image: url('./img/technitian.jpg');" data-t-img></div>
+            </div>
+            <div class="col">
+                <div class="team-card__info">
+                    <h3 class="title team-card__title mb-4" data-t-name>Андрей Петрович</h3>
+                    <div class="mb-4">
+                        <div><a href="tel:+34353535345"  data-t-phone>+34353535345</a></div>
+                        <div><a href="mailto:msdesdfsd@mail.ua"  data-t-mail>msdesdfsd@mail.ua</a></div>
+                        <div><span data-t-address>улица Большая Антоновская 56</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto pe-2">
+                            <a href="https://telegram.me/log" class="team-card__social" data-t-tg>
+                                <img class="team-card__social-icon" src="./img/icons/team-tg.svg" alt="https://telegram.me/log">
+                            </a>
+                        </div>
+                        <div class="col-auto px-2">
+                            <a href="https://wa.me/34353535345" class="team-card__social" data-t-wa>
+                                <img class="team-card__social-icon" src="./img/icons/team-wa.svg" alt="https://wa.me/34353535345">
+                            </a>
+                        </div>
+                        <div class="col-auto ps-2">
+                            <a href="viber://pa?chatURI=[public account URI]" class="team-card__social"  data-t-viber>
+                                <img class="team-card__social-icon" src="./img/icons/team-viber.svg" alt="viber://pa?chatURI=[public account URI]">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-card__item mb-4">
+            <p class="text_bolder mb-0">Дата регистрации: <span data-t-reg>22.02.2005</span></p>
+        </div>
+        <div class="team-card__item">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text_bolder mb-0">Заработок за весь период: <b data-t-summ>14 500$</b></p>
+                    <p class="text_bolder mb-0">Оплачено за весь период: <b data-t-paid>3 500$</b></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text_bolder mb-0">Выполненные машины: <b data-t-cars>2</b></p>
+                    <p class="text_bolder mb-0">Все составленные сметы: <b data-t-estimates>0</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="team-card__list">
+            
+        </div>
+    </div>    
+    
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
@@ -296,6 +491,7 @@
     <script src="./js/projects.js"></script>
     <script src="./js/estimates.js"></script>
     <script src="./js/tasks.js"></script>
+    <script src="./js/team.js"></script>
     <script src="./js/custom.js"></script>
 </body>
 </html>

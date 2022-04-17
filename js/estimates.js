@@ -110,6 +110,93 @@ function removeEstimatesImage(event) {
     removeBodyLoader()
 }
 
+function onEstimatesEdited(id) {
+    console.log("edit estimates");
+}
+// create mob estimates
+const dummyEstimates = {
+    id: 1,
+    project: "LAND CRUISER PRADO",
+    vin: "33-443-222233",
+    number: "AA333432244",
+    master: "Иван Григорьев",
+    client: "Сергей Антонов",
+    sum: "10 000$",
+    created: "19.10.2022"
+}
+
+function createMobEstimates(data, additionalClass) {
+    return `<table class="table table_card ${additionalClass}">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>${data.id}</td>
+            </tr>
+            <tr>
+                <th>Марка машины</th>
+                <td>${data.project}</td>
+            </tr>
+            <tr>
+                <th>VIN-код</th>
+                <td>${data.vin}</td>
+            </tr>
+            <tr>
+                <th>Номер машины</th>
+                <td>${data.number}</td>
+            </tr>
+            <tr>
+                <th>Тенхник</th>
+                <td>${data.master}</td>
+            </tr>
+            <tr>
+                <th>Заказчик</th>
+                <td>${data.client}</td>
+            </tr>
+            <tr>
+                <th>Цена</th>
+                <td>${data.sum}</td>
+            </tr>
+            <tr>
+                <th>Дата создания</th>
+                <td>${data.created}</td>
+            </tr>
+            <tr>
+                <th>Просмотр</th>
+                <td>
+                    <button type="button" class="btn btn_clean d-block" onclick="onEstimatesShowed(${data.id})">
+                        <span class="table__icon table__icon_show"></span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>Функции</th>
+                <td>
+                    <button type="button" class="btn btn_clean d-block" onclick="onEstimatesEdited(${data.id})">
+                        <span class="table__icon table__icon_edit_red_fill"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="text-center">
+                <td colspan="2">
+                    <div class="radio__list radio__list_table">
+                        <label class="input input_radio">
+                            <input type="radio" class="input__control" name="estimates[${data.id}]" checked="" value="0" onchange="onEstimatesStatusChanged(event, ${data.id})"> 
+                            <span class="input__label input__label_green">${getLanguage() === "ru" ? "Оценено" : "Rated"}</span>
+                        </label>
+                        <label class="input input_radio">
+                            <input type="radio" class="input__control" name="estimates[${data.id}]" value="1" onchange="onEstimatesStatusChanged(event, ${data.id})">
+                            <span class="input__label input__label_green">${getLanguage() === "ru" ? "Отремонтировано" : "Fixed"}</span>
+                        </label>
+                        <input type="hidden" class="radio__prev" value="0">
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>`
+}
+
 $(function() {
     $(document).on('change', ".estimates__item input", onEstimatesFileSelected)
     $(document).on("click", ".estimates__item .btn_remove", removeEstimatesImage)

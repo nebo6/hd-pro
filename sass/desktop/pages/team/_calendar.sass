@@ -1,0 +1,41 @@
+.team-card__datepicker
+    .activeDay
+        background-color: $color-red
+        color: #fff
+    .ui-datepicker
+        width: 100%
+        .ui-icon
+            position: static
+            display: block
+            width: 100%
+            height: 100%
+            background-size: contain
+            background-position: center
+            margin: 0
+        .ui-state-active
+            color: inherit
+    .ui-datepicker-header
+        background-color: $color-red
+    .ui-datepicker-prev
+        cursor: pointer
+        .ui-icon
+            background-size: 14px 14px
+            background-image: url("data:image/svg+xml,%3Csvg width='5' height='8' viewBox='0 0 5 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='3.69922' width='1' height='5.16101' transform='rotate(45 3.69922 0)' fill='%23FFFFFF'/%3E%3Crect y='3.73511' width='1' height='5.13811' transform='rotate(-45 0 3.73511)' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
+    .ui-datepicker-next
+        cursor: pointer
+        .ui-icon
+            background-size: 14px 14px
+            background-image: url("data:image/svg+xml,%3Csvg width='5' height='8' viewBox='0 0 5 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.707031' y='7.36841' width='1' height='5.16101' transform='rotate(-135 0.707031 7.36841)' fill='%23FFFFFF'/%3E%3Crect x='4.40625' y='3.63318' width='1' height='5.13811' transform='rotate(135 4.40625 3.63318)' fill='%23FFFFFF'/%3E%3C/svg%3E%0A")
+    .ui-datepicker select.ui-datepicker-month,
+    .ui-datepicker select.ui-datepicker-year
+        width: auto
+        background: transparent
+        appereance: none
+        -webkit-appearance: none
+        color: inherit
+        border: 0
+        padding: 4px
+        cursor: pointer
+        outline: 0
+        option
+            color: #000
