@@ -16,55 +16,56 @@ const dummyTech = {
 }
 
 function createTechCard(data) {
-    const tech = $(".team-card.tech-template").clone();
-    tech.removeClass("tech-template d-none");
+    const temporary = $(".team-card.tech-template").clone();
+    temporary.removeClass("tech-template d-none");
 
-    tech.find("[data-t-img]").css("background-image", "url("+data.img+")");
-    tech.find("[data-t-phone]")
+    temporary.find("[data-t-img]").css("background-image", "url("+data.img+")");
+    temporary.find("[data-t-name]").text(data.name)
+    temporary.find("[data-t-phone]")
         .text(data.phone)
         .attr("href", "tel:"+data.phone)
-    tech.find("[data-t-mail]")
+    temporary.find("[data-t-mail]")
         .text(data.mail)
         .attr("href", "mailto:"+data.mail)
-    tech.find("[data-t-address]").text(data.address)
+    temporary.find("[data-t-address]").text(data.address)
 
     if (data.tg) {
-        tech.find("[data-t-tg]").attr("href", "https://telegram.me/"+data.tg)
-        tech.find("[data-t-tg] img").attr({
+        temporary.find("[data-t-tg]").attr("href", "https://telegram.me/"+data.tg)
+        temporary.find("[data-t-tg] img").attr({
             "alt": "https://telegram.me/"+data.tg,
             "title": "https://telegram.me/"+data.tg
         })
     } else {
-        tech.find("[data-t-tg]").parent().remove()
+        temporary.find("[data-t-tg]").parent().remove()
     }
 
     if (data.wa) {
-        tech.find("[data-t-wa]").attr("href", "https://wa.me/"+data.tg)
-        tech.find("[data-t-wa] img").attr({
+        temporary.find("[data-t-wa]").attr("href", "https://wa.me/"+data.tg)
+        temporary.find("[data-t-wa] img").attr({
             "alt": "https://wa.me/"+data.tg,
             "title": "https://wa.me/"+data.tg
         })
     } else {
-        tech.find("[data-t-wa]").parent().remove()
+        temporary.find("[data-t-wa]").parent().remove()
     }
 
     if (data.viber) {
-        tech.find("[data-t-viber]").attr("href", "viber://pa?chatURI="+data.viber)
-        tech.find("[data-t-viber] img").attr({
+        temporary.find("[data-t-viber]").attr("href", "viber://pa?chatURI="+data.viber)
+        temporary.find("[data-t-viber] img").attr({
             "alt": "viber://pa?chatURI="+data.viber,
             "title": "viber://pa?chatURI="+data.viber
         })
     } else {
-        tech.find("[data-t-viber]").parent().remove()
+        temporary.find("[data-t-viber]").parent().remove()
     }
 
-    tech.find("[data-t-reg]").text(data.created)
-    tech.find("[data-t-summ]").text(data.summ)
-    tech.find("[data-t-paid]").text(data.paid)
-    tech.find("[data-t-cars]").text(data.projects)
+    temporary.find("[data-t-reg]").text(data.created)
+    temporary.find("[data-t-summ]").text(data.summ)
+    temporary.find("[data-t-paid]").text(data.paid)
+    temporary.find("[data-t-cars]").text(data.projects)
 
     if (data.estimates.length) {
-        tech.find("[data-t-estimates]").text(data.estimates.list)
+        temporary.find("[data-t-estimates]").text(data.estimates.list)
         let list = "";
 
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
@@ -79,13 +80,14 @@ function createTechCard(data) {
             }, "team-card__estimates") // look at estimates.js
         });
 
-        tech.find(".team-card__list").append($(list))
+        temporary.find(".team-card__list").append($(list))
     }
     
-    $(".js-team-card-wrapper").html(tech)
+    $(".js-team-card-wrapper").html(temporary)
 }
 // TECHNICHIAN END
-const datePainterImages = {
+// PAINTER START
+let datePainterImages = {
     "04.04.2022": {
         start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
         end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
@@ -103,79 +105,132 @@ const datePainterImages = {
         end: ""
     },
 }
+const dummyPainter = {
+    img: './img/technitian.jpg',
+    name: "Андрей Петрович",
+    phone: "+34353535345",
+    mail: "msdesdfsd@mail.ua",
+    address: "улица Большая Антоновская 56",
+    tg: "log",
+    wa: "34353535345",
+    viber: "viber",
+    created: "20.11.2021",
+    summ: "14 500$",
+    hours: "2",
+    photos: "12",
+    schedule: datePainterImages
+}
+function painterActiveDay(data, key) { return data[key] ? "activeDay" : "" }
 
-function painterActiveDay(data, key) {
-    return data[key] ? "activeDay" : ""
+function initDatepicker(selector, schedule) {
+    selector.datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "c-10:c",
+        beforeShowDay: function(date, ui) {
+            const key = `${formattedNumber(date.getDate())}.${formattedNumber(date.getMonth()+1)}.${date.getFullYear()}`            
+            return [1, painterActiveDay(schedule, key)];
+        },
+        onSelect: function(t, ui) {
+            if (schedule[t]) {
+                Fancybox.show([{
+                    src  : schedule[t].start,
+                    caption : getLanguage() === "ru" ? 'Начало работы' : 'Beginning of work',
+                    thumb   : schedule[t].start
+                },{
+                    src  : schedule[t].end,
+                    caption : getLanguage() === "ru" ? 'Конец работы' : 'Ending of work',
+                    thumb   : schedule[t].end
+                }], {
+                    infinite : false
+                });
+            }
+        }
+    })
 }
 
 function createPainterCard(data) {
-    const tech = $(".team-card.tech-template").clone();
-    tech.removeClass("tech-template d-none");
+    const temporary = $(".team-card.painter-template").clone();
+    temporary.removeClass("painter-template d-none");
 
-    tech.find("[data-t-img]").css("background-image", "url("+data.img+")");
-    tech.find("[data-t-phone]")
+    temporary.find("[data-t-img]").css("background-image", "url("+data.img+")");
+    temporary.find("[data-t-name]").text(data.name)
+    temporary.find("[data-t-phone]")
         .text(data.phone)
         .attr("href", "tel:"+data.phone)
-    tech.find("[data-t-mail]")
+    temporary.find("[data-t-mail]")
         .text(data.mail)
         .attr("href", "mailto:"+data.mail)
-    tech.find("[data-t-address]").text(data.address)
+    temporary.find("[data-t-address]").text(data.address)
 
     if (data.tg) {
-        tech.find("[data-t-tg]").attr("href", "https://telegram.me/"+data.tg)
-        tech.find("[data-t-tg] img").attr({
+        temporary.find("[data-t-tg]").attr("href", "https://telegram.me/"+data.tg)
+        temporary.find("[data-t-tg] img").attr({
             "alt": "https://telegram.me/"+data.tg,
             "title": "https://telegram.me/"+data.tg
         })
     } else {
-        tech.find("[data-t-tg]").parent().remove()
+        temporary.find("[data-t-tg]").parent().remove()
     }
 
     if (data.wa) {
-        tech.find("[data-t-wa]").attr("href", "https://wa.me/"+data.tg)
-        tech.find("[data-t-wa] img").attr({
+        temporary.find("[data-t-wa]").attr("href", "https://wa.me/"+data.tg)
+        temporary.find("[data-t-wa] img").attr({
             "alt": "https://wa.me/"+data.tg,
             "title": "https://wa.me/"+data.tg
         })
     } else {
-        tech.find("[data-t-wa]").parent().remove()
+        temporary.find("[data-t-wa]").parent().remove()
     }
 
     if (data.viber) {
-        tech.find("[data-t-viber]").attr("href", "viber://pa?chatURI="+data.viber)
-        tech.find("[data-t-viber] img").attr({
+        temporary.find("[data-t-viber]").attr("href", "viber://pa?chatURI="+data.viber)
+        temporary.find("[data-t-viber] img").attr({
             "alt": "viber://pa?chatURI="+data.viber,
             "title": "viber://pa?chatURI="+data.viber
         })
     } else {
-        tech.find("[data-t-viber]").parent().remove()
+        temporary.find("[data-t-viber]").parent().remove()
     }
 
-    tech.find("[data-t-reg]").text(data.created)
-    tech.find("[data-t-summ]").text(data.summ)
-    tech.find("[data-t-paid]").text(data.paid)
-    tech.find("[data-t-cars]").text(data.projects)
+    temporary.find("[data-t-reg]").text(data.created)
+    temporary.find("[data-t-summ]").text(data.summ)
 
-    if (data.estimates.length) {
-        tech.find("[data-t-estimates]").text(data.estimates.list)
-        let list = "";
+    temporary.find("[data-t-hours]").text(data.hours)
+    temporary.find("[data-t-photos]").text(data.photos)
+    // DATEPICKER
+    initDatepicker(temporary.find(".team-card__datepicker"), data.schedule)
+    // form
+    $(".painter-photo")[0].onsubmit = function(event) {
+        onLoadPainterImg(event, function (newSchedule) {
+            if (temporary.find(".team-card__datepicker").hasClass("hasDatepicker"))
+                temporary.find(".team-card__datepicker").datepicker("destroy")
 
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        data.estimates.forEach((element, index) => {
-            list += createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
-                ...element,
-                id: index // REMOVE INDEX USE CORRECT DATA
-            }, "team-card__estimates") // look at estimates.js
+            initDatepicker(temporary.find(".team-card__datepicker"), newSchedule)
+            temporary.find(".team-card__datepicker").datepicker("refresh")
         });
-
-        tech.find(".team-card__list").append($(list))
     }
-    
-    $(".js-team-card-wrapper").html(tech)
+    $(".js-team-card-wrapper").html(temporary)
+}
+
+function onLoadPainterImg(event, callback) {
+    event.preventDefault();
+    const formData = new FormData(event.target)
+
+    addBodyLoader();
+    // server
+    // if success get new schedule with new image
+    callback({
+        ...dummyPainter.schedule,
+        "15.04.2022": {
+            start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+            end: ""
+        },
+    })
+    $('[data-mymodal-id="load-photo"]').mymodal().close()
+    // error alertNotice
+    // finally
+    removeBodyLoader();
 }
 
 $(function() {
@@ -201,28 +256,24 @@ $(function() {
         }
     })
     // PAINTER
-    $(".team-card__datepicker").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        beforeShowDay: function(date, ui) {
-            const key = `${formattedNumber(date.getDate())}.${formattedNumber(date.getMonth()+1)}.${date.getFullYear()}`            
-            return [1, painterActiveDay(datePainterImages, key)];
-        },
-        onSelect: function(t, ui) {
-            console.log(t, ui);
-            if (datePainterImages[t]) {
-                Fancybox.show([{
-                    src  : datePainterImages[t].start,
-                    caption : getLanguage() === "ru" ? 'Начало работы' : 'Beginning of work',
-                    thumb   : datePainterImages[t].start
-                },{
-                    src  : datePainterImages[t].end,
-                    caption : getLanguage() === "ru" ? 'Конец работы' : 'Ending of work',
-                    thumb   : datePainterImages[t].end
-                }], {
-                    infinite : false
-                });
-            }
+    $(document).on("click", ".js-team-painter", function() {
+        if (!$(this).hasClass("active")) {
+            // remove old active
+            // set new active
+            const tr = $(this)
+            const id = tr.data("data-painter-id");
+            addBodyLoader();
+            // server request with id
+            // if success get data and
+            setTimeout(() => {
+                createPainterCard(dummyPainter)
+                $(".js-team-painter.active").removeClass("active");
+                console.log($(this));
+                tr.addClass("active")
+                removeBodyLoader(); // REMOVE ON PROD
+            }, 1000)
+            // finally
+            // removeBodyLoader(); UNCOMMENT ON PROD
         }
     })
 })

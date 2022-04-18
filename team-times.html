@@ -275,13 +275,13 @@
                     <div class="tab">
                         <div class="tab__header d-flex flex-wrap">
                             <div class="col">
-                                <a href="/team-tech.html" class="tab__item active">Техники</a>
+                                <a href="/team-tech.html" class="tab__item">Техники</a>
                             </div>
                             <div class="col">
-                                <a href="/team-painter.html" class="tab__item">Художники</a>
+                                <a href="/team-master.html" class="tab__item">Художники</a>
                             </div>
                             <div class="col">
-                                <a href="/team-times.html" class="tab__item">Временные карты</a>
+                                <a href="/team-times.html" class="tab__item active">Временные карты</a>
                             </div>
                             <div class="col">
                                 <a href="/team-notifications.html" class="tab__item">Объявления</a>
@@ -289,35 +289,100 @@
                         </div>
                         <div class="tab__body py-4">
                             <div class="row mx-0 team__content">
-                                <div class="col-md-6 team__content-item">
-                                    <div class="table-responsive">
-                                        <table class="table table_clickable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Имя</th>
-                                                    <th>Вид техника</th>
-                                                    <th>Email</th>
-                                                    <th>Телефон:</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="js-team-tech" data-tech-id="0">
-                                                    <th>Андрей Петрович</th>
-                                                    <td>Job Title</td>
-                                                    <td>andr@gmail.com</td>
-                                                    <td>+3333333333</td>
-                                                </tr>
-                                                <tr class="js-team-tech active" data-tech-id="1">
-                                                    <th>Андрей Петрович</th>
-                                                    <td>Job Title</td>
-                                                    <td>andr@gmail.com</td>
-                                                    <td>+3333333333</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Маляр</th>
+                                                <th>Локация</th>
+                                                <th>Дата рабочего дня</th>
+                                                <th>Начало</th>
+                                                <th>Завершение</th>
+                                                <th class="text-center">До</th>
+                                                <th class="text-center">После</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-team-time-id="0">
+                                                <td>0</td>
+                                                <td>Андрей Петрович</td>
+                                                <td>Vellagio street</td>
+                                                <td>19.08.2021</td>
+                                                <td>07:00</td>
+                                                <td>17:00</td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery0" class="btn btn_clean" data-caption="До"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery0" class="btn btn_clean" data-caption="После"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button">
+                                                            <span class="table__icon table__icon_remove"></span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr data-team-time-id="1">
+                                                <td>1</td>
+                                                <td>Имя Фамилия</td>
+                                                <td>Vellagio street</td>
+                                                <td>19.08.2021</td>
+                                                <td>07:00</td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery1" class="btn btn_clean" data-caption="До"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button"><span class="table__icon table__icon_photo-add_red mx-auto"></span></button>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button">
+                                                            <span class="table__icon table__icon_remove"></span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr data-team-time-id="2">
+                                                <td>2</td>
+                                                <td>Андрей Петрович</td>
+                                                <td>Vellagio street</td>
+                                                <td>19.08.2021</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button"><span class="table__icon table__icon_photo-add_red mx-auto"></span></button>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button"><span class="table__icon table__icon_photo-add_red mx-auto"></span></button>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn_clean" type="button">
+                                                            <span class="table__icon table__icon_remove"></span>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-md-6 team__content-item js-team-card-wrapper"></div>
                             </div>
                         </div>
                     </div>
