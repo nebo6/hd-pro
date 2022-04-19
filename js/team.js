@@ -232,6 +232,81 @@ function onLoadPainterImg(event, callback) {
     // finally
     removeBodyLoader();
 }
+// PAINTER END
+// TIME START
+function cretaePhotoBtn({id, href, caption}) {
+    return `<a href="${href}" data-fancybox="gallery${id}" class="btn btn_clean" data-caption="${caption}"><span class="table__icon table__icon_photo_red mx-auto"></span></a>`
+}
+
+function onUploadClicked(event) {
+    const id = $(this).closest('[data-team-time-id]').attr('data-team-time-id')
+    const form = $('.time-photo');
+    form[0].onsubmit = function(event) {
+        event.preventDefault();
+        console.log("submit");
+        addBodyLoader();
+        // server request with id
+        // get loaded image href and time
+        // on success
+        const data = {
+            start: {
+                img: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+                time: new Date().toLocaleTimeString()
+            },
+            end: null
+        }
+        const tr = $('[data-team-time-id="'+id+'"]');
+        if (data.start) {
+            tr.find("[data-time-start]").text(data.start.time)
+            tr.find("[data-time-start-wrapper]").html(cretaePhotoBtn({
+                id, 
+                href: data.start.img,
+                caption: getLanguage() === "ru" ? "До" : "Start", 
+            }))
+        }
+        if (data.end) {
+            tr.find("[data-time-end]").text(data.start.time)
+            tr.find("[data-time-end-wrapper]").html(cretaePhotoBtn({
+                id, 
+                href: data.start.img,
+                caption: getLanguage() === "ru" ? "После" : "End", 
+            }))
+        }
+        $('[data-mymodal-id="load-photo"]').mymodal().close()
+        // onError
+        // alertNotice(title, description, "danger")
+        // finally
+        removeBodyLoader()
+    }
+    $('[data-mymodal-id="load-photo"]').mymodal().open()
+}
+
+// REMOVE PROJECT FROM LIST
+function onTimeRemoveConfirmed(id) {
+    if (isNaN(parseInt(id))) alert("Something went wrong")
+    addBodyLoader()
+    setTimeout(function() {
+        const target = $('[data-team-time-id="'+id+'"]')
+        target.remove()
+        removeBodyLoader()
+    }, 2000)
+}
+
+function onTimeRemove(event) {
+    const id = $(this).closest('[data-team-time-id]').attr('data-team-time-id');
+    const modal = $('.mymodal_confirmation');
+    $(document).on("opening", modal, function() {
+        const title = getLanguage() === "ru" ? `Вы уверены, что хотите удалить временную карту ID ${id}?` : `Are you sure you want to delete a time card ID${id}?`
+        $(this).find(".confiramtion-title").text(title);
+    });
+    $(document).on("confirmation", modal, onTimeRemoveConfirmed.bind(this, id));
+    $(document).on("closed", modal, function() {
+        $(this).find(".confiramtion-title").text("")
+        $(document).off("confirmation", onTimeRemoveConfirmed);
+    });
+
+    modal.mymodal().open();
+}
 
 $(function() {
     // CLICK ON THECHNITIAN TABLE
@@ -276,4 +351,7 @@ $(function() {
             // removeBodyLoader(); UNCOMMENT ON PROD
         }
     })
+    // TEAM TIMES
+    $(document).on("click", ".js-upload-time-photo", onUploadClicked)
+    $(document).on("click", ".js-remove-time", onTimeRemove)
 })
