@@ -169,6 +169,10 @@ option {
   min-width: 0;
 }
 
+.tox-tinymce-aux {
+  z-index: 10001 !important;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 12px;
@@ -377,6 +381,46 @@ option {
   color: #fff;
 }
 
+.input_checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.input_checkbox .checkbox__icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #29B949;
+  background: url("data:image/svg+xml,%3Csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.86364 6.25167L0.715909 4.05764L0 4.78898L2.86364 7.71436L9 1.4457L8.28409 0.714355L2.86364 6.25167Z' fill='white'/%3E%3C/svg%3E%0A") center no-repeat;
+}
+
+.input_checkbox .input__label {
+  font-weight: 600;
+  color: #90A0B7;
+}
+
+.input_checkbox .input__control {
+  display: none;
+}
+
+.input_checkbox .input__control:checked + .checkbox__icon {
+  background-color: #29B949;
+}
+
 .input_switch {
   width: 45px;
   background-color: transparent;
@@ -465,6 +509,37 @@ option {
 .files__upload {
   display: block;
   cursor: pointer;
+}
+
+.multiselect {
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.multiselect .select__icon {
+  z-index: 0;
+}
+
+.multiselect .empty {
+  color: #90A0B7;
+}
+
+.multiselect__inner {
+  padding: 10px 30px 10px 12px;
+}
+
+.multiselect__options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 10px;
+  z-index: 1;
 }
 
 .btn {
@@ -1558,38 +1633,6 @@ option {
   background-color: #FFB800;
 }
 
-#notifications {
-  padding: 24px 0;
-}
-
-.notifications__grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(215px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-  gap: 34px;
-  padding: 46px 43px;
-}
-
-.notifications__description {
-  line-height: 1.2;
-}
-
-.notifications__title {
-  font-size: 20px;
-  text-align: left;
-  margin-bottom: 0;
-  margin-left: 13px;
-}
-
-.notifications__add {
-  color: #D3D3D3;
-}
-
-.notifications-template {
-  display: none;
-}
-
 .projects-table .ready .remove-btn {
   visibility: hidden;
   pointer-events: none;
@@ -1824,6 +1867,40 @@ option {
   width: 29px;
   height: 23px;
   background: url("../img/icons/team-photos.svg") center/contain no-repeat;
+}
+
+#notifications {
+  padding: 24px 0;
+}
+
+.notifications__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(215px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 34px;
+}
+
+.notifications__description {
+  line-height: 1.2;
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.notifications__title {
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 0;
+  margin-left: 13px;
+}
+
+.notifications__add {
+  color: #D3D3D3;
+}
+
+.notifications-template {
+  display: none;
 }
 
 .alert__list {
@@ -2069,6 +2146,10 @@ option {
 
 .estimates__item {
   margin-bottom: 26px;
+}
+
+.mymodal_notifications {
+  max-width: 655px;
 }
 
 .fancybox__container {

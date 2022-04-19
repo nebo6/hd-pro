@@ -110,4 +110,8 @@ $(function() {
         yearSuffix: "" };
     
     $.datepicker.setDefaults( $.datepicker.regional[ getLanguage() ] );
+
+    $(".multiselect__inner").on("click", function() {
+        $(this).siblings(".multiselect__options").slideToggle(200);
+    })
 })

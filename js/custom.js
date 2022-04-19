@@ -140,13 +140,7 @@ function addUserRoleToList({name, role, id}) {
                 </tr>`
     list.append(tr)
 }
-
-// NOTIFICATIONS PAGE
-function onNotificationsAdd() {
-    console.log("add notification");
-}
-
-// table
+// PRINT TABLE
 const tableStyles = `<style>
     body { margin: 0; }
     table {

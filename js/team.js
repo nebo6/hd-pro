@@ -281,7 +281,7 @@ function onUploadClicked(event) {
     $('[data-mymodal-id="load-photo"]').mymodal().open()
 }
 
-// REMOVE PROJECT FROM LIST
+// REMOVE TIME CARD FROM LIST
 function onTimeRemoveConfirmed(id) {
     if (isNaN(parseInt(id))) alert("Something went wrong")
     addBodyLoader()
@@ -306,6 +306,12 @@ function onTimeRemove(event) {
     });
 
     modal.mymodal().open();
+}
+// NOTIFICATIONS
+function onNotificationsAdd(event) {
+    event.preventDefault();
+    console.log($(event.target).serialize());
+    console.log("add notification");
 }
 
 $(function() {
@@ -354,4 +360,53 @@ $(function() {
     // TEAM TIMES
     $(document).on("click", ".js-upload-time-photo", onUploadClicked)
     $(document).on("click", ".js-remove-time", onTimeRemove)
+    // notifications mce
+    tinymce.init({
+        selector: 'textarea#mce',
+        file_picker_types: 'image media file',
+        height: 200,
+        plugins: [
+            'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'table emoticons template paste help'
+          ],
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons | help | upload',
+        setup: function (editor) {
+                console.log(editor);
+                editor.ui.registry.addButton('upload', {
+                    icon: "upload",
+                    tooltip: "Upload",
+                    onAction: function () {
+                        console.log("action");
+                        editor.insertContent('&nbsp;<b>This is suppose to import a file</b>&nbsp;');
+                    }
+            });
+        },
+        file_picker_callback: function (cb, value, meta) {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', 'image/*');
+        
+            input.onchange = function () {
+                var file = this.files[0];
+            
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var id = 'blobid' + (new Date()).getTime();
+                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                    var base64 = reader.result.split(',')[1];
+                    var blobInfo = blobCache.create(id, file, base64);
+                    blobCache.add(blobInfo);
+            
+                    /* call the callback and populate the Title field with the file name */
+                    cb(blobInfo.blobUri(), { title: file.name });
+                };
+                reader.readAsDataURL(file);
+            };
+        
+            input.click();
+        },
+    });
 })

@@ -1,0 +1,23 @@
+.input_checkbox
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    cursor: pointer
+    background-color: transparent
+    user-select: none
+    .checkbox__icon
+        display: block
+        width: 14px
+        height: 14px
+        margin-right: 5px
+        border-radius: $default-radius
+        border: 1px solid $color-green
+        background: url("data:image/svg+xml,%3Csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.86364 6.25167L0.715909 4.05764L0 4.78898L2.86364 7.71436L9 1.4457L8.28409 0.714355L2.86364 6.25167Z' fill='white'/%3E%3C/svg%3E%0A") center no-repeat
+    .input__label
+        font-weight: 600
+        color: $color-blue-light
+    .input__control
+        display: none
+        &:checked
+            & + .checkbox__icon
+                background-color: $color-green

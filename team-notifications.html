@@ -281,114 +281,37 @@
                                 <a href="/team-painter.html" class="tab__item">Художники</a>
                             </div>
                             <div class="col">
-                                <a href="/team-times.html" class="tab__item active">Временные карты</a>
+                                <a href="/team-times.html" class="tab__item">Временные карты</a>
                             </div>
                             <div class="col">
-                                <a href="/team-notifications.html" class="tab__item">Объявления</a>
+                                <a href="/team-notifications.html" class="tab__item active">Объявления</a>
                             </div>
                         </div>
-                        <div class="tab__body py-4">
-                            <div class="row mx-0 team__content">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Маляр</th>
-                                                <th>Локация</th>
-                                                <th>Дата рабочего дня</th>
-                                                <th>Начало</th>
-                                                <th>Завершение</th>
-                                                <th class="text-center">До</th>
-                                                <th class="text-center">После</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr data-team-time-id="0">
-                                                <td>0</td>
-                                                <td>Андрей Петрович</td>
-                                                <td>Vellagio street</td>
-                                                <td>19.08.2021</td>
-                                                <td data-time-start>07:00</td>
-                                                <td data-time-end>17:00</td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-start-wrapper>
-                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery0" class="btn btn_clean" data-caption="До"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-end-wrapper>
-                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery0" class="btn btn_clean" data-caption="После"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <button class="btn btn_clean js-remove-time" type="button">
-                                                            <span class="table__icon table__icon_remove"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr data-team-time-id="1">
-                                                <td>1</td>
-                                                <td>Имя Фамилия</td>
-                                                <td>Vellagio street</td>
-                                                <td>19.08.2021</td>
-                                                <td data-time-start>07:00</td>
-                                                <td data-time-end></td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-start-wrapper>
-                                                        <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="gallery1" class="btn btn_clean" data-caption="До"><span class="table__icon table__icon_photo_red mx-auto"></span></a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-end-wrapper>
-                                                        <button class="btn btn_clean js-upload-time-photo" type="button">
-                                                            <span class="table__icon table__icon_photo-add_red mx-auto"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <button class="btn btn_clean js-remove-time" type="button">
-                                                            <span class="table__icon table__icon_remove"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr data-team-time-id="2">
-                                                <td>2</td>
-                                                <td>Андрей Петрович</td>
-                                                <td>Vellagio street</td>
-                                                <td>19.08.2021</td>
-                                                <td data-time-start></td>
-                                                <td data-time-end></td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-start-wrapper>
-                                                        <button class="btn btn_clean js-upload-time-photo" type="button">
-                                                            <span class="table__icon table__icon_photo-add_red mx-auto"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <div class="d-flex justify-content-center" data-time-end-wrapper>
-                                                        <button class="btn btn_clean js-upload-time-photo" type="button">
-                                                            <span class="table__icon table__icon_photo-add_red mx-auto"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <button class="btn btn_clean js-remove-time" type="button">
-                                                            <span class="table__icon table__icon_remove"></span>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="tab__body p-4">
+                            <div class="notifications__grid p-3">
+                                <div class="card" data-notifications-id="0">
+                                    <div class="card__header mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="card__date text_light">20.02.2022</div>
+                                            <div class="card__options ms-auto"></div>
+                                        </div>
+                                    </div>
+                                    <h4 class="card__title">Починить передовую електрику в дверях</h4>
+                                    <p class="text_darkest notifications__description">Дорогие коллеги, это срочная задача которую нужно сделать очень быстро и качественно!</p>
+                                    <div class="card__action">
+                                        <button class="btn btn_outline" type="button">Показать объявление подробно</button>
+                                    </div>
                                 </div>
+                                <button class="btn btn_clean notifications__add" data-mymodal-target="notifications-modal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="plus">
+                                            <svg width="55" height="56" viewBox="0 0 55 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M30.159 0.909018L24.091 0.909018V24.966L0.0340177 24.966V31.034L24.091 31.034V55.091L30.159 55.091L30.159 31.034H54.216V24.966H30.159L30.159 0.909018Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="notifications__title">Добавить объявление</h4>
+                                    </div>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -439,26 +362,131 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- LOAD PHOTO FORM -->
-    <div class="mymodal" data-mymodal-id="load-photo" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Добавить фото</h4>
-            </header>
-            <div class="mymodal__body"> <!-- form will be detached and append to this block -->
-                <form class="time-photo">
-                    <label class="input-image input-image_1x1">
-                        <div class="img" style="background-size: contain"></div>
-                        <input type="file" name="image" class="js-form-file" accept=".png,.jpg" required>
-                    </label>
-                    <div class="mt-4">
-                        <button class="btn btn_fill w-100" type="submit">
-                            Добавить фото
-                        </button>
-                    </div>
-                </form>
+    <!-- TEMPLATES FOR CREATING START -->
+    <div class="card notification-template d-none" data-notifications-id="1">
+        <div class="card__header mb-2">
+            <div class="d-flex align-items-center">
+                <div class="card__date text_light" data-t-date></div>
+                <div class="card__options ms-auto"></div>
             </div>
+        </div>
+        <h4 class="card__title" data-t-title></h4>
+        <p class="text_darkest notifications__description" data-t-description></p>
+        <div class="card__action">
+            <button class="btn btn_outline" type="button">Показать объявление подробно</button>
+        </div>
+    </div>
+    <!-- TEMPLATES FOR CREATING END -->
+    <!-- CREATE NOTIFICATION -->
+    <div class="mymodal mymodal_notifications" data-mymodal-id="notifications-modal" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
+        <div class="mymodal__content mymodal__content_p">
+            <h2 class="title title_page mb-4">Добавить обьявление</h2>
+            <form method="post" onsubmit="onNotificationsAdd(event)">
+                <div class="input input_group">
+                    <input type="text" class="input__control" name="title" placeholder="Тема" required>
+                </div>
+                <div class="input_group">
+                    <textarea id="mce" name="mce" placeholder="Сообщение"></textarea>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div class="input input_group">
+                        <div class="multiselect">
+                            <div class="multiselect__inner empty" data-placeholder="Список сотрудников">Список сотрудников</div>
+                            <div class="select__icon"></div>
+                            <div class="multiselect__options" style="display: none">
+                                <div class="multiselect__optgroup">
+                                    <span>Техники</span>
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control" 
+                                            name="staff[]" 
+                                            value="0" 
+                                        > 
+                                        <span class="checkbox__icon"></span>
+                                        <span class="input__label">Имя Фамилия 0</span>
+                                    </label>
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control" 
+                                            name="staff[]" 
+                                            value="1" 
+                                        > 
+                                        <span class="checkbox__icon"></span>
+                                        <span class="input__label">Имя Фамилия 1</span>
+                                    </label>
+                                </div>
+                                <div class="multiselect__optgroup">
+                                    <span>Маляры</span>
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control" 
+                                            name="staff[]" 
+                                            value="0" 
+                                        > 
+                                        <span class="checkbox__icon"></span>
+                                        <span class="input__label">Имя Фамилия 2</span>
+                                    </label>
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control" 
+                                            name="staff[]" 
+                                            value="1" 
+                                        > 
+                                        <span class="checkbox__icon"></span>
+                                        <span class="input__label">Имя Фамилия 3</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap align-items-center pt-3">
+                    <div class="col-auto pe-2">
+                        <label class="input input_checkbox">
+                            <input 
+                                type="checkbox" 
+                                class="input__control" 
+                                name="show_to_staff" 
+                                value="1" 
+                            > 
+                            <span class="checkbox__icon"></span>
+                            <span class="input__label">Show to staff</span>
+                        </label>
+                    </div>
+                    <div class="col-auto pe-2 ps-1">
+                        <label class="input input_checkbox">
+                            <input 
+                                type="checkbox" 
+                                class="input__control" 
+                                name="show_to_clients" 
+                                value="1" 
+                            > 
+                            <span class="checkbox__icon"></span>
+                            <span class="input__label">Show to clients</span>
+                        </label>
+                    </div>
+                    <div class="col-auto pe-2 ps-1">
+                        <label class="input input_checkbox">
+                            <input 
+                                type="checkbox" 
+                                class="input__control" 
+                                name="show_my_name" 
+                                value="1" 
+                            > 
+                            <span class="checkbox__icon"></span>
+                            <span class="input__label">Show my name</span>
+                        </label>
+                    </div>
+                    <div class="col-auto ms-auto">
+                        <button class="btn btn_fill">Сохранить</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     
@@ -469,6 +497,7 @@
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
     <script src="./libs/jquery.inputmask.min.js"></script>
     <script src="./libs/fancybox/fancybox.ui.4.js"></script>
+    <script src="https://cdn.tiny.cloud/1/qleyd3mjxzxyrjwzc4m1nkek3clhfoaxk4k18e7jdr3juanl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>
