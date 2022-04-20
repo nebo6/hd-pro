@@ -7,6 +7,14 @@ function addBodyLoader() {
 function removeBodyLoader() {
     $("body").removeClass("loading");
 }
+function num_word(value, words){  
+	value = Math.abs(value) % 100; 
+	var num = value % 10;
+	if(value > 10 && value < 20) return words[2]; 
+	if(num > 1 && num < 5) return words[1];
+	if(num == 1) return words[0]; 
+	return words[2];
+}
 // common locales
 function editTitle() { return getLanguage() === "ru" ? "Редактировать" : "Edit" }
 function deleteTitle() { return getLanguage() === "ru" ? "Удалить" : "Delete" }
@@ -86,6 +94,50 @@ function formattedNumber(number) {
     return ("0" + number).slice(-2)
 }
 
+function initMultiselect() {
+    $(document).on("click", ".multiselect", function(e) { e.stopPropagation() })
+    $(document).on("click", ".multiselect__inner", function(e) {
+        e.stopPropagation();
+        const _this = this;
+        $(_this).siblings(".multiselect__options").slideToggle(200, function() {
+            $(_this).parent().toggleClass("active")
+        });
+    });
+    $(document).on("click", ".multiselect__header", function(e) {
+        e.stopPropagation();
+        const _this = this;
+        const inputs = $(_this).parent().find("input");
+        if (inputs.toArray().every(function(el) { return $(el).prop("checked") })) {
+            inputs.prop("checked", false)
+            inputs.change();
+        } else {
+            inputs.prop("checked", true)
+            inputs.change();
+        }
+    });
+    $(document).on("change", ".multiselect__options input", function(e) {
+        const inputs = $(this).closest(".multiselect").find('input[type="checkbox"]');
+        const input = $(this).closest(".multiselect").find(".multiselect__inner");
+        const checkedLength = $(this).closest(".multiselect").find('input[type="checkbox"]:checked').length
+        console.log(checkedLength);
+        if (checkedLength === 0)
+            return input.addClass("empty").text(input.data("placeholder"))
+        if (checkedLength === 1 ) {
+            const checkedLabelText = inputs.filter(function(idx, el) { return $(el).is(":checked") }).eq(0).siblings(".input__label").text()
+            return input.removeClass("empty").text(checkedLabelText)
+        }
+
+        const title = getLanguage() === "ru" ? num_word(checkedLength, [`Выбран ${checkedLength} сотрудник`, `Выбрано ${checkedLength} сотрудника`, `Выбрано ${checkedLength} сотрудников`]) : num_word(checkedLength, [`Checked ${checkedLength} employee`, `Checked ${checkedLength} employees`, `Checked ${checkedLength} employees`])
+
+        return input.text(title)
+    })
+    $(window).on("click", function() {
+        $('.multiselect__options').slideUp(200, function() {
+            $(this).closest(".multiselect.active").removeClass("active")
+        });
+    })
+}
+
 $(function() {
     initAccordion();
     initDropdown();
@@ -110,8 +162,6 @@ $(function() {
         yearSuffix: "" };
     
     $.datepicker.setDefaults( $.datepicker.regional[ getLanguage() ] );
-
-    $(".multiselect__inner").on("click", function() {
-        $(this).siblings(".multiselect__options").slideToggle(200);
-    })
+    initMultiselect()
+    
 })

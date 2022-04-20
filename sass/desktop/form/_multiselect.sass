@@ -9,6 +9,11 @@
 
 .multiselect__inner
     padding: 10px 30px 10px 12px
+    &::before
+        content: attr(data-placeholder)
+        display: block
+        opacity: 0
+        height: 0
 
 .multiselect__options
     position: absolute
@@ -18,3 +23,17 @@
     background-color: $color-gray-lighter
     padding: 10px
     z-index: 1
+    margin-top: 4px
+    max-height: 147px
+    overflow-y: auto
+
+.multiselect__optgroup
+    margin-bottom: 4px
+    
+.input_widget
+    .multiselect__inner
+        padding: 5px 30px 5px 10px
+    .multiselect__options
+        background: #fff
+        border: 1px solid $color-blue-light
+        border-radius: $default-radius

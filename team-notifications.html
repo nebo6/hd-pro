@@ -173,7 +173,7 @@
                         <div class="d-flex flex-wrap align-items-center">
                             <div class="position-relative" data-dropdown-parent>
                                 <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
-                                    <span class="btn__icon btn__icon_plus"></span>
+                                    <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                     Добавить
                                 </button>
                                 <div class="dropdown dropdown_header arrow" data-dropdown="add">
@@ -390,59 +390,87 @@
                     <textarea id="mce" name="mce" placeholder="Сообщение"></textarea>
                 </div>
                 <div class="d-flex flex-wrap">
-                    <div class="input input_group">
-                        <div class="multiselect">
-                            <div class="multiselect__inner empty" data-placeholder="Список сотрудников">Список сотрудников</div>
-                            <div class="select__icon"></div>
-                            <div class="multiselect__options" style="display: none">
-                                <div class="multiselect__optgroup">
-                                    <span>Техники</span>
-                                    <label class="input input_checkbox">
-                                        <input 
-                                            type="checkbox" 
-                                            class="input__control" 
-                                            name="staff[]" 
-                                            value="0" 
-                                        > 
-                                        <span class="checkbox__icon"></span>
-                                        <span class="input__label">Имя Фамилия 0</span>
-                                    </label>
-                                    <label class="input input_checkbox">
-                                        <input 
-                                            type="checkbox" 
-                                            class="input__control" 
-                                            name="staff[]" 
-                                            value="1" 
-                                        > 
-                                        <span class="checkbox__icon"></span>
-                                        <span class="input__label">Имя Фамилия 1</span>
-                                    </label>
-                                </div>
-                                <div class="multiselect__optgroup">
-                                    <span>Маляры</span>
-                                    <label class="input input_checkbox">
-                                        <input 
-                                            type="checkbox" 
-                                            class="input__control" 
-                                            name="staff[]" 
-                                            value="0" 
-                                        > 
-                                        <span class="checkbox__icon"></span>
-                                        <span class="input__label">Имя Фамилия 2</span>
-                                    </label>
-                                    <label class="input input_checkbox">
-                                        <input 
-                                            type="checkbox" 
-                                            class="input__control" 
-                                            name="staff[]" 
-                                            value="1" 
-                                        > 
-                                        <span class="checkbox__icon"></span>
-                                        <span class="input__label">Имя Фамилия 3</span>
-                                    </label>
+                    <div class="col-auto me-2">
+                        <div class="input input_widget">
+                            <div class="multiselect">
+                                <div class="multiselect__inner empty" data-placeholder="Список сотрудников">Список сотрудников</div>
+                                <div class="select__icon"></div>
+                                <div class="multiselect__options" style="display: none">
+                                    <div class="multiselect__optgroup">
+                                        <span class="multiselect__header">Техники</span>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="0" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 0</span>
+                                        </label>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="1" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 1</span>
+                                        </label>
+                                    </div>
+                                    <div class="multiselect__optgroup">
+                                        <span class="multiselect__header">Маляры</span>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="0" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 2</span>
+                                        </label>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="1" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 3</span>
+                                        </label>
+                                    </div>
+                                    <div class="multiselect__optgroup">
+                                        <span class="multiselect__header">Менеджеры</span>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="0" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 2</span>
+                                        </label>
+                                        <label class="input input_checkbox">
+                                            <input 
+                                                type="checkbox" 
+                                                class="input__control" 
+                                                name="staff[]" 
+                                                value="1" 
+                                            > 
+                                            <span class="checkbox__icon"></span>
+                                            <span class="input__label">Имя Фамилия 3</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn_outline btn_with-icon" type="button">Добавить файл</button>
                     </div>
                 </div>
                 <div class="d-flex flex-wrap align-items-center pt-3">
