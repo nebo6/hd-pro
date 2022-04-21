@@ -314,55 +314,10 @@ function onNotificationsAdd(event) {
     console.log("add notification");
 }
 
-$(function() {
-    // CLICK ON THECHNITIAN TABLE
-    $(document).on("click", ".js-team-tech", function() {
-        if (!$(this).hasClass("active")) {
-            // remove old active
-            // set new active
-            const tr = $(this)
-            const id = tr.data("data-tech-id");
-            addBodyLoader();
-            // server request with id
-            // if success get data and
-            setTimeout(() => {
-                createTechCard(dummyTech)
-                $(".js-team-tech.active").removeClass("active");
-                console.log($(this));
-                tr.addClass("active")
-                removeBodyLoader(); // REMOVE ON PROD
-            }, 1000)
-            // finally
-            // removeBodyLoader(); UNCOMMENT ON PROD
-        }
-    })
-    // PAINTER
-    $(document).on("click", ".js-team-painter", function() {
-        if (!$(this).hasClass("active")) {
-            // remove old active
-            // set new active
-            const tr = $(this)
-            const id = tr.data("data-painter-id");
-            addBodyLoader();
-            // server request with id
-            // if success get data and
-            setTimeout(() => {
-                createPainterCard(dummyPainter)
-                $(".js-team-painter.active").removeClass("active");
-                console.log($(this));
-                tr.addClass("active")
-                removeBodyLoader(); // REMOVE ON PROD
-            }, 1000)
-            // finally
-            // removeBodyLoader(); UNCOMMENT ON PROD
-        }
-    })
-    // TEAM TIMES
-    $(document).on("click", ".js-upload-time-photo", onUploadClicked)
-    $(document).on("click", ".js-remove-time", onTimeRemove)
+function initTinyMce() {
     // notifications mce
     tinymce.init({
-        selector: 'textarea#mce',
+        selector: '#mce',
         file_picker_types: 'image media file',
         height: 200,
         plugins: [
@@ -409,4 +364,54 @@ $(function() {
             input.click();
         },
     });
+}
+
+$(function() {
+    // CLICK ON THECHNITIAN TABLE
+    $(document).on("click", ".js-team-tech", function() {
+        if (!$(this).hasClass("active")) {
+            // remove old active
+            // set new active
+            const tr = $(this)
+            const id = tr.data("data-tech-id");
+            addBodyLoader();
+            // server request with id
+            // if success get data and
+            setTimeout(() => {
+                createTechCard(dummyTech)
+                $(".js-team-tech.active").removeClass("active");
+                console.log($(this));
+                tr.addClass("active")
+                removeBodyLoader(); // REMOVE ON PROD
+            }, 1000)
+            // finally
+            // removeBodyLoader(); UNCOMMENT ON PROD
+        }
+    })
+    // PAINTER
+    $(document).on("click", ".js-team-painter", function() {
+        if (!$(this).hasClass("active")) {
+            // remove old active
+            // set new active
+            const tr = $(this)
+            const id = tr.data("data-painter-id");
+            addBodyLoader();
+            // server request with id
+            // if success get data and
+            setTimeout(() => {
+                createPainterCard(dummyPainter)
+                $(".js-team-painter.active").removeClass("active");
+                console.log($(this));
+                tr.addClass("active")
+                removeBodyLoader(); // REMOVE ON PROD
+            }, 1000)
+            // finally
+            // removeBodyLoader(); UNCOMMENT ON PROD
+        }
+    })
+    // TEAM TIMES
+    $(document).on("click", ".js-upload-time-photo", onUploadClicked)
+    $(document).on("click", ".js-remove-time", onTimeRemove)
+    
+    if ($("#mce").length) initTinyMce()
 })

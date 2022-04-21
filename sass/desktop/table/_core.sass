@@ -21,7 +21,7 @@
                 color: #8D9BAF
     &:not(.table_card)
         thead + tbody
-            color: $color-gray
+            color: $color-blue-light
             tr
                 .radio__list
                     background-color: $color-gray-light
@@ -36,7 +36,7 @@
                         & + .input__label_light
                             background-color: $color-gray-light
     &:not(.table_card) > tbody:first-child
-            color: $color-gray
+            color: $color-blue-light
             tr
                 .radio__list
                     background-color: $color-gray-light
@@ -73,3 +73,9 @@
                 th
                     background: $color-red
                     color: #fff
+
+.table-word-wrap
+    max-width: 170px
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
