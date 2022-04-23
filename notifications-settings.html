@@ -158,13 +158,23 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <!-- SEARCH FIELD START -->
+                    <div class="col-auto">
+                        <!-- INPUT START -->
+                        <label class="input header__search input_gap_right">
+                            <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
+                            <span class="input__icon input__icon_magnify"></span>
+                        </label>
+                        <!-- INPUT END -->
+                    </div>
+                    <!-- SEARCH FIELD END -->
                     <!-- HEADER PAGE TITLE START -->
                     <div class="col-auto">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-tasks.svg" class="img">
+                                <img src="./img/icons/title-user-outline.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Команда</h1>
+                            <h1 class="title title_page">Настройки уведомления</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -270,131 +280,72 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <section class="pt-4">
-                <div class="container-fluid">
-                    <div class="tab">
-                        <div class="tab__header d-flex flex-wrap">
-                            <div class="col">
-                                <a href="/team-tech.html" class="tab__item">Журнал недели</a>
-                            </div>
-                            <div class="col">
-                                <a href="/report-general-expenses.html" class="tab__item active">Общий отчет</a>
-                            </div>
-                        </div>
-                        <div class="tab__header tab__header_sub d-flex flex-wrap">
-                            <div class="col">
-                                <a href="/report-general-expenses.html" class="tab__item active_red">Расходы</a>
-                            </div>
-                            <div class="col">
-                                <a href="/report-general-income.html" class="tab__item active_green active">Доходы</a>
-                            </div>
-                        </div>
-                        <div class="tab__body px-3 pb-3">
-                            <!-- WIDGETS START -->
-                            <div class="widget my-3">
-                                <div class="row justify-content-end">
-                                    <div class="col-auto">
-                                        <button class="btn btn_outline btn_with-icon" type="button"> 
-                                            Exel
-                                        </button>
+            <div class="container-fluid">
+                <!-- CARS TABLE START -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Марка автомобиля</th>
+                                <th>VIN-код</th>
+                                <th>Номер машины</th>
+                                <th>Клиент</th>
+                                <th>Цена</th>
+                                <th>Дата начала проекта</th>
+                                <th>Дата окончания проекта</th>
+                                <th class="text-center">Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-cars-row="1">
+                                <td>LAND CRUISER PRADO</td>
+                                <td>33-443-222233</td>
+                                <td>AA333432244</td>
+                                <td>Иван Петров</td>
+                                <td>2000$</td>
+                                <td>20 октября 2022 год</td>
+                                <td>23 октября 2022 год</td>
+                                <td class="text-center">
+                                    <div class="radio__list radio__list_table">
+                                        <label class="input input_radio">
+                                            <input type="radio" class="input__control" name="cars[1]" checked value="0" onchange="onCarsStatusChanged(event, 1)">
+                                            <span class="input__label input__label_light">Готово</span>
+                                        </label> <!-- onCarsStatusChanged(event, id) -->
+                                        <label class="input input_radio">
+                                            <input type="radio" class="input__control" name="cars[1]" value="1" onchange="onCarsStatusChanged(event, 1)">
+                                            <span class="input__label input__label_light">Ожидает</span>
+                                        </label>
+                                        <input type="hidden" class="radio__prev" value="0">
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="select select_widget">
-                                            <select name="country" class="select__control">
-                                                <option value="" selected>Страна</option>
-                                                <option value="0" label="Страна 0"></option>
-                                                <option value="1" label="Страна 1"></option>
-                                                <option value="2" label="Страна 2"></option>
-                                                <option value="3" label="Страна 3"></option>
-                                                <option value="4" label="Страна 4"></option>
-                                                <option value="5" label="Страна 5"></option>
-                                                <option value="6" label="Страна 6"></option>
-                                                <option value="7" label="Страна 7"></option>
-                                                <option value="8" label="Страна 8"></option>
-                                                <option value="9" label="Страна 9"></option>
-                                            </select>
-                                            <div class="select__icon"></div>
-                                        </div>
+                                </td>
+                            </tr>
+                            <tr data-cars-row="2">
+                                <td>LAND CRUISER PRADO</td>
+                                <td>33-443-222233</td>
+                                <td>AA333432244</td>
+                                <td>Иван Петров</td>
+                                <td>2000$</td>
+                                <td>20 октября 2022 год</td>
+                                <td>23 октября 2022 год</td>
+                                <td class="text-center">
+                                    <div class="radio__list radio__list_table">
+                                        <label class="input input_radio">
+                                            <input type="radio" class="input__control" name="cars[2]" checked value="0" onchange="onCarsStatusChanged(event, 2)">
+                                            <span class="input__label input__label_light">Готово</span>
+                                        </label>
+                                        <label class="input input_radio">
+                                            <input type="radio" class="input__control" name="cars[2]" value="1" onchange="onCarsStatusChanged(event, 2)">
+                                            <span class="input__label input__label_light">Ожидает</span>
+                                        </label>
+                                        <input type="hidden" class="radio__prev" value="0">
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="select select_widget">
-                                            <select name="clients" class="select__control">
-                                                <option value="" selected>Клиент</option>
-                                                <option value="0" label="Имя Клиента 0"></option>
-                                                <option value="1" label="Имя Клиента 1"></option>
-                                                <option value="2" label="Имя Клиента 2"></option>
-                                                <option value="3" label="Имя Клиента 3"></option>
-                                            </select>
-                                            <div class="select__icon"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="select select_widget">
-                                            <select name="period" class="select__control">
-                                                <option value="" selected>Период</option>
-                                                <option value="0" label="Период 0"></option>
-                                                <option value="1" label="Период 1"></option>
-                                                <option value="2" label="Период 2"></option>
-                                                <option value="3" label="Период 3"></option>
-                                                <option value="4" label="Период 4"></option>
-                                                <option value="5" label="Период 5"></option>
-                                                <option value="6" label="Период 6"></option>
-                                            </select>
-                                            <div class="select__icon"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- WIDGETS END -->
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Дата</th>
-                                            <th>Клиент</th>
-                                            <th>Сотрудник</th>
-                                            <th>Период</th>
-                                            <th>Категории</th>
-                                            <th>Описание</th>
-                                            <th>Сумма</th>
-                                            <th class="text-center">Скачать</th>
-                                            <th class="text-center">Функции</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr data-expenses-row="0">
-                                            <td>0</td>
-                                            <td>22.03.22</td>
-                                            <td>Иван Петров</td>
-                                            <td>Сергей Борисов</td>
-                                            <td>15.03.22-23.03.22</td>
-                                            <td>Категории</td>
-                                            <td class="table-word-wrap">
-                                                <span class="table-word-wrap">Проект оперативный и Проект оперативный и Проект оперативный и Проект оперативный и Проект оперативный и... </span>
-                                            </td>
-                                            <td>
-                                                <b>21 550%</b>
-                                            </td>
-                                            <td class="text-center"><a href="#"><span class="table__icon table__icon_file mx-auto"></span></a></td>
-                                            <td>
-                                                <div class="d-flex align-teims-center justify-content-center">
-                                                    <button type="button" class="btn btn_clean js-edit-expenses-report" title="Редактировать">
-                                                        <span class="table__icon table__icon_edit"></span>
-                                                    </button>
-                                                    <button type="button" class="btn btn_clean js-remove-expenses-report" title="Удалить">
-                                                        <span class="table__icon table__icon_remove"></span>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </section>
+                <!-- CARS TABLE END -->
+            </div>
         </div>
     </main>
     <!-- MAIN END -->
@@ -431,6 +382,7 @@
         </div>
     </div>
     <!-- NOTIFICATIONS LIST END -->
+    <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
     <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="confiramtion-modal" data-mymodal-options="hashTracking: false">
         <p class="text_light"><b class="confiramtion-title"></b></p>
@@ -440,63 +392,6 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- EXPENSES EDIT -->
-    <div class="mymodal" data-mymodal-id="expenses-edit" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
-        <div class="mymodal__content mymodal__content_p">
-            <h2 class="title title_page mb-4 pe-4">Редактировать отчет о расходах</h2>
-            <form method="post" class="js-expenses-form" onsubmit="event.preventDefault()">
-                <div class="input input_group">
-                    <input type="text" class="input__control date-mask" name="date" placeholder="Дата" required>
-                </div>
-                <div class="select select_input input_group">
-                    <select name="client" class="select__control" required>
-                        <option value="" selected disabled>Клиент</option>
-                        <option value="0" label="Клиент 0"></option>
-                        <option value="1" label="Клиент 1"></option>
-                        <option value="2" label="Клиент 2"></option>
-                        <option value="3" label="Клиент 3"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="select select_input input_group">
-                    <select name="employee" class="select__control" required>
-                        <option value="" selected disabled>Сотрудник</option>
-                        <option value="0" label="Сотрудник 0"></option>
-                        <option value="1" label="Сотрудник 1"></option>
-                        <option value="2" label="Сотрудник 2"></option>
-                        <option value="3" label="Сотрудник 3"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="input input_group">
-                    <input type="text" class="input__control date-mask" name="period_start" placeholder="Период начало" required>
-                </div>
-                <div class="input input_group">
-                    <input type="text" class="input__control date-mask" name="period_end" placeholder="Период конец" required>
-                </div>
-                <div class="select select_input input_group">
-                    <select name="category" class="select__control" required>
-                        <option value="" selected disabled>Категории</option>
-                        <option value="0" label="Категория 0"></option>
-                        <option value="1" label="Категория 1"></option>
-                        <option value="2" label="Категория 2"></option>
-                        <option value="3" label="Категория 3"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="input input_group">
-                    <textarea name="description" class="input__control" rows="5" placeholder="Описание"></textarea>
-                </div>
-                <div class="input input_group">
-                    <input type="text" class="input__control dollar-mask" name="summ" placeholder="Сумма" required>
-                </div>
-                <div class="pt-3">
-                    <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
-    </div>
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
@@ -505,7 +400,7 @@
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
     <script src="./libs/jquery.inputmask.min.js"></script>
     <script src="./libs/fancybox/fancybox.ui.4.js"></script>
-    <script src="https://cdn.tiny.cloud/1/qleyd3mjxzxyrjwzc4m1nkek3clhfoaxk4k18e7jdr3juanl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/qleyd3mjxzxyrjwzc4m1nkek3clhfoaxk4k18e7jdr3juanl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>

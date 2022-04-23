@@ -172,7 +172,7 @@ function printDiv(selector) {
             ${divToPrint.outerHTML}
         </body></html>`);
     newWin.document.close();
-    setTimeout(function(){newWin.close();},10);
+    setTimeout(function(){newWin.close();},100);
 }
 
 $(function() {
@@ -185,7 +185,7 @@ $(function() {
     })
     $(".date-mask").inputmask({
         alias: 'datetime', 
-        inputFormat: 'dd/mm/yyyy'
+        inputFormat: 'dd.mm.yyyy'
     })
     Fancybox.defaults.Hash = false;
 })

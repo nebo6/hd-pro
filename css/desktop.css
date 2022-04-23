@@ -236,6 +236,11 @@ option {
   min-height: 44px;
 }
 
+.input__control_min {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
 .input__control_small {
   padding: 5px 10px;
 }

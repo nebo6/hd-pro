@@ -164,7 +164,7 @@
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-tasks.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Команда</h1>
+                            <h1 class="title title_page">Отчеты</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -275,25 +275,30 @@
                     <div class="tab">
                         <div class="tab__header d-flex flex-wrap">
                             <div class="col">
-                                <a href="/team-tech.html" class="tab__item">Журнал недели</a>
+                                <a href="/report-week.html" class="tab__item">Журнал недели</a>
                             </div>
                             <div class="col">
-                                <a href="/report-general-expenses.html" class="tab__item active">Общий отчет</a>
+                                <a href="/report-expenses.html" class="tab__item active">Общий отчет</a>
                             </div>
                         </div>
                         <div class="tab__header tab__header_sub d-flex flex-wrap">
                             <div class="col">
-                                <a href="/report-general-expenses.html" class="tab__item active active_red">Расходы</a>
+                                <a href="/report-expenses.html" class="tab__item active_red">Расходы</a>
                             </div>
                             <div class="col">
-                                <a href="/report-general-expenses.html" class="tab__item active_green">Доходы</a>
+                                <a href="/report-income.html" class="tab__item active active_green">Доходы</a>
                             </div>
                         </div>
                         <div class="tab__body px-3 pb-3">
                             <!-- WIDGETS START -->
                             <div class="widget my-3">
-                                <div class="row justify-content-end">
+                                <div class="row align-items-center   justify-content-end">
                                     <div class="col-auto">
+                                        <button class="btn btn_outline btn_with-icon" type="button" onclick="printDiv('income-table')"> 
+                                            Печать
+                                        </button>
+                                    </div>
+                                    <div class="col-auto ps-0">
                                         <button class="btn btn_outline btn_with-icon" type="button"> 
                                             Exel
                                         </button>
@@ -329,25 +334,21 @@
                                         </div>
                                     </div>
                                     <div class="col-auto ps-0">
-                                        <div class="select select_widget">
-                                            <select name="period" class="select__control">
-                                                <option value="" selected>Период</option>
-                                                <option value="0" label="Период 0"></option>
-                                                <option value="1" label="Период 1"></option>
-                                                <option value="2" label="Период 2"></option>
-                                                <option value="3" label="Период 3"></option>
-                                                <option value="4" label="Период 4"></option>
-                                                <option value="5" label="Период 5"></option>
-                                                <option value="6" label="Период 6"></option>
-                                            </select>
-                                            <div class="select__icon"></div>
+                                        <div class="input input_widget">
+                                            <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
+                                        </div>
+                                    </div>
+                                    —
+                                    <div class="col-auto">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- WIDGETS END -->
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="income-table">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -358,12 +359,11 @@
                                             <th>Категории</th>
                                             <th>Описание</th>
                                             <th>Сумма</th>
-                                            <th class="text-center">Скачать</th>
-                                            <th class="text-center">Функции</th>
+                                            <th class="text-center no-print">Функции</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr data-expenses-row="0">
+                                        <tr data-income-row="0">
                                             <td>0</td>
                                             <td>22.03.22</td>
                                             <td>Иван Петров</td>
@@ -374,15 +374,14 @@
                                                 <span class="table-word-wrap">Проект оперативный и Проект оперативный и Проект оперативный и Проект оперативный и Проект оперативный и... </span>
                                             </td>
                                             <td>
-                                                <b>21 550%</b>
+                                                <b>21 550$</b>
                                             </td>
-                                            <td class="text-center"><a href="#"><span class="table__icon table__icon_file mx-auto"></span></a></td>
-                                            <td>
+                                            <td class=" no-print">
                                                 <div class="d-flex align-teims-center justify-content-center">
-                                                    <button type="button" class="btn btn_clean js-edit-expenses-report" title="Редактировать">
+                                                    <button type="button" class="btn btn_clean js-edit-income-report" title="Редактировать">
                                                         <span class="table__icon table__icon_edit"></span>
                                                     </button>
-                                                    <button type="button" class="btn btn_clean js-remove-expenses-report" title="Удалить">
+                                                    <button type="button" class="btn btn_clean js-remove-income-report" title="Удалить">
                                                         <span class="table__icon table__icon_remove"></span>
                                                     </button>
                                                 </div>
@@ -440,12 +439,12 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- EXPENSES EDIT -->
-    <div class="mymodal" data-mymodal-id="expenses-edit" data-mymodal-options="hashTracking: false">
+    <!-- INCOME EDIT -->
+    <div class="mymodal" data-mymodal-id="income-edit" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
         <div class="mymodal__content mymodal__content_p">
-            <h2 class="title title_page mb-4 pe-4">Редактировать отчет о расходах</h2>
-            <form method="post" class="js-expenses-form" onsubmit="event.preventDefault()">
+            <h2 class="title title_page mb-4 pe-4">Редактировать отчет о доходах</h2>
+            <form method="post" class="js-income-form" onsubmit="event.preventDefault()">
                 <div class="input input_group">
                     <input type="text" class="input__control date-mask" name="date" placeholder="Дата" required>
                 </div>
