@@ -158,23 +158,13 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <!-- SEARCH FIELD START -->
-                    <div class="col-auto">
-                        <!-- INPUT START -->
-                        <label class="input header__search input_gap_right">
-                            <input type="text" class="input__control input__control_small" placeholder="Введите что Вам нужно...">
-                            <span class="input__icon input__icon_magnify"></span>
-                        </label>
-                        <!-- INPUT END -->
-                    </div>
-                    <!-- SEARCH FIELD END -->
                     <!-- HEADER PAGE TITLE START -->
                     <div class="col-auto">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-user-outline.svg" class="img">
+                                <img src="./img/icons/title-settings.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Настройки уведомления</h1>
+                            <h1 class="title title_page">Настройки уведомлений</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -281,64 +271,199 @@
         <!-- HEADER END -->
         <div class="main-content">
             <div class="container-fluid">
-                <!-- CARS TABLE START -->
-                <div class="table-responsive">
+                <!-- WIDGETS START -->
+                <div class="widget my-3">
+                    <div class="row">
+                        <div class="col-auto ms-auto">
+                            <div class="select select_widget">
+                                <select name="outlets" class="select__control">
+                                    <option value="" selected>Категория</option>
+                                    <option value="0" label="Категория 0"></option>
+                                    <option value="1" label="Категория 1"></option>
+                                    <option value="2" label="Категория 2"></option>
+                                    <option value="3" label="Категория 3"></option>
+                                    <option value="4" label="Категория 4"></option>
+                                    <option value="5" label="Категория 5"></option>
+                                    <option value="6" label="Категория 6"></option>
+                                </select>
+                                <div class="select__icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- WIDGETS END -->
+                <!-- NOTIFICATIONS SETTINGS TABLE START -->
+                <div class="table-responsive pb_150">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Марка автомобиля</th>
-                                <th>VIN-код</th>
-                                <th>Номер машины</th>
-                                <th>Клиент</th>
-                                <th>Цена</th>
-                                <th>Дата начала проекта</th>
-                                <th>Дата окончания проекта</th>
-                                <th class="text-center">Статус</th>
+                                <th>Событие</th>
+                                <th>Уведомить</th>
+                                <th>Категория</th>
+                                <th class="text-center">Instagram</th>
+                                <th class="text-center">Telegram</th>
+                                <th class="text-center">Viber</th>
+                                <th class="text-center">WhatsApp</th>
+                                <th class="text-center">Почта</th>
+                                <th class="text-center">Web</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-cars-row="1">
-                                <td>LAND CRUISER PRADO</td>
-                                <td>33-443-222233</td>
-                                <td>AA333432244</td>
-                                <td>Иван Петров</td>
-                                <td>2000$</td>
-                                <td>20 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td class="text-center">
-                                    <div class="radio__list radio__list_table">
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[1]" checked value="0" onchange="onCarsStatusChanged(event, 1)">
-                                            <span class="input__label input__label_light">Готово</span>
-                                        </label> <!-- onCarsStatusChanged(event, id) -->
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[1]" value="1" onchange="onCarsStatusChanged(event, 1)">
-                                            <span class="input__label input__label_light">Ожидает</span>
-                                        </label>
-                                        <input type="hidden" class="radio__prev" value="0">
+                            <tr>
+                                <td>Проект удален</td>
+                                <td>
+                                    <div class="input input_widget">
+                                        <div class="multiselect">
+                                            <div class="multiselect__inner empty" data-placeholder="Список сотрудников">Список сотрудников</div>
+                                            <div class="select__icon"></div>
+                                            <div class="multiselect__options" style="display: none">
+                                                <div class="multiselect__optgroup">
+                                                    <span class="multiselect__header">Техники</span>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="0" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 0</span>
+                                                    </label>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="1" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 1</span>
+                                                    </label>
+                                                </div>
+                                                <div class="multiselect__optgroup">
+                                                    <span class="multiselect__header">Маляры</span>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="0" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 2</span>
+                                                    </label>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="1" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 3</span>
+                                                    </label>
+                                                </div>
+                                                <div class="multiselect__optgroup">
+                                                    <span class="multiselect__header">Менеджеры</span>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="0" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 2</span>
+                                                    </label>
+                                                    <label class="input input_checkbox">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            class="input__control" 
+                                                            name="staff[]" 
+                                                            value="1" 
+                                                        > 
+                                                        <span class="checkbox__icon"></span>
+                                                        <span class="input__label">Имя Фамилия 3</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr data-cars-row="2">
-                                <td>LAND CRUISER PRADO</td>
-                                <td>33-443-222233</td>
-                                <td>AA333432244</td>
-                                <td>Иван Петров</td>
-                                <td>2000$</td>
-                                <td>20 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td class="text-center">
-                                    <div class="radio__list radio__list_table">
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[2]" checked value="0" onchange="onCarsStatusChanged(event, 2)">
-                                            <span class="input__label input__label_light">Готово</span>
-                                        </label>
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[2]" value="1" onchange="onCarsStatusChanged(event, 2)">
-                                            <span class="input__label input__label_light">Ожидает</span>
-                                        </label>
-                                        <input type="hidden" class="radio__prev" value="0">
+                                <td>
+                                    <div class="select select_widget">
+                                        <select name="category" class="select__control">
+                                            <option value="" selected>Категория</option>
+                                            <option value="0" label="Категория 0"></option>
+                                            <option value="1" label="Категория 1"></option>
+                                            <option value="2" label="Категория 2"></option>
+                                            <option value="3" label="Категория 3"></option>
+                                            <option value="4" label="Категория 4"></option>
+                                            <option value="5" label="Категория 5"></option>
+                                            <option value="6" label="Категория 6"></option>
+                                        </select>
+                                        <div class="select__icon"></div>
                                     </div>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-insta"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-tg"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-viber"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-wa"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-mail"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="input input_checkbox">
+                                        <input 
+                                            type="checkbox" 
+                                            class="input__control"
+                                            name="notice-web"
+                                        >
+                                        <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                    </label>
                                 </td>
                             </tr>
                         </tbody>
