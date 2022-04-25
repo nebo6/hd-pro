@@ -1124,6 +1124,20 @@ option {
   width: 208px;
 }
 
+.header__search .loading {
+  display: none;
+  width: 14px;
+  height: 14px;
+}
+
+.header__search .ui-autocomplete-loading + .input__icon .loading {
+  display: block;
+}
+
+.header__search .ui-autocomplete-loading + .input__icon_magnify {
+  background: #f8f8f8;
+}
+
 .header__item {
   width: 28px;
   height: 28px;
@@ -1161,6 +1175,43 @@ option {
   right: 14px;
   -webkit-transform: none;
           transform: none;
+}
+
+.ui-autocomplete {
+  max-width: 208px;
+}
+
+.ui-autocomplete .col {
+  min-width: 0;
+}
+
+.search-title {
+  font-size: 13px;
+  color: #90A0B7;
+  line-height: 1.2;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-description {
+  font-size: 10px;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-item {
+  border: 1px solid transparent;
+  margin-bottom: 2px;
+}
+
+.search-item.ui-state-active {
+  border-color: #DB2927;
 }
 
 .main {
@@ -2229,5 +2280,66 @@ option {
 
 .fancybox__container {
   z-index: 10001 !important;
+}
+
+.not-found {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 100vh;
+  color: #DB2927;
+  padding: 160px 0;
+  overflow: hidden;
+}
+
+.not-found__404 {
+  font-size: Min(34.7vw, 500px);
+  font-weight: 700;
+  font-style: italic;
+  color: #EDEDED;
+  -webkit-transform: rotate(-3.76deg) translateX(-50%) translateY(-70%);
+          transform: rotate(-3.76deg) translateX(-50%) translateY(-70%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  line-height: 0.75;
+}
+
+.not-found__title {
+  font-size: 50px;
+  font-weight: 700;
+  -webkit-transform: rotate(-3.76deg);
+          transform: rotate(-3.76deg);
+  text-align: center;
+}
+
+.not-found__description {
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+  -webkit-transform: rotate(-3.76deg);
+          transform: rotate(-3.76deg);
+}
+
+.not-found__logo {
+  display: block;
+  width: 40px;
+  height: 34px;
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /*# sourceMappingURL=desktop.css.map */

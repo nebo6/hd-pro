@@ -163,5 +163,55 @@ $(function() {
     
     $.datepicker.setDefaults( $.datepicker.regional[ getLanguage() ] );
     initMultiselect()
-    
+    // autocomplete
+    let cache = {};
+    $(".js-search").autocomplete({
+        minLength: 2,
+        // source: function(request, response) {
+        //     const term = request.term
+        //     console.log(request, response);
+        //     if (term in cache) {
+        //         response(cache[term])
+        //         return
+        //     }
+
+        //     $.getJSON("https://jqueryui.com/resources/demos/autocomplete/search.php", request, function(data, status, xhr) {
+        //         cache[ term ] = data;
+        //         response( data );
+        //     })
+        // },
+        source: function(request, response) {
+            console.log("source", request);
+            response([{
+                value: 0,
+                title: "Заголовок",
+                label: "Заголовок",
+                description: "Описание чего-либо Описание чего-либо Описание чего-либо Описание чего-либо Описание чего-либо Описание чего-либо",
+                img: undefined,
+                href: "#"
+            },{
+                value: 1,
+                title: "Заголовок",
+                label: "Заголовок",
+                description: "Описание чего-либо",
+                img: "/img/user.jpg",
+                href: "#"
+            }])
+        },
+        
+    }).data("ui-autocomplete")._renderItem = function( ul, item ) {
+        const li = `<li>
+            <a href="${item.href}" class="d-flex flex-wrap search-item align-items-center">
+                ${item.img ? `<div class="col-auto pe-2">
+                    <div class="avatar avatar_small" style="background-image: url(${item.img})"></div>
+                </div>` : ""}
+                <div class="col">
+                    <h4 class="search-title">${item.title}</h4>
+                    <p class="search-description">${item.description}</p>
+                </div>
+            </a>
+        </li>`
+        
+        return $(li).appendTo(ul)
+    }
 })

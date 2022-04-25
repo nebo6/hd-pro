@@ -5,7 +5,16 @@
 
 .header__search
     width: 208px
-
+    .loading
+        display: none
+        width: 14px
+        height: 14px
+    .ui-autocomplete-loading
+        & + .input__icon .loading
+            display: block
+        & + .input__icon_magnify
+            background: #f8f8f8
+        
 .header__item
     width: 28px
     height: 28px
@@ -37,3 +46,33 @@
     left: auto
     right: 14px // half of profile avatar's width
     transform: none
+
+// search autocomplete
+.ui-autocomplete
+    max-width: 208px
+    .col
+        min-width: 0
+    
+.search-title
+    font-size: 13px
+    color: #90A0B7
+    line-height: 1.2
+    margin-bottom: 0
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    
+.search-description
+    font-size: 10px
+    margin-bottom: 0
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    
+.search-item
+    border: 1px solid transparent
+    margin-bottom: 2px
+    &.ui-state-active
+        border-color: $color-red
