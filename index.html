@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"> <!-- change to en if not ru -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -170,16 +170,6 @@
                         <!-- INPUT END -->
                     </div>
                     <!-- SEARCH FIELD END -->
-                    <!-- HEADER PAGE TITLE START -->
-                    <div class="col-auto">
-                        <div class="page-title d-flex align-items-center">
-                            <div class="page-title__icon">
-                                <img src="./img/icons/title-user-outline.svg" class="img">
-                            </div>
-                            <h1 class="title title_page">Клиенты</h1>
-                        </div>
-                    </div>
-                    <!-- HEADER PAGE TITLE END -->
                     <!-- HEADER WIDGETS START -->
                     <div class="col-auto ms-auto">
                         <div class="d-flex flex-wrap align-items-center">
@@ -283,73 +273,35 @@
         <!-- HEADER END -->
         <div class="main-content">
             <div class="container-fluid">
-                <!-- STATISTIC START -->
-                <div class="row justify-content-between statistics__list">
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_light">3</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Количество <br>машин</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value">344$</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Общая <br/>стоимость услуг</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_green">300$</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Полученный <br>платёж</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_red">44$</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Остаток <br>суммы</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- STATISTIC END -->
                 <!-- STATISTIC TYPE1 START -->
-                <div class="statistics__list statistics__list_type_1">
+                <div class="statistics__list statistics__list_type_1 mb-4">
                     <div class="row justify-content-between">
                         <div class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1 active">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_car"></div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="statistics__value statistics__value_small text_green">456k$</div>
+                                            </div>
+                                            <div class="col-auto ps-1">
+                                                <div class="statistics__value statistics__value_small text_red">56k$</div>
+                                            </div>
+                                        </div>
+                                        <div class="statistics__label">
+                                            Оплаченные и неоплаченные <br>счета-фактуры
+                                        </div>
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">27</div>
+                                    <div class="col-4">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="statistics__value statistics__value_small text_light">456k$</div>
+                                            </div>
+                                        </div>
+                                        <div class="statistics__label text_light">
+                                            Оплачено сотрудникам
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="statistics__label">
-                                    Количество машин за которые <br>ответственен менеджер
                                 </div>
                             </div>
                         </div>
@@ -401,475 +353,70 @@
                     </div>
                 </div>
                 <!-- STATISTIC TYPE1 END -->
-                <!-- STATISTIC SMALL START -->
-                <div class="row justify-content-between statistics__list statistics__list_small">
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value">11</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Всего <br/>клиентов</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_green">10</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Активно <br/>клиентов</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_red">1</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Неативно <br>клиентов</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_green">10</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Активные <br/>контакты</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class=" d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value text_red">1</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Неативные <br>контакты</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics__wrapper">
-                        <div class="statistics active">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="col-auto">
-                                    <div class="statistics__value">1</div>
-                                </div>
-                                <div class="col">
-                                    <span class="statistics__label">Контакты <br/>вошли сегодня</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- STATISTIC SMALL END -->
-                <!-- CLIENTS EDIT TABLE START -->
-                <h3>Профиль клиента + редактировать клиента</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Компания</th>
-                                <th>Контактное лицо</th>
-                                <th>Группа клиентов</th>
-                                <th>Количество проектов </th>
-                                <th>Стоимость  услуг клиента</th>
-                                <th>Полученный платёж</th>
-                                <th>Остаток суммы</th>
-                                <th class="text-center">Функции</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-clients-row="1">
-                                <td>1</td>
-                                <td>Company</td>
-                                <td>Jhon Doe</td>
-                                <td>VIP</td>
-                                <td>5</td>
-                                <td>5 700$</td>
-                                <td>5 000$</td>
-                                <td>670$</td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn_clean" onclick="onClientsRemoved('1')">
-                                        <span class="table__icon table__icon_remove"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean">
-                                        <span class="table__icon table__icon_options"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- CLIENTS EDIT TABLE END -->
-                <!-- CARS TABLE START -->
-                <h3>Машина + подробно</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Марка автомобиля</th>
-                                <th>VIN-код</th>
-                                <th>Номер машины</th>
-                                <th>Клиент</th>
-                                <th>Цена</th>
-                                <th>Дата начала проекта</th>
-                                <th>Дата окончания проекта</th>
-                                <th class="text-center">Статус</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-cars-row="1">
-                                <td>LAND CRUISER PRADO</td>
-                                <td>33-443-222233</td>
-                                <td>AA333432244</td>
-                                <td>Иван Петров</td>
-                                <td>2000$</td>
-                                <td>20 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td class="text-center">
-                                    <div class="radio__list radio__list_table">
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[1]" checked value="0" onchange="onCarsStatusChanged(event, 1)">
-                                            <span class="input__label input__label_light">Готово</span>
-                                        </label> <!-- onCarsStatusChanged(event, id) -->
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[1]" value="1" onchange="onCarsStatusChanged(event, 1)">
-                                            <span class="input__label input__label_light">Ожидает</span>
-                                        </label>
-                                        <input type="hidden" class="radio__prev" value="0">
+                <div class="statistics__list statistics__list_type_1 mb-4">
+                    <div class="row justify-content-between">
+                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                            <div class="statistics statistics_type_1 active">
+                                <div class="row align-items-center">
+                                    <div class="col-auto pe-2">
+                                        <div class="statistics__icon statistics__icon_car"></div>
                                     </div>
-                                </td>
-                            </tr>
-                            <tr data-cars-row="2">
-                                <td>LAND CRUISER PRADO</td>
-                                <td>33-443-222233</td>
-                                <td>AA333432244</td>
-                                <td>Иван Петров</td>
-                                <td>2000$</td>
-                                <td>20 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td class="text-center">
-                                    <div class="radio__list radio__list_table">
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[2]" checked value="0" onchange="onCarsStatusChanged(event, 2)">
-                                            <span class="input__label input__label_light">Готово</span>
-                                        </label>
-                                        <label class="input input_radio">
-                                            <input type="radio" class="input__control" name="cars[2]" value="1" onchange="onCarsStatusChanged(event, 2)">
-                                            <span class="input__label input__label_light">Ожидает</span>
-                                        </label>
-                                        <input type="hidden" class="radio__prev" value="0">
+                                    <div class="col-auto ps-0">
+                                        <div class="statistics__value statistics__value_small">223</div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- CARS TABLE END -->
-                <!-- ESTIMATES TABLE START -->
-                <h3>Сметы</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Марка автомобиля</th>
-                                <th>VIN-код</th>
-                                <th>Номер машины</th>
-                                <th>Техник</th>
-                                <th>Заказчик</th>
-                                <th>Цена</th>
-                                <th>Дата создания</th>
-                                <th class="text-center">Просмотр</th>
-                                <th class="text-center">Статус</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-estimates-row="1">
-                                <td>LAND CRUISER PRADO</td>
-                                <td>33-443-222233</td>
-                                <td>AA333432244</td>
-                                <td>Иван Петров</td>
-                                <td>Иван Петров</td>
-                                <td>10 000$</td>
-                                <td>20 октября 2022 год</td>
-                                <td>
-                                    <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed(1)">
-                                        <span class="table__icon table__icon_show"></span>
-                                    </button>
-                                </td>
-                                <td class="text-center">
-                                    <div class="radio__list radio__list_table">
-                                        <label class="input input_radio">
-                                            <input 
-                                                type="radio" 
-                                                class="input__control" 
-                                                name="estimates[1]" 
-                                                checked 
-                                                value="0" 
-                                                onchange="onEstimatesStatusChanged(event, 1)"
-                                            > <!-- onEstimatesChanged(event, id) -->
-                                            <span class="input__label input__label_green">Оценено</span>
-                                        </label>
-                                        <label class="input input_radio">
-                                            <input 
-                                                type="radio" 
-                                                class="input__control" 
-                                                name="estimates[1]" 
-                                                value="1" 
-                                                onchange="onEstimatesStatusChanged(event, 1)"
-                                            >
-                                            <span class="input__label input__label_green">Отремонтировано</span>
-                                        </label>
-                                        <input type="hidden" class="radio__prev" value="0">
+                                </div>
+                                <div class="statistics__label">
+                                    Количество <br>выполенных заказов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                            <div class="statistics statistics_type_1">
+                                <div class="row align-items-center">
+                                    <div class="col-auto pe-2">
+                                        <div class="statistics__icon statistics__icon_wallet"></div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    <div class="col-auto ps-0">
+                                        <div class="statistics__value statistics__value_small">21</div>
+                                    </div>
+                                </div> 
+                                <div class="statistics__label">
+                                    Количество отправленных <br>инвойсов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                            <div class="statistics statistics_type_1">
+                                <div class="row align-items-center">
+                                    <div class="col-auto pe-2">
+                                        <div class="statistics__icon statistics__icon_instruments"></div>
+                                    </div>
+                                    <div class="col-auto ps-0">
+                                        <div class="statistics__value statistics__value_small">5</div>
+                                    </div>
+                                </div>
+                                <div class="statistics__label">
+                                    Список активных сотрудников <br>за последние 10 дней
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                            <div class="statistics statistics_type_1">
+                                <div class="row align-items-center">
+                                    <div class="col-auto pe-2">
+                                        <div class="statistics__icon statistics__icon_tasks"></div>
+                                    </div>
+                                    <div class="col-auto ps-0">
+                                        <div class="statistics__value statistics__value_small">890$</div>
+                                    </div>
+                                </div>
+                                <div class="statistics__label"> 
+                                    Количество выплаченных <br>бонусов для менеджеров
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- ESTIMATES TABLE END -->
-                <!-- CLIENTS TABLE START -->
-                <h3>Клиенты</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Компания</th>
-                                <th>Контактное лицо</th>
-                                <th>Почта</th>
-                                <th>Телефон</th>
-                                <th class="text-center">Активность</th>
-                                <th>Группа</th>
-                                <th>Дата создания</th>
-                                <th class="text-center">Оплата</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-contacts-row="1"> <!-- row id -->
-                                <td>1</td>
-                                <td>Company</td>
-                                <td>Иван Петров</td>
-                                <td>fgdgdg@gmail.com</td>
-                                <td>+1 444 444 4444</td>
-                                <td class="text-center">
-                                    <label class="input input_switch mx-auto">
-                                        <input type="checkbox" class="input__control" name="contacts-active[1]" onchange="onContactsActiveChanged(event, 1)"><!-- row id -->
-                                        <div class="switch__toggler">
-                                            <div class="switch__icon"></div>
-                                        </div>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="table__tag">VIP</span> 
-                                    <span class="table__tag">Wholesaler</span> 
-                                </td>
-                                <td>20 октября 2022 год</td>
-                                <td class="text-center">
-                                    <label class="input input_switch mx-auto">
-                                        <input type="checkbox" class="input__control" name="contacts-payment[1]" onchange="onContactsPaymentChanged(event, 1)"><!-- row id -->
-                                        <div class="switch__toggler">
-                                            <div class="switch__icon"></div>
-                                        </div>
-                                    </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- CLIENTS TABLE END -->
-                <!-- INVOICES TABLE START СЧЕТА-ФАКТУРЫ -->
-                <h3>Счета-фактуры</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Клиент</th>
-                                <th>Машина</th>
-                                <th>День оплаты</th>
-                                <th>День окончания</th>
-                                <th>Общая сумма</th>
-                                <th>Полученная оплата</th>
-                                <th class="text-center">Статус оплаты</th>
-                                <th></th> <!-- should be empty -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-invoices-row="1"> <!-- row id -->
-                                <td>1</td>
-                                <td>Иван Григорьев</td>
-                                <td>Toyota</td>
-                                <td>19 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td>12 500$</td>
-                                <td>2 500$</td>
-                                <td class="text-center">
-                                    <span class="table__status" data-status="1">Оплачен</span> <!-- data-status 1 — Оплачен | если что менять css тоже | или добавить style="background-color: #2DC959" -->
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(1)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit_red_fill"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-invoices-row="2"> <!-- row id -->
-                                <td>1</td>
-                                <td>Иван Григорьев</td>
-                                <td>Toyota</td>
-                                <td>19 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td>12 500$</td>
-                                <td>2 500$</td>
-                                <td class="text-center">
-                                    <span class="table__status" data-status="0">Пердоплата</span> <!-- data-status 0 — Пердоплата | если что менять css тоже | или добавить style="background-color: #FFB800" -->
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(2)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit_red_fill"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-invoices-row="3"> <!-- row id -->
-                                <td>1</td>
-                                <td>Иван Григорьев</td>
-                                <td>Toyota</td>
-                                <td>19 октября 2022 год</td>
-                                <td>23 октября 2022 год</td>
-                                <td>12 500$</td>
-                                <td>2 500$</td>
-                                <td class="text-center">
-                                    <span class="table__status" data-status="2">Остаток</span> <!-- data-status 2 — Остаток | если что менять css тоже | или добавить style="background-color: #FF3B20" -->
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn_clean" type="button" onclick="onInvoicesEdited(3)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit_red_fill"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- INVOICES TABLE END СЧЕТА-ФАКТУРЫ -->
-                <!-- ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
-                <h3>Роли</h3>
-                <div class="d-flex justify-content-end mb-3">
-                    <button class="btn btn_fill btn_with-icon" type="button" onclick="createRole()">
-                        Добавить роль
-                        <span class="btn__icon btn__icon_plus btn__icon_right"></span>
-                    </button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody data-roles>
-                            <tr data-roles-row="1"> <!-- row id -->
-                                <td><b>Техник</b></td>
-                                <td class="text-right">
-                                    <button class="btn btn_clean" type="button" onclick="onRoleEdited(1)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleOptions(1)">
-                                        <span class="table__icon table__icon_options"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleRemoved(1)">
-                                        <span class="table__icon table__icon_remove"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-roles-row="2"> <!-- row id -->
-                                <td><b>Менеджер</b></td>
-                                <td class="text-right">
-                                    <button class="btn btn_clean" type="button" onclick="onRoleEdited(2)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleOptions(2)">
-                                        <span class="table__icon table__icon_options"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleRemoved(2)">
-                                        <span class="table__icon table__icon_remove"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-roles-row="3"> <!-- row id -->
-                                <td><b>Маляр</b></td>
-                                <td class="text-right">
-                                    <button class="btn btn_clean" type="button" onclick="onRoleEdited(3)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleOptions(3)">
-                                        <span class="table__icon table__icon_options"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onRoleRemoved(3)">
-                                        <span class="table__icon table__icon_remove"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
-                <!-- USER ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
-                <h3>Пользовательские роли</h3>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Члены команды</th>
-                                <th>Роли</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody data-user-roles>
-                            <tr data-user-roles-row="1"> <!-- row id -->
-                                <td>Имя Фамилия</td>
-                                <td>Техник</td>
-                                <td class="text-right">
-                                    <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(1)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit_red"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(1)">
-                                        <span class="table__icon table__icon_options_red"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(1)">
-                                        <span class="table__icon table__icon_remove_red"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr data-user-roles-row="2"> <!-- row id -->
-                                <td>Имя Фамилия</td>
-                                <td>Менеджер</td>
-                                <td class="text-right">
-                                    <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(2)"><!-- row id -->
-                                        <span class="table__icon table__icon_edit_red"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(2)">
-                                        <span class="table__icon table__icon_options_red"></span>
-                                    </button>
-                                    <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(2)">
-                                        <span class="table__icon table__icon_remove_red"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- USER ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
             </div>
         </div>
     </main>

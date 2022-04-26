@@ -155,9 +155,12 @@ const tableStyles = `<style>
         border-width: 0
     }
     thead { text-align: left; }
-    td, th { border: 1px solid #999 }
+    td, th { border: 1px solid #999; padding: 2px }
     .no-print {
         display: none
+    }
+    .table-word-wrap {
+        max-width: 170px;
     }
 </style>`
 

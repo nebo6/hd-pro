@@ -546,6 +546,10 @@ option {
   color: #90A0B7;
 }
 
+.multiselect__header {
+  display: block;
+}
+
 .multiselect__inner {
   padding: 10px 30px 10px 12px;
 }
@@ -1179,6 +1183,9 @@ option {
 
 .ui-autocomplete {
   max-width: 208px;
+  max-height: Min(calc(100vh - 50px), 300px);
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .ui-autocomplete .col {
@@ -1693,7 +1700,6 @@ option {
 
 .tasks {
   padding: 24px 0;
-  max-width: 80%;
   height: calc(100vh - 64px);
 }
 
