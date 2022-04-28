@@ -273,7 +273,6 @@
         <!-- HEADER END -->
         <div class="main-content">
             <div class="container-fluid">
-                <!-- STATISTIC TYPE1 START -->
                 <div class="statistics__list statistics__list_type_1 mb-4">
                     <div class="row justify-content-between">
                         <div class="statistics__wrapper statistics__wrapper_type_1">
@@ -352,7 +351,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- STATISTIC TYPE1 END -->
                 <div class="statistics__list statistics__list_type_1 mb-4">
                     <div class="row justify-content-between">
                         <div class="statistics__wrapper statistics__wrapper_type_1">
@@ -417,6 +415,30 @@
                         </div>
                     </div>
                 </div>
+                <!-- charts start -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="d-flex flex-wrap align-items-center mb-2">
+                            <div class="col-auto me-2">
+                                <button class="btn btn_fill chart-reset-zoom">Сбросить</button>
+                            </div>
+                            <div class="col-auto me-2">
+                                <button class="btn btn_fill chart-week-zoom">За последнюю неделю</button>
+                            </div>
+                            <div class="col-auto me-2">
+                                <button class="btn btn_fill chart-month-zoom">За последний месяц</button>
+                            </div>
+                            <div class="col-auto me-2">
+                                <button class="btn btn_fill chart-year-zoom">За последний год</button>
+                            </div>
+                            <div class="col-auto ms-auto">
+                                <div id="legend-container"></div>
+                            </div>
+                        </div>
+                        <canvas id="lineChart" style="width: 100%; height: 400px"></canvas>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
             </div>
         </div>
     </main>
@@ -472,6 +494,14 @@
     <script src="./libs/remodal-1.1.1/remodal.js"></script>
     <script src="./libs/jquery.inputmask.min.js"></script>
     <script src="./libs/fancybox/fancybox.ui.4.js"></script>
+    <!-- CHART START -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.2.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/ru.min.js" integrity="sha512-j5j9djiluSFyBwFHffI4b5CcyyyX02BSVBadb3ee8489Pl7Mj8uhsdbKNjeMDqaSx93iHty+rMchTZ0/3wVSBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+    <!-- CHART END -->
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>
@@ -480,6 +510,7 @@
     <script src="./js/tasks.js"></script>
     <script src="./js/team.js"></script>
     <script src="./js/report.js"></script>
+    <script src="./js/dashboard.js"></script> <!-- DASHBOARD -->
     <script src="./js/custom.js"></script>
 </body>
 </html>
