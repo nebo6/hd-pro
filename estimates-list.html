@@ -288,7 +288,7 @@
                     <div class="widget my-3">
                         <div class="row">
                             <div class="col-auto me-auto">
-                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-project"> 
+                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-estimates"> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
                                         <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
                                     </svg>                                    
@@ -816,7 +816,72 @@
             </table>
         </div>
     </div>
-    
+    <!--  -->
+    <div class="mymodal estimates-modal" data-mymodal-id="add-estimates" data-mymodal-options="hashTracking: false">
+        <div class="mymodal__content">
+            <form class="text-center" method="post" onsubmit="addEstimates(event)">
+                <div class="estimates-carousel">
+                    <div class="estimates-carousel__item" data-carousel="0">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Добавить счет-фактуру</h4>
+                                </header>
+                                <div class="mymodal__body" data-form-part="0">
+                                    <div class="input mb-3">
+                                        <input type="text" class="input__control date-mask" name="date" placeholder="Дата" required>
+                                    </div>
+                                    <div class="select select_input mb-3">
+                                        <select name="week" class="select__control" required>
+                                            <option value="" label="Неделя*" selected disabled></option>
+                                            <option value="0" label="Неделя 1"></option>
+                                            <option value="1" label="Неделя 2"></option>
+                                            <option value="2" label="Неделя 3"></option>
+                                        </select>
+                                    </div>
+                                    <div class="input mb-3">
+                                        <input type="number" class="input__control" name="vin" placeholder="VIN Код" required>
+                                    </div>
+                                    <div class="input mb-3">
+                                        <input type="number" class="input__control" name="car_number" placeholder="Номер машины" required>
+                                    </div>
+                                    <div class="input mb-3">
+                                        <input type="number" class="input__control" name="year" placeholder="Год" required>
+                                    </div>
+                                    <div class="input mb-3">
+                                        <input type="text" class="input__control" name="color" placeholder="Цвет" required>
+                                    </div>
+                                    <div class="input mb-3">
+                                        <input type="number" class="input__control" name="mileage" placeholder="Пробег" required>
+                                    </div>
+                                    <hr>
+                                    <label class="input input_radio mb-3">
+                                        <input type="radio" name="car_type" class="input__control" value="0" required>
+                                        <span class="text_light">Private Car</span>
+                                        <div class="input__icon"></div>
+                                    </label>
+                                    <label class="input input_radio mb-3">
+                                        <input type="radio" name="car_type" class="input__control" value="1" required>
+                                        <span class="text_light">Dealership Car</span>
+                                        <div class="input__icon"></div>
+                                    </label>
+                                    <label class="input input_radio mb-3">
+                                        <input type="checkbox" name="insurance" class="input__control">
+                                        <span class="text_light">Insurance</span>
+                                        <div class="input__icon"></div>
+                                    </label>
+                                    <div class="mt-5">
+                                        <button class="btn btn_fill" type="button" onclick="checkForm(0)">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>

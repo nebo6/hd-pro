@@ -196,8 +196,26 @@ function createMobEstimates(data, additionalClass) {
         </tfoot>
     </table>`
 }
+// ADD ESTIMATES
+function addEstimates(event) {
+    event.preventDefault()
+    console.log("wtf");
+}
+
+function checkForm(n) {
+    const form = $("[data-form-part='"+n+"']")
+    for (let i = 0; i < form.find("input").length; i++) {
+        if (!form.find("input")[i].reportValidity()) {
+            return
+        }
+    }
+}
 
 $(function() {
     $(document).on('change', ".estimates__item input", onEstimatesFileSelected)
     $(document).on("click", ".estimates__item .btn_remove", removeEstimatesImage)
+
+    $('[data-mymodal-id="add-estimates"]').on("closed", function(e) {
+        console.log(e.reason);
+    })
 })

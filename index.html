@@ -113,7 +113,7 @@
                     <!-- NAVBAR ITEM ACCORDION END -->
                     <!-- NAVBAR ITEM LINK START -->
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Счета-фактуры">
+                        <a href="/invoices-list.html" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Счета-фактуры">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.49996 3.2H16.6666C16.7384 3.2 16.8 3.2616 16.8 3.33333V8.33333C16.8 8.40507 16.7384 8.46667 16.6666 8.46667H2.49996C2.42823 8.46667 2.36663 8.40507 2.36663 8.33333V3.33333C2.36663 3.2616 2.42823 3.2 2.49996 3.2ZM2.49996 11.5333H16.6666C16.7384 11.5333 16.8 11.5949 16.8 11.6667V16.6667C16.8 16.7384 16.7384 16.8 16.6666 16.8H2.49996C2.42823 16.8 2.36663 16.7384 2.36663 16.6667V11.6667C2.36663 11.5949 2.42823 11.5333 2.49996 11.5333Z" stroke="currentColor" stroke-width="1.4"/>
@@ -123,7 +123,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Расходы/доходы">
+                        <a href="/report-expenses.html" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Расходы/доходы">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.37496 5.00056V4.99998C2.37496 4.46534 2.80778 4.03331 3.33329 4.03331H16.6666C17.1967 4.03331 17.6333 4.46991 17.6333 4.99998V15C17.6333 15.53 17.1967 15.9666 16.6666 15.9666H3.33329C2.80331 15.9666 2.36677 15.5302 2.36663 15.0002C2.36663 15.0001 2.36663 15.0001 2.36663 15L2.37496 5.00056Z" stroke="currentColor" stroke-width="1.4"/>
@@ -136,7 +136,7 @@
                     <!-- NAVBAR ITEM LINK END -->
                     <!-- NAVBAR ITEM ACTIVE LINK START -->
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded nav__link_active" title="Команда">
+                        <a href="/team-tech.html" class="nav__link nav__link_outer d-flex align-items-center rounded nav__link_active" title="Команда">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.81106 6.11112C6.81106 4.34911 8.23793 2.92223 9.99994 2.92223C11.762 2.92223 13.1888 4.34911 13.1888 6.11112C13.1888 7.87313 11.762 9.30001 9.99994 9.30001C8.23793 9.30001 6.81106 7.87313 6.81106 6.11112ZM2.92217 14.8611C2.92217 14.4717 3.11169 14.0788 3.54717 13.6769C3.9874 13.2706 4.63067 12.904 5.39793 12.5967C6.93358 11.9815 8.78953 11.6722 9.99994 11.6722C11.2104 11.6722 13.0663 11.9815 14.602 12.5967C15.3692 12.904 16.0125 13.2706 16.4527 13.6769C16.8882 14.0788 17.0777 14.4717 17.0777 14.8611V17.0778H2.92217V14.8611Z" stroke="currentColor" stroke-width="1.4"/>
@@ -275,7 +275,7 @@
             <div class="container-fluid">
                 <div class="statistics__list statistics__list_type_1 mb-4">
                     <div class="row justify-content-between">
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        <a href="?payment" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1 active d-flex align-items-center">
                                 <div class="row">
                                     <div class="col-8 part-1">
@@ -303,8 +303,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?projects" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -318,8 +318,8 @@
                                     Проекты и <br>количество точек
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?tasks" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -333,8 +333,8 @@
                                     Cписок задач <br>менеджера
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?chronology" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -348,12 +348,12 @@
                                     Все действия сотрудников <br>в хронологии
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="statistics__list statistics__list_type_1 mb-4">
                     <div class="row justify-content-between">
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        <a href="?done" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -367,8 +367,8 @@
                                     Количество <br>выполенных заказов
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?invoice" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -382,8 +382,8 @@
                                     Количество отправленных <br>инвойсов
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?employee" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -397,8 +397,8 @@
                                     Список активных сотрудников <br>за последние 10 дней
                                 </div>
                             </div>
-                        </div>
-                        <div class="statistics__wrapper statistics__wrapper_type_1">
+                        </a>
+                        <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1">
                             <div class="statistics statistics_type_1">
                                 <div class="row align-items-center">
                                     <div class="col-auto pe-2">
@@ -412,7 +412,7 @@
                                     Количество выплаченных <br>бонусов для менеджеров
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <!-- charts start -->
@@ -420,16 +420,16 @@
                     <div class="col-md-8">
                         <div class="d-flex flex-wrap align-items-center mb-2">
                             <div class="col-auto me-2">
-                                <button class="btn btn_fill chart-reset-zoom">Сбросить</button>
+                                <button class="btn btn_clean dashboard__btn active" data-line-btn="all">Все</button>
                             </div>
                             <div class="col-auto me-2">
-                                <button class="btn btn_fill chart-week-zoom">За последнюю неделю</button>
+                                <button class="btn btn_clean dashboard__btn" data-line-btn="week">За последнюю неделю</button>
                             </div>
                             <div class="col-auto me-2">
-                                <button class="btn btn_fill chart-month-zoom">За последний месяц</button>
+                                <button class="btn btn_clean dashboard__btn" data-line-btn="month">За последний месяц</button>
                             </div>
                             <div class="col-auto me-2">
-                                <button class="btn btn_fill chart-year-zoom">За последний год</button>
+                                <button class="btn btn_clean dashboard__btn" data-line-btn="year">За последний год</button>
                             </div>
                             <div class="col-auto ms-auto">
                                 <div id="legend-container"></div>
@@ -437,7 +437,27 @@
                         </div>
                         <canvas id="lineChart" style="width: 100%; height: 400px"></canvas>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="dashboard__total-stats-wrapper">
+                            <h4 class="title title_block mb-3 py-1">Общая статистика</h4>
+                            <div class="d-flex flex-wrap align-items-center mb-4">
+                                <div class="col-auto me-2">
+                                    <button class="btn btn_clean dashboard__btn active" data-doughnut-btn="total">Все</button>
+                                </div>
+                                <div class="col-auto me-2">
+                                    <button class="btn btn_clean dashboard__btn" data-doughnut-btn="quarter">За квартал</button>
+                                </div>
+                            </div>
+                            <div class="dashboard__total-stats">
+                                <div class="mb-4">
+                                    <canvas id="doughnutChart" style="width: 100%; height: 400px"></canvas>
+                                </div>
+                                <div class="col-auto ms-auto">
+                                    <div id="doughnut-legend"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,7 +530,218 @@
     <script src="./js/tasks.js"></script>
     <script src="./js/team.js"></script>
     <script src="./js/report.js"></script>
-    <script src="./js/dashboard.js"></script> <!-- DASHBOARD -->
+    <script src="./js/dashboard.js"></script> <!-- DASHBOARD PAGE CHART CONFIGURATIONS -->
     <script src="./js/custom.js"></script>
+    <!-- CHART INITIALIZATION -->
+    <script>
+        $(function() {
+            const date = new Date(), 
+                y = date.getFullYear(), 
+                m = date.getMonth(),
+                d = date.getDate();
+        
+            if (getLanguage() === "ru") moment.locale("ru") // localize to ru | en is default
+                
+            const line1 = {
+                label: "Оплаченные", // Localize is depending on th lang
+                backgroundColor: "#2DC959",
+                borderColor: "#2DC959",
+                data: [{
+                    x: '2021-11-06',
+                    y: 50
+                }, {
+                    x: '2021-11-07',
+                    y: 60
+                }, {
+                    x: '2022-01-07',
+                    y: 20
+                },
+                {
+                    x: '2022-04-26',
+                    y: 50
+                }, {
+                    x: '2022-04-27',
+                    y: 60
+                }, {
+                    x: '2022-04-28',
+                    y: 20
+                }]
+            }
+            const line2 = {
+                label: "Неоплаченные", // Localize is depending on th lang
+                backgroundColor: "#FF3636",
+                borderColor: "#FF3636",
+                data: [{
+                    x: '2021-11-06',
+                    y: 20
+                }, {
+                    x: '2021-11-07',
+                    y: 30
+                }, {
+                    x: '2022-01-07',
+                    y: 40
+                },
+                {
+                    x: '2022-04-26',
+                    y: 10
+                }, {
+                    x: '2022-04-27',
+                    y: 30
+                }, {
+                    x: '2022-04-28',
+                    y: 90
+                }]
+            }
+            // LINE CHART
+            const lineChart = new Chart('lineChart', {
+                type: "line",
+                data: {
+                    datasets: [line1, line2],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                borderDash: [1,3],
+                                color: "#84818A"
+                            }
+                        },
+                        x: {
+                            type: 'time',
+                            time: {
+                                tooltipFormat: "DD MMM YYYY",
+                                minUnit: "day",
+                                maxUnit: "month"
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        zoom: {
+                            pan: {
+                                enabled: true,
+                                modifierKey: 'ctrl',
+                            },
+                            zoom: {
+                                wheel: {
+                                    enabled: true,
+                                },
+                                pinch: {
+                                    enabled: true
+                                },
+                                mode: 'x',
+                            }
+                        },
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            usePointStyle: true,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Зажмите CTRL, что бы перемещаться по графику'
+                        },
+                        htmlLegend: {
+                            containerID: 'legend-container',
+                        },
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                },
+                plugins: [htmlLegendPlugin],
+            });
+            // Line chart actions
+            $(document).on("click", "[data-line-btn]", function() {
+                if (!$(this).hasClass("active")) {
+                    const type = $(this).data("line-btn");
+                    $("[data-line-btn]").not($(this)).removeClass("active")
+                    $(this).addClass("active")
+                    if (type === "week") {
+                        lineChart.zoomScale('x', {
+                            min: new Date(y, m, d - 7), // начало текущей недели
+                            max: new Date() // конец текущей недели
+                        }, 'default');
+                        lineChart.update();
+                        return
+                    }
+                    if (type === "month") {
+                        lineChart.zoomScale('x', {
+                            min: new Date(y, m, 1), // начало текущего месяца
+                            max: new Date() // конец текущего месяца
+                        }, 'default');
+                        lineChart.update();
+                        return
+                    }
+                    if (type === "year") {
+                        lineChart.zoomScale('x', {
+                            min: new Date(y - 1, m, d),
+                            max: new Date()
+                        }, 'default');
+                        lineChart.update();
+                        return
+                    }
+                    lineChart.resetZoom();
+                }
+            })
+            
+            // Doughnut
+            const doughnutTotal = {
+                fill: false,
+                data: [456, 56],
+                backgroundColor: ['#2DC959','#FF3636']
+            }
+
+            const doughnutQuarter = {
+                fill: false,
+                data: [156, 86],
+                backgroundColor: ['#2DC959','#FF3636']
+            }
+            
+            const doughnutChart = new Chart('doughnutChart', {
+                type: 'doughnut',
+                data: {
+                    labels: ["Оплаченные", "Неоплаченные"],
+                    datasets: [doughnutTotal],
+                },
+                options: {
+                    cutout: "85%",
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        htmlLegend: {
+                            containerID: 'doughnut-legend',
+                        },
+                    }
+                },
+                plugins: [htmlLegendPlugin]
+            })
+            // Doughnut chart actions
+            $(document).on("click", "[data-doughnut-btn]", function() {
+                if (!$(this).hasClass("active")) {
+                    const type = $(this).data("doughnut-btn");
+
+                    $("[data-doughnut-btn]").not($(this)).removeClass("active")
+                    $(this).addClass("active")
+
+                    if (type === "quarter") {
+                        doughnutChart.data.datasets[0] = doughnutQuarter
+                        doughnutChart.update();
+                        return
+                    }
+                    // total
+                    doughnutChart.data.datasets[0] = doughnutTotal
+                    doughnutChart.update()
+                }
+            })
+        })
+    </script>
 </body>
 </html>
