@@ -197,25 +197,86 @@ function createMobEstimates(data, additionalClass) {
     </table>`
 }
 // ADD ESTIMATES
-function addEstimates(event) {
-    event.preventDefault()
-    console.log("wtf");
+function addEstimates(e) {
+    e.preventDefault();
+    const data = new FormData(e.target)
+    console.log(data);
 }
 
-function checkForm(n) {
-    const form = $("[data-form-part='"+n+"']")
-    for (let i = 0; i < form.find("input").length; i++) {
-        if (!form.find("input")[i].reportValidity()) {
+function estimatesNext(page) {
+    const wrapper = $("[data-estimates-slider='"+page+"']")
+    for (let i = 0; i < wrapper.find("input, select").length; i++) {
+        if (!wrapper.find("input, select")[i].reportValidity()) {
             return
         }
     }
+
+    if (page-0 === 4) {
+        const name = $(".js-estimates-type:checked").val() === "0" ? $(".js-estimates-name option:selected")[0].label : $(".js-owner-name").val()
+        const date = $(".js-estimates-date").val()
+        const vin = $(".js-estimates-vin").val()
+        const pnr = $(".js-estimates-pnr").val()
+        const img = $(".js-estimate-img").css("background-image")
+        // undefined method of calculation
+        const awTotal = 55
+        const priceTotal = "2550 $"
+
+        $("[data-e-name]").text(name)
+        $("[data-e-date]").text(date)
+        $("[data-e-vin]").text(vin)
+        $("[data-e-pnr]").text(pnr)
+        $("[data-e-aw-total]").text(awTotal)
+        $("[data-e-price-total]").text(priceTotal)
+
+        if (img !== "none")
+            $("[data-e-img]").css("background-image", img)
+    }
+    
+    $("[data-estimates-slider='"+page+"']").hide();
+    $("[data-estimates-slider='"+(page-0+1)+"']").fadeIn();
+}
+
+function estimatesBack(event) {
+    const page = $(event.target).closest("[data-estimates-slider]").data("estimates-slider")
+    $("[data-estimates-slider='"+page+"']").hide();
+    $("[data-estimates-slider='"+(page-1)+"']").fadeIn();
+}
+
+function estimatesType() {
+    $(document).on("change", ".js-estimates-type", function() {
+        const v = $(this).val()
+        const clientsWrapper = $("[data-estimates-client='0']")
+        const ownerWrapper = $("[data-estimates-client='1']")
+
+        if (v === "0") {
+            // clients
+            clientsWrapper.find(".select").removeClass("disabled")
+            clientsWrapper.find(".select__control").prop("disabled", false)
+            // owners
+            ownerWrapper.find(".estimates-temp").addClass("disabled")
+            ownerWrapper.find(".estimates-owner input, .estimates-owner select").prop("disabled", true)
+            ownerWrapper.find(".estimates-owner").slideUp()
+        } else {
+            // clients
+            clientsWrapper.find(".select").addClass("disabled")
+            clientsWrapper.find(".select__control").prop("disabled", true)
+            // owners
+            ownerWrapper.find(".estimates-temp").removeClass("disabled")
+            ownerWrapper.find(".estimates-owner input, .estimates-owner select").prop("disabled", false)
+            ownerWrapper.find(".estimates-owner").slideDown()
+        }
+    })
 }
 
 $(function() {
     $(document).on('change', ".estimates__item input", onEstimatesFileSelected)
     $(document).on("click", ".estimates__item .btn_remove", removeEstimatesImage)
-
-    $('[data-mymodal-id="add-estimates"]').on("closed", function(e) {
-        console.log(e.reason);
+    estimatesType()
+    $(document).on("click", ".js-estimates-back", estimatesBack)
+    $('.add-estimates-form').on("submit", addEstimates)
+    $(document).on("opening", ".estimates-modal", function() {
+        $("[data-estimates-slider]").hide()
+        $("[data-estimates-slider='0']").show()
+        $('.add-estimates-form')[0].reset()
     })
 })

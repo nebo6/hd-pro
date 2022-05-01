@@ -819,18 +819,18 @@
     <!--  -->
     <div class="mymodal estimates-modal" data-mymodal-id="add-estimates" data-mymodal-options="hashTracking: false">
         <div class="mymodal__content">
-            <form class="text-center" method="post" onsubmit="addEstimates(event)">
+            <form class="text-center add-estimates-form" method="post">
                 <div class="estimates-carousel">
-                    <div class="estimates-carousel__item" data-carousel="0">
+                    <div class="estimates-carousel__item" data-estimates-slider="0">
                         <div class="estimates-item">
                             <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
                             <div class="mymodal__content">
                                 <header class="mymodal__header">
-                                    <h4 class="title title_mymodal">Добавить счет-фактуру</h4>
+                                    <h4 class="title title_mymodal">Информация об автомобиле</h4>
                                 </header>
-                                <div class="mymodal__body" data-form-part="0">
+                                <div class="mymodal__body">
                                     <div class="input mb-3">
-                                        <input type="text" class="input__control date-mask" name="date" placeholder="Дата" required>
+                                        <input type="text" class="input__control date-mask js-estimates-date" name="date" placeholder="Дата" required>
                                     </div>
                                     <div class="select select_input mb-3">
                                         <select name="week" class="select__control" required>
@@ -839,12 +839,13 @@
                                             <option value="1" label="Неделя 2"></option>
                                             <option value="2" label="Неделя 3"></option>
                                         </select>
+                                        <div class="select__icon"></div>
                                     </div>
                                     <div class="input mb-3">
-                                        <input type="number" class="input__control" name="vin" placeholder="VIN Код" required>
+                                        <input type="number" class="input__control js-estimates-vin" name="vin" placeholder="VIN Код" required>
                                     </div>
                                     <div class="input mb-3">
-                                        <input type="number" class="input__control" name="car_number" placeholder="Номер машины" required>
+                                        <input type="text" class="input__control  js-estimates-pnr" name="car_number" placeholder="Номер машины" required>
                                     </div>
                                     <div class="input mb-3">
                                         <input type="number" class="input__control" name="year" placeholder="Год" required>
@@ -871,8 +872,588 @@
                                         <span class="text_light">Insurance</span>
                                         <div class="input__icon"></div>
                                     </label>
-                                    <div class="mt-5">
-                                        <button class="btn btn_fill" type="button" onclick="checkForm(0)">Next</button>
+                                </div>
+                                <div class="mt-5">
+                                    <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(0)">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimates-carousel__item" data-estimates-slider="1" style="display:none">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Тип клиента</h4>
+                                </header>
+                                <div class="mymodal__body">
+                                    <div class="row align-items-center mb-4" data-estimates-client="0">
+                                        <div class="col-auto pe-0">
+                                            <label class="input input_radio">
+                                                <input type="radio" name="client_type" class="input__control js-estimates-type" value="0" required> <!-- type 0 - Client -->
+                                                <div class="input__icon input__icon_static"></div>
+                                            </label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="select select_widget select_red disabled">
+                                                <select name="client" class="select__control js-estimates-name" disabled required>
+                                                    <option value="" label="Клиент*" selected disabled></option>
+                                                    <option value="0" label="Клиент 1"></option>
+                                                    <option value="1" label="Клиент 2"></option>
+                                                    <option value="2" label="Клиент 3"></option>
+                                                </select>
+                                                <div class="select__icon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center" data-estimates-client="1">
+                                        <div class="col-auto pe-0">
+                                            <label class="input input_radio">
+                                                <input type="radio" name="client_type" class="input__control js-estimates-type" value="1" required> <!-- type 1 - Owner -->
+                                                <div class="input__icon input__icon_static"></div>
+                                            </label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="estimates-temp disabled">Owner</div>
+                                        </div>
+                                        <div class="col-12 mt-4">
+                                            <div class="estimates-owner" style="display: none; padding-left: 32px">
+                                                <div class="input mb-3">
+                                                    <input type="text" class="input__control js-owner-name" name="owner-name" placeholder="Имя" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="tel" class="input__control" name="owner-phone" placeholder="Номер телефона" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="email" class="input__control" name="owner-email" placeholder="Email" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="text" class="input__control" name="owner-address" placeholder="Адрес" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="text" class="input__control" name="owner-city" placeholder="Город" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="text" class="input__control" name="owner-country" placeholder="Страна" required disabled>
+                                                </div>
+                                                <div class="input mb-3">
+                                                    <input type="text" class="input__control" name="owner-insurance" placeholder="Страховка" required disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-3 estimates-footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(1)">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimates-carousel__item estimates-carousel__item_wide" data-estimates-slider="2" style="display:none">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Сервис</h4>
+                                </header>
+                                <div class="mymodal__body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Car part</th>
+                                                    <th>Number</th>
+                                                    <th>Size</th>
+                                                    <th class="text-center">Aluminium</th>
+                                                    <th class="text-center">Push to Paint</th>
+                                                    <th>AW</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>
+                                                        <div class="input estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" name="service-number">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="select select_widget estimates-limit">
+                                                            <select name="size" class="select__control" required>
+                                                                <option value="0" label="0" selected></option>
+                                                                <option value="10" label="10"></option>
+                                                                <option value="20" label="20"></option>
+                                                                <option value="30" label="30"></option>
+                                                            </select>
+                                                            <div class="select__icon"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <label class="input input_checkbox">
+                                                            <input type="checkbox" class="input__control" name="aluminium[0]">
+                                                            <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                                        </label>
+                                                    </td class="text-center">
+                                                    <td>
+                                                        <label class="input input_checkbox">
+                                                            <input type="checkbox" class="input__control" name="push_to_paint[0]">
+                                                            <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td data-e-aw="520">520</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="pt-5 estimates-footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(2)">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimates-carousel__item" data-estimates-slider="3" style="display:none">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Дополнительные услуги</h4>
+                                </header>
+                                <div class="mymodal__body">
+                                    <div class="select select_widget select_red mb-3">
+                                        <select name="size" class="select__control">
+                                            <option value="" label="Demontage&Montage" selected disabled></option>
+                                            <option value="1" label="Demontage&Montage"></option>
+                                            <option value="2" label="Demontage&Montage"></option>
+                                            <option value="3" label="Demontage&Montage"></option>
+                                        </select>
+                                        <div class="select__icon"></div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Extra Services</th>
+                                                    <th>Reference Value</th>
+                                                    <th class="text-center">Check</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Set-up time per vehicle</td>
+                                                    <td>6,00 WH</td>
+                                                    <td class="text-center">
+                                                        <label class="input input_checkbox">
+                                                            <input type="checkbox" class="input__control" name="add_service[0]">
+                                                            <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
+                                                        </label>
+                                                    </td class="text-center">
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="pt-5 estimates-footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(3)">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimates-carousel__item" data-estimates-slider="4" style="display:none">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Фото</h4>
+                                </header>
+                                <div class="mymodal__body">
+                                    <div class="d-flex flex-wrap justify-content-between">
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div> <!-- tag for origin image wich was early -->
+                                                    <div class="img"></div> <!-- new loaded image will appear hear -->
+                                                    <input type="file" class="estimates__input" name="damage-fl" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Левая передняя часть</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-fm" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Капот</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-fr" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правая передняя часть</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between">
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-lt" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Левая дверь</h4>
+                                            </div>
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-lb" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Левая задняя дверь</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="extimates__car"></div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-rt" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правая дверь</h4>
+                                            </div>
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-rb" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правая задняя дверь</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between">
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-bl" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Левая задняя часть</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-bm" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Багажник</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-br" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левая передняя часть"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правая задняя часть</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label class="input-image input-image_16x9 input_group mx-auto">
+                                        <div class="img js-estimate-img"></div>
+                                        <input type="file" name="image" class="js-form-file" accept=".png,.jpg">
+                                    </label>
+                                </div>
+                                <div class="pt-5 estimates-footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(4)">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimates-carousel__item" data-estimates-slider="5" style="display:none">
+                        <div class="estimates-item">
+                            <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+                            <div class="mymodal__content">
+                                <header class="mymodal__header">
+                                    <h4 class="title title_mymodal">Подтверждение оценки</h4>
+                                </header>
+                                <div class="mymodal__body">
+                                    <div class="estimates-result mb-5">
+                                        <div class="row align-items-center">
+                                            <div class="col-7">
+                                                <div class="estimates-result__image" data-e-img></div>
+                                            </div>
+                                            <div class="col-5">
+                                                <p class="mb-1"><span class="text_red">Client: </span><span class="text_gray" data-e-name></span></p>
+                                                <p class="mb-1"><span class="text_red">Date: </span><span class="text_gray" data-e-date></span></p>
+                                                <p class="mb-1"><span class="text_red">VIN: </span><span class="text_gray" data-e-vin></span></p>
+                                                <p class="mb-1"><span class="text_red">Plate Nr: </span><span class="text_gray" data-e-pnr></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="estimates-temp maw-300 mx-auto mb-3">
+                                        <div class="row">
+                                            <div class="col"><b>Total AW</b></div>
+                                            <div class="col-auto"><b data-e-aw-total>0</b></div>
+                                        </div>
+                                    </div>
+                                    <div class="estimates-temp maw-300 mx-auto">
+                                        <div class="row">
+                                            <div class="col"><b>Total Price</b></div>
+                                            <div class="col-auto"><b data-e-price-total>0</b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-5 estimates-footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="btn btn_fill w-100" type="submit">Confirm</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

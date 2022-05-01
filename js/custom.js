@@ -190,5 +190,5 @@ $(function() {
         alias: 'datetime', 
         inputFormat: 'dd.mm.yyyy'
     })
-    Fancybox.defaults.Hash = false;
+    if (window.Fancybox) Fancybox.defaults.Hash = false;
 })
