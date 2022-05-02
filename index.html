@@ -15,13 +15,35 @@
     <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
     <!-- SIDEBAR START-->
     <aside class="sidebar">
         <div class="sidebar__inner">
+            <!-- mob header -->
+            <div class="d-md-none mb-4 pb-3">
+                <div class="row align-items-center">
+                    <div class="col-auto pe-1">
+                        <button class="btn btn_clean d-block" type="button">
+                            <svg class="d-block" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#504F54"/>
+                            </svg>                                
+                        </button>
+                    </div>
+                    <div class="col">
+                        <label class="input header__search input_gap_right">
+                            <input type="text" class="input__control input__control_small js-search" placeholder="Введите что Вам нужно...">
+                            <span class="input__icon input__icon_magnify">
+                                <img src="./img/loader.gif" class="loading">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <!-- LOGO START -->
-            <a href="/" title="Главная">
+            <a href="/" title="Главная" class="d-none d-md-block">
                 <img src="./img/logo.svg" alt="HD Pro" title="HDPro" class="logo">
             </a>
             <!-- LOGO END -->
@@ -272,194 +294,265 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <div class="container-fluid">
-                <div class="statistics__list statistics__list_type_1 mb-4">
-                    <div class="row justify-content-between">
-                        <a href="?payment" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1 active d-flex align-items-center">
-                                <div class="row">
-                                    <div class="col-8 part-1">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <div class="statistics__value statistics__value_small text_green">456k$</div>
+            <section class="page-section">
+                <div class="container-fluid">
+                    <div class="statistics__list statistics__list_type_1 mb-lg-4">
+                        <div class="row justify-content-between">
+                            <a href="?payment" class="statistics__wrapper statistics__wrapper_type_1 statistics__wrapper_fixed-width-lg">
+                                <div class="statistics statistics_type_1 active d-flex align-items-center">
+                                    <div class="row">
+                                        <div class="col-8 part-1">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="statistics__value statistics__value_small text_green">456k$</div>
+                                                </div>
+                                                <div class="col-auto ps-1">
+                                                    <div class="statistics__value statistics__value_small text_red">56k$</div>
+                                                </div>
                                             </div>
-                                            <div class="col-auto ps-1">
-                                                <div class="statistics__value statistics__value_small text_red">56k$</div>
-                                            </div>
-                                        </div>
-                                        <div class="statistics__label">
-                                            Оплаченные и неоплаченные <br>счета-фактуры
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <div class="statistics__value statistics__value_small text_light">512k$</div>
+                                            <div class="statistics__label">
+                                                Оплаченные и неоплаченные <br>счета-фактуры
                                             </div>
                                         </div>
-                                        <div class="statistics__label text_light">
-                                            Оплачено сотрудникам
+                                        <div class="col-4">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="statistics__value statistics__value_small text_light">512k$</div>
+                                                </div>
+                                            </div>
+                                            <div class="statistics__label text_light">
+                                                Оплачено сотрудникам
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="?projects" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_compass"></div>
-                                    </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">89</div>
-                                    </div>
-                                </div> 
-                                <div class="statistics__label">
-                                    Проекты и <br>количество точек
-                                </div>
-                            </div>
-                        </a>
-                        <a href="?tasks" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_tasks"></div>
-                                    </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">35</div>
+                            </a>
+                            <a href="?projects" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_compass"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">89</div>
+                                        </div>
+                                    </div> 
+                                    <div class="statistics__label">
+                                        Проекты и <br>количество точек
                                     </div>
                                 </div>
-                                <div class="statistics__label">
-                                    Cписок задач <br>менеджера
-                                </div>
-                            </div>
-                        </a>
-                        <a href="?chronology" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_list"></div>
+                            </a>
+                            <a href="?tasks" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_tasks"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">35</div>
+                                        </div>
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">1467</div>
-                                    </div>
-                                </div>
-                                <div class="statistics__label"> 
-                                    Все действия сотрудников <br>в хронологии
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="statistics__list statistics__list_type_1 mb-4">
-                    <div class="row justify-content-between">
-                        <a href="?done" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_car"></div>
-                                    </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">223</div>
+                                    <div class="statistics__label">
+                                        Cписок задач <br>менеджера
                                     </div>
                                 </div>
-                                <div class="statistics__label">
-                                    Количество <br>выполенных заказов
-                                </div>
-                            </div>
-                        </a>
-                        <a href="?invoice" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_chart"></div>
+                            </a>
+                            <a href="?chronology" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_list"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">1467</div>
+                                        </div>
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">21</div>
-                                    </div>
-                                </div> 
-                                <div class="statistics__label">
-                                    Количество отправленных <br>инвойсов
-                                </div>
-                            </div>
-                        </a>
-                        <a href="?employee" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_profile"></div>
-                                    </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">5</div>
+                                    <div class="statistics__label"> 
+                                        Все действия сотрудников <br>в хронологии
                                     </div>
                                 </div>
-                                <div class="statistics__label">
-                                    Список активных сотрудников <br>за последние 10 дней
-                                </div>
-                            </div>
-                        </a>
-                        <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1">
-                            <div class="statistics statistics_type_1">
-                                <div class="row align-items-center">
-                                    <div class="col-auto pe-2">
-                                        <div class="statistics__icon statistics__icon_bonus"></div>
+                            </a>
+                            <!-- duplicated for mob -->
+                            <a href="?done" class="statistics__wrapper statistics__wrapper_type_1 d-lg-none">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_car"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">223</div>
+                                        </div>
                                     </div>
-                                    <div class="col-auto ps-0">
-                                        <div class="statistics__value statistics__value_small">890$</div>
+                                    <div class="statistics__label">
+                                        Количество <br>выполенных заказов
                                     </div>
                                 </div>
-                                <div class="statistics__label"> 
-                                    Количество выплаченных <br>бонусов для менеджеров
+                            </a>
+                            <a href="?invoice" class="statistics__wrapper statistics__wrapper_type_1 d-lg-none">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_chart"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">21</div>
+                                        </div>
+                                    </div> 
+                                    <div class="statistics__label">
+                                        Количество отправленных <br>инвойсов
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- charts start -->
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="d-flex flex-wrap align-items-center mb-2">
-                            <div class="col-auto me-2">
-                                <button class="btn btn_clean dashboard__btn active" data-line-btn="all">Все</button>
-                            </div>
-                            <div class="col-auto me-2">
-                                <button class="btn btn_clean dashboard__btn" data-line-btn="week">За последнюю неделю</button>
-                            </div>
-                            <div class="col-auto me-2">
-                                <button class="btn btn_clean dashboard__btn" data-line-btn="month">За последний месяц</button>
-                            </div>
-                            <div class="col-auto me-2">
-                                <button class="btn btn_clean dashboard__btn" data-line-btn="year">За последний год</button>
-                            </div>
-                            <div class="col-auto ms-auto">
-                                <div id="legend-container"></div>
-                            </div>
-                        </div>
-                        <canvas id="lineChart" style="width: 100%; height: 400px"></canvas>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dashboard__total-stats-wrapper">
-                            <h4 class="title title_block mb-3 py-1">Общая статистика</h4>
-                            <div class="d-flex flex-wrap align-items-center mb-4">
-                                <div class="col-auto me-2">
-                                    <button class="btn btn_clean dashboard__btn active" data-doughnut-btn="total">Все</button>
+                            </a>
+                            <a href="?employee" class="statistics__wrapper statistics__wrapper_type_1 d-lg-none">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_profile"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">5</div>
+                                        </div>
+                                    </div>
+                                    <div class="statistics__label">
+                                        Список активных сотрудников <br>за последние 10 дней
+                                    </div>
                                 </div>
-                                <div class="col-auto me-2">
-                                    <button class="btn btn_clean dashboard__btn" data-doughnut-btn="quarter">За квартал</button>
+                            </a>
+                            <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1 d-lg-none">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_bonus"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">890$</div>
+                                        </div>
+                                    </div>
+                                    <div class="statistics__label"> 
+                                        Количество выплаченных <br>бонусов для менеджеров
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dashboard__total-stats">
-                                <div class="mb-4">
-                                    <canvas id="doughnutChart" style="width: 100%; height: 400px"></canvas>
-                                </div>
-                                <div class="col-auto ms-auto">
-                                    <div id="doughnut-legend"></div>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
+                    <div class="statistics__list statistics__list_type_1 mb-lg-4 d-none d-lg-block">
+                        <div class="row justify-content-between">
+                            <a href="?done" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_car"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">223</div>
+                                        </div>
+                                    </div>
+                                    <div class="statistics__label">
+                                        Количество <br>выполенных заказов
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="?invoice" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_chart"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">21</div>
+                                        </div>
+                                    </div> 
+                                    <div class="statistics__label">
+                                        Количество отправленных <br>инвойсов
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="?employee" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_profile"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">5</div>
+                                        </div>
+                                    </div>
+                                    <div class="statistics__label">
+                                        Список активных сотрудников <br>за последние 10 дней
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1">
+                                <div class="statistics statistics_type_1">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto pe-2">
+                                            <div class="statistics__icon statistics__icon_bonus"></div>
+                                        </div>
+                                        <div class="col-auto ps-0">
+                                            <div class="statistics__value statistics__value_small">890$</div>
+                                        </div>
+                                    </div>
+                                    <div class="statistics__label"> 
+                                        Количество выплаченных <br>бонусов для менеджеров
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- charts start -->
+                    <div class="row">
+                        <div class="col-lg-8 mb-4 mb-lg-0">
+                            <div class="mintab-card-wrapper">
+                                <div class="d-flex flex-wrapmb-2">
+                                    <div class="col">
+                                        <div class="d-flex flex-wrap align-items-center">
+                                            <div class="col-auto me-2">
+                                                <button class="btn btn_clean dashboard__btn active" data-line-btn="all">Все</button>
+                                            </div>
+                                            <div class="col-auto me-2">
+                                                <button class="btn btn_clean dashboard__btn" data-line-btn="week">За последнюю неделю</button>
+                                            </div>
+                                            <div class="col-auto me-2">
+                                                <button class="btn btn_clean dashboard__btn" data-line-btn="month">За последний месяц</button>
+                                            </div>
+                                            <div class="col-auto me-2">
+                                                <button class="btn btn_clean dashboard__btn" data-line-btn="year">За последний год</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto ms-auto pt-1">
+                                        <div id="legend-container"></div>
+                                    </div>
+                                </div>
+                                <canvas id="lineChart" style="width: 100%; height: 400px"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="dashboard__total-stats-wrapper">
+                                <div class="mintab-card-wrapper">
+                                    <h4 class="title title_block mb-3 py-1">Общая статистика</h4>
+                                    <div class="d-flex flex-wrap align-items-center mb-4">
+                                        <div class="col-auto me-2">
+                                            <button class="btn btn_clean dashboard__btn active" data-doughnut-btn="total">Все</button>
+                                        </div>
+                                        <div class="col-auto me-2">
+                                            <button class="btn btn_clean dashboard__btn" data-doughnut-btn="quarter">За квартал</button>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard__total-stats">
+                                        <div class="mb-4">
+                                            <canvas id="doughnutChart" style="width: 100%; height: 400px"></canvas>
+                                        </div>
+                                        <div class="col-auto ms-auto">
+                                            <div id="doughnut-legend"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
     <!-- MAIN END -->

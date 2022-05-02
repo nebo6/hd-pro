@@ -1,0 +1,25 @@
+@media (max-width: 767.98px) {
+  .header__search {
+    width: 100%;
+  }
+  .sidebar {
+    z-index: 1;
+  }
+  .sidebar .sidebar__inner {
+    width: 256px;
+    padding: 1rem 1.5rem;
+  }
+  .sidebar .nav__text {
+    opacity: 1;
+  }
+  .sidebar .nav__item:not(.nav__item_inner) {
+    padding: 0;
+  }
+  .statistics__wrapper_fixed-width-lg {
+    max-width: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+}
+/*# sourceMappingURL=mobile.css.map */

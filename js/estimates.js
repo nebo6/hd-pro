@@ -267,6 +267,23 @@ function estimatesType() {
         }
     })
 }
+// ESTIMATES DETAIL
+const dummyDetails = {
+    estimates: dummyEstimates,
+    damage: dummyEstimatesCar,
+
+}
+
+function updateEstimatesDetail(data) {
+
+} 
+
+function estimatesDetail(id) {
+    console.log("get data with id", id);
+    // getData(id)
+
+    $('[data-mymodal-id="detail-estimates"]').mymodal().open()
+}
 
 $(function() {
     $(document).on('change', ".estimates__item input", onEstimatesFileSelected)
@@ -279,4 +296,9 @@ $(function() {
         $("[data-estimates-slider='0']").show()
         $('.add-estimates-form')[0].reset()
     })
+    // ESTIMATES DETAIL
+    $(document).on("closing", '[data-mymodal-id="estimates-detail-damage"], [data-mymodal-id="estimates-detail-service"], [data-mymodal-id="estimates-detail-additional-service"]', function() {
+        $('[data-mymodal-id="detail-estimates"]').mymodal().open()
+    })
+
 })

@@ -1,0 +1,21 @@
+{
+    "version": 3,
+    "mappings": "AACA,MAAM,EAAE,SAAS,EAAE,SAAS;EID5B,AAAA,QAAQ,AAAA,OAAO,GAAG,KAAK;EACvB,QAAQ,AAAA,MAAM,GAAG,KAAK,CAAC;IACnB,WAAW,EAAE,IAAI;GAAG;EEFxB,AAAA,2BAA2B,CAAC;IACxB,SAAS,EAAE,IAAI;IACf,IAAI,EAAE,GAAG;GAAG;EAEhB,AAAA,mCAAmC,CAAC;IAChC,IAAI,EAAE,SAAS;GAAG;;;ANFtB,MAAM,EAAE,SAAS,EAAE,QAAQ;EQH3B,AAAA,IAAI,CAAC;IACD,gBAAgB,EAAE,OAAO;GAAG;EAEhC,AAAA,oBAAoB,CAAC;IACjB,gBAAgB,EAAE,IAAI;IACtB,aAAa,EAAE,GAAG;IAClB,OAAO,EAAE,IAAI;GAAG;EENpB,AAAA,2BAA2B,CAAC;IACxB,SAAS,EAAE,GAAG;IACd,IAAI,EAAE,OAAO;GAAG;EEFpB,AAAA,+BAA+B,CAAC;IAC5B,YAAY,EAAE,CAAC;GAAG",
+    "sources": [
+        "../sass/tablet.sass",
+        "../sass/_variables.sass",
+        "../sass/tablet/_styles.sass",
+        "../sass/tablet/sidebar/_styles.sass",
+        "../sass/tablet/sidebar/_nav.sass",
+        "../sass/tablet/statistics/_styles.sass",
+        "../sass/tablet/statistics/_core.sass",
+        "../sass/tablet-min/_styles.sass",
+        "../sass/tablet-min/_core.sass",
+        "../sass/tablet-min/statistics/_styles.sass",
+        "../sass/tablet-min/statistics/_core.sass",
+        "../sass/tablet-min/pages/_styles.sass",
+        "../sass/tablet-min/pages/_dashboard.sass"
+    ],
+    "names": [],
+    "file": "tablet.css"
+}

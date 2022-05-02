@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
+    <link rel="stylesheet" href="./css/desktop-min.css">
 </head>
 <body>
     <!-- SIDEBAR START-->
@@ -317,7 +318,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr data-estimates-row="1">
+                                <tr data-estimates-row="1" onclick="estimatesDetail(1)">
                                     <td>1</td>
                                     <td>LAND CRUISER PRADO</td>
                                     <td>33-443-222233</td>
@@ -730,93 +731,7 @@
         </div>
     </div>
     <!-- ESTIMATES AUTO IMAGES END -->
-    <!-- ESTIMATES DETAIL INFO START -->
-    <div class="mymodal" data-mymodal-id="show-estimates" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">LAND CRUISER PRADO</h4>
-            </header>
-            <div class="mymodal__body ">
-                <div class="project__image-wrapper">
-                    <img src="" alt="" data-t-img class="project__image">
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>Выполняемые услуги:</th>
-                                <td data-t-services></td>
-                            </tr>
-                            <tr>
-                                <th>Цена на основе матрицы:</th>
-                                <td data-t-price></td>
-                            </tr>
-                            <tr>
-                                <th>Дополнительные услуги:</th>
-                                <td data-t-additional></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="mymodal__footer">
-                <a class="btn btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-estimate>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                    </svg>Скачать смету
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="mymodal__body project-modal-template d-none">
-        <div class="project__image-wrapper">
-            <img src="" alt="" data-t-img class="project__image">
-        </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>VIN код:</th>
-                        <td data-t-vin></td>
-                    </tr>
-                    <tr>
-                        <th>Год:</th>
-                        <td data-t-year></td>
-                    </tr>
-                    <tr>
-                        <th>Модель:</th>
-                        <td data-t-model></td>
-                    </tr>
-                    <tr>
-                        <th>Цвет:</th>
-                        <td data-t-color></td>
-                    </tr>
-                    <tr>
-                        <th>Пробег:</th>
-                        <td data-t-mileage></td>
-                    </tr>
-                    <tr>
-                        <th>Дата добавления в систему:</th>
-                        <td data-t-date></td>
-                    </tr>
-                    <tr>
-                        <th>Имя техника:</th>
-                        <td data-t-master></td>
-                    </tr>
-                    <tr>
-                        <th>О клиенте:</th>
-                        <td data-t-client></td>
-                    </tr>
-                    <tr>
-                        <th>Страховка:</th>
-                        <td data-t-insurance></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!--  -->
+    <!-- ADD ESTIMATES FORM -->
     <div class="mymodal estimates-modal" data-mymodal-id="add-estimates" data-mymodal-options="hashTracking: false">
         <div class="mymodal__content">
             <form class="text-center add-estimates-form" method="post">
@@ -1000,8 +915,8 @@
                                                             <input type="checkbox" class="input__control" name="aluminium[0]">
                                                             <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
                                                         </label>
-                                                    </td class="text-center">
-                                                    <td>
+                                                    </td>
+                                                    <td class="text-center">
                                                         <label class="input input_checkbox">
                                                             <input type="checkbox" class="input__control" name="push_to_paint[0]">
                                                             <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
@@ -1061,7 +976,7 @@
                                                             <input type="checkbox" class="input__control" name="add_service[0]">
                                                             <span class="checkbox__icon checkbox__icon_check mx-auto"></span>
                                                         </label>
-                                                    </td class="text-center">
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1463,6 +1378,374 @@
             </form>
         </div>
     </div>
+    <!-- ADD ESTIMATES FORM END -->
+    <!-- ESTIMATES DETAIL -->
+    <!-- ESTIMATES DETAIL INFO START -->
+    <div class="mymodal" data-mymodal-id="detail-estimates" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Смета</h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="project__image-wrapper">
+                    <img src="" alt="" data-t-img class="project__image">
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>VIN код:</th>
+                                <td data-t-vin></td>
+                            </tr>
+                            <tr>
+                                <th>Год:</th>
+                                <td data-t-year></td>
+                            </tr>
+                            <tr>
+                                <th>Модель:</th>
+                                <td data-t-model></td>
+                            </tr>
+                            <tr>
+                                <th>Цвет:</th>
+                                <td data-t-color></td>
+                            </tr>
+                            <tr>
+                                <th>Пробег:</th>
+                                <td data-t-mileage></td>
+                            </tr>
+                            <tr>
+                                <th>Дата добавления в систему:</th>
+                                <td data-t-date></td>
+                            </tr>
+                            <tr>
+                                <th>Имя техника:</th>
+                                <td data-t-master></td>
+                            </tr>
+                            <tr>
+                                <th>О клиенте:</th>
+                                <td data-t-client></td>
+                            </tr>
+                            <tr>
+                                <th>Страховка:</th>
+                                <td data-t-insurance></td>
+                            </tr>
+                            <tr>
+                                <th>Урон:</th>
+                                <td>
+                                    <button type="button" class="btn btn_clean d-block" data-mymodal-target="estimates-detail-damage">
+                                        <span class="table__icon table__icon_show"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Выполняемые услуги</th>
+                                <td>
+                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-service">
+                                        <span class="btn__icon btn__icon_magnify me-2"></span>
+                                        <span data-t-services-count>7</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Дополнительные услуги</th>
+                                <td>
+                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-additional-service">
+                                        <span class="btn__icon btn__icon_magnify me-2"></span>
+                                        <span data-t-services-count>1</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mymodal__footer">
+                <a class="btn btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                    </svg>Скачать смету
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- DETAILT SERVICES MODAL | DATA IS READONLY -->
+    <div class="mymodal mymodal_services" data-mymodal-id="estimates-detail-service" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Сервис</h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Car part</th>
+                                <th>Number</th>
+                                <th>Size</th>
+                                <th class="text-center">Aluminium</th>
+                                <th class="text-center">Push to Paint</th>
+                                <th>AW</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Title</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DETAILT ADDITIONAL SERVICES MODAL | DATA IS READONLY -->
+    <div class="mymodal" data-mymodal-id="estimates-detail-additional-service" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close" type="button"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Дополнительные услуги</h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Extra Services</th>
+                                <th>Reference Value</th>
+                                <th class="text-center">Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DETAIL DAMAGE MODAL | SAME AS `estimates-damage` but updating on detail modal is opening and will open detail modal again on closed -->
+    <div class="mymodal  mymodal_estimates" data-mymodal-id="estimates-detail-damage" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Автомобиль</h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Левая передняя часть</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Капот</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правая передняя часть</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Левая дверь</h4>
+                        </div>
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Левая задняя дверь</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="extimates__car"></div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правая дверь</h4>
+                        </div>
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правая задняя дверь</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Левая задняя часть</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Багажник</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Левая передняя часть"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правая задняя часть</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>

@@ -1,0 +1,38 @@
+@media (max-width: 1199.98px) {
+  .sidebar.active + .main,
+  .sidebar:hover + .main {
+    margin-left: 68px;
+  }
+  .statistics__wrapper_type_1 {
+    max-width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0;
+            flex: 1 0;
+  }
+  .statistics__wrapper_fixed-width-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 280px;
+            flex: 0 0 280px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  body {
+    background-color: #f6f6f6;
+  }
+  .mintab-card-wrapper {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .statistics__wrapper_type_1 {
+    max-width: 50%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+  .dashboard__total-stats-wrapper {
+    padding-left: 0;
+  }
+}
+/*# sourceMappingURL=tablet.css.map */
