@@ -5,23 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HD PRO</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./libs/jquery-ui-1.13.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-grid.min.css">
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal.css">
     <link rel="stylesheet" href="./libs/remodal-1.1.1/remodal-default-theme.css">
+    <link rel="stylesheet" href="./libs/fancybox/fancybox.ui.4.css">
     <link rel="stylesheet" href="./libs/loader.css">
     <link rel="stylesheet" href="./css/desktop.css">
-    <link rel="stylesheet" href="./css/desktop-min.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
     <!-- SIDEBAR START-->
     <aside class="sidebar">
         <div class="sidebar__inner">
+            <!-- mob header -->
+            <div class="d-md-none mb-4 pb-3">
+                <div class="row align-items-center">
+                    <div class="col-auto pe-1">
+                        <button class="btn btn_clean d-block" type="button" onclick="closeMenu()">
+                            <svg class="d-block" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#504F54"/>
+                            </svg>                                
+                        </button>
+                    </div>
+                    <div class="col">
+                        <label class="input header__search input_gap_right">
+                            <input type="text" class="input__control input__control_small js-search" placeholder="Введите что Вам нужно...">
+                            <span class="input__icon input__icon_magnify">
+                                <img src="./img/loader.gif" class="loading">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <!-- LOGO START -->
-            <a href="/" title="Главная">
+            <a href="/" title="Главная" class="d-none d-md-block">
                 <img src="./img/logo.svg" alt="HD Pro" title="HDPro" class="logo">
             </a>
             <!-- LOGO END -->
@@ -113,7 +134,7 @@
                     <!-- NAVBAR ITEM ACCORDION END -->
                     <!-- NAVBAR ITEM LINK START -->
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Счета-фактуры">
+                        <a href="/invoices-list.html" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Счета-фактуры">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.49996 3.2H16.6666C16.7384 3.2 16.8 3.2616 16.8 3.33333V8.33333C16.8 8.40507 16.7384 8.46667 16.6666 8.46667H2.49996C2.42823 8.46667 2.36663 8.40507 2.36663 8.33333V3.33333C2.36663 3.2616 2.42823 3.2 2.49996 3.2ZM2.49996 11.5333H16.6666C16.7384 11.5333 16.8 11.5949 16.8 11.6667V16.6667C16.8 16.7384 16.7384 16.8 16.6666 16.8H2.49996C2.42823 16.8 2.36663 16.7384 2.36663 16.6667V11.6667C2.36663 11.5949 2.42823 11.5333 2.49996 11.5333Z" stroke="currentColor" stroke-width="1.4"/>
@@ -123,7 +144,7 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Расходы/доходы">
+                        <a href="/report-expenses.html" class="nav__link nav__link_outer d-flex align-items-center rounded" title="Расходы/доходы">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.37496 5.00056V4.99998C2.37496 4.46534 2.80778 4.03331 3.33329 4.03331H16.6666C17.1967 4.03331 17.6333 4.46991 17.6333 4.99998V15C17.6333 15.53 17.1967 15.9666 16.6666 15.9666H3.33329C2.80331 15.9666 2.36677 15.5302 2.36663 15.0002C2.36663 15.0001 2.36663 15.0001 2.36663 15L2.37496 5.00056Z" stroke="currentColor" stroke-width="1.4"/>
@@ -136,7 +157,7 @@
                     <!-- NAVBAR ITEM LINK END -->
                     <!-- NAVBAR ITEM ACTIVE LINK START -->
                     <li class="nav__item">
-                        <a href="/" class="nav__link nav__link_outer d-flex align-items-center rounded nav__link_active" title="Команда">
+                        <a href="/team-tech.html" class="nav__link nav__link_outer d-flex align-items-center rounded nav__link_active" title="Команда">
                             <span class="nav__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.81106 6.11112C6.81106 4.34911 8.23793 2.92223 9.99994 2.92223C11.762 2.92223 13.1888 4.34911 13.1888 6.11112C13.1888 7.87313 11.762 9.30001 9.99994 9.30001C8.23793 9.30001 6.81106 7.87313 6.81106 6.11112ZM2.92217 14.8611C2.92217 14.4717 3.11169 14.0788 3.54717 13.6769C3.9874 13.2706 4.63067 12.904 5.39793 12.5967C6.93358 11.9815 8.78953 11.6722 9.99994 11.6722C11.2104 11.6722 13.0663 11.9815 14.602 12.5967C15.3692 12.904 16.0125 13.2706 16.4527 13.6769C16.8882 14.0788 17.0777 14.4717 17.0777 14.8611V17.0778H2.92217V14.8611Z" stroke="currentColor" stroke-width="1.4"/>
@@ -146,6 +167,64 @@
                         </a>
                     </li>
                     <!-- NAVBAR ITEM ACTIVE LINK END -->
+                    <!-- ADD IN MOB VERSION -->
+                    <li class="nav__item d-md-none">
+                        <div class="accordion js-accordion">
+                            <div class="accordion__head d-flex align-items-center rounded js-accordion-head nav__link_active"> <!-- add nav__link_active class if inner link is active -->
+                                <span class="nav__icon">
+                                    <svg width="20" height="20" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.15464 0.154643L5.84536 0.154643L5.84536 5.34536L0.654643 5.34536V6.65464L5.84536 6.65464L5.84536 11.8454L7.15464 11.8454L7.15464 6.65464L12.3454 6.65464V5.34536L7.15464 5.34536L7.15464 0.154643Z" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="nav__text">Добавить</span>
+                                <span class="accordion__icon ms-auto">
+                                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.41 7.41L6 2.83L10.59 7.41L12 6L6 3.29016e-06L1.23266e-07 6L1.41 7.41Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="accordion__body js-accordion-body" style="display: none;">
+                                <ul class="nav__list nav__list_inner">
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action"> 
+                                            <span class="dropdown__icon dropdown__icon_task_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить задачу">Добавить задачу</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_notifications_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить объявление">Добавить объявление</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_deal_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить дело">Добавить дело</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_eai_add"></span>
+                                            <span class="dropdown__text" data-title="Расходы и доходы">Расходы и доходы</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_payment_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить оплату">Добавить оплату</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_estimate_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить смету">Добавить смету</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- DESKTOP NAVIGATION START -->
@@ -158,8 +237,20 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <div class="col-auto me-auto d-block d-md-none">
+                        <button class="btn btn_clean" type="button" onclick="openMenu()">
+                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 12H18V10H0V12ZM0 7H18V5H0V7ZM0 0V2H18V0H0Z" fill="#DB2927"/>
+                            </svg>                                
+                        </button>
+                    </div>
+                    <div class="col-auto mx-auto d-block d-md-none">
+                        <a href="/" title="Главная">
+                            <img src="./img/logo.svg" width="31" alt="HD Pro" title="HDPro" class="logo">
+                        </a>
+                    </div>
                     <!-- SEARCH FIELD START -->
-                    <div class="col-auto">
+                    <div class="col-auto d-none d-md-block">
                         <!-- INPUT START -->
                         <label class="input header__search input_gap_right">
                             <input type="text" class="input__control input__control_small js-search" placeholder="Введите что Вам нужно...">
@@ -170,8 +261,8 @@
                         <!-- INPUT END -->
                     </div>
                     <!-- SEARCH FIELD END -->
-                    <!-- HEADER PAGE TITLE START -->
-                    <div class="col-auto">
+                     <!-- HEADER PAGE TITLE START -->
+                     <div class="col-auto d-none d-md-block">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-cars.svg" class="img">
@@ -183,7 +274,7 @@
                     <!-- HEADER WIDGETS START -->
                     <div class="col-auto ms-auto">
                         <div class="d-flex flex-wrap align-items-center">
-                            <div class="position-relative" data-dropdown-parent>
+                            <div class="position-relative d-none d-md-block" data-dropdown-parent>
                                 <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
                                     <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                     Добавить
@@ -230,14 +321,15 @@
                                 </div>
                             </div>
                             <!-- NOTIFICATIONS START -->
-                            <a href="#" onclick="event.preventDefault();" class="header__item ms-4">
+                            <a href="#" onclick="event.preventDefault();" class="header__item ms-4 d-none d-md-block">
                                 <span class="header__icon header__icon_bell"></span>
                                 <span class="dot-active"></span> <!-- if has notification -->
                             </a>
                             <!-- NOTIFICATIONS END -->
-                            <div class="header__profile ms-4 position-relative" data-dropdown-parent>
-                                <button type="button" data-dropdown-target="profile" class="btn btn_clean">
+                            <div class="header__profile ms-md-4 position-relative" data-dropdown-parent>
+                                <button type="button" data-dropdown-target="profile" class="btn btn_clean d-block position-relative">
                                     <div class="avatar avatar_small"></div> <!-- add style="background-image: url(AVATAR_URL)" -->
+                                    <span class="dot-active dot-active_bottom d-md-none"></span> <!-- if has notification on mob version -->
                                 </button>
                                 <div class="dropdown dropdown_header arrow arrow_top_right header__profile-dropdown" data-dropdown="profile">
                                     <ul class="dropdown__list">
@@ -251,6 +343,12 @@
                                             <a href="/" class="dropdown__action">
                                                 <span class="dropdown__icon dropdown__icon_notifications"></span>
                                                 <span class="dropdown__text" data-title="Уведомления">Уведомления</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown__item active">
+                                            <a href="/" class="dropdown__action">
+                                                <span class="dropdown__icon dropdown__icon_notifications"></span>
+                                                <span class="dropdown__text" data-title="Уведомления + 1">Уведомления + 1</span>  <!-- if has notification add count -->
                                             </a>
                                         </li>
                                         <li class="dropdown__item">
@@ -285,17 +383,17 @@
             <section class="page-section">
                 <div class="container-fluid">
                     <!-- WIDGETS START -->
-                    <div class="widget my-3">
+                    <div class="widget">
                         <div class="row">
-                            <div class="col-auto me-auto">
-                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-project"> 
+                            <div class="col-6 col-md-auto me-lg-auto">
+                                <button class="btn btn_outline btn_with-icon w-100" data-mymodal-target="add-project"> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
                                         <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
                                     </svg>                                    
                                     Добавить
                                 </button>
                             </div>
-                            <div class="col-auto ps-0">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="clients" class="select__control">
                                         <option value="" selected>Клиент</option>
@@ -307,7 +405,7 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
-                            <div class="col-auto ps-0">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="time" class="select__control">
                                         <option value="" selected>Период времени</option>
@@ -319,7 +417,7 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
-                            <div class="col-auto ps-0">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="master" class="select__control">
                                         <option value="" selected>Мастер</option>
@@ -331,7 +429,7 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
-                            <div class="col-auto ps-0">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="country" class="select__control">
                                         <option value="" selected>Страна</option>
@@ -343,7 +441,7 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
-                            <div class="col-auto ps-0">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="outlets" class="select__control">
                                         <option value="" selected>Точки</option>
@@ -358,8 +456,8 @@
                         </div>
                     </div>
                     <!-- WIDGETS END -->
-                    <!-- USER ROLES TABLE START СЧЕТА-ФАКТУРЫ -->
-                    <div class="table-responsive">
+                    <!-- DESKTOP TABLE -->
+                    <div class="table-responsive d-none d-lg-block">
                         <table class="table projects-table">
                             <thead>
                                 <tr>
@@ -383,8 +481,8 @@
                                     <td>AA333432244</td>
                                     <td>Иван Петров</td>
                                     <td>2000$</td>
-                                    <td>20 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
                                     <td class="text-center">
                                         <div class="radio__list radio__list_table">
                                             <label class="input input_radio">
@@ -399,7 +497,7 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); ;onEditProject(0)">
+                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
                                             <span class="table__icon table__icon_edit_red"></span>
                                         </button>
                                         <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
@@ -441,12 +539,148 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- USER ROLES TABLE END СЧЕТА-ФАКТУРЫ -->
+                    <!-- DESKTOP TABLE END -->
+                    <!-- MOBILE TABLE -->
+                    <div class="row d-lg-none">
+                        <div class="col-md-6 mb-3">
+                            <table class="table table_card" data-clients-row="0" onclick="onProjectShowed(0)">
+                                <tbody>
+                                    <tr>
+                                        <th>ID:</th>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Марка автомобиля:</th>
+                                        <td>LAND CRUISER PRADO</td>
+                                    </tr>
+                                    <tr>
+                                        <th>VIN-код:</th>
+                                        <td>33-443-222233</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер машины:</th>
+                                        <td>AA333432244</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Клиент:</th>
+                                        <td>Иван Петров</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Цена:</th>
+                                        <td>2 000$</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Дата начала проекта:</th>
+                                        <td>20.10.2022</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Дата окончания проекта:</th>
+                                        <td>23.10.2022</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус:</th>
+                                        <td>
+                                            <div class="radio__list radio__list_table">
+                                                <label class="input input_radio">
+                                                    <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                    <span class="input__label input__label_light">Готово</span>
+                                                </label>
+                                                <label class="input input_radio">
+                                                    <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                    <span class="input__label input__label_light">Ожидает</span>
+                                                </label>
+                                                <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- remove if status is ready -->
+                                    <tr>
+                                        <th>Функции:</th>
+                                        <td>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <table class="table table_card" data-clients-row="0" onclick="onProjectShowed(1)">
+                                <tbody>
+                                    <tr>
+                                        <th>ID:</th>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Марка автомобиля:</th>
+                                        <td>LAND CRUISER PRADO</td>
+                                    </tr>
+                                    <tr>
+                                        <th>VIN-код:</th>
+                                        <td>33-443-222233</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Номер машины:</th>
+                                        <td>AA333432244</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Клиент:</th>
+                                        <td>Иван Петров</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Цена:</th>
+                                        <td>2 000$</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Дата начала проекта:</th>
+                                        <td>20.10.2022</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Дата окончания проекта:</th>
+                                        <td>23.10.2022</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус:</th>
+                                        <td>
+                                            <div class="radio__list radio__list_table">
+                                                <label class="input input_radio">
+                                                    <input type="radio" class="input__control" name="cars[1]" value="0" onchange="onProjectStatusChanged(event, 1)">
+                                                    <span class="input__label input__label_light">Готово</span>
+                                                </label>
+                                                <label class="input input_radio">
+                                                    <input type="radio" class="input__control" name="cars[1]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                    <span class="input__label input__label_light">Ожидает</span>
+                                                </label>
+                                                <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- remove if status is ready -->
+                                    <tr>
+                                        <th>Функции:</th>
+                                        <td>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
     <!-- MAIN END -->
+    <div class="mob-overlay d-md-none" onclick="closeMenu()"></div>
     <!-- LOADER START -->
     <div class="loader">
         <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">

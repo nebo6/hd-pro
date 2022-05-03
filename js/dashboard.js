@@ -5,6 +5,7 @@ const getOrCreateLegendList = (chart, id) => {
   
     if (!listContainer) {
         listContainer = document.createElement('ul');
+        listContainer.classList.add("legend");
         listContainer.style.display = 'flex';
         listContainer.style.flexDirection = 'row';
         listContainer.style.justifyContent = 'center';
@@ -48,7 +49,6 @@ const htmlLegendPlugin = {
                 }
                 chart.update();
             };
-            console.log(item);
             // Color box
             const boxSpan = document.createElement('span');
             boxSpan.style.background = item.fillStyle;

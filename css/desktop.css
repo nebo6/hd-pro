@@ -182,23 +182,27 @@ option {
   z-index: 10001 !important;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 12px;
-  margin: 0 1px;
+.scroll-is-locked {
+  position: fixed;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #DB2927;
-  border-radius: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 5px;
-  border: 3px solid #DB2927;
+@media (min-width: 992px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+    margin: 0 1px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #DB2927;
+    border-radius: 5px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5px;
+    border: 3px solid #DB2927;
+  }
 }
 
 .input {
@@ -357,8 +361,6 @@ option {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   border-radius: 50px;
 }
 
@@ -526,7 +528,7 @@ option {
 }
 
 .select_widget .select__control {
-  padding: 6px 23px 6px 12px;
+  padding: 5px 23px 5px 12px;
   border-color: #90A0B7;
 }
 
@@ -789,6 +791,11 @@ option {
   text-align: left;
 }
 
+.dropdown__item.active {
+  color: #DB2927;
+  font-weight: bold;
+}
+
 .dropdown__action {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -851,6 +858,9 @@ option {
 
 .dropdown__icon {
   display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 15px;
+          flex: 0 0 15px;
   width: 15px;
   height: 15px;
   margin-right: 11px;
@@ -864,6 +874,10 @@ option {
 
 .dropdown__icon_notifications {
   background-image: url("data:image/svg+xml,%3Csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.14286 14.25C3.14286 14.625 3.45714 15 3.92857 15H7.07143C7.54286 15 7.85714 14.625 7.85714 14.25V13.5H3.14286V14.25ZM5.5 0C2.43571 0 0 2.325 0 5.25C0 7.05 0.942857 8.625 2.35714 9.525V11.25C2.35714 11.625 2.67143 12 3.14286 12H7.85714C8.32857 12 8.64286 11.625 8.64286 11.25V9.525C10.0571 8.55 11 6.975 11 5.25C11 2.325 8.56429 0 5.5 0Z' fill='%23334D6E'/%3E%3C/svg%3E%0A");
+}
+
+.active .dropdown__icon_notifications {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.14286 14.25C3.14286 14.625 3.45714 15 3.92857 15H7.07143C7.54286 15 7.85714 14.625 7.85714 14.25V13.5H3.14286V14.25ZM5.5 0C2.43571 0 0 2.325 0 5.25C0 7.05 0.942857 8.625 2.35714 9.525V11.25C2.35714 11.625 2.67143 12 3.14286 12H7.85714C8.32857 12 8.64286 11.625 8.64286 11.25V9.525C10.0571 8.55 11 6.975 11 5.25C11 2.325 8.56429 0 5.5 0Z' fill='%23DB2927'/%3E%3C/svg%3E%0A");
 }
 
 .dropdown__icon_tasks {
@@ -1160,6 +1174,13 @@ option {
 .table_card {
   background-color: #fff;
   border-radius: 5px;
+  table-layout: fixed;
+}
+
+.table_card th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table_card td,
@@ -1198,6 +1219,13 @@ option {
   -webkit-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.05);
   background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 68px);
+  -webkit-transition: width 0.2s;
+  transition: width 0.2s;
+  z-index: 2;
 }
 
 .header__search {
@@ -1234,6 +1262,12 @@ option {
   position: absolute;
   top: 2px;
   right: 2px;
+}
+
+.dot-active_bottom {
+  top: auto;
+  bottom: -2px;
+  right: 0;
 }
 
 .header__icon {
@@ -1305,12 +1339,15 @@ option {
 
 .sidebar {
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   -webkit-box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
           box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
   background-color: #fff;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 3;
 }
 
 .sidebar .sidebar__inner {
@@ -1336,6 +1373,10 @@ option {
 
 .sidebar.active + .main, .sidebar:hover + .main {
   margin-left: 256px;
+}
+
+.sidebar.active + .main .header, .sidebar:hover + .main .header {
+  width: calc(100% - 256px);
 }
 
 .sidebar .nav__list {
@@ -1722,7 +1763,7 @@ option {
 }
 
 .page-section {
-  padding-top: 50px;
+  padding-top: 112px;
   padding-bottom: 24px;
 }
 
@@ -1968,6 +2009,7 @@ option {
 .estimates-carousel {
   pointer-events: all;
   display: inline-block;
+  max-width: 100%;
 }
 
 .estimates-carousel__item {
@@ -2233,6 +2275,19 @@ option {
 
 .dashboard__btn.active {
   border-bottom-color: #DB2927;
+}
+
+.chart-legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .alert__list {

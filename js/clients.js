@@ -222,6 +222,7 @@ function onCLientAdd() {
     $('[data-mymodal-id="form-client"]').mymodal().open()
 
 }
+// add only desktop | need add mob too
 function onClientAddSubmited(data) {
     addBodyLoader();
     // some server request with data

@@ -3,6 +3,10 @@
   .sidebar:hover + .main {
     margin-left: 68px;
   }
+  .sidebar.active + .main .header,
+  .sidebar:hover + .main .header {
+    width: calc(100% - 68px);
+  }
   .statistics__wrapper_type_1 {
     max-width: 100%;
     -webkit-box-flex: 1;

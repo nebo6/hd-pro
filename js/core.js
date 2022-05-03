@@ -137,6 +137,38 @@ function initMultiselect() {
         });
     })
 }
+// menu mob
+let windowTop = 0;
+
+function lockScroll() {
+    windowTop = $(window).scrollTop();
+  
+    const htmlElement = $('html');
+    htmlElement.addClass('scroll-is-locked');
+  
+    htmlElement.css("top", -windowTop);
+}
+  
+function unlockScroll() {
+    const htmlElement = $('html');
+  
+    htmlElement.removeClass('scroll-is-locked');
+    htmlElement.css('top', 0);
+  
+    $(window).scrollTop(windowTop);
+}
+
+function openMenu() {
+    $('.sidebar').addClass("show")
+    $(".mob-overlay").addClass("active")
+    lockScroll()
+}
+
+function closeMenu() {
+    $('.sidebar').removeClass("show")
+    $(".mob-overlay").removeClass("active")
+    unlockScroll()
+}
 
 $(function() {
     initAccordion();

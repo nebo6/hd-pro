@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HD PRO</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./libs/jquery-ui-1.13.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./libs/bootstrap/bootstrap-grid.min.css">
@@ -26,7 +25,7 @@
             <div class="d-md-none mb-4 pb-3">
                 <div class="row align-items-center">
                     <div class="col-auto pe-1">
-                        <button class="btn btn_clean d-block" type="button">
+                        <button class="btn btn_clean d-block" type="button" onclick="closeMenu()">
                             <svg class="d-block" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#504F54"/>
                             </svg>                                
@@ -168,6 +167,64 @@
                         </a>
                     </li>
                     <!-- NAVBAR ITEM ACTIVE LINK END -->
+                    <!-- ADD IN MOB VERSION -->
+                    <li class="nav__item d-md-none">
+                        <div class="accordion js-accordion">
+                            <div class="accordion__head d-flex align-items-center rounded js-accordion-head nav__link_active"> <!-- add nav__link_active class if inner link is active -->
+                                <span class="nav__icon">
+                                    <svg width="20" height="20" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.15464 0.154643L5.84536 0.154643L5.84536 5.34536L0.654643 5.34536V6.65464L5.84536 6.65464L5.84536 11.8454L7.15464 11.8454L7.15464 6.65464L12.3454 6.65464V5.34536L7.15464 5.34536L7.15464 0.154643Z" fill="white"/>
+                                    </svg>
+                                </span>
+                                <span class="nav__text">Добавить</span>
+                                <span class="accordion__icon ms-auto">
+                                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.41 7.41L6 2.83L10.59 7.41L12 6L6 3.29016e-06L1.23266e-07 6L1.41 7.41Z" fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="accordion__body js-accordion-body" style="display: none;">
+                                <ul class="nav__list nav__list_inner">
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action"> 
+                                            <span class="dropdown__icon dropdown__icon_task_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить задачу">Добавить задачу</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_notifications_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить объявление">Добавить объявление</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_deal_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить дело">Добавить дело</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_eai_add"></span>
+                                            <span class="dropdown__text" data-title="Расходы и доходы">Расходы и доходы</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_payment_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить оплату">Добавить оплату</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav__item nav__item_inner">
+                                        <a href="/" class="dropdown__action">
+                                            <span class="dropdown__icon dropdown__icon_estimate_add"></span>
+                                            <span class="dropdown__text" data-title="Добавить смету">Добавить смету</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <!-- DESKTOP NAVIGATION START -->
@@ -180,8 +237,20 @@
         <header class="header">
             <div class="container-fluid">
                 <div class="row align-items-center">
+                    <div class="col-auto me-auto d-block d-md-none">
+                        <button class="btn btn_clean" type="button" onclick="openMenu()">
+                            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 12H18V10H0V12ZM0 7H18V5H0V7ZM0 0V2H18V0H0Z" fill="#DB2927"/>
+                            </svg>                                
+                        </button>
+                    </div>
+                    <div class="col-auto mx-auto d-block d-md-none">
+                        <a href="/" title="Главная">
+                            <img src="./img/logo.svg" width="31" alt="HD Pro" title="HDPro" class="logo">
+                        </a>
+                    </div>
                     <!-- SEARCH FIELD START -->
-                    <div class="col-auto">
+                    <div class="col-auto d-none d-md-block">
                         <!-- INPUT START -->
                         <label class="input header__search input_gap_right">
                             <input type="text" class="input__control input__control_small js-search" placeholder="Введите что Вам нужно...">
@@ -195,7 +264,7 @@
                     <!-- HEADER WIDGETS START -->
                     <div class="col-auto ms-auto">
                         <div class="d-flex flex-wrap align-items-center">
-                            <div class="position-relative" data-dropdown-parent>
+                            <div class="position-relative d-none d-md-block" data-dropdown-parent>
                                 <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="add" >
                                     <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                     Добавить
@@ -242,14 +311,15 @@
                                 </div>
                             </div>
                             <!-- NOTIFICATIONS START -->
-                            <a href="#" onclick="event.preventDefault();" class="header__item ms-4">
+                            <a href="#" onclick="event.preventDefault();" class="header__item ms-4 d-none d-md-block">
                                 <span class="header__icon header__icon_bell"></span>
                                 <span class="dot-active"></span> <!-- if has notification -->
                             </a>
                             <!-- NOTIFICATIONS END -->
-                            <div class="header__profile ms-4 position-relative" data-dropdown-parent>
-                                <button type="button" data-dropdown-target="profile" class="btn btn_clean">
+                            <div class="header__profile ms-md-4 position-relative" data-dropdown-parent>
+                                <button type="button" data-dropdown-target="profile" class="btn btn_clean d-block position-relative">
                                     <div class="avatar avatar_small"></div> <!-- add style="background-image: url(AVATAR_URL)" -->
+                                    <span class="dot-active dot-active_bottom d-md-none"></span> <!-- if has notification on mob version -->
                                 </button>
                                 <div class="dropdown dropdown_header arrow arrow_top_right header__profile-dropdown" data-dropdown="profile">
                                     <ul class="dropdown__list">
@@ -263,6 +333,12 @@
                                             <a href="/" class="dropdown__action">
                                                 <span class="dropdown__icon dropdown__icon_notifications"></span>
                                                 <span class="dropdown__text" data-title="Уведомления">Уведомления</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown__item active">
+                                            <a href="/" class="dropdown__action">
+                                                <span class="dropdown__icon dropdown__icon_notifications"></span>
+                                                <span class="dropdown__text" data-title="Уведомления + 1">Уведомления + 1</span>  <!-- if has notification add count -->
                                             </a>
                                         </li>
                                         <li class="dropdown__item">
@@ -521,7 +597,7 @@
                                         </div>
                                     </div>
                                     <div class="col-auto ms-auto pt-1">
-                                        <div id="legend-container"></div>
+                                        <div id="legend-container" class="line-legend"></div>
                                     </div>
                                 </div>
                                 <canvas id="lineChart" style="width: 100%; height: 400px"></canvas>
@@ -555,6 +631,8 @@
             </section>
         </div>
     </main>
+    
+    <div class="mob-overlay d-md-none" onclick="closeMenu()"></div>
     <!-- MAIN END -->
     <!-- LOADER START -->
     <div class="loader">
@@ -725,7 +803,7 @@
                                 pinch: {
                                     enabled: true
                                 },
-                                mode: 'x',
+                                mode: 'xy',
                             }
                         },
                         legend: {
