@@ -519,6 +519,7 @@ option {
 }
 
 .select__control {
+  min-width: 50px;
   width: 100%;
   -webkit-appearance: none;
   border-radius: 5px;
@@ -966,6 +967,10 @@ option {
   background-color: transparent;
 }
 
+.table .btn {
+  display: block;
+}
+
 .table:not(.table_card) thead {
   background: #DB2927;
   color: #fff;
@@ -1157,6 +1162,7 @@ option {
   font-size: 10px;
   margin: auto;
   border-radius: 50px;
+  text-align: center;
 }
 
 .table__status[data-status="1"] {
@@ -1767,6 +1773,10 @@ option {
   padding-bottom: 24px;
 }
 
+.page-section.pt-short {
+  padding-top: 62px;
+}
+
 .page-title__icon {
   width: 42px;
   height: 30px;
@@ -1856,9 +1866,14 @@ option {
   padding: 28px 16px 14px;
 }
 
+.task-scrollable {
+  overflow: auto;
+  margin-top: 24px;
+}
+
 .tasks {
-  padding: 24px 0;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 109px);
+  min-width: 808px;
 }
 
 .tasks .column {
@@ -1921,6 +1936,10 @@ option {
 
 .dot_orange {
   background-color: #FFB800;
+}
+
+.tasks .column__placeholder {
+  height: 112px;
 }
 
 .projects-table .ready .remove-btn {
@@ -2064,9 +2083,6 @@ option {
 }
 
 .how-it-works {
-  padding-top: 40px;
-  padding-left: 24px;
-  padding-right: 24px;
   width: 700px;
   max-width: 100%;
   min-width: 75%;
@@ -2077,7 +2093,7 @@ option {
 }
 
 .team__content {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 228px);
 }
 
 .team__content-item {
@@ -2103,6 +2119,8 @@ option {
   width: 188px;
   aspect-ratio: 188/215;
   border-radius: 5px;
+  background-size: cover;
+  background-position: center;
 }
 
 .team-card__title {
@@ -2121,6 +2139,40 @@ option {
 
 .team-card__estimates:last-child {
   margin-bottom: 0;
+}
+
+.mymodal .team-card {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.mymodal .team-card__img {
+  width: 120px;
+}
+
+.mymodal .team-card__title {
+  font-size: 16px;
+}
+
+.mymodal .team-card__estimates {
+  border: 1px solid #C2CFE0;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.mymodal .team__card__info-item {
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+.mymodal .team-card__social {
+  width: 24px;
+  height: 24px;
 }
 
 .team-card__social {
@@ -2534,9 +2586,9 @@ option {
 
 .estimates__wrapper {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 140px;
-          flex: 0 0 140px;
-  max-width: 140px;
+      -ms-flex: 0 0 28.115%;
+          flex: 0 0 28.115%;
+  max-width: 28.115%;
 }
 
 .estimates__item {

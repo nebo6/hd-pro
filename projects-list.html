@@ -385,7 +385,7 @@
                     <!-- WIDGETS START -->
                     <div class="widget">
                         <div class="row">
-                            <div class="col-6 col-md-auto me-lg-auto">
+                            <div class="col-6 col-md-auto mb-3 me-lg-auto">
                                 <button class="btn btn_outline btn_with-icon w-100" data-mymodal-target="add-project"> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
                                         <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
@@ -497,12 +497,14 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
-                                            <span class="table__icon table__icon_edit_red"></span>
-                                        </button>
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                            <span class="table__icon table__icon_remove_red"></span>
-                                        </button>
+                                        <div class="d-flex">
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
@@ -512,8 +514,8 @@
                                     <td>AA333432244</td>
                                     <td>Иван Петров</td>
                                     <td>2000$</td>
-                                    <td>20 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
                                     <td class="text-center">
                                         <div class="radio__list radio__list_table">
                                             <label class="input input_radio">
@@ -582,11 +584,11 @@
                                         <td>
                                             <div class="radio__list radio__list_table">
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                    <input type="radio" class="input__control" name="mob-cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
                                                     <span class="input__label input__label_light">Готово</span>
                                                 </label>
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                    <input type="radio" class="input__control" name="mob-cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
                                                     <span class="input__label input__label_light">Ожидает</span>
                                                 </label>
                                                 <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
@@ -648,11 +650,11 @@
                                         <td>
                                             <div class="radio__list radio__list_table">
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[1]" value="0" onchange="onProjectStatusChanged(event, 1)">
+                                                    <input type="radio" class="input__control" name="mob-cars[1]" value="0" onchange="onProjectStatusChanged(event, 1)">
                                                     <span class="input__label input__label_light">Готово</span>
                                                 </label>
                                                 <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="cars[1]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                    <input type="radio" class="input__control" name="mob-cars[1]" value="1" checked disabled>
                                                     <span class="input__label input__label_light">Ожидает</span>
                                                 </label>
                                                 <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
@@ -663,12 +665,14 @@
                                     <tr>
                                         <th>Функции:</th>
                                         <td>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
-                                                <span class="table__icon table__icon_edit_red"></span>
-                                            </button>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
-                                                <span class="table__icon table__icon_remove_red"></span>
-                                            </button>
+                                            <div class="d-flex">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>

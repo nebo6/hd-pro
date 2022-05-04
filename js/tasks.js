@@ -2,12 +2,39 @@
 function initDragDropSortable() {
     let position_updated = false
     
+    let scrollX = 0;
+    let scrollY = 0;
+    const $scrollable = $(".task-scrollable");
+    
     $('.column__list').sortable({
         connectWith: ".column__list",
         placeholder: "column__placeholder",
-        forcePlaceholderSize: true,
+        // forcePlaceholderSize: true,
         cancel: "select",
+        scroll:false,
+        sort: function( event, ui ) {
+            if (ui.placeholder) {
+                const left = parseInt(ui.placeholder.parent().offset().left) - 50
+                if (scrollX !== left) {
+                    console.log("sort x");
+                    scrollX = left;
+                    $scrollable.stop().animate({
+                        scrollLeft: left,
+                    }, 300)
+                }
+                const top = parseInt(ui.placeholder.offset().top - ui.placeholder.height() - 20)
+                console.log(top);
+                if (scrollY !== top) {
+                    console.log("sort y");
+                    scrollY = top;
+                    ui.placeholder.parent().stop().animate({
+                        scrollTop: top
+                    }, 300)
+                }
+            }
+        },
         update: function(e, ui) {
+            console.log("update");
             position_updated = !ui.sender
         },
         stop: function(event, ui) {
@@ -30,6 +57,7 @@ function initDragDropSortable() {
                 position_updated = false;
             }
         },
+        // This event is triggered when an item from a connected sortable list has been dropped into another list. The latter is the event target.
         receive: function(event, ui) {
             const item = ui.item;
             const parent = item.parent();
@@ -49,6 +77,7 @@ function initDragDropSortable() {
             */
         }
     })
+    // $('.column__list').disableSelection()
 }
 
 const dummyTask = {

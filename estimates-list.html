@@ -426,7 +426,7 @@
                                     <td>10 000$</td>
                                     <td>20 октября 2022 год</td>
                                     <td>
-                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesShowed(1)">
+                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="event.stopPropagation();onEstimatesShowed(1)">
                                             <span class="table__icon table__icon_show"></span>
                                         </button>
                                     </td>
@@ -457,7 +457,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="onEstimatesEdited(1)">
+                                        <button type="button" class="btn btn_clean d-block mx-auto" onclick="event.stopPropagation();onEstimatesEdited(1)">
                                             <span class="table__icon table__icon_edit_red_fill"></span>
                                         </button>
                                     </td>
@@ -467,7 +467,7 @@
                     </div>
                     <!-- MOBILE TABLE -->
                     <div class="row d-lg-none">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <table class="table table_card" onclick="estimatesDetail(0)">
                                 <tbody>
                                     <tr>
@@ -505,7 +505,7 @@
                                     <tr>
                                         <th>Просмотр</th>
                                         <td>
-                                            <button type="button" class="btn btn_clean d-block" onclick="onEstimatesShowed(0)">
+                                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesShowed(0)">
                                                 <span class="table__icon table__icon_show"></span>
                                             </button>
                                         </td>
@@ -513,7 +513,7 @@
                                     <tr>
                                         <th>Функции</th>
                                         <td>
-                                            <button type="button" class="btn btn_clean d-block" onclick="onEstimatesEdited(0)">
+                                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesEdited(0)">
                                                 <span class="table__icon table__icon_edit_red_fill"></span>
                                             </button>
                                         </td>
@@ -545,6 +545,7 @@
         </div>
     </main>
     <!-- MAIN END -->
+    <div class="mob-overlay d-md-none" onclick="closeMenu()"></div>
     <!-- LOADER START -->
     <div class="loader">
         <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">
@@ -1065,7 +1066,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Title</td>
+                                                    <td>Car part Title</td>
                                                     <td>
                                                         <div class="input estimates-limit">
                                                             <input type="number" class="input__control input__control_small" name="service-number">

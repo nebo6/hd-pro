@@ -2,6 +2,9 @@
   .main {
     margin-left: 0;
   }
+  .main-content {
+    padding: 0;
+  }
   .mob-overlay {
     display: none;
     width: 100%;
@@ -72,6 +75,27 @@
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
             flex-direction: column !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .team-tech .tab__header {
+    border: 0;
+  }
+  .team-tech .tab__body {
+    border: 0;
+  }
+  .team-tech .tab__item {
+    border: 1px solid #90A0B7;
+    margin-bottom: -1px;
+    margin-right: -1px;
+  }
+  .team-tech .tab__item.active {
+    background-color: #DB2927;
+    color: #fff;
+  }
+  .team-tech .team__content {
+    height: auto;
   }
 }
 /*# sourceMappingURL=mobile.css.map */

@@ -125,8 +125,8 @@ const dummyEstimates = {
     created: "19.10.2022"
 }
 
-function createMobEstimates(data, additionalClass) {
-    return `<table class="table table_card ${additionalClass}">
+function createMobEstimates(data) {
+    return `<table class="table table_card">
         <tbody>
             <tr>
                 <th>ID</th>
@@ -163,7 +163,7 @@ function createMobEstimates(data, additionalClass) {
             <tr>
                 <th>Просмотр</th>
                 <td>
-                    <button type="button" class="btn btn_clean d-block" onclick="onEstimatesShowed(${data.id})">
+                    <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesShowed(${data.id})">
                         <span class="table__icon table__icon_show"></span>
                     </button>
                 </td>
@@ -171,7 +171,7 @@ function createMobEstimates(data, additionalClass) {
             <tr>
                 <th>Функции</th>
                 <td>
-                    <button type="button" class="btn btn_clean d-block" onclick="onEstimatesEdited(${data.id})">
+                    <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesEdited(${data.id})">
                         <span class="table__icon table__icon_edit_red_fill"></span>
                     </button>
                 </td>

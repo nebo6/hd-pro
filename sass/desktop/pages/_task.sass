@@ -1,7 +1,11 @@
+.task-scrollable
+    overflow: auto
+    margin-top: 24px
+
 .tasks
-    padding: 24px 0
     // max-width: 80%
-    height: calc(100vh - 64px)
+    height: calc(100vh - 109px)
+    min-width: 808px
     .column
         border: 1px solid $color-blue-light
         margin-right: -1px
@@ -40,3 +44,6 @@
 
 .dot_orange
     background-color: $color-orange
+
+.tasks .column__placeholder
+    height: 112px

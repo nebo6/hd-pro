@@ -16,7 +16,7 @@ const dummyTech = {
 }
 
 function createTechCard(data) {
-    const temporary = $(".team-card.tech-template").clone();
+    const temporary = $(".team-card.tech-template").clone(true);
     temporary.removeClass("tech-template d-none");
 
     temporary.find("[data-t-img]").css("background-image", "url("+data.img+")");
@@ -74,16 +74,23 @@ function createTechCard(data) {
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
         data.estimates.forEach((element, index) => {
-            list += createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
+            list += "<div class='team-card__estimates'>"+createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
                 ...element,
                 id: index // REMOVE INDEX USE CORRECT DATA
-            }, "team-card__estimates") // look at estimates.js
-        });
+            })+"</div>" // look at estimates.js
+        })
 
         temporary.find(".team-card__list").append($(list))
     }
     
-    $(".js-team-card-wrapper").html(temporary)
+    // FOR MOB AND SMALL DESKTOP OPEN MODAL
+    // if ($(window).width() < 1200) {
+    //     $(".js-tech-info-mob").html(temporary)
+    //     $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
+    // } else {
+    //     $(".js-team-card-wrapper").html(temporary)
+    // }
+    return temporary
 }
 // TECHNICHIAN END
 // PAINTER START
@@ -378,7 +385,12 @@ $(function() {
             // server request with id
             // if success get data and
             setTimeout(() => {
-                createTechCard(dummyTech)
+                if ($(window).width() < 1200) {
+                    $(".js-tech-info-mob").html(createTechCard(dummyTech))
+                    $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
+                } else {
+                    $(".js-team-card-wrapper").html(createTechCard(dummyTech))
+                }
                 $(".js-team-tech.active").removeClass("active");
                 console.log($(this));
                 tr.addClass("active")
@@ -386,6 +398,9 @@ $(function() {
             }, 1000)
             // finally
             // removeBodyLoader(); UNCOMMENT ON PROD
+        } else {
+            if ($(window).width() < 1200)
+                $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
         }
     })
     // PAINTER

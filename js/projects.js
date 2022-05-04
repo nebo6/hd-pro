@@ -33,9 +33,13 @@ function onStatusChangeConfirmation(onConfirm, onCancel) {
     }
     $(document).on("opening", modal, onOpening );
     $(document).on("confirmation", modal, onConfirm)
-    $(document).on("cancellation", modal, onCancel)
+    // $(document).on("cancellation", modal, onCancel)
 
-    $(document).on("closed", modal, function() {
+    $(document).on("closed", modal, function(e) {
+        if (e.reason !== "confirmation") {
+            onCancel()
+        }
+        
         $(document).off("confirmation", onConfirm)
         $(document).off("cancellation", onCancel)
         $(document).off("opening", onOpening );
