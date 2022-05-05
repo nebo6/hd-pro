@@ -262,7 +262,7 @@
                     </div>
                     <!-- SEARCH FIELD END -->
                      <!-- HEADER PAGE TITLE START -->
-                     <div class="col-auto d-none d-md-block">
+                     <div class="col min-w-0 d-none d-md-block">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-cars.svg" class="img">
@@ -497,7 +497,7 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-cneter">
                                             <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
                                                 <span class="table__icon table__icon_edit_red"></span>
                                             </button>
@@ -530,12 +530,14 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
-                                            <span class="table__icon table__icon_edit_red"></span>
-                                        </button>
-                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
-                                            <span class="table__icon table__icon_remove_red"></span>
-                                        </button>
+                                        <div class="d-flex justify-content-cneter">
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                <span class="table__icon table__icon_edit_red"></span>
+                                            </button>
+                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                <span class="table__icon table__icon_remove_red"></span>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -545,138 +547,142 @@
                     <!-- MOBILE TABLE -->
                     <div class="row d-lg-none">
                         <div class="col-md-6 mb-3">
-                            <table class="table table_card" data-clients-row="0" onclick="onProjectShowed(0)">
-                                <tbody>
-                                    <tr>
-                                        <th>ID:</th>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Марка автомобиля:</th>
-                                        <td>LAND CRUISER PRADO</td>
-                                    </tr>
-                                    <tr>
-                                        <th>VIN-код:</th>
-                                        <td>33-443-222233</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Номер машины:</th>
-                                        <td>AA333432244</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Клиент:</th>
-                                        <td>Иван Петров</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Цена:</th>
-                                        <td>2 000$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Дата начала проекта:</th>
-                                        <td>20.10.2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Дата окончания проекта:</th>
-                                        <td>23.10.2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Статус:</th>
-                                        <td>
-                                            <div class="radio__list radio__list_table">
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="mob-cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
-                                                    <span class="input__label input__label_light">Готово</span>
-                                                </label>
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="mob-cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
-                                                    <span class="input__label input__label_light">Ожидает</span>
-                                                </label>
-                                                <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- remove if status is ready -->
-                                    <tr>
-                                        <th>Функции:</th>
-                                        <td>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
-                                                <span class="table__icon table__icon_edit_red"></span>
-                                            </button>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                                <span class="table__icon table__icon_remove_red"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <table class="table table_card" data-clients-row="0" onclick="onProjectShowed(1)">
-                                <tbody>
-                                    <tr>
-                                        <th>ID:</th>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Марка автомобиля:</th>
-                                        <td>LAND CRUISER PRADO</td>
-                                    </tr>
-                                    <tr>
-                                        <th>VIN-код:</th>
-                                        <td>33-443-222233</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Номер машины:</th>
-                                        <td>AA333432244</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Клиент:</th>
-                                        <td>Иван Петров</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Цена:</th>
-                                        <td>2 000$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Дата начала проекта:</th>
-                                        <td>20.10.2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Дата окончания проекта:</th>
-                                        <td>23.10.2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Статус:</th>
-                                        <td>
-                                            <div class="radio__list radio__list_table">
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="mob-cars[1]" value="0" onchange="onProjectStatusChanged(event, 1)">
-                                                    <span class="input__label input__label_light">Готово</span>
-                                                </label>
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="mob-cars[1]" value="1" checked disabled>
-                                                    <span class="input__label input__label_light">Ожидает</span>
-                                                </label>
-                                                <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- remove if status is ready -->
-                                    <tr>
-                                        <th>Функции:</th>
-                                        <td>
-                                            <div class="d-flex">
-                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                            <div class="table_card-wrapper" data-clients-row="0" onclick="onProjectShowed(0)">
+                                <table class="table table_card">
+                                    <tbody>
+                                        <tr>
+                                            <th>ID:</th>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Марка автомобиля:</th>
+                                            <td>LAND CRUISER PRADO</td>
+                                        </tr>
+                                        <tr>
+                                            <th>VIN-код:</th>
+                                            <td>33-443-222233</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Номер машины:</th>
+                                            <td>AA333432244</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Клиент:</th>
+                                            <td>Иван Петров</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Цена:</th>
+                                            <td>2 000$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Дата начала проекта:</th>
+                                            <td>20.10.2022</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Дата окончания проекта:</th>
+                                            <td>23.10.2022</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Статус:</th>
+                                            <td>
+                                                <div class="radio__list radio__list_table">
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="mob-cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                        <span class="input__label input__label_light">Готово</span>
+                                                    </label>
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="mob-cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                        <span class="input__label input__label_light">Ожидает</span>
+                                                    </label>
+                                                    <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- remove if status is ready -->
+                                        <tr>
+                                            <th>Функции:</th>
+                                            <td>
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
                                                     <span class="table__icon table__icon_edit_red"></span>
                                                 </button>
-                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
                                                     <span class="table__icon table__icon_remove_red"></span>
                                                 </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="table_card-wrapper" data-clients-row="0" onclick="onProjectShowed(1)">
+                                <table class="table table_card">
+                                    <tbody>
+                                        <tr>
+                                            <th>ID:</th>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Марка автомобиля:</th>
+                                            <td>LAND CRUISER PRADO</td>
+                                        </tr>
+                                        <tr>
+                                            <th>VIN-код:</th>
+                                            <td>33-443-222233</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Номер машины:</th>
+                                            <td>AA333432244</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Клиент:</th>
+                                            <td>Иван Петров</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Цена:</th>
+                                            <td>2 000$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Дата начала проекта:</th>
+                                            <td>20.10.2022</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Дата окончания проекта:</th>
+                                            <td>23.10.2022</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Статус:</th>
+                                            <td>
+                                                <div class="radio__list radio__list_table">
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="mob-cars[1]" value="0" onchange="onProjectStatusChanged(event, 1)">
+                                                        <span class="input__label input__label_light">Готово</span>
+                                                    </label>
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="mob-cars[1]" value="1" checked disabled>
+                                                        <span class="input__label input__label_light">Ожидает</span>
+                                                    </label>
+                                                    <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- remove if status is ready -->
+                                        <tr>
+                                            <th>Функции:</th>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                        <span class="table__icon table__icon_edit_red"></span>
+                                                    </button>
+                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                        <span class="table__icon table__icon_remove_red"></span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

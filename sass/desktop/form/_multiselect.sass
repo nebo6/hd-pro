@@ -12,6 +12,10 @@
     
 .multiselect__inner
     padding: 10px 30px 10px 12px
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
     &::before
         content: attr(data-placeholder)
         display: block
@@ -29,6 +33,7 @@
     margin-top: 4px
     max-height: 147px
     overflow-y: auto
+    z-index: 2
 
 .multiselect__optgroup
     margin-bottom: 4px

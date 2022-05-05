@@ -74,7 +74,7 @@ function createTechCard(data) {
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
         data.estimates.forEach((element, index) => {
-            list += "<div class='team-card__estimates'>"+createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
+            list += "<div class='team-card__estimates table_card-wrapper'>"+createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
                 ...element,
                 id: index // REMOVE INDEX USE CORRECT DATA
             })+"</div>" // look at estimates.js
@@ -95,19 +95,19 @@ function createTechCard(data) {
 // TECHNICHIAN END
 // PAINTER START
 let datePainterImages = {
-    "04.04.2022": {
+    "04.05.2022": {
         start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
         end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
     },
-    "06.04.2022": {
+    "06.05.2022": {
         start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
         end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
     },
-    "12.04.2022": {
+    "12.05.2022": {
         start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
         end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
     },
-    "13.04.2022": {
+    "13.05.2022": {
         start: "",
         end: ""
     },
@@ -123,6 +123,7 @@ const dummyPainter = {
     viber: "viber",
     created: "20.11.2021",
     summ: "14 500$",
+    paid: "14 500$",
     hours: "2",
     photos: "12",
     schedule: datePainterImages
@@ -202,6 +203,7 @@ function createPainterCard(data) {
 
     temporary.find("[data-t-reg]").text(data.created)
     temporary.find("[data-t-summ]").text(data.summ)
+    temporary.find("[data-t-paid]").text(data.paid)
 
     temporary.find("[data-t-hours]").text(data.hours)
     temporary.find("[data-t-photos]").text(data.photos)
@@ -217,7 +219,7 @@ function createPainterCard(data) {
             temporary.find(".team-card__datepicker").datepicker("refresh")
         });
     }
-    $(".js-team-card-wrapper").html(temporary)
+    return temporary
 }
 
 function onLoadPainterImg(event, callback) {
@@ -241,7 +243,7 @@ function onLoadPainterImg(event, callback) {
 }
 // PAINTER END
 // TIME START
-function cretaePhotoBtn({id, href, caption}) {
+function createPhotoBtn({id, href, caption}) {
     return `<a href="${href}" data-fancybox="gallery${id}" class="btn btn_clean" data-caption="${caption}"><span class="table__icon table__icon_photo_red mx-auto"></span></a>`
 }
 
@@ -265,7 +267,7 @@ function onUploadClicked(event) {
         const tr = $('[data-team-time-id="'+id+'"]');
         if (data.start) {
             tr.find("[data-time-start]").text(data.start.time)
-            tr.find("[data-time-start-wrapper]").html(cretaePhotoBtn({
+            tr.find("[data-time-start-wrapper]").html(createPhotoBtn({
                 id, 
                 href: data.start.img,
                 caption: getLanguage() === "ru" ? "До" : "Start", 
@@ -273,7 +275,7 @@ function onUploadClicked(event) {
         }
         if (data.end) {
             tr.find("[data-time-end]").text(data.start.time)
-            tr.find("[data-time-end-wrapper]").html(cretaePhotoBtn({
+            tr.find("[data-time-end-wrapper]").html(createPhotoBtn({
                 id, 
                 href: data.start.img,
                 caption: getLanguage() === "ru" ? "После" : "End", 
@@ -414,7 +416,13 @@ $(function() {
             // server request with id
             // if success get data and
             setTimeout(() => {
-                createPainterCard(dummyPainter)
+                if ($(window).width() < 1200) {
+                    $(".js-painter-info-mob").html(createPainterCard(dummyPainter))
+                    $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
+                } else {
+                    $(".js-team-card-wrapper").html(createPainterCard(dummyPainter))
+                }
+                
                 $(".js-team-painter.active").removeClass("active");
                 console.log($(this));
                 tr.addClass("active")
@@ -422,6 +430,9 @@ $(function() {
             }, 1000)
             // finally
             // removeBodyLoader(); UNCOMMENT ON PROD
+        } else {
+            if ($(window).width() < 1200)
+                $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
         }
     })
     // TEAM TIMES

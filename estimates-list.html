@@ -263,7 +263,7 @@
                     </div>
                     <!-- SEARCH FIELD END -->
                      <!-- HEADER PAGE TITLE START -->
-                     <div class="col-auto d-none d-md-block">
+                     <div class="col min-w-0 d-none d-md-block">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-estimates.svg" class="img">
@@ -468,75 +468,77 @@
                     <!-- MOBILE TABLE -->
                     <div class="row d-lg-none">
                         <div class="col-md-6 mb-3">
-                            <table class="table table_card" onclick="estimatesDetail(0)">
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Марка машины</th>
-                                        <td>LAND CRUISER PRADO</td>
-                                    </tr>
-                                    <tr>
-                                        <th>VIN-код</th>
-                                        <td>33-443-222233</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Номер машины</th>
-                                        <td>AA333432244</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Тенхник</th>
-                                        <td>Иван Григорьев</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Заказчик</th>
-                                        <td>Сергей Антонов</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Цена</th>
-                                        <td>10 000$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Дата создания</th>
-                                        <td>19.10.2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Просмотр</th>
-                                        <td>
-                                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesShowed(0)">
-                                                <span class="table__icon table__icon_show"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Функции</th>
-                                        <td>
-                                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesEdited(0)">
-                                                <span class="table__icon table__icon_edit_red_fill"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr class="text-center">
-                                        <td colspan="2">
-                                            <div class="radio__list radio__list_table" onclick="event.stopPropagation()">
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="estimates[0]" checked="" value="0" onchange="onEstimatesStatusChanged(event, 0)"> 
-                                                    <span class="input__label input__label_green">Оценено</span>
-                                                </label>
-                                                <label class="input input_radio">
-                                                    <input type="radio" class="input__control" name="estimates[0]" value="1" onchange="onEstimatesStatusChanged(event, 0)">
-                                                    <span class="input__label input__label_green">Отремонтировано</span>
-                                                </label>
-                                                <input type="hidden" class="radio__prev" value="0">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div class="table_card-wrapper">
+                                <table class="table table_card" onclick="estimatesDetail(0)">
+                                    <tbody>
+                                        <tr>
+                                            <th>ID</th>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Марка машины</th>
+                                            <td>LAND CRUISER PRADO</td>
+                                        </tr>
+                                        <tr>
+                                            <th>VIN-код</th>
+                                            <td>33-443-222233</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Номер машины</th>
+                                            <td>AA333432244</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Тенхник</th>
+                                            <td>Иван Григорьев</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Заказчик</th>
+                                            <td>Сергей Антонов</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Цена</th>
+                                            <td>10 000$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Дата создания</th>
+                                            <td>19.10.2022</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Просмотр</th>
+                                            <td>
+                                                <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesShowed(0)">
+                                                    <span class="table__icon table__icon_show"></span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Функции</th>
+                                            <td>
+                                                <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesEdited(0)">
+                                                    <span class="table__icon table__icon_edit_red_fill"></span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="text-center">
+                                            <td colspan="2">
+                                                <div class="radio__list radio__list_table" onclick="event.stopPropagation()">
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="estimates[0]" checked="" value="0" onchange="onEstimatesStatusChanged(event, 0)"> 
+                                                        <span class="input__label input__label_green">Оценено</span>
+                                                    </label>
+                                                    <label class="input input_radio">
+                                                        <input type="radio" class="input__control" name="estimates[0]" value="1" onchange="onEstimatesStatusChanged(event, 0)">
+                                                        <span class="input__label input__label_green">Отремонтировано</span>
+                                                    </label>
+                                                    <input type="hidden" class="radio__prev" value="0">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <!-- ESTIMATES TABLE END -->

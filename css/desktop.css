@@ -87,7 +87,7 @@ option {
 }
 
 .text_green {
-  color: #29B949;
+  color: #29B949 !important;
 }
 
 .text_red {
@@ -164,6 +164,15 @@ option {
   text-overflow: ellipsis;
   overflow: hidden;
   max-width: 100%;
+  white-space: nowrap;
+}
+
+.nowrap {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .w-100 {
@@ -364,6 +373,10 @@ option {
   border-radius: 50px;
 }
 
+.radio__list .input__label {
+  display: block;
+}
+
 .radio__list_table {
   font-size: 10px;
   padding: 3px 5px;
@@ -439,6 +452,9 @@ option {
 
 .input_checkbox .checkbox__icon {
   display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 14px;
+          flex: 0 0 14px;
   width: 14px;
   height: 14px;
   margin-right: 5px;
@@ -448,6 +464,9 @@ option {
 }
 
 .input_checkbox .checkbox__icon_check {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 19px;
+          flex: 0 0 19px;
   width: 19px;
   height: 19px;
   border: 0;
@@ -457,6 +476,14 @@ option {
 .input_checkbox .input__label {
   font-weight: 600;
   color: #90A0B7;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.input_checkbox .input__label_auth {
+  font-weight: 400;
+  color: #29B949;
 }
 
 .input_checkbox .input__control {
@@ -526,6 +553,10 @@ option {
   color: #90A0B7;
   background-color: transparent;
   cursor: pointer;
+}
+
+.select__control_wider {
+  min-width: 150px;
 }
 
 .select_widget .select__control {
@@ -614,6 +645,10 @@ option {
 
 .multiselect__inner {
   padding: 10px 30px 10px 12px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .multiselect__inner::before {
@@ -634,6 +669,7 @@ option {
   margin-top: 4px;
   max-height: 147px;
   overflow-y: auto;
+  z-index: 2;
 }
 
 .multiselect__optgroup {
@@ -1177,9 +1213,13 @@ option {
   background-color: #FFB800;
 }
 
-.table_card {
+.table_card-wrapper {
   background-color: #fff;
   border-radius: 5px;
+  border: 1px solid #C2CFE0;
+}
+
+.table_card {
   table-layout: fixed;
 }
 
@@ -1232,6 +1272,13 @@ option {
   -webkit-transition: width 0.2s;
   transition: width 0.2s;
   z-index: 2;
+}
+
+.header .title_page {
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header__search {
@@ -1814,12 +1861,12 @@ option {
 }
 
 .auth {
-  padding: 115px 0;
+  padding: 160px 0 115px;
 }
 
 .auth__logo {
   display: block;
-  margin: 0 auto 110px;
+  margin: 0 auto 55px;
   width: 88px;
 }
 
@@ -2175,6 +2222,10 @@ option {
   height: 24px;
 }
 
+.mymodal h4 {
+  font-size: 1rem;
+}
+
 .team-card__social {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2340,6 +2391,38 @@ option {
           justify-content: center;
   margin: 0;
   padding: 0;
+}
+
+.progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress__inner {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress__text {
+  position: relative;
+  z-index: 1;
+  color: #fafafa;
 }
 
 .alert__list {

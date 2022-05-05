@@ -262,7 +262,7 @@
                     </div>
                     <!-- SEARCH FIELD END -->
                      <!-- HEADER PAGE TITLE START -->
-                     <div class="col-auto d-none d-md-block">
+                     <div class="col min-w-0 d-none d-md-block">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-user-outline.svg" class="img">
@@ -522,65 +522,67 @@
                             </table>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <table class="table table_card" data-clients-row="1" onclick="onClientShowed(1)">
-                                <tbody>
-                                    <tr>
-                                        <th>ID:</th>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Компания:</th>
-                                        <td>Company</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Контактное лицо:</th>
-                                        <td>Jhon Doe</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Группа клиентов:</th>
-                                        <td><span class="table__tag me-2">VIP</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Количество проектов:</th>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Стоимость услуг клиента:</th>
-                                        <td>5 670$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Полученный платёж:</th>
-                                        <td>5 000$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Остаток суммы:</th>
-                                        <td>670$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Функции:</th>
-                                        <td>
-                                            <div class="d-flex align-teims-center">
-                                                <button 
-                                                    type="button" 
-                                                    class="btn btn_clean" 
-                                                    onclick="event.stopPropagation(); onClientEdited(1)"
-                                                    title="Редактировать"
-                                                >
-                                                    <span class="table__icon table__icon_edit"></span>
-                                                </button>
-                                                <button 
-                                                    type="button" 
-                                                    class="btn btn_clean" 
-                                                    onclick="event.stopPropagation(); onClientsRemoved('1')"
-                                                    title="Удалить"
-                                                >
-                                                    <span class="table__icon table__icon_remove"></span>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table_card-wrapper">
+                                <table class="table table_card" data-clients-row="1" onclick="onClientShowed(1)">
+                                    <tbody>
+                                        <tr>
+                                            <th>ID:</th>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Компания:</th>
+                                            <td>Company</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Контактное лицо:</th>
+                                            <td>Jhon Doe</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Группа клиентов:</th>
+                                            <td><span class="table__tag me-2">VIP</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Количество проектов:</th>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Стоимость услуг клиента:</th>
+                                            <td>5 670$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Полученный платёж:</th>
+                                            <td>5 000$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Остаток суммы:</th>
+                                            <td>670$</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Функции:</th>
+                                            <td>
+                                                <div class="d-flex align-teims-center">
+                                                    <button 
+                                                        type="button" 
+                                                        class="btn btn_clean" 
+                                                        onclick="event.stopPropagation(); onClientEdited(1)"
+                                                        title="Редактировать"
+                                                    >
+                                                        <span class="table__icon table__icon_edit"></span>
+                                                    </button>
+                                                    <button 
+                                                        type="button" 
+                                                        class="btn btn_clean" 
+                                                        onclick="event.stopPropagation(); onClientsRemoved('1')"
+                                                        title="Удалить"
+                                                    >
+                                                        <span class="table__icon table__icon_remove"></span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <!-- CLIENTS EDIT TABLE END -->

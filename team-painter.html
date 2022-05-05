@@ -263,7 +263,7 @@
                     </div>
                     <!-- SEARCH FIELD END -->
                      <!-- HEADER PAGE TITLE START -->
-                     <div class="col-auto d-none d-md-block">
+                     <div class="col min-w-0 d-none d-md-block">
                         <div class="page-title d-flex align-items-center">
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-team.svg" class="img">
@@ -381,7 +381,7 @@
         </header>
         <!-- HEADER END -->
         <div class="main-content">
-            <section class="page-section">
+            <section class="page-section team">
                 <div class="container-fluid">
                     <div class="tab">
                         <div class="tab__header d-flex flex-wrap">
@@ -399,14 +399,14 @@
                             </div>
                         </div>
                         <div class="tab__body py-4">
-                            <div class="row mx-0 team__content">
+                            <div class="row mx-sm-0 team__content">
                                 <div class="col-xl-6 team__content-item">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive d-none d-sm-block">
                                         <table class="table table_clickable">
                                             <thead>
                                                 <tr>
                                                     <th>Имя</th>
-                                                    <th>Вид техника</th>
+                                                    <th>Вид художника</th>
                                                     <th>Email</th>
                                                     <th>Телефон:</th>
                                                 </tr>
@@ -427,6 +427,40 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <!-- MOBILE TABLE -->
+                                    <div class="d-sm-none">
+                                        <div class="mb-3">
+                                            <div class="table_card-wrapper">
+                                                <table class="table table_card js-team-painter" data-painter-id="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Имя</th>
+                                                            <td>Андрей Петрович</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Вид художника</th>
+                                                            <td>Job Title</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Email</th>
+                                                            <td>andr@gmail.com</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Телефон</th>
+                                                            <td>+3333333333</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr class="text-center">
+                                                            <td colspan="2">
+                                                                <span class="btn btn_fill">Посмотреть профиль</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-xl-6 team__content-item js-team-card-wrapper d-xl-block d-none"></div>
                             </div>
@@ -437,6 +471,7 @@
         </div>
     </main>
     <!-- MAIN END -->
+    <div class="mob-overlay d-md-none" onclick="closeMenu()"></div>
     <!-- LOADER START -->
     <div class="loader">
         <div class="loadingio-spinner-dual-ring-ge3m3n2sva7">
@@ -510,10 +545,10 @@
             </div>
             <div class="col">
                 <div class="team-card__info">
-                    <h3 class="title team-card__title mb-4" data-t-name></h3>
-                    <div class="mb-4">
-                        <div><a href=""  data-t-phone></a></div>
-                        <div><a href=""  data-t-mail></a></div>
+                    <h3 class="title team-card__title mb-2 mb-xl-4" data-t-name></h3>
+                    <div class="mb-3 mb-xl-4">
+                        <div><a href="" data-t-phone></a></div>
+                        <div><a href="" data-t-mail></a></div>
                         <div><span data-t-address></span></div>
                     </div>
                     <div class="row">
@@ -539,8 +574,11 @@
         <div class="team-card__item mb-4">
             <p class="text_bolder mb-0">Дата регистрации: <span data-t-reg></span></p>
         </div>
+        <div class="team-card__item">
+            <h4 class="text_bolder mb-0">Зарплата за весь период: <b data-t-summ></b></h4>
+        </div>
         <div class="team-card__item mb-3">
-            <h4 class="text_bolder">Зарплата за весь период: <b data-t-summ></b></h4>
+            <h4 class="text_bolder">Оплачено за весь период: <b data-t-paid></b></h4>
         </div>
         <div class="team-card__item mb-2">
             <p class="mb-0 d-flex align-items-center"><span class="team__icon team__icon_hours me-2"></span><b>Отработано часов: <span data-t-hours></span></b></p>
@@ -558,6 +596,13 @@
                     Добавить фото
                 </button>
             </div>
+        </div>
+    </div>
+    <!-- PAINTER INFO MODAL -->
+    <div class="mymodal" data-mymodal-id="painter-info-mob" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
+        <div class="mymodal__content js-painter-info-mob pt-4">
+            
         </div>
     </div>
     

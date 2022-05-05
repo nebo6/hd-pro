@@ -68,7 +68,7 @@ option
     color: $color-blue-light
 
 .text_green
-    color: $color-green
+    color: $color-green !important
 
 .text_red
     color: $color-red
@@ -127,7 +127,15 @@ option
     text-overflow: ellipsis
     overflow: hidden
     max-width: 100%
+    white-space: nowrap
 
+.nowrap
+    display: inline-block
+    text-overflow: ellipsis
+    overflow: hidden
+    max-width: 100%
+    white-space: nowrap
+    
 .w-100
     width: 100%
 

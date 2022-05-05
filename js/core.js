@@ -97,9 +97,14 @@ function formattedNumber(number) {
 function initMultiselect() {
     $(document).on("click", ".multiselect", function(e) { e.stopPropagation() })
     $(document).on("click", ".multiselect__inner", function(e) {
+        console.log("open");
         e.stopPropagation();
         const _this = this;
-        $(_this).siblings(".multiselect__options").slideToggle(200, function() {
+        const options = $(_this).siblings(".multiselect__options")
+        $(".multiselect__options").not(options).slideUp(200, function() {
+            $(this).parent().removeClass("active")
+        })
+        options.slideToggle(200, function() {
             $(_this).parent().toggleClass("active")
         });
     });
@@ -132,6 +137,7 @@ function initMultiselect() {
         return input.text(title)
     })
     $(window).on("click", function() {
+        console.log("close");
         $('.multiselect__options').slideUp(200, function() {
             $(this).closest(".multiselect.active").removeClass("active")
         });
