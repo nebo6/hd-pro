@@ -29,6 +29,60 @@
     border-radius: 4px;
     padding: 20px;
   }
+  .table:not(.table_card) > tbody:first-child tr:nth-child(odd),
+  .table:not(.table_card) thead + tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  .table:not(.table_card) td:first-child,
+  .table:not(.table_card) th:first-child {
+    padding-left: 8px;
+  }
+  .table:not(.table_card) td:last-child,
+  .table:not(.table_card) th:last-child {
+    padding-right: 8px;
+  }
+  .table:not(.table_card) thead {
+    background-color: #fff;
+    color: #000;
+  }
+  .table_card-wrapper-tab-min {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #C2CFE0;
+  }
+  .table_card-tab-min {
+    table-layout: fixed;
+  }
+  .table_card-tab-min th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .table_card-tab-min td,
+  .table_card-tab-min th {
+    padding: 2px;
+  }
+  .table_card-tab-min td:first-child,
+  .table_card-tab-min th:first-child {
+    padding-left: 15px;
+    padding-right: 8px;
+  }
+  .table_card-tab-min td:last-child,
+  .table_card-tab-min th:last-child {
+    padding-right: 15px;
+    padding-left: 8px;
+  }
+  .table_card-tab-min tbody tr:first-child td,
+  .table_card-tab-min tbody tr:first-child th {
+    padding-top: 12px;
+  }
+  .table_card-tab-min tr:last-child td,
+  .table_card-tab-min tr:last-child th {
+    padding-bottom: 12px;
+  }
+  .table_card-tab-min .radio__list {
+    background-color: #EFEFEF;
+  }
   .statistics__wrapper_type_1 {
     max-width: 50%;
     -webkit-box-flex: 0;

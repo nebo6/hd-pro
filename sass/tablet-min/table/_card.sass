@@ -1,0 +1,31 @@
+.table_card-wrapper-tab-min
+    background-color: #fff
+    border-radius: 5px
+    border: 1px solid $color-blue-lighter
+
+.table_card-tab-min
+    table-layout: fixed
+    th
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+    td,
+    th
+        padding: 2px
+        &:first-child
+            padding-left: 15px
+            padding-right: 8px
+        &:last-child
+            padding-right: 15px
+            padding-left: 8px
+    tbody
+        tr:first-child
+            td,
+            th
+                padding-top: 12px
+    tr:last-child
+        td,
+        th
+            padding-bottom: 12px
+    .radio__list
+        background-color: #EFEFEF

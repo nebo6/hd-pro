@@ -19,6 +19,13 @@
   .mob-overlay.active {
     display: block;
   }
+  .title_page {
+    font-size: 1rem;
+  }
+  .page-title__icon {
+    width: 24px;
+    height: 18px;
+  }
   .select__control_wider {
     min-width: 75px;
   }

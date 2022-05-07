@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"> <!-- change to en if not ru -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -231,7 +231,6 @@
         </div>
     </aside>
     <!-- SIDEBAR END -->
-    <!-- MAIN START -->
     <main role="main" class="main">
         <!-- HEADER START -->
         <header class="header">
@@ -260,9 +259,9 @@
                      <div class="col min-w-0">
                         <div class="page-title d-flex align-items-center justify-content-center justify-content-md-start">
                             <div class="page-title__icon">
-                                <img src="./img/icons/title-user-outline.svg" class="img">
+                                <img src="./img/icons/title-settings.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Клиенты</h1>
+                            <h1 class="title title_page">Настроки ролей</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -377,138 +376,47 @@
         <div class="main-content">
             <section class="page-section">
                 <div class="container-fluid">
-                    <!-- WIDGETS START -->
-                    <div class="widget my-3">
-                        <div class="row">
-                            <div class="col-6 col-sm-auto mb-3 mb-sm-0 me-sm-auto">
-                                <button class="btn btn_outline btn_with-icon w-100" onclick="onCLientAdd()"> 
-                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
-                                        <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
-                                    </svg>                                    
-                                    Добавить
-                                </button>
-                            </div>
-                            <div class="col-3 col-sm-auto mb-3 mb-sm-0 ps-sm-0">
-                                <button class="btn btn_outline w-100" onclick="printDiv('clients')">Print</button>
-                            </div>
-                            <div class="col-3 col-sm-auto mb-3 mb-sm-0 ps-sm-0">
-                                <button class="btn btn_outline w-100" onclick="exel('clients')">Exel</button>
-                            </div>
-                            <div class="col-12 col-sm-auto mb-3 mb-sm-0 ps-sm-0">
-                                <label class="input input_widget input_gap_right">
-                                    <input type="text" class="input__control input__control_small" placeholder="Поиск">
-                                    <span class="input__icon input__icon_magnify"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- WIDGETS END -->
-                    <!-- CLIENTS EDIT TABLE START -->
-                    <div class="table-responsive d-none d-lg-block">
-                        <table class="table" id="clients">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Компания</th>
-                                    <th>Контактное лицо</th>
-                                    <th>Группа клиентов</th>
-                                    <th>Количество проектов</th>
-                                    <th>Стоимость услуг клиента</th>
-                                    <th>Полученный платёж</th>
-                                    <th>Остаток суммы</th>
-                                    <th class="text-center no-print">Функции</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-clients-row="1" onclick="onClientShowed(1)">
-                                    <td>1</td>
-                                    <td>Company</td>
-                                    <td>Jhon Doe</td>
-                                    <td><span class="table__tag me-2">VIP</span></td>
-                                    <td>5</td>
-                                    <td>5 670$</td>
-                                    <td>5 000$</td>
-                                    <td>670$</td>
-                                    <td class="no-print">
-                                        <div class="d-flex align-teims-center justify-content-center">
-                                            <button 
-                                                type="button" 
-                                                class="btn btn_clean" 
-                                                onclick="event.stopPropagation(); onClientEdited(1)"
-                                                title="Редактировать"
-                                            >
-                                                <span class="table__icon table__icon_edit"></span>
-                                            </button>
-                                            <button 
-                                                type="button" 
-                                                class="btn btn_clean" 
-                                                onclick="event.stopPropagation(); onClientsRemoved('1')"
-                                                title="Удалить"
-                                            >
-                                                <span class="table__icon table__icon_remove"></span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- MOB -->
-                    <div class="row d-lg-none">
-                        <div class="col-md-6 mb-3">
-                            <table class="table table_card" data-clients-row="0" onclick="onClientShowed(1)">
-                                <tbody>
+                    <div class="table_card-wrapper-tab-min">
+                        <div class="table-responsive">
+                            <table class="table table_card-tab-min">
+                                <thead>
                                     <tr>
-                                        <th>ID:</th>
-                                        <td>0</td>
+                                        <th>Члены команды</th>
+                                        <th>Роли</th>
+                                        <th></th>
                                     </tr>
-                                    <tr>
-                                        <th>Компания:</th>
-                                        <td>Company</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Контактное лицо:</th>
-                                        <td>Jhon Doe</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Группа клиентов:</th>
-                                        <td><span class="table__tag me-2">VIP</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Количество проектов:</th>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Стоимость услуг клиента:</th>
-                                        <td>5 670$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Полученный платёж:</th>
-                                        <td>5 000$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Остаток суммы:</th>
-                                        <td>670$</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Функции:</th>
+                                </thead>
+                                <tbody data-user-roles>
+                                    <tr data-user-roles-row="1"> <!-- row id -->
+                                        <td>Имя Фамилия</td>
+                                        <td>Техник</td>
                                         <td>
-                                            <div class="d-flex align-teims-center">
-                                                <button 
-                                                    type="button" 
-                                                    class="btn btn_clean" 
-                                                    onclick="event.stopPropagation(); onClientEdited(1)"
-                                                    title="Редактировать"
-                                                >
-                                                    <span class="table__icon table__icon_edit"></span>
+                                            <div class="d-flex justify-content-end">
+                                                <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(1)"><!-- row id -->
+                                                    <span class="table__icon table__icon_edit_red"></span>
                                                 </button>
-                                                <button 
-                                                    type="button" 
-                                                    class="btn btn_clean" 
-                                                    onclick="event.stopPropagation(); onClientsRemoved('1')"
-                                                    title="Удалить"
-                                                >
-                                                    <span class="table__icon table__icon_remove"></span>
+                                                <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(1)">
+                                                    <span class="table__icon table__icon_options_red"></span>
+                                                </button>
+                                                <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-user-roles-row="2"> <!-- row id -->
+                                        <td>Имя Фамилия</td>
+                                        <td>Менеджер</td>
+                                        <td class="text-right">
+                                            <div class="d-flex justify-content-end">
+                                                <button class="btn btn_clean" type="button" onclick="onUserRoleEdited(2)"><!-- row id -->
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                                <button type="button" class="btn btn_clean" onclick="onUserRoleOptions(2)">
+                                                    <span class="table__icon table__icon_options_red"></span>
+                                                </button>
+                                                <button type="button" class="btn btn_clean" onclick="onUserRoleRemoved(2)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
                                                 </button>
                                             </div>
                                         </td>
@@ -516,76 +424,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="table_card-wrapper">
-                                <table class="table table_card" data-clients-row="1" onclick="onClientShowed(1)">
-                                    <tbody>
-                                        <tr>
-                                            <th>ID:</th>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Компания:</th>
-                                            <td>Company</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Контактное лицо:</th>
-                                            <td>Jhon Doe</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Группа клиентов:</th>
-                                            <td><span class="table__tag me-2">VIP</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Количество проектов:</th>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Стоимость услуг клиента:</th>
-                                            <td>5 670$</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Полученный платёж:</th>
-                                            <td>5 000$</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Остаток суммы:</th>
-                                            <td>670$</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Функции:</th>
-                                            <td>
-                                                <div class="d-flex align-teims-center">
-                                                    <button 
-                                                        type="button" 
-                                                        class="btn btn_clean" 
-                                                        onclick="event.stopPropagation(); onClientEdited(1)"
-                                                        title="Редактировать"
-                                                    >
-                                                        <span class="table__icon table__icon_edit"></span>
-                                                    </button>
-                                                    <button 
-                                                        type="button" 
-                                                        class="btn btn_clean" 
-                                                        onclick="event.stopPropagation(); onClientsRemoved('1')"
-                                                        title="Удалить"
-                                                    >
-                                                        <span class="table__icon table__icon_remove"></span>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
-                    <!-- CLIENTS EDIT TABLE END -->
                 </div>
             </section>
         </div>
     </main>
-    <!-- MAIN END -->
     <div class="mob-overlay d-md-none" onclick="closeMenu()"></div>
     <!-- LOADER START -->
     <div class="loader">
@@ -599,6 +442,7 @@
         </div>
     </div>
     <!-- LOADER END -->
+    <!-- NOTIFICATIONS LIST START -->
     <div class="alert__list">
         <div class="alert template" style="display: none;">
             <button class="btn btn_clean alert__close"></button>
@@ -618,6 +462,7 @@
             </div>
         </div>
     </div>
+    <!-- NOTIFICATIONS LIST END -->
     <!-- REMODAL MODALS START | REMODAL RENAMED TO MYMODAL BECAUSE OF ADBLOCKERS-->
     <!-- CONFIRMATION MODAL START -->
     <div class="mymodal mymodal_confirmation" data-mymodal-id="confiramtion-modal" data-mymodal-options="hashTracking: false">
@@ -628,188 +473,7 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
-    <!-- CLIENTS MODAL START -->
-    <div class="mymodal maymodal_client" data-mymodal-id="show-client" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Профиль клиента</h4>
-            </header>
-            <div class="mymodal__body"></div>
-        </div>
-    </div>
-    <!-- CLIENT'S MODAL BODY CONTENT TEMPLATE -->
-    <div class="mymodal__body client-modal-template d-none">
-        <div class="row justify-content-between mb-2">
-            <div class="col-6 mb-2">
-                <div class="statistics statistics_small active">
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div class="col-auto">
-                            <div class="statistics__value text_light" data-t-ccars>3</div>
-                        </div>
-                        <div class="col">
-                            <span class="statistics__label">Количество <br>машин</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 mb-2">
-                <div class="statistics statistics_small active">
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div class="col-auto">
-                            <div class="statistics__value" data-t-summ>344$</div>
-                        </div>
-                        <div class="col">
-                            <span class="statistics__label">Общая <br/>стоимость услуг</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 mb-2">
-                <div class="statistics statistics_small active">
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div class="col-auto">
-                            <div class="statistics__value text_green" data-t-paid>300$</div>
-                        </div>
-                        <div class="col">
-                            <span class="statistics__label">Полученный <br>платёж</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 mb-2">
-                <div class="statistics statistics_small active">
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div class="col-auto">
-                            <div class="statistics__value text_red" data-t-debt>44$</div>
-                        </div>
-                        <div class="col">
-                            <span class="statistics__label">Остаток <br>суммы</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Данные компании</th>
-                        <td data-t-company>Company</td>
-                    </tr>
-                    <tr>
-                        <th>Машины</th>
-                        <td data-t-acars>22</td>
-                    </tr>
-                    <tr>
-                        <th>Счета</th>
-                        <td data-t-bill>33</td>
-                    </tr>
-                    <tr>
-                        <th>Платежи</th>
-                        <td data-t-payments>311</td>
-                    </tr>
-                    <tr>
-                        <th>Сметы</th>
-                        <td data-t-estimates>311</td>
-                    </tr>
-                    <tr>
-                        <th>Расходы</th>
-                        <td data-t-expenses>22 550$</td>
-                    </tr>
-                    <tr>
-                        <th>Viber</th>
-                        <td><a data-t-viber href="viber://pa?chatURI=[public account URI]" target="_blank" class="link-nowrap">Text to Viber</a></td>
-                    </tr>
-                    <tr>
-                        <th>Telegram</th>
-                        <td><a data-t-telegram href="https://telegram.me/log" target="_blank" class="link-nowrap">Text to Telegram</a></td>
-                    </tr>
-                    <tr>
-                        <th>WhatsApp</th>
-                        <td><a data-t-whatsapp href="https://wa.me/2217777777" target="_blank" class="link-nowrap">Text to WhatsApp</a></td>
-                    </tr>
-                    <tr>
-                        <th>Сайт</th>
-                        <td><a data-t-web href="https://www.google.com" target="_blank" class="link-nowrap">www.google.com</a></td>
-                    </tr>
-                    <tr valign="top">
-                        <th>Файлы</th>
-                        <td><a  data-t-file href="#link-to-file" target="_blank" class="link-nowrap">Link to file</a> </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- CLIENTS MODAL END -->
-    <!-- CLIENTS FORM START -->
-    <div class="mymodal maymodal_client" data-mymodal-id="form-client" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Редактировать клиента</h2>
-            <form method="post" class="form">
-            </form>
-        </div>
-    </div>
-    <!-- CLIENTS FORM TEMPLATE -->
-    <form method="post" class="form client-form-template d-none">
-        <div class="input mb-3">
-            <input type="text" class="input__control" name="company" placeholder="Данные компании*" required>
-        </div>
-        <div class="input mb-3">
-            <input type="number" class="input__control" name="cars" placeholder="Машины*" min="0" required>
-        </div>
-        <div class="input mb-3">
-            <input type="number" class="input__control" name="bill" placeholder="Счета*" min="0" required>
-        </div>
-        <div class="input mb-3">
-            <input type="number" class="input__control" name="payments" placeholder="Платежи*" min="0" required>
-        </div>
-        <div class="input mb-3">
-            <input type="number" class="input__control" name="estimates" placeholder="Сметы*" min="0" required>
-        </div>
-        <div class="input mb-3">
-            <input 
-                type="text" 
-                class="input__control dollar-mask" 
-                name="expenses" 
-                placeholder="Расходы*" 
-                required
-                inputmode="numeric"
-            >
-        </div>
-        <div class="input mb-3">
-            <input type="text" class="input__control" name="viber" placeholder="Viber">
-        </div>
-        <div class="input mb-3">
-            <input type="text" class="input__control" name="telegram" placeholder="Telegram">
-        </div>
-        <div class="input mb-3">
-            <input type="number" class="input__control" name="whatsapp" placeholder="WhatsApp">
-        </div>
-        <div class="input mb-3">
-            <input type="text" class="input__control" name="web" placeholder="Сайт">
-        </div>
-        <div class="files">
-            <div class="files__inputs">
-                <label class="files__upload" data-file-input="0">
-                    <input type="file" name="file[]" class="d-none files__control">
-                    <div class="row align-items-center justify-content-end">
-                        <div class="col-auto">Загрузите файл</div>
-                        <div class="col-auto">
-                            <span class="table__icon table__icon_upload_red"></span>
-                        </div>
-                    </div>
-                </label>
-            </div>
-            <hr>
-            <div class="files__list"></div>
-        </div>
-        <div class="pt-3">
-            <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-        </div>
-    </form>
-    <!-- CLIENTS FORM START -->
+    
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
@@ -820,6 +484,11 @@
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>
+    <script src="./js/projects.js"></script>
+    <script src="./js/estimates.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/team.js"></script>
+    <script src="./js/report.js"></script>
     <script src="./js/custom.js"></script>
 </body>
 </html>
