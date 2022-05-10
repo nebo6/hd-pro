@@ -262,7 +262,7 @@
                             <div class="page-title__icon">
                                 <img src="./img/icons/title-cars.svg" class="img">
                             </div>
-                            <h1 class="title title_page">Проекты</h1>
+                            <h1 class="title title_page">Машины</h1>
                         </div>
                     </div>
                     <!-- HEADER PAGE TITLE END -->
@@ -859,15 +859,42 @@
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="vin" placeholder="VIN код*" required>
                 </div>
-                <div class="input mb-3">
+                <div class="select select_input mb-3">
+                    <select name="year" class="select__control" required>
+                        <option value="" label="Выберите год*" selected disabled></option>
+                        <option value="0" label="Год 0"></option>
+                        <option value="1" label="Год 1"></option>
+                        <option value="2" label="Год 2"></option>
+                    </select>
+                    <div class="select__icon"></div>
+                </div>
+                <!-- <div class="input mb-3">
                     <input type="text" class="input__control" name="year" placeholder="Год*" required>
+                </div> -->
+                <div class="select select_input mb-3">
+                    <select name="model" class="select__control" required>
+                        <option value="" label="Выберите модель*" selected disabled></option>
+                        <option value="0" label="Модель 0"></option>
+                        <option value="1" label="Модель 1"></option>
+                        <option value="2" label="Модель 2"></option>
+                    </select>
+                    <div class="select__icon"></div>
                 </div>
-                <div class="input mb-3">
+                <!-- <div class="input mb-3">
                     <input type="text" class="input__control" name="model" placeholder="Модель*" required>
+                </div> -->
+                <div class="select select_input mb-3">
+                    <select name="color" class="select__control" required>
+                        <option value="" label="Выберите цве*" selected disabled></option>
+                        <option value="0" label="Цвет 0"></option>
+                        <option value="1" label="Цвет 1"></option>
+                        <option value="2" label="Цвет 2"></option>
+                    </select>
+                    <div class="select__icon"></div>
                 </div>
-                <div class="input mb-3">
+                <!-- <div class="input mb-3">
                     <input type="text" class="input__control" name="color" placeholder="Цвет*" required>
-                </div>
+                </div> -->
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="mileage" placeholder="Пробег*" required>
                 </div>

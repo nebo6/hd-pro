@@ -477,8 +477,8 @@
                                     <td>1</td>
                                     <td>Иван Григорьев</td>
                                     <td>Toyota</td>
-                                    <td>19 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
+                                    <td>19.10.2022</td>
+                                    <td>23.10.2022</td>
                                     <td>12 500$</td>
                                     <td>2 500$</td>
                                     <td class="text-center">
@@ -494,8 +494,8 @@
                                     <td>1</td>
                                     <td>Иван Григорьев</td>
                                     <td>Toyota</td>
-                                    <td>19 октября 2022 год</td>
-                                    <td>23 октября 2022 год</td>
+                                    <td>19.10.2022</td>
+                                    <td>23.10.2022</td>
                                     <td>12 500$</td>
                                     <td>2 500$</td>
                                     <td class="text-center">
@@ -823,6 +823,53 @@
                         <button class="btn btn_fill w-100" type="submit">Сохранить</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <!-- INVOICE DETAIL -->
+    <div class="mymodal mymodal_invoices" data-mymodal-id="detail-invoices" > <!--data-mymodal-options="hashTracking: false"-->
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <h4>Счет-фактура №1</h4>
+                        <p class="mb-0">Дата выставления: 20.10.2022</p>
+                        <p class="mb-0">Дата окончания: 20.11.2022</p>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-7">
+                        <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
+                        <h4>Название компании</h4>
+                        <p class="mb-0">Адрес компании</p>
+                        <p class="mb-0">Phone: 33-443-222233</p>
+                        <p class="mb-0">Email: email@gmail.com</p>
+                    </div>
+                    <div class="col-5" style="margin-top: 76px"> <!-- logo img height -->
+                        <h4>Получатель: Клиент</h4>
+                        <p class="mb-0">Адрес получателя</p>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Машина</th>
+                            <th class="text-right">Полученная оплата</th>
+                            <th class="text-right">Общая сумма</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Toyota</td>
+                            <td class="text-right">2 500$</td>
+                            <td class="text-right">12 500$</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

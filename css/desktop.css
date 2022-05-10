@@ -2741,6 +2741,10 @@ option {
   max-width: 655px;
 }
 
+.mymodal_invoices {
+  max-width: 800px;
+}
+
 .fancybox__container {
   z-index: 10001 !important;
 }
