@@ -184,11 +184,22 @@ $(function() {
         alias : "currency",
         prefix: '$',
         groupSeparator: " ",
-        rightAlign: false
+        rightAlign: false,
+        allowMinus:false,
     })
     $(".date-mask").inputmask({
-        alias: 'datetime', 
-        inputFormat: 'dd.mm.yyyy'
+        alias: 'datetime',
+        inputFormat: 'dd.mm.yyyy',
+    })
+    $(".percentage-mask").inputmask({
+        alias:"decimal",
+        integerDigits:9,
+        digits:0,
+        max: 99,
+        allowMinus:false,
+        digitsOptional: false,
+        placeholder: "0",
+        suffix: "%",
     })
     if (window.Fancybox) Fancybox.defaults.Hash = false;
 })

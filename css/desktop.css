@@ -214,6 +214,16 @@ option {
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .input {
   display: block;
   border-radius: 5px;
@@ -2422,7 +2432,9 @@ option {
 .progress__text {
   position: relative;
   z-index: 1;
-  color: #fafafa;
+  color: #fff;
+  -webkit-text-stroke: 0.5px #000;
+  font-weight: bold;
 }
 
 .notifications .icon {
@@ -2742,7 +2754,7 @@ option {
 }
 
 .mymodal_invoices {
-  max-width: 800px;
+  max-width: 810px;
 }
 
 .fancybox__container {

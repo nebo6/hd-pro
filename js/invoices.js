@@ -49,3 +49,67 @@ function onInvoicesEdited(id) {
     // onError alertNotice
     removeBodyLoader();
 }
+
+function calcVat(price, vat, quantity) { 
+    return {
+        noVat: price*(1-vat)*quantity-0,
+        vat: price*vat*quantity-0
+    }
+}
+
+function calcTotal(price, quantity) { return price*quantity }
+
+function calcInvoices() {
+    const form = $(".invoice-form");
+    const table = form.find("table");
+    table.find("tbody tr").each(function(idx, el) {
+        const quantity = $(el).find(".js-quantity")
+        let quantityVal = 1;
+        const price = $(el).find(".js-price")
+        let priceVal = 0;
+        const vat = $(el).find(".js-vat")
+        let vatVal = 0
+        const noVatDiv = $(el).find('[data-no-vat]')
+        const vatDiv = $(el).find('[data-vat]')
+        const summDiv = $(el).find('[data-summ]')
+        
+        function changeNoVat() {
+            noVatDiv.data("no-vat", calcVat(priceVal, vatVal, quantityVal).noVat)
+            noVatDiv.text(calcVat(priceVal, vatVal, quantityVal).noVat.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
+        }
+        
+        function changeVat() {
+            vatDiv.data("no-vat", calcVat(priceVal, vatVal, quantityVal).vat)
+            vatDiv.text(calcVat(priceVal, vatVal, quantityVal).vat.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
+        }
+        
+        function changeSumm() {
+            summDiv.data("summ", calcTotal(priceVal,quantityVal))
+            summDiv.text(calcTotal(priceVal,quantityVal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
+        }
+        
+        function calculate() {
+            changeNoVat()
+            changeVat()
+            changeSumm()
+        }
+        
+        quantity.on("input", function(e) {
+            quantityVal = $(this).val() - 0
+            calculate()
+        })
+        price.on("input", function(e) {
+            priceVal = $(this).val().replace(/[^\d.]/g, '') - 0
+            calculate()
+        })
+        vat.on("input", function(e) {
+            vatVal = ($(this).val().replace(/[^\d]/g, '') - 0)/100
+            calculate()
+        })
+
+    })
+}
+
+$(function() {
+    calcInvoices()
+})
