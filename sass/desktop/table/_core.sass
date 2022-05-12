@@ -83,3 +83,11 @@
     overflow: hidden
     white-space: nowrap
     text-overflow: ellipsis
+
+.table_left_short
+    &:not(.table_card)
+        td,
+        th
+            &:first-child
+                padding: 0
+                width: 20px

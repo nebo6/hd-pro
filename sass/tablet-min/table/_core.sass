@@ -1,15 +1,14 @@
-.table:not(.table_card) > tbody:first-child tr:nth-child(odd),
-.table:not(.table_card) thead + tbody tr:nth-child(even)
+.table:not(.table_card, .table_inherit) > tbody:first-child tr:nth-child(odd),
+.table:not(.table_card, .table_inherit) thead + tbody tr:nth-child(even)
     background-color: #fff
 
-.table:not(.table_card) td:first-child,
-.table:not(.table_card) th:first-child
-    padding-left: 8px
-
-.table:not(.table_card) td:last-child,
-.table:not(.table_card) th:last-child
-    padding-right: 8px
-
-.table:not(.table_card) thead
-    background-color: #fff
-    color: #000
+.table:not(.table_card, .table_inherit) 
+    td:first-child,
+    th:first-child
+        padding-left: 8px
+    td:last-child,
+    th:last-child
+        padding-right: 8px
+    thead
+        background-color: #fff
+        color: #000

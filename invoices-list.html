@@ -709,101 +709,258 @@
     </div>
     <!-- CONFIRMATION MODAL END -->
     <!-- INVOICES MODAL FORM -->
-    <!-- <div class="mymodal" data-mymodal-id="add-invoices" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Добавить счет-фактуру</h4>
-            </header>
-            <div class="mymodal__body">
-                <form method="post" class="form" onsubmit="addInvoice(event)">
-                    <div class="select select_input mb-3">
-                        <select name="client" class="select__control" required>
-                            <option value="" label="Клиент*" selected disabled></option>
-                            <option value="0" label="Вова"></option>
-                            <option value="1" label="Дима"></option>
-                            <option value="2" label="Володя"></option>
-                        </select>
-                        <div class="select__icon"></div>
-                    </div>
-                    <div class="select select_input mb-3">
-                        <select name="project" class="select__control" required>
-                            <option value="" label="Машина*" selected disabled></option>
-                            <option value="0" label="Land Cruiser Prado"></option>
-                            <option value="1" label="BMW"></option>
-                            <option value="2" label="KIA"></option>
-                        </select>
-                        <div class="select__icon"></div>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control date-mask" name="payday" placeholder="День оплаты*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control date-mask" name="deadline" placeholder="День окончания*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control dollar-mask" name="summ" placeholder="Общая сумма*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control dollar-mask" name="paid" placeholder="Полученная оплата*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <div class="select select_input mb-3">
-                            <select name="status" class="select__control" required>
-                                <option value="" label="Статус*" selected disabled></option>
-                                <option value="0" label="Оплачен"></option>
-                                <option value="1" label="Предоплата"></option>
-                                <option value="2" label="Остаток "></option>
-                            </select>
-                            <div class="select__icon"></div>
+    <div class="mymodal mymodal_invoices" data-mymodal-id="add-invoices" data-mymodal-options="hashTracking: false">
+        <div class="invoice-modal-inner">
+            <button data-mymodal-action="close" class="mymodal-close"></button>
+            <div class="mymodal__content">
+                <header class="mymodal__header">
+                    <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
+                </header>
+                <div class="mymodal__body">
+                    <form method="post" class="invoice-form">
+                        <div class="row justify-content-end">
+                            <div class="col-auto">
+                                <h4>Счет-фактура №1</h4>
+                                <div class="d-flex">
+                                    <span class="col-auto">Дата выставления: </span>
+                                    <div class="col-auto ms-1">
+                                        <input 
+                                            type="text" 
+                                            class="input__control py-0 px-1 date-mask" 
+                                            placeholder="dd.mm.yyyy" 
+                                            name="payday" 
+                                            required
+                                            style="width: 84px"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <span class="col-auto">Дата окончания: </span>
+                                    <div class="col-auto ms-1">
+                                        <input 
+                                            type="text" 
+                                            class="input__control py-0 px-1 date-mask" 
+                                            placeholder="dd.mm.yyyy" 
+                                            name="deadline" 
+                                            required
+                                            style="width: 84px"
+                                        >
+                                    </div>
+                                </div>
+                                <!-- <p class="mb-0">Дата выставления: 20.10.2022</p> -->
+                                <!-- <p class="mb-0">Дата окончания: 20.11.2022</p> -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="pt-3">
-                        <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                    </div>
-                </form>
+                        <div class="row mb-5">
+                            <div class="col-7">
+                                <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
+                                <h4>Название компании</h4>
+                                <p class="mb-0">Адрес компании</p>
+                                <p class="mb-0">Phone: 33-443-222233</p>
+                                <p class="mb-0">Email: email@gmail.com</p>
+                            </div>
+                            <div class="col-5" style="margin-top: 76px"> <!-- logo img height -->
+                                <h4 class="row align-items-center">
+                                    <div class="col-auto">
+                                        Получатель: 
+                                    </div>
+                                    <div class="col">
+                                        <div class="select select_widget">
+                                            <select name="clients" class="select__control">
+                                                <option value="" selected>Несколько клиентов</option>
+                                                <option value="0" label="Имя Клиента 0"></option>
+                                                <option value="1" label="Имя Клиента 1"></option>
+                                                <option value="2" label="Имя Клиента 2"></option>
+                                                <option value="3" label="Имя Клиента 3"></option>
+                                            </select>
+                                            <div class="select__icon"></div>
+                                        </div>
+                                    </div>
+                                </h4>
+                                <textarea name="address" rows="3" placeholder="Адрес получателя" class="w-100 p-1"></textarea>
+                            </div>
+                        </div>
+                        <table class="table table_left_short table_inherit mb-3 js-invoice-table">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Наименование</th>
+                                    <th class="text-center">Количество</th>
+                                    <th style="padding-left: 18px;">Цена</th>
+                                    <th class="text-center">НДС</th>
+                                    <th class="text-right">Цена без НДС</th>
+                                    <th class="text-right">Цена НДС</th>
+                                    <th class="text-right">Валовая стоимость</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            class="input__control" 
+                                            required
+                                            name="title[]"
+                                            placeholder="Нименование"
+                                        >
+                                    </td>
+                                    <td class="text-center">
+                                        <input 
+                                            type="number"
+                                            min="1"
+                                            step="1"
+                                            class="input__control text-center js-quantity" 
+                                            value="1" 
+                                            required
+                                            style="width: 100px"
+                                            name="quantity[]"
+                                        >
+                                    </td>
+                                    <td class="text-center">
+                                        <input 
+                                            type="text" 
+                                            class="input__control dollar-mask js-price" 
+                                            inputmode="numeric" 
+                                            required
+                                            value="0"
+                                            name="price[]"
+                                        >
+                                    </td>
+                                    <td class="text-center">
+                                        <input 
+                                            type="text" 
+                                            class="input__control percentage-mask js-vat" 
+                                            inputmode="numeric" 
+                                            value="0" 
+                                            required
+                                            style="width: 50px"
+                                            name="vat[]"
+                                        >
+                                    </td>
+                                    <td class="text-right" data-no-vat="0">0.00$</td>
+                                    <td class="text-right" data-vat="0">0.00$</td>
+                                    <td class="text-right" data-summ="0">0.00$</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="3">
+                                        <button class="btn btn_fill btn_with-icon d-flex add-btn" type="button">
+                                            <span class="btn__icon btn__icon_plus btn__icon_left"></span>
+                                            Добавить
+                                        </button>
+                                    </th>
+                                    <th style="padding-left: 18px;">Всего</th>
+                                    <th></th>
+                                    <th class="text-right" data-no-vat-total="0">0.00$</th>
+                                    <th class="text-right" data-vat-total="0">0.00$</th>
+                                    <th class="text-right" data-summ-total="0">0.00$</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="row">
+                            <div class="col-4 ms-auto">
+                                <div class="input mb-3">
+                                    <input type="text" class="input__control dollar-mask" name="summ-to-pay" placeholder="Общая сумма на оплату*" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 ms-auto">
+                                <div class="input mb-3">
+                                    <div class="select select_input mb-3">
+                                        <select name="status" class="select__control" required>
+                                            <option value="" label="Статус*" selected disabled></option>
+                                            <option value="0" label="Оплачен"></option>
+                                            <option value="1" label="Предоплата"></option>
+                                            <option value="2" label="Остаток "></option>
+                                        </select>
+                                        <div class="select__icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <button class="btn btn_fill w-100" type="submit">Добавить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div> -->
-    <div class="mymodal mymodal_invoices" data-mymodal-id="add-invoices" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
-            </header>
-            <div class="mymodal__body">
-                <form method="post" class="invoice-form">
+    </div>
+    <!-- TR TEMPLATE | TR CAN'T EXIST WITHOUT TABLE -->
+    <table class="d-none">
+        <tr class="invoice-tr-template">
+            <td>
+                <button type="button" class="btn btn_clean remove-btn">
+                    <span class="table__icon table__icon_remove_red"></span>
+                </button>
+            </td>
+            <td>
+                <input 
+                    type="text" 
+                    class="input__control" 
+                    required
+                    name="title[]"
+                    placeholder="Нименование"
+                >
+            </td>
+            <td class="text-center">
+                <input 
+                    type="number"
+                    min="1"
+                    step="1"
+                    class="input__control text-center js-quantity" 
+                    value="1" 
+                    required
+                    style="width: 100px"
+                    name="quantity[]"
+                >
+            </td>
+            <td class="text-center">
+                <input 
+                    type="text" 
+                    class="input__control dollar-mask js-price" 
+                    inputmode="numeric" 
+                    required
+                    value="0"
+                    name="price[]"
+                >
+            </td>
+            <td class="text-center">
+                <input 
+                    type="text" 
+                    class="input__control percentage-mask js-vat" 
+                    inputmode="numeric" 
+                    value="0" 
+                    required
+                    style="width: 50px"
+                    name="vat[]"
+                >
+            </td>
+            <td class="text-right" data-no-vat="0">0.00$</td>
+            <td class="text-right" data-vat="0">0.00$</td>
+            <td class="text-right" data-summ="0">0.00$</td>
+        </tr>
+    </table>
+    
+    <!-- INVOICE DETAIL -->
+    <div class="mymodal mymodal_invoices" data-mymodal-id="detail-invoices" data-mymodal-options="hashTracking: false">
+        <div class="invoice-modal-inner">
+            <button data-mymodal-action="close" class="mymodal-close"></button>
+            <div class="mymodal__content">
+                <header class="mymodal__header">
+                    <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
+                </header>
+                <div class="mymodal__body">
                     <div class="row justify-content-end">
                         <div class="col-auto">
                             <h4>Счет-фактура №1</h4>
-                            <div class="d-flex">
-                                <span class="col-auto">Дата выставления: </span>
-                                <div class="col-auto ms-1">
-                                    <input 
-                                        type="text" 
-                                        class="input__control py-0 px-1 date-mask" 
-                                        placeholder="dd.mm.yyyy" 
-                                        name="payday" 
-                                        required
-                                        style="width: 84px"
-                                    >
-                                </div>
-                            </div>
-                            <div class="d-flex">
-                                <span class="col-auto">Дата окончания: </span>
-                                <div class="col-auto ms-1">
-                                    <input 
-                                        type="text" 
-                                        class="input__control py-0 px-1 date-mask" 
-                                        placeholder="dd.mm.yyyy" 
-                                        name="deadline" 
-                                        required
-                                        style="width: 84px"
-                                    >
-                                </div>
-                            </div>
-                            <!-- <p class="mb-0">Дата выставления: 20.10.2022</p> -->
-                            <!-- <p class="mb-0">Дата окончания: 20.11.2022</p> -->
+                            <p class="mb-0">Дата выставления: 20.10.2022</p>
+                            <p class="mb-0">Дата окончания: 20.11.2022</p>
                         </div>
                     </div>
                     <div class="row mb-5">
@@ -815,32 +972,16 @@
                             <p class="mb-0">Email: email@gmail.com</p>
                         </div>
                         <div class="col-5" style="margin-top: 76px"> <!-- logo img height -->
-                            <h4 class="row align-items-center">
-                                <div class="col-auto">
-                                    Получатель: 
-                                </div>
-                                <div class="col">
-                                    <div class="select select_widget">
-                                        <select name="clients" class="select__control">
-                                            <option value="" selected>Несколько клиентов</option>
-                                            <option value="0" label="Имя Клиента 0"></option>
-                                            <option value="1" label="Имя Клиента 1"></option>
-                                            <option value="2" label="Имя Клиента 2"></option>
-                                            <option value="3" label="Имя Клиента 3"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
-                            </h4>
-                            <textarea name="address" rows="3" placeholder="Адрес получателя" class="w-100 p-1"></textarea>
+                            <h4>Получатель: Клиент</h4>
+                            <p class="mb-0">Адрес получателя</p>
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table mb-5 table_inherit">
                         <thead>
                             <tr>
-                                <th>Машина</th>
+                                <th>Наименование</th>
                                 <th class="text-center">Количество</th>
-                                <th style="padding-left: 18px;">Цена</th>
+                                <th>Цена</th>
                                 <th class="text-center">НДС</th>
                                 <th class="text-right">Цена без НДС</th>
                                 <th class="text-right">Цена НДС</th>
@@ -849,186 +990,39 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Toyota Toyota Toyota</td>
-                                <td class="text-center">
-                                    <input 
-                                        type="number"
-                                        min="1"
-                                        step="1"
-                                        class="input__control text-center js-quantity" 
-                                        value="1" 
-                                        required
-                                        style="width: 100px"
-                                        name="quantity[]"
-                                    >
-                                </td>
-                                <td class="text-center">
-                                    <input 
-                                        type="text" 
-                                        class="input__control dollar-mask js-price" 
-                                        inputmode="numeric" 
-                                        required
-                                        value="0"
-                                        name="price[]"
-                                    >
-                                </td>
-                                <td class="text-center">
-                                    <input 
-                                        type="text" 
-                                        class="input__control percentage-mask js-vat" 
-                                        inputmode="numeric" 
-                                        value="0" 
-                                        required
-                                        style="width: 50px"
-                                        name="vat[]"
-                                    >
-                                </td>
-                                <td class="text-right" data-no-vat="0">0$</td>
-                                <td class="text-right" data-vat="0">0$</td>
-                                <td class="text-right" data-summ="0">0$</td>
+                                <td>Toyota Land Cruiser</td>
+                                <td class="text-center">2</td>
+                                <td>12 500$</td>
+                                <td class="text-center">12%</td>
+                                <td class="text-right">22 000.00$</td>
+                                <td class="text-right">3 000.00$</td>
+                                <td class="text-right">25 000.00$</td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th></th>
-                                <th></th>
+                                <th colspan="2"></th>
                                 <th style="padding-left: 18px;">Всего</th>
                                 <th></th>
-                                <th class="text-right" data-no-vat-total="0">0$</th>
-                                <th class="text-right" data-vat-total="0">0$</th>
-                                <th class="text-right" data-total-total="0">0$</th>
+                                <th class="text-right">22 000.00$</th>
+                                <th class="text-right">3 000.00$</th>
+                                <th class="text-right">25 000.00$</th>
                             </tr>
                         </tfoot>
                     </table>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- EDIT INVOICES -->
-    <div class="mymodal" data-mymodal-id="edit-invoices" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Редактировать счет-фактуру</h4>
-            </header>
-            <div class="mymodal__body js-invoices-edit-form-wrapper"> <!-- form will be detached and append to this block -->
-                <form method="post" class="form js-invoices-edit-form" onsubmit="event.preventDefault()">
-                    <div class="select select_input mb-3">
-                        <div class="select select_input mb-3">
-                            <select name="client" class="select__control" required>
-                                <option value="" label="Клиент*" selected disabled></option>
-                                <option value="0" label="Клиент Вова"></option>
-                                <option value="1" label="Клиент Дима"></option>
-                                <option value="2" label="Клиент Володя"></option>
-                            </select>
-                            <div class="select__icon"></div>
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            <p class="mb-0 text-right">Общая сумма на оплату: <b>27 000$</b></p>
+                            <p class="mb-0 text-right">Полученная оплата: <b>25 000$</b></p>
                         </div>
                     </div>
-                    <div class="select select_input mb-3">
-                        <div class="select select_input mb-3">
-                            <select name="project" class="select__control" required>
-                                <option value="" label="Машина*" selected disabled></option>
-                                <option value="0" label="Машина 1"></option>
-                                <option value="1" label="Машина 2"></option>
-                                <option value="2" label="Машина 3"></option>
-                            </select>
-                            <div class="select__icon"></div>
+                    <div class="d-flex justify-content-end">
+                        <div class="col-auto me-1">Статус: </div>
+                        <div class="col-auto">
+                            <span class="table__status" data-status="1">Оплачен</span>
                         </div>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control date-mask" name="payday" placeholder="День оплаты*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control date-mask" name="deadline" placeholder="День окончания*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control dollar-mask" name="summ" placeholder="Общая сумма*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <input type="text" class="input__control dollar-mask" name="paid" placeholder="Полученная оплата*" required>
-                    </div>
-                    <div class="input mb-3">
-                        <div class="select select_input mb-3">
-                            <select name="status" class="select__control" required>
-                                <option value="" label="Статус*" selected disabled></option>
-                                <option value="0" label="Оплачен"></option>
-                                <option value="1" label="Предоплата"></option>
-                                <option value="2" label="Остаток "></option>
-                            </select>
-                            <div class="select__icon"></div>
-                        </div>
-                    </div>
-                    <div class="pt-3">
-                        <button class="btn btn_fill w-100" type="submit">Сохранить</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- INVOICE DETAIL -->
-    <div class="mymodal mymodal_invoices" data-mymodal-id="detail-invoices" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
-            </header>
-            <div class="mymodal__body">
-                <div class="row justify-content-end">
-                    <div class="col-auto">
-                        <h4>Счет-фактура №1</h4>
-                        <p class="mb-0">Дата выставления: 20.10.2022</p>
-                        <p class="mb-0">Дата окончания: 20.11.2022</p>
                     </div>
                 </div>
-                <div class="row mb-5">
-                    <div class="col-7">
-                        <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
-                        <h4>Название компании</h4>
-                        <p class="mb-0">Адрес компании</p>
-                        <p class="mb-0">Phone: 33-443-222233</p>
-                        <p class="mb-0">Email: email@gmail.com</p>
-                    </div>
-                    <div class="col-5" style="margin-top: 76px"> <!-- logo img height -->
-                        <h4>Получатель: Клиент</h4>
-                        <p class="mb-0">Адрес получателя</p>
-                    </div>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Машина</th>
-                            <!-- <th class="text-right">Полученная оплата</th> -->
-                            <!-- <th class="text-right">Общая сумма</th> -->
-                            <th class="text-center">Количество</th>
-                            <th>Цена</th>
-                            <th class="text-center">НДС</th>
-                            <th class="text-right">Цена без НДС</th>
-                            <th class="text-right">Валовая стоимость</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Toyota</td>
-                            <th class="text-center">2</th>
-                            <th>12 500$</th>
-                            <th class="text-center">12%</th>
-                            <th class="text-right">22 000$</th>
-                            <th class="text-right">25 000$</th>
-                            <!-- <td class="text-right">2 500$</td>
-                            <td class="text-right">12 500$</td> -->
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Всего</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th class="text-right">22 000$</th>
-                            <th class="text-right">25 000$</th>
-                        </tr>
-                    </tfoot>
-                </table>
             </div>
         </div>
     </div>

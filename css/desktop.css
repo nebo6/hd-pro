@@ -1111,6 +1111,12 @@ input[type=number] {
   text-overflow: ellipsis;
 }
 
+.table_left_short:not(.table_card) td:first-child,
+.table_left_short:not(.table_card) th:first-child {
+  padding: 0;
+  width: 20px;
+}
+
 .table__icon {
   display: block;
   width: 20px;
@@ -2755,6 +2761,12 @@ input[type=number] {
 
 .mymodal_invoices {
   max-width: 810px;
+  overflow: auto;
+}
+
+.invoice-modal-inner {
+  width: 810px;
+  position: relative;
 }
 
 .fancybox__container {
