@@ -1038,15 +1038,15 @@ input[type=number] {
   background-color: #fff;
 }
 
-.table:not(.table_card) thead + tbody tr:nth-child(even) {
+.table:not(.table_card) thead + tbody tr:not(.d-none):nth-child(even) {
   background-color: #F7F7F7;
 }
 
-.table:not(.table_card) thead + tbody tr:nth-child(even) .radio__list {
+.table:not(.table_card) thead + tbody tr:not(.d-none):nth-child(even) .radio__list {
   background-color: #fff;
 }
 
-.table:not(.table_card) thead + tbody tr:nth-child(even) .radio__list .input__control:checked + .input__label_light {
+.table:not(.table_card) thead + tbody tr:not(.d-none):nth-child(even) .radio__list .input__control:checked + .input__label_light {
   background-color: #efefef;
 }
 
@@ -2760,13 +2760,11 @@ input[type=number] {
 }
 
 .mymodal_invoices {
-  max-width: 810px;
-  overflow: auto;
+  max-width: 816px;
 }
 
-.invoice-modal-inner {
-  width: 810px;
-  position: relative;
+.invoice-form__client {
+  margin-top: 70px;
 }
 
 .fancybox__container {

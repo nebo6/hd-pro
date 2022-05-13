@@ -118,5 +118,8 @@
         -ms-flex-order: -1;
             order: -1;
   }
+  .invoice-form__client {
+    margin-top: 24px;
+  }
 }
 /*# sourceMappingURL=mobile.css.map */

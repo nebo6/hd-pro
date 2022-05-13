@@ -15,7 +15,6 @@
     background-color: transparent
     .btn
         display: block
-    // overflow: hidden
     &:not(.table_card)
         thead
             background: $color-red
@@ -32,7 +31,7 @@
                     .input__control:checked
                         & + .input__label_light
                             background-color: $color-light
-            tr:nth-child(even)
+            tr:not(.d-none):nth-child(even)
                 background-color: #F7F7F7
                 .radio__list
                     background-color: $color-light

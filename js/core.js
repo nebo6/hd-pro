@@ -137,7 +137,6 @@ function initMultiselect() {
         return input.text(title)
     })
     $(window).on("click", function() {
-        console.log("close");
         $('.multiselect__options').slideUp(200, function() {
             $(this).closest(".multiselect.active").removeClass("active")
         });

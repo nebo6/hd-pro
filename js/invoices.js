@@ -174,8 +174,33 @@ function removeInvoiceRow() {
     })
 }
 
+function getCheckedProjects() {
+    const ww = $(window).width()
+    if (ww < 992) {
+        const inputs = $(".js-for-invoice-mob:checked").toArray().map(function(el) {
+            return el.value
+        })
+        console.log($.unique(inputs));
+        return inputs
+    } else {
+        const inputs = $(".js-for-invoice:checked").toArray().map(function(el) {
+            return el.value
+        })
+        console.log($.unique(inputs));
+        return inputs
+    }
+}
+
 $(function() {
     calcInvoices()
     addInvoiceRow()
     removeInvoiceRow()
+
+    $(document).on("click",".create-invoice", function(e) {
+        const inputs = getCheckedProjects()
+        if (!inputs.length)
+            return alertNotice("Внимание","Выберите проект", "info", 5000)
+        const modal = $('[data-mymodal-id="add-invoices"]');
+        modal.mymodal().open()
+    })
 })

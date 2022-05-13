@@ -379,7 +379,7 @@
                 <div class="container-fluid">
                     <!-- WIDGETS START -->
                     <div class="widget">
-                        <div class="row">
+                        <div class="row align-items-center justify-content-end">
                             <div class="col-6 col-md-auto mb-3 me-lg-auto">
                                 <button class="btn btn_outline btn_with-icon w-100" data-mymodal-target="add-project"> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
@@ -389,7 +389,10 @@
                                 </button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                <button class="btn btn_outline btn_with-icon w-100" data-mymodal-target="add-invoices">Сгенерировать счет-фактуру</button>
+                                <button 
+                                    class="btn btn_outline btn_with-icon w-100 create-invoice" 
+                                    type="button"
+                                >Сгенерировать счет-фактуру</button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
@@ -399,18 +402,6 @@
                                         <option value="1" label="Имя Клиента 1"></option>
                                         <option value="2" label="Имя Клиента 2"></option>
                                         <option value="3" label="Имя Клиента 3"></option>
-                                    </select>
-                                    <div class="select__icon"></div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                <div class="select select_widget">
-                                    <select name="time" class="select__control">
-                                        <option value="" selected>Период времени</option>
-                                        <option value="0" label="День"></option>
-                                        <option value="1" label="Неделя"></option>
-                                        <option value="2" label="Месяц"></option>
-                                        <option value="3" label="Год"></option>
                                     </select>
                                     <div class="select__icon"></div>
                                 </div>
@@ -451,6 +442,17 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
+                            <div class="col-6 mb-2 mb-lg-3 col-md-4 col-lg-auto ps-lg-0">
+                                <div class="input input_widget">
+                                    <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
+                                </div>
+                            </div>
+                            <span class="mb-2 mb-lg-3 col-auto px-0 d-none d-md-block">—</span>
+                            <div class="col-6 mb-2 mb-lg-3 col-md-4 col-lg-auto">
+                                <div class="input input_widget">
+                                    <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- WIDGETS END -->
@@ -459,6 +461,7 @@
                         <table class="table projects-table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>ID</th>
                                     <th>Марка автомобиля</th>
                                     <th>VIN-код</th>
@@ -473,6 +476,12 @@
                             </thead>
                             <tbody data-project>
                                 <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
                                     <td>0</td>
                                     <td>LAND CRUISER PRADO</td>
                                     <td>33-443-222233</td>
@@ -506,6 +515,12 @@
                                     </td>
                                 </tr>
                                 <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
                                     <td>1</td>
                                     <td>LAND CRUISER PRADO</td>
                                     <td>33-443-222233</td>
@@ -544,8 +559,12 @@
                     <!-- DESKTOP TABLE END -->
                     <!-- MOBILE TABLE -->
                     <div class="row d-lg-none">
-                        <div class="col-md-6 mb-3">
-                            <div class="table_card-wrapper" data-clients-row="0" onclick="onProjectShowed(0)">
+                        <div class="col-md-6 mb-3" data-clients-row="0" onclick="onProjectShowed(0)">
+                            <div class="table_card-wrapper">
+                                <label class="input input_checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                    <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                    <div class="checkbox__icon"></div>
+                                </label>
                                 <table class="table table_card">
                                     <tbody>
                                         <tr>
@@ -600,20 +619,26 @@
                                         <tr>
                                             <th>Функции:</th>
                                             <td>
-                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
-                                                    <span class="table__icon table__icon_edit_red"></span>
-                                                </button>
-                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                                    <span class="table__icon table__icon_remove_red"></span>
-                                                </button>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                        <span class="table__icon table__icon_edit_red"></span>
+                                                    </button>
+                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                        <span class="table__icon table__icon_remove_red"></span>
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="table_card-wrapper" data-clients-row="0" onclick="onProjectShowed(1)">
+                        <div class="col-md-6 mb-3" data-clients-row="0" onclick="onProjectShowed(1)">
+                            <div class="table_card-wrapper">
+                                <label class="input input_checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                    <input class="input__control me-0 js-for-invoice-mob" value="1" type="checkbox" name="project[]">
+                                    <div class="checkbox__icon"></div>
+                                </label>
                                 <table class="table table_card">
                                     <tbody>
                                         <tr>
@@ -990,80 +1015,80 @@
     <!-- CREATE INVOICES FROM PROJECT -->
     <!-- INVOICES MODAL FORM -->
     <div class="mymodal mymodal_invoices" data-mymodal-id="add-invoices" data-mymodal-options="hashTracking: false">
-        <div class="invoice-modal-inner">
-            <button data-mymodal-action="close" class="mymodal-close"></button>
-            <div class="mymodal__content">
-                <header class="mymodal__header">
-                    <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
-                </header>
-                <div class="mymodal__body">
-                    <form method="post" class="invoice-form">
-                        <div class="row justify-content-end">
-                            <div class="col-auto">
-                                <h4>Счет-фактура №1</h4>
-                                <div class="d-flex">
-                                    <span class="col-auto">Дата выставления: </span>
-                                    <div class="col-auto ms-1">
-                                        <input 
-                                            type="text" 
-                                            class="input__control py-0 px-1 date-mask" 
-                                            placeholder="dd.mm.yyyy" 
-                                            name="payday" 
-                                            required
-                                            style="width: 84px"
-                                        >
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
+            </header>
+            <div class="mymodal__body">
+                <form method="post" class="invoice-form">
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            <h4>Счет-фактура №1</h4>
+                            <div class="d-flex">
+                                <span class="col-auto">Дата выставления: </span>
+                                <div class="col-auto ms-1">
+                                    <input 
+                                        type="text" 
+                                        class="input__control py-0 px-1 date-mask" 
+                                        placeholder="dd.mm.yyyy" 
+                                        name="payday" 
+                                        required
+                                        style="width: 84px"
+                                    >
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <span class="col-auto">Дата окончания: </span>
+                                <div class="col-auto ms-1">
+                                    <input 
+                                        type="text" 
+                                        class="input__control py-0 px-1 date-mask" 
+                                        placeholder="dd.mm.yyyy" 
+                                        name="deadline" 
+                                        required
+                                        style="width: 84px"
+                                    >
+                                </div>
+                            </div>
+                            <!-- <p class="mb-0">Дата выставления: 20.10.2022</p> -->
+                            <!-- <p class="mb-0">Дата окончания: 20.11.2022</p> -->
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-sm-5 col-md-7">
+                            <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
+                            <h4>Название компании</h4>
+                            <p class="mb-0">Адрес компании</p>
+                            <p class="mb-0">Phone: 33-443-222233</p>
+                            <p class="mb-0">Email: email@gmail.com</p>
+                        </div>
+                        <div class="col-sm-7 col-md-5 invoice-form__client"> <!-- logo img height -->
+                            <h4 class="row align-items-center">
+                                <div class="col-auto">
+                                    Получатель: 
+                                </div>
+                                <div class="col">
+                                    <div class="select select_widget">
+                                        <select name="clients" class="select__control">
+                                            <option value="" selected>Несколько клиентов</option>
+                                            <option value="0" label="Имя Клиента 0"></option>
+                                            <option value="1" label="Имя Клиента 1"></option>
+                                            <option value="2" label="Имя Клиента 2"></option>
+                                            <option value="3" label="Имя Клиента 3"></option>
+                                        </select>
+                                        <div class="select__icon"></div>
                                     </div>
                                 </div>
-                                <div class="d-flex">
-                                    <span class="col-auto">Дата окончания: </span>
-                                    <div class="col-auto ms-1">
-                                        <input 
-                                            type="text" 
-                                            class="input__control py-0 px-1 date-mask" 
-                                            placeholder="dd.mm.yyyy" 
-                                            name="deadline" 
-                                            required
-                                            style="width: 84px"
-                                        >
-                                    </div>
-                                </div>
-                                <!-- <p class="mb-0">Дата выставления: 20.10.2022</p> -->
-                                <!-- <p class="mb-0">Дата окончания: 20.11.2022</p> -->
-                            </div>
+                            </h4>
+                            <textarea name="address" rows="3" placeholder="Адрес получателя" class="w-100 p-1"></textarea>
                         </div>
-                        <div class="row mb-5">
-                            <div class="col-7">
-                                <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
-                                <h4>Название компании</h4>
-                                <p class="mb-0">Адрес компании</p>
-                                <p class="mb-0">Phone: 33-443-222233</p>
-                                <p class="mb-0">Email: email@gmail.com</p>
-                            </div>
-                            <div class="col-5" style="margin-top: 76px"> <!-- logo img height -->
-                                <h4 class="row align-items-center">
-                                    <div class="col-auto">
-                                        Получатель: 
-                                    </div>
-                                    <div class="col">
-                                        <div class="select select_widget">
-                                            <select name="clients" class="select__control">
-                                                <option value="" selected>Несколько клиентов</option>
-                                                <option value="0" label="Имя Клиента 0"></option>
-                                                <option value="1" label="Имя Клиента 1"></option>
-                                                <option value="2" label="Имя Клиента 2"></option>
-                                                <option value="3" label="Имя Клиента 3"></option>
-                                            </select>
-                                            <div class="select__icon"></div>
-                                        </div>
-                                    </div>
-                                </h4>
-                                <textarea name="address" rows="3" placeholder="Адрес получателя" class="w-100 p-1"></textarea>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="table-responsive mb-5">
                         <table class="table table_left_short table_inherit mb-3 js-invoice-table">
                             <thead>
                                 <tr>
-                                    <td></td>
+                                    <td><span style="width: 20px; display: block;"></span></td>
                                     <th>Наименование</th>
                                     <th class="text-center">Количество</th>
                                     <th style="padding-left: 18px;">Цена</th>
@@ -1083,6 +1108,7 @@
                                             required
                                             name="title[]"
                                             placeholder="Нименование"
+                                            style="min-width: 120px"
                                         >
                                     </td>
                                     <td class="text-center">
@@ -1093,8 +1119,8 @@
                                             class="input__control text-center js-quantity" 
                                             value="1" 
                                             required
-                                            style="width: 100px"
                                             name="quantity[]"
+                                            style="width: 80px"
                                         >
                                     </td>
                                     <td class="text-center">
@@ -1105,6 +1131,7 @@
                                             required
                                             value="0"
                                             name="price[]"
+                                            style="min-width: 120px"
                                         >
                                     </td>
                                     <td class="text-center">
@@ -1139,35 +1166,33 @@
                                 </tr>
                             </tfoot>
                         </table>
-                        <div class="row">
-                            <div class="col-4 ms-auto">
-                                <div class="input mb-3">
-                                    <input type="text" class="input__control dollar-mask" name="summ-to-pay" placeholder="Общая сумма на оплату*" required>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 col-sm-6 col-md-4 ms-auto">
+                            <div class="input input_widget mb-3">
+                                <input type="text" class="input__control dollar-mask" name="summ-to-pay" placeholder="Общая сумма на оплату*" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-4 ms-auto">
-                                <div class="input mb-3">
-                                    <div class="select select_input mb-3">
-                                        <select name="status" class="select__control" required>
-                                            <option value="" label="Статус*" selected disabled></option>
-                                            <option value="0" label="Оплачен"></option>
-                                            <option value="1" label="Предоплата"></option>
-                                            <option value="2" label="Остаток "></option>
-                                        </select>
-                                        <div class="select__icon"></div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 col-sm-6 col-md-4 ms-auto">
+                            <div class="select select_input input_widget mb-3">
+                                <select name="status" class="select__control" required>
+                                    <option value="" label="Статус*" selected disabled></option>
+                                    <option value="0" label="Оплачен"></option>
+                                    <option value="1" label="Предоплата"></option>
+                                    <option value="2" label="Остаток "></option>
+                                </select>
+                                <div class="select__icon"></div>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <button class="btn btn_fill w-100" type="submit">Добавить</button>
-                            </div>
+                    </div>
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-auto">
+                            <button class="btn btn_fill w-100" type="submit">Добавить</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -1186,6 +1211,7 @@
                     required
                     name="title[]"
                     placeholder="Нименование"
+                    style="min-width: 120px"
                 >
             </td>
             <td class="text-center">
@@ -1196,7 +1222,7 @@
                     class="input__control text-center js-quantity" 
                     value="1" 
                     required
-                    style="width: 100px"
+                    style="width: 80px"
                     name="quantity[]"
                 >
             </td>
@@ -1208,6 +1234,7 @@
                     required
                     value="0"
                     name="price[]"
+                    style="min-width: 120px"
                 >
             </td>
             <td class="text-center">
@@ -1236,7 +1263,13 @@
     <!-- CUSTOM JS -->
     <script src="./js/core.js"></script>
     <script src="./js/clients.js"></script>
+    <script src="./js/invoices.js"></script>
     <script src="./js/projects.js"></script>
+    <script src="./js/estimates.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="./js/team.js"></script>
+    <script src="./js/report.js"></script>
+    <script src="./js/dashboard.js"></script> <!-- DASHBOARD PAGE CHART CONFIGURATIONS -->
     <script src="./js/custom.js"></script>
     <!-- script for call alerts on load? -->
 </body>
