@@ -94,6 +94,10 @@ option {
   color: #DB2927;
 }
 
+.text_red_hover:hover {
+  color: #DB2927;
+}
+
 .text_larger {
   font-size: 14px;
 }

@@ -41,9 +41,15 @@
                                 <label class="input input_group">
                                     <input type="text" name="viber" class="input__control" placeholder="Вайбер">
                                 </label>
-                                <label class="input input_group">
-                                    <input type="text" name="location" class="input__control" placeholder="Месторасположение">
-                                </label>
+                                <div class="select select_input input_group">
+                                    <select name="location" class="select__control" required>
+                                        <option value="" label="Месторасположение*" selected disabled></option>
+                                        <option value="0" label="Месторасположение 1"></option>
+                                        <option value="1" label="Месторасположение 2"></option>
+                                        <option value="2" label="Месторасположение 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
                                 <p class="text-center text_small text_red pt-2 form__notice">Все поля обязательные! <br>Валидация полей e-mail, пароль, подтверждение пароля <br>e-mail – латинские буквы, цифры знак @</p>
                                 <div class="d-flex justify-content-center pb-2">
                                     <button class="btn btn_fill w-100">Создать</button>
