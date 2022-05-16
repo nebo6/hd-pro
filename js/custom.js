@@ -191,6 +191,17 @@ $(function() {
         alias: 'datetime',
         inputFormat: 'dd.mm.yyyy',
     })
+    $(".phone-mask").inputmask({
+        mask: [ "+33-9-99-99-99-99", "+35\\9 (999) 999-999" ],
+        keepStatic: false,
+        greedy: false,
+        clearMaskOnLostFocus: true
+    })
+    $(".website-mask").inputmask({
+        mask: "http[s]://[*|.]{*}",
+        greedy: false,
+        clearMaskOnLostFocus: true
+    })
     $(".percentage-mask").inputmask({
         alias:"decimal",
         integerDigits:9,

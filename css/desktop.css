@@ -1897,10 +1897,15 @@ input[type=number] {
 }
 
 .auth__item {
-  max-width: 180px;
+  max-width: 240px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0.75rem;
+}
+
+.auth__item .btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .tech {
