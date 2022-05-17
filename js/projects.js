@@ -90,8 +90,8 @@ const dummyProject = {
         value: 1
     },
     insurance: "Номер страховки",
-    img: "/img/land-cruiser-prado.jpg",
-    file: "/img/land-cruiser-prado.jpg"
+    img: "./img/land-cruiser-prado.jpg",
+    file: "./img/land-cruiser-prado.jpg"
 }
 // PROJECT'S DETAIL MODAL WINDOW
 // UPDATE DETAIL DATA ON CLICK ON ROW
