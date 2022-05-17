@@ -60,6 +60,12 @@ option {
   margin-bottom: 0;
 }
 
+.title_entering {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
 .title_block {
   font-size: 1rem;
   color: #2e2c34;
@@ -149,7 +155,7 @@ option {
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(45deg, #DB2927, #ffffff);
+  background: linear-gradient(45deg, #DB2927, rgba(255, 255, 255, 0));
   z-index: -1;
 }
 
@@ -613,6 +619,14 @@ input[type=number] {
   color: #192A3E;
 }
 
+.select_input .select__control:invalid {
+  color: #9F9F9F;
+}
+
+.select_input .select__control:invalid option {
+  color: #192A3E;
+}
+
 .select_task .select__control {
   padding: 0 23px 0 8px;
 }
@@ -623,8 +637,8 @@ input[type=number] {
   height: 5px;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-20%);
-          transform: translateY(-20%);
+  -webkit-transform: translateY(-40%);
+          transform: translateY(-40%);
   right: 10px;
   background: url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.87793 0.707107L1.59168 0L5.27533 3.64938L4.56158 4.35649L0.87793 0.707107Z' fill='%2390A0B7'/%3E%3Cpath d='M4.64811 4.40675L3.93436 3.69965L7.60167 0.0664556L8.31541 0.773562L4.64811 4.40675Z' fill='%2390A0B7'/%3E%3C/svg%3E%0A") center no-repeat;
   z-index: -1;
@@ -700,6 +714,10 @@ input[type=number] {
   border-radius: 5px;
 }
 
+.form__notice {
+  line-height: 1.2;
+}
+
 .btn {
   padding: 5px 15px;
   font-size: inherit;
@@ -719,6 +737,11 @@ input[type=number] {
 .btn:active {
   -webkit-transform: scale(0.96);
           transform: scale(0.96);
+}
+
+.btn_higher {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .btn_clean {
@@ -1540,6 +1563,7 @@ input[type=number] {
 .sidebar .nav__link_active.nav__link_inner,
 .sidebar .nav__link:hover.nav__link_inner {
   color: #DB2927;
+  font-weight: 700;
 }
 
 .sidebar .nav__text {
@@ -1872,6 +1896,11 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: calc( 12.5vh + 75px + 68px) 0;
+}
+
+.page-entering_small {
+  padding: calc( 4.5vh + 34px + 68px) 0;
 }
 
 .page-entering__logo {
@@ -1880,24 +1909,27 @@ input[type=number] {
   margin-right: auto;
 }
 
-.auth {
-  padding: 160px 0 115px;
-}
-
 .auth__logo {
   display: block;
-  margin: 0 auto 55px;
-  width: 88px;
+  height: 75px;
+  position: absolute;
+  top: 12.5vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.auth__logo_small {
+  height: 34px;
+  top: 41px;
 }
 
 .auth__content {
   width: 100%;
-  margin: -80px auto 0;
 }
 
 .auth__inner {
-  padding-top: 36px;
-  padding-bottom: 15px;
+  padding: 36px 16px 16px;
 }
 
 .auth__item {
@@ -1905,28 +1937,6 @@ input[type=number] {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0.75rem;
-}
-
-.auth__item .btn {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.tech {
-  padding: 115px 0;
-}
-
-.tech__content {
-  width: 100%;
-  margin: -80px auto 0;
-}
-
-.tech__logo {
-  margin-bottom: 80px;
-}
-
-.tech__inner {
-  padding: 23px 16px 14px;
 }
 
 .tech__input {
@@ -2676,15 +2686,19 @@ input[type=number] {
 }
 
 .mymodal_confirmation {
-  max-width: 175px;
+  max-width: 240px;
   padding: 12px 6px;
 }
 
 .mymodal_confirmation .mymodal-confirm,
 .mymodal_confirmation .mymodal-cancel {
-  min-width: 70px;
-  padding: 2px;
+  min-width: 90px;
+  padding: 5px;
   border-radius: 5px;
+}
+
+.confiramtion-title {
+  font-size: 1rem;
 }
 
 .mymodal-confirm {
@@ -2798,6 +2812,10 @@ input[type=number] {
   color: #DB2927;
   padding: 160px 0;
   overflow: hidden;
+}
+
+.not-found__icon {
+  width: 106px;
 }
 
 .not-found__404 {

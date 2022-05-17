@@ -18,6 +18,19 @@
         -ms-flex: 0 0 280px;
             flex: 0 0 280px;
   }
+  .page-entering {
+    padding: calc( 10vh + 75px + 55px) 0;
+  }
+  .page-entering_small {
+    padding: calc( 3.9vh + 41px + 47px) 0;
+  }
+  .auth__logo {
+    top: 10vh;
+  }
+  .auth__logo_small {
+    height: 41px;
+    top: 3.9vh;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -90,6 +103,7 @@
             flex: 0 0 50%;
   }
   .dashboard__total-stats-wrapper {
+    max-width: 400px;
     padding-left: 0;
   }
   .report .tab__header {

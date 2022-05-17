@@ -14,7 +14,7 @@
     left: 0;
     overscroll-behavior: contain;
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 2;
   }
   .mob-overlay.active {
     display: block;
@@ -54,6 +54,9 @@
     width: 256px;
     padding: 1rem 1.5rem;
   }
+  .sidebar .user {
+    margin-bottom: 24px;
+  }
   .sidebar.active + .main,
   .sidebar:hover + .main {
     margin-left: 0;
@@ -86,6 +89,9 @@
         -ms-flex-direction: column !important;
             flex-direction: column !important;
   }
+  .not-found__icon {
+    width: 44px;
+  }
   .not-found__title {
     font-size: 30px;
   }
@@ -95,6 +101,9 @@
 }
 
 @media (max-width: 575.98px) {
+  .dashboard__total-stats-wrapper {
+    max-width: 100%;
+  }
   .team .tab__header {
     border: 0;
   }

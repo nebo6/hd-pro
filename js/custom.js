@@ -212,5 +212,8 @@ $(function() {
         placeholder: "0",
         suffix: "%",
     })
+    $(".tg-mask").inputmask({
+        mask: "@[*|_]{*}"
+    })
     if (window.Fancybox) Fancybox.defaults.Hash = false;
 })
