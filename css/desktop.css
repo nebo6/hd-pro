@@ -1896,11 +1896,22 @@ input[type=number] {
   color: #90A0B7;
 }
 
-.article iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
+.article .iframe-wrapper {
+  position: relative;
   border-radius: 5px;
+  overflow: hidden;
+}
+
+.article .iframe-wrapper::after {
+  content: '';
+  display: block;
+  padding-bottom: 56.25%;
+}
+
+.article .iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .article img {
@@ -2233,12 +2244,6 @@ input[type=number] {
 .estimates-item__inner_2 {
   padding-top: 104px;
   padding-bottom: 88px;
-}
-
-.how-it-works {
-  width: 700px;
-  max-width: 100%;
-  min-width: 75%;
 }
 
 .how-it-works .article {

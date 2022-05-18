@@ -45,7 +45,7 @@ function onInvoicesEdited(id) {
     addBodyLoader();
     // get data from server
     updateInvoicesForm(dummyInvoice) // update form data
-    $('[data-mymodal-id="edit-invoices"]').mymodal().open() // open after form updated
+    $('[data-mymodal-id="add-invoices"]').mymodal().open() // open after form updated
     // onError alertNotice
     removeBodyLoader();
 }
