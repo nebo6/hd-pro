@@ -429,6 +429,12 @@
                                 >Сгенерировать счет-фактуру</button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <button class="btn btn_outline w-100" onclick="printDiv('clients')">Print</button>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <button class="btn btn_outline w-100" onclick="excel('clients')">Excel</button>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">
                                     <select name="clients" class="select__control">
                                         <option value="" selected>Клиент</option>
@@ -476,15 +482,19 @@
                                     <div class="select__icon"></div>
                                 </div>
                             </div>
-                            <div class="col-6 mb-2 mb-lg-3 col-md-4 col-lg-auto ps-lg-0">
-                                <div class="input input_widget">
-                                    <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
-                                </div>
-                            </div>
-                            <span class="mb-2 mb-lg-3 col-auto px-0 d-none d-md-block">—</span>
-                            <div class="col-6 mb-2 mb-lg-3 col-md-4 col-lg-auto">
-                                <div class="input input_widget">
-                                    <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
+                            <div class="col-md-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
+                                        </div>
+                                    </div>
+                                    <span class="col-auto mb-3 mb-md-3 ps-md-0 d-none d-md-block">—</span>
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0 ">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -509,6 +519,93 @@
                                 </tr>
                             </thead>
                             <tbody data-project>
+                                <tr data-project-row="3" onclick="onProjectShowed(3)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>3</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[3]" value="0" onchange="onProjectStatusChanged(event, 3)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[3]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(3)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(3)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="2" onclick="onProjectShowed(2)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>2</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[2]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 2)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[2]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(2)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(2)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- copy -->
                                 <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
                                     <td>
                                         <label class="input input_checkbox" onclick="event.stopPropagation()">
@@ -539,12 +636,16 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-cneter">
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
-                                                <span class="table__icon table__icon_edit_red"></span>
-                                            </button>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                                <span class="table__icon table__icon_remove_red"></span>
-                                            </button>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -578,15 +679,1740 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-cneter">
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
-                                                <span class="table__icon table__icon_edit_red"></span>
-                                            </button>
-                                            <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
-                                                <span class="table__icon table__icon_remove_red"></span>
-                                            </button>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="0" onclick="onProjectShowed(0)"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>0</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="0" onchange="onProjectStatusChanged(event, 0)">
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[0]" value="1" checked disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-project-row="1" onclick="onProjectShowed(1)" class="ready"> <!-- ready className required if project is ready -->
+                                    <td>
+                                        <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice" value="1" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon"></div>
+                                        </label>
+                                    </td>
+                                    <td>1</td>
+                                    <td>LAND CRUISER PRADO</td>
+                                    <td>33-443-222233</td>
+                                    <td>AA333432244</td>
+                                    <td>Иван Петров</td>
+                                    <td>2000$</td>
+                                    <td>20.10.2022</td>
+                                    <td>23.10.2022</td>
+                                    <td class="text-center">
+                                        <div class="radio__list radio__list_table">
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="0" onchange="event.stopPropagation(); onProjectStatusChanged(event, 1)" checked>
+                                                <span class="input__label input__label_light">Готово</span>
+                                            </label>
+                                            <label class="input input_radio">
+                                                <input type="radio" class="input__control" name="cars[1]" value="1" disabled> <!-- can't be checked if project is ready -->
+                                                <span class="input__label input__label_light">Ожидает</span>
+                                            </label>
+                                            <input type="hidden" class="radio__prev" value="1"> <!-- set checked value on load -->
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-cneter">
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
+                                                    <span class="table__icon table__icon_edit_red"></span>
+                                                </button>
+                                            </div>
+                                            <div class="col-auto px-1">
+                                                <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
+                                                    <span class="table__icon table__icon_remove_red"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- copy -->
                             </tbody>
                         </table>
                     </div>
@@ -654,12 +2480,16 @@
                                             <th>Функции:</th>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
-                                                        <span class="table__icon table__icon_edit_red"></span>
-                                                    </button>
-                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
-                                                        <span class="table__icon table__icon_remove_red"></span>
-                                                    </button>
+                                                    <div class="col-auto px-1">
+                                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(0)">
+                                                            <span class="table__icon table__icon_edit_red"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-auto px-1">
+                                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(0)">
+                                                            <span class="table__icon table__icon_remove_red"></span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -728,12 +2558,16 @@
                                             <th>Функции:</th>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onEditProject(1)">
-                                                        <span class="table__icon table__icon_edit_red"></span>
-                                                    </button>
-                                                    <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation(); onRemoveProject(1)">
-                                                        <span class="table__icon table__icon_remove_red"></span>
-                                                    </button>
+                                                    <div class="col-auto px-1">
+                                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onEditProject(1)">
+                                                            <span class="table__icon table__icon_edit_red"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-auto px-1">
+                                                        <button type="button" class="btn btn_clean remove-btn" onclick="event.stopPropagation();onRemoveProject(1)">
+                                                            <span class="table__icon table__icon_remove_red"></span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -797,7 +2631,7 @@
                 <h4 class="title title_mymodal">LAND CRUISER PRADO</h4>
             </header>
             <div class="mymodal__body ">
-                <div class="project__image-wrapper">
+                <div class="project__image-wrapper pt-3">
                     <img src="" alt="" data-t-img class="project__image">
                 </div>
                 <div class="table-responsive">
@@ -857,7 +2691,7 @@
         </div>
     </div>
     <div class="mymodal__body project-modal-template d-none">
-        <div class="project__image-wrapper">
+        <div class="project__image-wrapper pt-3">
             <img src="" alt="" data-t-img class="project__image">
         </div>
         <div class="table-responsive">
@@ -874,6 +2708,10 @@
                     <tr>
                         <th>Модель:</th>
                         <td data-t-model></td>
+                    </tr>
+                    <tr>
+                        <th>Номер машины:</th>
+                        <td data-t-number></td>
                     </tr>
                     <tr>
                         <th>Цвет:</th>
@@ -942,12 +2780,12 @@
                     </select>
                     <div class="select__icon"></div>
                 </div>
-                <!-- <div class="input mb-3">
-                    <input type="text" class="input__control" name="model" placeholder="Модель*" required>
-                </div> -->
+                <div class="input mb-3">
+                    <input type="text" class="input__control" name="number" placeholder="Номер машины*" required>
+                </div>
                 <div class="select select_input mb-3">
                     <select name="color" class="select__control" required>
-                        <option value="" label="Выберите цве*" selected disabled></option>
+                        <option value="" label="Выберите цвет*" selected disabled></option>
                         <option value="0" label="Цвет 0"></option>
                         <option value="1" label="Цвет 1"></option>
                         <option value="2" label="Цвет 2"></option>

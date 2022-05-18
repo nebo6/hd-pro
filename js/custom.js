@@ -198,7 +198,7 @@ $(function() {
         clearMaskOnLostFocus: true
     })
     $(".website-mask").inputmask({
-        mask: "http[s]://[*|.]{*}",
+        mask: "https://[*|.]{*}",
         greedy: false,
         clearMaskOnLostFocus: true
     })

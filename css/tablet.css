@@ -96,6 +96,11 @@
   .table_card-tab-min .radio__list {
     background-color: #EFEFEF;
   }
+  .table__icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+  }
   .statistics__wrapper_type_1 {
     max-width: 50%;
     -webkit-box-flex: 0;

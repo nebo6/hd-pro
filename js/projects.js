@@ -78,6 +78,7 @@ const dummyProject = {
     vin: "33-443-222233",
     year: "2020",
     model: "Модель",
+    number: "A 555 BB",
     color: "Белый",
     mileage: "40 000",
     date: "20.04.2022",
@@ -101,6 +102,7 @@ function updateProjectData(data) {
         vin,
         year,
         model,
+        number,
         color,
         mileage,
         date,
@@ -117,6 +119,7 @@ function updateProjectData(data) {
     template.find("[data-t-vin]").text(vin)
     template.find("[data-t-year]").text(year)
     template.find("[data-t-model]").text(model)
+    template.find("[data-t-number]").text(number)
     template.find("[data-t-color]").text(color)
     template.find("[data-t-mileage]").text(mileage)
     template.find("[data-t-date]").text(date)

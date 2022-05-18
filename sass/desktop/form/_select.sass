@@ -19,20 +19,6 @@
         padding: 5px 23px 5px 12px
         border-color: $color-blue-light
     
-.select_red
-    background-color: $color-red
-    border-radius: $default-radius
-    .select__control
-        color: #ffffff
-        border-color: transparent
-    .select__icon
-        background: url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.87793 0.707107L1.59168 0L5.27533 3.64938L4.56158 4.35649L0.87793 0.707107Z' fill='%23FFFFFF'/%3E%3Cpath d='M4.64811 4.40675L3.93436 3.69965L7.60167 0.0664556L8.31541 0.773562L4.64811 4.40675Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A") center no-repeat
-        z-index: 0
-    option
-        color: $color-blue-dark
-    &.disabled
-        background-color: $color-gray
-    
 .select_input
     background-color: $color-gray-lighter
     border-radius: $default-radius
@@ -46,6 +32,20 @@
             option
                 color: $color-blue-dark
 
+.select_red
+    background-color: $color-red
+    border-radius: $default-radius
+    .select__control
+        color: #ffffff !important
+        border-color: transparent
+    .select__icon
+        background: url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.87793 0.707107L1.59168 0L5.27533 3.64938L4.56158 4.35649L0.87793 0.707107Z' fill='%23FFFFFF'/%3E%3Cpath d='M4.64811 4.40675L3.93436 3.69965L7.60167 0.0664556L8.31541 0.773562L4.64811 4.40675Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A") center no-repeat
+        z-index: 0
+    option
+        color: $color-blue-dark
+    &.disabled
+        background-color: $color-gray
+    
 .select_task
     .select__control
         padding: 0 23px 0 8px

@@ -4,15 +4,21 @@
         padding-left: 25px
         padding-right: 25px
         padding-bottom: 0
+    .title_damage
+        font-size: 10px
 
 .mymodal_services
     max-width: 945px
     
 .extimates__car
     width: 100%
-    aspect-ratio: 218/416.59
     background: url("#{$img-path}/estimates-center-car.png") center / contain no-repeat
     margin: -26px 0
+    position: relative
+    &::after
+        content: ''
+        display: block
+        padding-bottom: (416.59/218)*100%
 
 .estimates__wrapper
     flex: 0 0 28.115%

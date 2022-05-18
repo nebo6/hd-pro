@@ -111,7 +111,9 @@ function removeEstimatesImage(event) {
 }
 
 function onEstimatesEdited(id) {
-    console.log("edit estimates");
+    console.log("edit estimates", id);
+    // should be edit-estimates
+    $("[data-mymodal-id='add-estimates']").mymodal().open()
 }
 // create mob estimates
 const dummyEstimates = {
