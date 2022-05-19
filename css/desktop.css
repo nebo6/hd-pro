@@ -2548,6 +2548,7 @@ input[type=number] {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
+  padding: 3px;
 }
 
 .progress__inner {
@@ -2562,9 +2563,8 @@ input[type=number] {
 .progress__text {
   position: relative;
   z-index: 1;
-  color: #fff;
-  -webkit-text-stroke: 0.5px #000;
   font-weight: bold;
+  color: #192A3E;
 }
 
 .notifications .icon {
