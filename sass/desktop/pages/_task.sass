@@ -4,15 +4,15 @@
 
 .tasks
     // max-width: 80%
-    height: calc(100vh - 110px)
+    min-height: calc(100vh - 110px)
     min-width: 808px
     .column
+        max-height: 100%
         border: 1px solid $color-blue-light
         margin-right: -1px
         display: flex
         flex-wrap: wrap
         flex-direction: column
-        max-height: 100%
     .dot
         width: 10px
         height: 10px
@@ -22,10 +22,12 @@
         padding: 13px
         border-bottom: 1px solid $color-blue-light
         background-color: #fff
+        width: 100%
     .column__list
         padding: 28px
         flex: 1 0 0%
-        overflow-y: auto
+        // overflow-y: auto
+        float: left
     .column__placeholder
         border-radius: $default-radius
         border: 2px dashed $color-blue
