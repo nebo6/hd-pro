@@ -2549,6 +2549,8 @@ input[type=number] {
   border-radius: 5px;
   overflow: hidden;
   padding: 3px;
+  -webkit-box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.05);
 }
 
 .progress__inner {
