@@ -4,33 +4,39 @@ function initDragDropSortable() {
     
     let scrollX = 0;
     let scrollY = 0;
+    // const $scrollable = $(".task-scrollable");
     const $scrollable = $(".task-scrollable");
+    const cwidth = $(".column__list").width()
     
     $('.column__list').sortable({
         connectWith: ".column__list",
         placeholder: "column__placeholder",
-        // forcePlaceholderSize: true,
-        cancel: "select",
+        forcePlaceholderSize: true,
+        // cancel: "select",
         scroll:false,
         delay: 150,
-        // distance: 10,
+        // containment : "window",
+        // scroll: true, scrollSensitivity: 100, scrollSpeed: 100,
         sort: function( event, ui ) {
-            if (ui.placeholder) {
-                const left = parseInt(ui.placeholder.parent().offset().left)
-                if (scrollX !== left) {
+            if (ui.helper) {
+                const l = ui.helper.position().left
+                console.log(l, cwidth);
+                const left = l < cwidth/2 ? 0 : (l > cwidth/2 && l < cwidth*1.2) ? cwidth*1.2 : cwidth*2
+                console.log(left, scrollX);
+                if (scrollX != left) {
                     console.log("sort x");
                     scrollX = left;
                     $scrollable.stop().animate({
                         scrollLeft: left,
-                    }, 300)
+                    }, 500)
                 }
                 const top = parseInt(ui.placeholder.offset().top - ui.placeholder.height() - 20)
-                if (scrollY !== top) {
+                if (scrollY != top) {
                     console.log("sort y");
                     scrollY = top;
                     ui.placeholder.parent().stop().animate({
                         scrollTop: top
-                    }, 300)
+                    }, 500)
                 }
             }
         },
