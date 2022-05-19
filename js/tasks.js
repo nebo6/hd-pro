@@ -13,33 +13,58 @@ function initDragDropSortable() {
         placeholder: "column__placeholder",
         forcePlaceholderSize: true,
         // cancel: "select",
-        scroll:false,
-        delay: 150,
-        // containment : "window",
+        scroll:true,
+        // delay: 150,
+        containment : "window",
         // scroll: true, scrollSensitivity: 100, scrollSpeed: 100,
         sort: function( event, ui ) {
             if (ui.helper) {
-                const l = ui.helper.position().left
-                console.log(l, cwidth);
-                const left = l < cwidth/2 ? 0 : (l > cwidth/2 && l < cwidth*1.2) ? cwidth*1.2 : cwidth*2
-                console.log(left, scrollX);
+                const l = Math.ceil(ui.helper.offset().left + ui.helper.outerWidth())
+                const left = l + $scrollable.scrollLeft() + 30 > $(window).width() + $scrollable.scrollLeft() ? $scrollable.scrollLeft() + 40 : ui.helper.offset().left < 30 ? $scrollable.scrollLeft() - 40 : scrollX
+                
+                console.log(l, ui.helper.offset().left, ui.helper.outerWidth());
+                
                 if (scrollX != left) {
-                    console.log("sort x");
                     scrollX = left;
                     $scrollable.stop().animate({
                         scrollLeft: left,
-                    }, 500)
+                    }, 20, "linear")
                 }
+            }
+            if (ui.placeholder) {
                 const top = parseInt(ui.placeholder.offset().top - ui.placeholder.height() - 20)
                 if (scrollY != top) {
                     console.log("sort y");
                     scrollY = top;
                     ui.placeholder.parent().stop().animate({
                         scrollTop: top
-                    }, 500)
+                    }, 100)
                 }
             }
         },
+        // sort: function( event, ui ) {
+        //     if (ui.helper) {
+        //         const l = ui.helper.position().left
+        //         console.log(l, cwidth);
+        //         const left = l < cwidth/2 ? 0 : (l > cwidth/2 && l < cwidth*1.2) ? cwidth*1.2 : cwidth*2
+        //         console.log(left, scrollX);
+        //         if (scrollX != left) {
+        //             console.log("sort x");
+        //             scrollX = left;
+        //             $scrollable.stop().animate({
+        //                 scrollLeft: left,
+        //             }, 500)
+        //         }
+        //         const top = parseInt(ui.placeholder.offset().top - ui.placeholder.height() - 20)
+        //         if (scrollY != top) {
+        //             console.log("sort y");
+        //             scrollY = top;
+        //             ui.placeholder.parent().stop().animate({
+        //                 scrollTop: top
+        //             }, 500)
+        //         }
+        //     }
+        // },
         update: function(e, ui) {
             console.log("update");
             position_updated = !ui.sender

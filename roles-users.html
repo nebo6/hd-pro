@@ -475,6 +475,34 @@
         </div>
     </div>
     <!-- CONFIRMATION MODAL END -->
+    <div class="mymodal" data-mymodal-id="edit-role-user" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Редактировать</h4>
+            </header>
+            <div class="mymodal__body"> <!-- form will be detached and append to this block -->
+                <form method="post">
+                    <div class="input mb-3">
+                        <input type="name" class="input__control" placeholder="Член команды*" value="Имя Фамилия">
+                    </div>
+                    <div class="select select_input mb-3">
+                        <select name="role" class="select__control">
+                            <option value="0">Администратор</option>
+                            <option value="1">Менеджер</option>
+                            <option value="2">Техник</option>
+                            <option value="3">Маляр</option>
+                            <option value="4">Клиент</option>
+                        </select>
+                        <option class="slect__icon"></option>
+                    </div>
+                    <div class="pt-2">
+                        <button class="btn btn_higher btn_fill w-100">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>

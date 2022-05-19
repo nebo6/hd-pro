@@ -2032,7 +2032,7 @@ input[type=number] {
 }
 
 .tasks {
-  height: calc(100vh - 109px);
+  height: calc(100vh - 110px);
   min-width: 808px;
 }
 

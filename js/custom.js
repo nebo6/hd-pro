@@ -51,6 +51,7 @@ function onUserRoleRemoved(id) {
 
 function onUserRoleEdited(id) {
     console.log("edit user role", id);
+    $("[data-mymodal-id='edit-role-user']").mymodal().open()
 }
 
 // PRINT TABLE
