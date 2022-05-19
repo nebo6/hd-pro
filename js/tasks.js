@@ -12,10 +12,11 @@ function initDragDropSortable() {
         // forcePlaceholderSize: true,
         cancel: "select",
         scroll:false,
-        distance: 10,
+        delay: 150,
+        // distance: 10,
         sort: function( event, ui ) {
             if (ui.placeholder) {
-                const left = parseInt(ui.placeholder.parent().offset().left) - 50
+                const left = parseInt(ui.placeholder.parent().offset().left)
                 if (scrollX !== left) {
                     console.log("sort x");
                     scrollX = left;
@@ -24,7 +25,6 @@ function initDragDropSortable() {
                     }, 300)
                 }
                 const top = parseInt(ui.placeholder.offset().top - ui.placeholder.height() - 20)
-                console.log(top);
                 if (scrollY !== top) {
                     console.log("sort y");
                     scrollY = top;
