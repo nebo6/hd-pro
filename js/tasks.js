@@ -12,6 +12,7 @@ function initDragDropSortable() {
         // forcePlaceholderSize: true,
         cancel: "select",
         scroll:false,
+        distance: 10,
         sort: function( event, ui ) {
             if (ui.placeholder) {
                 const left = parseInt(ui.placeholder.parent().offset().left) - 50

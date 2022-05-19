@@ -44,7 +44,7 @@
   }
   .table:not(.table_card, .table_inherit) > tbody:first-child tr:nth-child(odd),
   .table:not(.table_card, .table_inherit) thead + tbody tr:nth-child(even) {
-    background-color: #fff;
+    background-color: #fff !important;
   }
   .table td:first-child,
   .table th:first-child {
@@ -53,10 +53,6 @@
   .table td:last-child,
   .table th:last-child {
     padding-right: 8px;
-  }
-  .table thead {
-    background-color: #fff;
-    color: #000;
   }
   .table_card-wrapper-tab-min {
     background-color: #fff;
