@@ -694,6 +694,14 @@ input[type=number] {
   pointer-events: none;
 }
 
+.select_report .select__control {
+  padding: 0 16px 0 4px;
+}
+
+.select_report .select__icon {
+  right: 5px;
+}
+
 .files__upload {
   display: block;
   cursor: pointer;
@@ -1353,6 +1361,14 @@ input[type=number] {
   background-color: #EFEFEF;
 }
 
+.table_card .radio__list_table {
+  font-size: 12px;
+}
+
+.table_layout_auto {
+  table-layout: auto;
+}
+
 .header {
   padding: 15px 12px;
   -webkit-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.05);
@@ -1819,11 +1835,12 @@ input[type=number] {
   border-radius: 5px;
   background-color: #fff;
   padding: 10px 14px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .card__title {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .card__options {
@@ -2155,11 +2172,6 @@ input[type=number] {
   border-radius: 50%;
 }
 
-.team-card__estimates {
-  width: 50%;
-  min-width: 300px;
-}
-
 .mymodal.estimates-modal {
   max-width: 100%;
   pointer-events: none;
@@ -2262,6 +2274,11 @@ input[type=number] {
   height: 100%;
 }
 
+.table-tech {
+  font-size: 10px;
+  overflow: auto;
+}
+
 .team-card {
   padding: 35px;
   background-color: #f6f6f6;
@@ -2318,7 +2335,6 @@ input[type=number] {
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
   min-width: 0;
   max-width: 100%;
 }
@@ -2357,6 +2373,10 @@ input[type=number] {
 
 .team-card__social-icon {
   width: 50%;
+}
+
+.team-card__datepicker {
+  min-height: 270px;
 }
 
 .team-card__datepicker .activeDay {
@@ -2452,9 +2472,10 @@ input[type=number] {
 
 .notifications__description {
   line-height: 1.2;
-  height: 24px;
+  height: 27px;
   overflow: hidden;
   margin-bottom: 0.5rem;
+  font-size: 11px;
 }
 
 .notifications__title {
@@ -2465,11 +2486,18 @@ input[type=number] {
 }
 
 .notifications__add {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
   color: #D3D3D3;
 }
 
 .notifications-template {
   display: none;
+}
+
+.preview__content {
+  color: #1E1E1E;
 }
 
 .dashboard__total-stats-wrapper {

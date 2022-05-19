@@ -12,7 +12,13 @@ const dummyTech = {
     summ: "14 500$",
     paid: "3 500$",
     projects: "2",
-    estimates: [dummyEstimates, dummyEstimates] // dummyEstimates search in estimates.js
+    estimates: [
+        dummyEstimates, dummyEstimates,
+        dummyEstimates, dummyEstimates,
+        dummyEstimates, dummyEstimates,
+        dummyEstimates, dummyEstimates,
+        dummyEstimates, dummyEstimates,
+    ] // dummyEstimates search in estimates.js
 }
 
 function createTechCard(data) {
@@ -67,19 +73,27 @@ function createTechCard(data) {
     if (data.estimates.length) {
         temporary.find("[data-t-estimates]").text(data.estimates.list)
         let list = "";
-
+        
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
         // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        // ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION! ATTENSION!
-        data.estimates.forEach((element, index) => {
-            list += "<div class='team-card__estimates table_card-wrapper'>"+createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
-                ...element,
-                id: index // REMOVE INDEX USE CORRECT DATA
-            })+"</div>" // look at estimates.js
-        })
-
+        if ($(window).width() < 1200) {
+            data.estimates.forEach((element, index) => {
+                // FOR SMALL DEVICES USE createMobEstimates
+                list += "<div class='mb-3 table_card-wrapper' onclick='estimatesDetail("+index+")'>"+createMobEstimates({ // REMOVE INDEX USE CORRECT DATA
+                    ...element,
+                    id: index // REMOVE INDEX USE CORRECT DATA
+                })+"</div>" // look at estimates.js
+            })
+        } else {
+            data.estimates.forEach((element, index) => {
+                // FOR LARGE DEVICES USE createMobEstimatesTech
+                list += "<div class='mb-3 table_card-wrapper table-tech' onclick='estimatesDetail("+index+")'>"+createMobEstimatesTech({ // REMOVE INDEX USE CORRECT DATA
+                    ...element,
+                    id: index // REMOVE INDEX USE CORRECT DATA
+                })+"</div>" // look at estimates.js
+            })
+        }
+        
         temporary.find(".team-card__list").append($(list))
     }
     

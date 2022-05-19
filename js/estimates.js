@@ -198,6 +198,62 @@ function createMobEstimates(data) {
         </tfoot>
     </table>`
 }
+
+function createMobEstimatesTech(data) {
+    return `<table class="table table_card table_layout_auto">
+        <tbody>
+            <tr>
+                <th>Марка машины</th>
+                <td class="table-word-wrap">${data.project}</td>
+                <th>Номер машины</th>
+                <td>${data.number}</td>
+                <th>VIN-код</th>
+                <td>${data.vin}</td>
+            </tr>
+            <tr>
+                <th>Тенхник</th>
+                <td>${data.master}</td>
+                <th>Заказчик</th>
+                <td>${data.client}</td>
+                <th>Цена</th>
+                <td>${data.sum}</td>
+            </tr>
+            <tr>
+                <th>Дата создания</th>
+                <td>${data.created}</td>
+                <th>Просмотр</th>
+                <td>
+                    <div class="d-flex">
+                        <div class="col-auto px-1">
+                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesShowed(${data.id})">
+                                <span class="table__icon table__icon_show"></span>
+                            </button>
+                        </div>
+                        <div class="col-auto px-1">
+                            <button type="button" class="btn btn_clean d-block" onclick="event.stopPropagation();onEstimatesEdited(${data.id})">
+                                <span class="table__icon table__icon_edit_red_fill"></span>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="radio__list radio__list_table">
+                        <label class="input input_radio">
+                            <input type="radio" class="input__control" name="estimates[${data.id}]" checked="" value="0" onchange="onEstimatesStatusChanged(event, ${data.id})"> 
+                            <span class="input__label input__label_green">${getLanguage() === "ru" ? "Оценено" : "Rated"}</span>
+                        </label>
+                        <label class="input input_radio">
+                            <input type="radio" class="input__control" name="estimates[${data.id}]" value="1" onchange="onEstimatesStatusChanged(event, ${data.id})">
+                            <span class="input__label input__label_green">${getLanguage() === "ru" ? "Отремонтировано" : "Fixed"}</span>
+                        </label>
+                        <input type="hidden" class="radio__prev" value="0">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>`
+}
+
 // ADD ESTIMATES
 function addEstimates(e) {
     e.preventDefault();
@@ -275,10 +331,6 @@ const dummyDetails = {
     damage: dummyEstimatesCar,
 
 }
-
-function updateEstimatesDetail(data) {
-
-} 
 
 function estimatesDetail(id) {
     console.log("get data with id", id);
