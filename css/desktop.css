@@ -488,6 +488,15 @@ input[type=number] {
   border-radius: 5px;
   border: 1px solid #2DC959;
   background: url("data:image/svg+xml,%3Csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.86364 6.25167L0.715909 4.05764L0 4.78898L2.86364 7.71436L9 1.4457L8.28409 0.714355L2.86364 6.25167Z' fill='white'/%3E%3C/svg%3E%0A") center no-repeat;
+  background-size: 71.42857%;
+}
+
+.input_checkbox .checkbox__icon_larger {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 21px;
+          flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
 }
 
 .input_checkbox .checkbox__icon_check {
@@ -1042,6 +1051,10 @@ input[type=number] {
 
 .dropdown__icon_estimate_add {
   background-image: url("data:image/svg+xml,%3Csvg width='15' height='13' viewBox='0 0 15 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.375 11.1429H0V13H9.375V11.1429ZM15 3.71429H0V5.57143H15V3.71429ZM0 9.28571H15V7.42857H0V9.28571ZM0 0V1.85714H15V0H0Z' fill='%23334D6E'/%3E%3C/svg%3E%0A");
+}
+
+.dropdown__icon_time_add {
+  background-image: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.875 0H2.125C0.95625 0 0 0.95625 0 2.125V14.875C0 16.0438 0.95625 17 2.125 17H14.875C16.0438 17 17 16.0438 17 14.875V2.125C17 0.95625 16.0438 0 14.875 0ZM6.87437 12.75L3.1875 9.03125L4.675 7.53312L6.87437 9.74313L12.325 4.25L13.8125 5.74813L6.87437 12.75Z' fill='%23334D6E'/%3E%3C/svg%3E%0A");
 }
 
 .dropdown__footer {
@@ -2119,6 +2132,12 @@ input[type=number] {
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
+}
+
+.invoice-checkbox {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .estimates__item.has-image:hover .estimates__options {
