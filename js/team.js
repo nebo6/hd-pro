@@ -401,6 +401,7 @@ $(function() {
             // server request with id
             // if success get data and
             setTimeout(() => {
+                // MB NEED TO UPDATE THE EDIT-TECH MODAL ON TECH-CARD CREATING
                 if ($(window).width() < 1200) {
                     $(".js-tech-info-mob").html(createTechCard(dummyTech))
                     $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
@@ -423,7 +424,7 @@ $(function() {
     if ($("#tech") && $(window).width() < 1200) { // any checker for tech page
         $(document).on(
             "closing", 
-            '[data-mymodal-id="detail-estimates"], [data-mymodal-id="estimates-damage"], [data-mymodal-id="add-estimates"]', // replace with edit-estimates modal
+            '[data-mymodal-id="detail-estimates"], [data-mymodal-id="estimates-damage"], [data-mymodal-id="add-estimates"], [data-mymodal-id="edit-tech"]', // replace add with edit-estimates modal
             function() {
                 $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
             })
@@ -439,6 +440,7 @@ $(function() {
             // server request with id
             // if success get data and
             setTimeout(() => {
+                // MB NEED TO UPDATE THE EDIT-TECH MODAL ON PAINTER-CARD CREATING
                 if ($(window).width() < 1200) {
                     $(".js-painter-info-mob").html(createPainterCard(dummyPainter))
                     $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
@@ -462,7 +464,7 @@ $(function() {
     if ($("#painter") && $(window).width() < 1200) { // any checker for tech page
         $(document).on(
             "closing", 
-            '[data-mymodal-id="load-photo"]', // replace with edit-estimates modal
+            '[data-mymodal-id="load-photo"], [data-mymodal-id="edit-tech"]',
             function() {
                 $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
             })

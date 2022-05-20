@@ -959,6 +959,9 @@
                     </div>
                 </div>
             </div>
+            <button class="btn btn_clean team-card-edit" type="button" data-mymodal-target="edit-tech">
+                <div class="table__icon table__icon_edit_blue_fill m-0"></div>
+            </button>
         </div>
         <div class="team-card__item mb-2 mb-xl-4">
             <p class="text_bolder mb-0">Дата регистрации: <span data-t-reg>22.02.2005</span></p>
@@ -2803,7 +2806,58 @@
             
         </div>
     </div>
-    
+    <!-- EDIT MODAL -->
+    <!-- mymodal edit tech -->
+    <div class="mymodal" data-mymodal-id="edit-tech" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
+        <div class="mymodal__content">
+            <div class="mymodal__header">
+                <h4 class="title title_mymodal">Редактировать</h4>
+            </div>
+            <div class="mymodal__body">
+                <form class="form">
+                    <div class="pt-4 px-3 pb-3">
+                        <!-- IMAGE INPUT START -->
+                        <label class="input-image mx-auto">
+                            <div class="img-origin" style="background-image: url('./img/technitian.jpg');"></div>
+                            <div class="img"></div>
+                            <input type="file" name="image" class="d-none js-form-file" accept=".png,.jpg">
+                        </label>
+                        <div class="input_group text-center">Редактировать фото</div>
+                        <!-- IMAGE INPUT END -->
+                        <label class="input input_group">
+                            <input type="text" name="name" class="input__control" placeholder="Имя и фамилия" value="Андрей Петрович" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" value="+33-1-21-23-12-33" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="email" name="email" class="input__control" placeholder="E-mail" value="msdesdfsd@mail.ua" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="text" name="telegram" class="input__control tg-mask" value="@tg" placeholder="Телеграм">
+                        </label>
+                        <label class="input input_group">
+                            <input type="text" name="viber" class="input__control phone-mask" placeholder="Вайбер" value="+359 (123) 123-133">
+                        </label>
+                        <div class="select select_input input_group">
+                            <select name="location" class="select__control" required>
+                                <option value="" label="Месторасположение*" disabled></option>
+                                <option value="0" label="Месторасположение 1" selected></option>
+                                <option value="1" label="Месторасположение 2"></option>
+                                <option value="2" label="Месторасположение 3"></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                        <div class="d-flex justify-content-center pb-2">
+                            <button class="btn btn_fill btn_higher w-100">Сохранить</button>
+                        </div>
+                        <p class="text-center text_small text_red pt-2 form__notice">Все поля обязательные! <br>Валидация полей e-mail, пароль, подтверждение пароля <br>e-mail – латинские буквы, цифры знак @</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>
