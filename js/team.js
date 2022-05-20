@@ -419,6 +419,15 @@ $(function() {
                 $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
         }
     })
+    // reopen tech modal after invoices info closed
+    if ($("#tech") && $(window).width() < 1200) { // any checker for tech page
+        $(document).on(
+            "closing", 
+            '[data-mymodal-id="detail-estimates"], [data-mymodal-id="estimates-damage"], [data-mymodal-id="add-estimates"]', // replace with edit-estimates modal
+            function() {
+                $('[data-mymodal-id="tech-info-mob"]').mymodal().open()
+            })
+    }
     // PAINTER
     $(document).on("click", ".js-team-painter", function() {
         if (!$(this).hasClass("active")) {
@@ -449,6 +458,15 @@ $(function() {
                 $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
         }
     })
+    // reopen painter modal after photo modal closed
+    if ($("#painter") && $(window).width() < 1200) { // any checker for tech page
+        $(document).on(
+            "closing", 
+            '[data-mymodal-id="load-photo"]', // replace with edit-estimates modal
+            function() {
+                $('[data-mymodal-id="painter-info-mob"]').mymodal().open()
+            })
+    }
     // TEAM TIMES
     $(document).on("click", ".js-upload-time-photo", onUploadClicked)
     $(document).on("click", ".js-remove-time", onTimeRemove)
