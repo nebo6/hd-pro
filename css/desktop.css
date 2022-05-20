@@ -2342,6 +2342,7 @@ input[type=number] {
   color: #334D6E;
   font-size: 25px;
   line-height: 1;
+  padding-right: 30px;
 }
 
 .team-card__list {
@@ -2357,7 +2358,7 @@ input[type=number] {
 }
 
 .mymodal .team-card {
-  padding: 0;
+  padding: 16px 0 0;
   background-color: transparent;
   border: none;
 }
@@ -2391,6 +2392,11 @@ input[type=number] {
 
 .mymodal h4 {
   font-size: 1rem;
+}
+
+.mymodal .team-card-edit {
+  top: 16px;
+  right: 0;
 }
 
 .team-card__social {
