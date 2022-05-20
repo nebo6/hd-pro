@@ -2,25 +2,34 @@
 function initDragDropSortable() {
     let position_updated = false
     
-    let scrollX = 0;
-    let scrollY = 0;
+    // let scrollX = 0;
+    // let scrollY = 0;
+    // // const $scrollable = $(".task-scrollable");
     // const $scrollable = $(".task-scrollable");
-    const $scrollable = $(".task-scrollable");
-    const cwidth = $(".column__list").width()
+    // const cwidth = $(".column__list").width()
     
     $('.column__list').sortable({
         connectWith: ".column__list",
         placeholder: "column__placeholder",
         forcePlaceholderSize: true,
         // cancel: "select",
-        appendTo: 'body',
+        // appendTo: 'body',
+        appendTo: '.task-scrollable',
         tolerance: 'pointer',
-        revert: 'invalid',
+        revert: 100,
         forceHelperSize: true,
         helper: 'clone',
         scroll: true,
         // delay: 100,
         distance: 10,
+        // sort: function(event, ui) {
+        //     var currentScrollTop = $(".column__list").scrollTop(),
+        //         topHelper = ui.position.top,
+        //         delta = topHelper - currentScrollTop;
+        //     setTimeout(function() {
+        //         $(".column__list").scrollTop(currentScrollTop + delta);
+        //     }, 5);
+        // },
         update: function(e, ui) {
             console.log("update");
             position_updated = !ui.sender
