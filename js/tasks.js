@@ -12,7 +12,7 @@ function initDragDropSortable() {
         connectWith: ".column__list",
         placeholder: "column__placeholder",
         forcePlaceholderSize: true,
-        // cancel: "select",
+        cancel: "select",
         // appendTo: 'body',
         appendTo: '.task-scrollable',
         tolerance: 'pointer',
