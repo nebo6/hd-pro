@@ -30,6 +30,16 @@ function initDragDropSortable() {
         //         $(".column__list").scrollTop(currentScrollTop + delta);
         //     }, 5);
         // },
+        over: function(event, ui) {
+            console.log(ui);
+            if (ui.sender) {
+                ui.item.data('sortableItem').scrollParent = $(".task-scrollable");
+                ui.item.data('sortableItem').overflowOffset = $(".task-scrollable").offset();
+            } else {
+                ui.item.data('sortableItem').scrollParent = ui.placeholder.parent();
+                ui.item.data('sortableItem').overflowOffset = ui.placeholder.parent().offset();
+            }
+        },
         update: function(e, ui) {
             console.log("update");
             position_updated = !ui.sender
