@@ -28,31 +28,79 @@
                                         <label class="input input_group">
                                             <input type="text" name="company" class="input__control" placeholder="Company name">
                                         </label>
-                                        <label class="input input_group">
-                                            <input type="text" inputmode="number" name="vat" class="input__control" placeholder="VAT number">
-                                        </label>
-                                        <label class="input input_group">
-                                            <input type="text" name="naiw" class="input__control" placeholder="Name/Adress/IBAN/SWIFT">
-                                        </label>
-                                        <label class="input input_group">
-                                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Telefon">
-                                        </label>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="input input_group">
                                             <input type="text" name="person" class="input__control" placeholder="Responsable person">
                                         </label>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label class="input input_group">
-                                            <input type="text" name="bank" class="input__control" placeholder="Bank Details/Bank ">
+                                            <input type="text" inputmode="number" name="vat" class="input__control" placeholder="VAT number">
                                         </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="select select_input input_group">
+                                            <select name="bank" class="select__control" required>
+                                                <option value="" disabled selected>Bank Details/Bank</option>
+                                                <option value="0">Нет</option>
+                                                <option value="1">Bank 1</option>
+                                                <option value="2">Bank 2</option>
+                                                <option value="3">Bank 3</option>
+                                                <option value="4">Bank 4</option>
+                                            </select>
+                                            <div class="select__icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="input input_group">
+                                            <input type="text" name="naiw" class="input__control" placeholder="Name/Adress/IBAN/SWIFT">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label class="input input_group">
                                             <input type="url" name="web" class="input__control website-mask" placeholder="Website">
                                         </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="input input_group">
+                                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Telefon">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input input_group">
+                                            <input type="text" inputmode="tel" class="input__control phone-mask" name="viber" placeholder="Viber">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input input_group">
+                                            <input type="text" class="input__control tg-mask" name="telegram" placeholder="Telegram">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input input_group">
+                                            <input type="text" inputmode="tel" class="input__control phone-mask" name="whatsapp" placeholder="WhatsApp">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label class="input input_group">
                                             <input type="email" name="email" class="input__control" placeholder="Mail">
                                         </label>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-md-6">
+                                        <div class="select select_input mb-3">
+                                            <!-- <input type="number" class="input__control" name="cars" placeholder="Машины*" min="0" required> -->
+                                            <select name="group" class="select__control" required>
+                                                <option value="" selected="" disabled="">Выберите группу</option>
+                                                <option value="0">Нет</option>
+                                                <option value="1">VIP</option>
+                                                <option value="2">VIP</option>
+                                                <option value="3">VIP</option>
+                                            </select>
+                                            <div class="select__icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <label class="input input_group">
                                             <input type="text" name="accz" class="input__control" placeholder="Adress/Country/City/Zip">
                                         </label>
