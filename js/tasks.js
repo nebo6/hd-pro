@@ -12,7 +12,8 @@ function initDragDropSortable() {
         connectWith: ".column__list",
         placeholder: "column__placeholder",
         forcePlaceholderSize: true,
-        cancel: ".select",
+        handle: ".card__content",
+        // cancel: ".card__action",
         // appendTo: 'body',
         appendTo: '.task-scrollable',
         tolerance: 'pointer',
@@ -31,7 +32,6 @@ function initDragDropSortable() {
         //     }, 5);
         // },
         over: function(event, ui) {
-            console.log(ui);
             if (ui.sender) {
                 ui.item.data('sortableItem').scrollParent = $(".task-scrollable");
                 ui.item.data('sortableItem').overflowOffset = $(".task-scrollable").offset();
