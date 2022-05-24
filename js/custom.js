@@ -4,15 +4,19 @@ function onFileSelected(event) {
     const reader = new FileReader();
   
     const img = $(this).siblings(".img");
+    const label = $(this).siblings(".input__label")
   
     reader.onload = function(event) {
         img.css("background-image", "url('"+event.target.result+"')");
+        label.hide()
     };
   
-    if (selectedFile)
+    if (selectedFile) {
         reader.readAsDataURL(selectedFile);
+    }
    
     img.css("background-image", "");
+    label.show()
 }
 // CONTACTS
 function onContactsActiveChanged(event, id) {

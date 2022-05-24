@@ -1380,11 +1380,27 @@
                 </div>
             </div>
             <div class="mymodal__footer">
-                <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                <!-- <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
                         <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
                     </svg>Скачать смету
-                </a>
+                </a> -->
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать PDF
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать Excel
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2030,10 +2046,15 @@
                                 <div class="mymodal__body">
                                     <div class="select select_widget select_red mb-3">
                                         <select name="size" class="select__control">
-                                            <option value="" label="Demontage&Montage" selected disabled></option>
-                                            <option value="1" label="Demontage&Montage"></option>
-                                            <option value="2" label="Demontage&Montage"></option>
-                                            <option value="3" label="Demontage&Montage"></option>
+                                            <option value="" label="Дополнительные услуги" selected disabled></option>
+                                            <option value="1" label="Разборка/Сборка"></option>
+                                            <option value="2" label="Подготовка к работе"></option>
+                                            <option value="3" label="Финиш/Панель"></option>
+                                            <option value="4" label="Финиш/Машина"></option>
+                                            <option value="5" label="Высокий Транспорт"></option>
+                                            <option value="6" label="Обработка Антиржавчиной"></option>
+                                            <option value="7" label="Расходники"></option>
+                                            <option value="8" label="Клеевая Технология"></option>
                                         </select>
                                         <div class="select__icon"></div>
                                     </div>
@@ -2529,17 +2550,161 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Car part</th>
-                                <th>Number</th>
-                                <th>Size</th>
-                                <th class="text-center">Aluminium</th>
-                                <th class="text-center">Push to Paint</th>
-                                <th>AW</th>
+                                <th>Панель</th>
+                                <th>Количество</th>
+                                <th class="text-center">Размер</th>
+                                <th class="text-center">Алюминий</th>
+                                <th class="text-center">Под Покраску</th>
+                                <th class="text-center">УЕ/AW</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Title</td>
+                                <td>Капот</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Крыша</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Багажник</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Левое Переднее Крыло </td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Левая Передняя Дверь</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Левая Задняя Дверь</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Левое Заднее Крыло</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Левая Стойка</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Правое Переднее Крыло</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Правая Передняя Дверь</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Правая Задняя Дверь</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Правое Заднее Крыло</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td class="text-center">
+                                    <span class="table__icon table__icon_check_red check mx-auto"></span>
+                                </td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                                <td data-e-aw="520">520</td>
+                            </tr>
+                            <tr>
+                                <td>Правая Стойка</td>
                                 <td>10</td>
                                 <td>10</td>
                                 <td class="text-center">

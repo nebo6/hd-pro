@@ -435,16 +435,21 @@
                                 </button>
                             </div>
                             <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="input input_widget">
+                                    <input name="search-by-vin" type="text" class="input__control input__control_min" placeholder="Поиск по VIN-коду">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
                                 <button 
                                     class="btn btn_outline btn_with-icon w-100 create-invoice" 
                                     type="button"
                                 >Сгенерировать счет-фактуру</button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                <button class="btn btn_outline w-100" onclick="printDiv('clients')">Print</button>
+                                <button class="btn btn_outline w-100" type="button" onclick="printDiv('clients')">Print</button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                <button class="btn btn_outline w-100" onclick="excel('clients')">Excel</button>
+                                <button class="btn btn_outline w-100" type="button" onclick="excel('clients')">Excel</button>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <div class="select select_widget">

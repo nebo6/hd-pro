@@ -426,14 +426,94 @@
                 <div class="container-fluid">
                     <!-- WIDGETS START -->
                     <div class="widget">
-                        <div class="row">
-                            <div class="col-auto mb-3">
-                                <button class="btn btn_outline btn_with-icon" data-mymodal-target="add-estimates"> 
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-6 col-md-auto mb-3 me-auto">
+                                <button class="btn btn_outline btn_with-icon w-100" data-mymodal-target="add-estimates"> 
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" class="me-2">
                                         <path d="M5.77875 0.27875L4.72125 0.27875L4.72125 4.47125L0.52875 4.47125V5.52875L4.72125 5.52875L4.72125 9.72125L5.77875 9.72125L5.77875 5.52875L9.97125 5.52875V4.47125L5.77875 4.47125L5.77875 0.27875Z" fill="#90A0B7"/>
                                     </svg>                                    
                                     Добавить
                                 </button>
+                            </div>
+                            <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="input input_widget">
+                                    <input name="search-by-vin" type="text" class="input__control input__control_min" placeholder="Поиск по VIN-коду">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
+                                <button 
+                                    class="btn btn_outline btn_with-icon w-100 create-invoice" 
+                                    type="button"
+                                >Сгенерировать счет-фактуру</button>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <button class="btn btn_outline w-100" type="button" onclick="printDiv('clients')">Print</button>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <button class="btn btn_outline w-100" type="button" onclick="excel('clients')">Excel</button>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="clients" class="select__control">
+                                        <option value="" selected>Клиент</option>
+                                        <option value="0" label="Имя Клиента 0"></option>
+                                        <option value="1" label="Имя Клиента 1"></option>
+                                        <option value="2" label="Имя Клиента 2"></option>
+                                        <option value="3" label="Имя Клиента 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="master" class="select__control">
+                                        <option value="" selected>Мастер</option>
+                                        <option value="0" label="Имя Мастера 0"></option>
+                                        <option value="1" label="Имя Мастера 1"></option>
+                                        <option value="2" label="Имя Мастера 2"></option>
+                                        <option value="3" label="Имя Мастера 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="country" class="select__control">
+                                        <option value="" selected>Страна</option>
+                                        <option value="0" label="Название страны 0"></option>
+                                        <option value="1" label="Название страны 1"></option>
+                                        <option value="2" label="Название страны 2"></option>
+                                        <option value="3" label="Название страны 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="outlets" class="select__control">
+                                        <option value="" selected>Точки</option>
+                                        <option value="0" label="Название точки 0"></option>
+                                        <option value="1" label="Название точки 1"></option>
+                                        <option value="2" label="Название точки 2"></option>
+                                        <option value="3" label="Название точки 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
+                                        </div>
+                                    </div>
+                                    <span class="col-auto mb-3 mb-md-3 ps-md-0 d-none d-md-block">—</span>
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0 ">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -4452,9 +4532,10 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <label class="input-image input-image_16x9 input_group mx-auto">
+                                    <label class="input-image input-image_t1 input-image_16x9 input_group mx-auto">
                                         <div class="img js-estimate-img"></div>
                                         <input type="file" name="image" class="js-form-file" accept=".png,.jpg">
+                                        <span class="input__label">Загрузить фотографии или документы</span>
                                     </label>
                                 </div>
                                 <div class="pt-5 estimates-footer">
@@ -4510,7 +4591,7 @@
                                             <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="submit">Confirm</button>
+                                            <button class="btn btn_fill w-100" type="submit">Сохранить</button>
                                         </div>
                                     </div>
                                 </div>
@@ -4604,11 +4685,22 @@
                 </div>
             </div>
             <div class="mymodal__footer">
-                <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                    </svg>Скачать смету
-                </a>
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать PDF
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать Excel
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
