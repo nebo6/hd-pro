@@ -1404,14 +1404,8 @@
                                     <div class="input mb-3">
                                         <input type="text" class="input__control date-mask js-estimates-date" name="date" placeholder="Дата" required>
                                     </div>
-                                    <div class="select select_input select_red mb-3">
-                                        <select name="week" class="select__control" required>
-                                            <option value="" label="Неделя*" selected disabled></option>
-                                            <option value="0" label="Неделя 1"></option>
-                                            <option value="1" label="Неделя 2"></option>
-                                            <option value="2" label="Неделя 3"></option>
-                                        </select>
-                                        <div class="select__icon"></div>
+                                    <div class="input mb-3">
+                                        <input type="text" class="input__control js-estimates-week" name="date" placeholder="Неделя" readonly>
                                     </div>
                                     <div class="input mb-3">
                                         <input type="number" class="input__control js-estimates-vin" name="vin" placeholder="VIN Код" required>
@@ -1488,7 +1482,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-5">
-                                    <button class="btn btn_higher btn_fill w-100" type="button" onclick="estimatesNext(0)">Next</button>
+                                    <button class="btn btn_higher btn_fill w-100" type="button" onclick="estimatesNext(0)">Далее</button>
                                 </div>
                             </div>
                         </div>
@@ -1562,10 +1556,10 @@
                                 <div class="pt-3 estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(1)">Next</button>
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(1)">Далее</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1584,21 +1578,21 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Car part</th>
-                                                    <th>Number</th>
-                                                    <th class="text-center">Size</th>
-                                                    <th class="text-center">Aluminium</th>
-                                                    <th class="text-center">Push to Paint</th>
-                                                    <th class="text-center">AW</th>
+                                                    <th>Панель</th>
+                                                    <th>Количество</th>
+                                                    <th class="text-center">Размер</th>
+                                                    <th class="text-center">Алюминий</th>
+                                                    <th class="text-center">Под Покраску</th>
+                                                    <th class="text-center">УЕ/AW</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Капот</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1626,11 +1620,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Крыша</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1658,11 +1652,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Багажник</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1690,11 +1684,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Левое Переднее Крыло</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1722,11 +1716,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Левая Передняя Дверь</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1754,11 +1748,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Левая Задняя Дверь</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1786,11 +1780,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Левое Заднее Крыло</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1818,11 +1812,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Левая Стойка </td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1850,11 +1844,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Правое Переднее Крыло</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1882,11 +1876,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Правая Передняя Дверь</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1914,11 +1908,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Правая Задняя Дверь</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1946,11 +1940,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Правое Заднее Крыло</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -1978,11 +1972,11 @@
                                                     <td class="text-center" data-e-aw="520">520</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Car part Title</td>
-                                                    <td class="text-center">13
-                                                        <!-- <div class="input estimates-limit">
-                                                            <input type="number" class="input__control input__control_small" name="service-number">
-                                                        </div> -->
+                                                    <td>Правая Стойка</td>
+                                                    <td class="text-center">
+                                                        <div class="input input_wdiget estimates-limit">
+                                                            <input type="number" class="input__control input__control_small" value="0" name="service-number[]">
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="select select_widget estimates-limit">
@@ -2016,10 +2010,10 @@
                                 <div class="pt-5 estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(2)">Next</button>
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(2)">Далее</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2130,10 +2124,10 @@
                                 <div class="pt-5 estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(3)">Next</button>
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(3)">Далее</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2462,10 +2456,10 @@
                                 <div class="pt-5 estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(4)">Next</button>
+                                            <button class="btn btn_fill w-100" type="button" onclick="estimatesNext(4)">Далее</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2509,7 +2503,7 @@
                                 <div class="pt-5 estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Back</button>
+                                            <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
                                             <button class="btn btn_fill w-100" type="submit">Confirm</button>

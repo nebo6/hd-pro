@@ -4424,58 +4424,60 @@
         <div class="project__image-wrapper pt-3">
             <img src="" alt="" data-t-img class="project__image">
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>VIN код:</th>
-                        <td data-t-vin></td>
-                    </tr>
-                    <tr>
-                        <th>Год:</th>
-                        <td data-t-year></td>
-                    </tr>
-                    <tr>
-                        <th>Модель:</th>
-                        <td data-t-model></td>
-                    </tr>
-                    <tr>
-                        <th>Номер машины:</th>
-                        <td data-t-number></td>
-                    </tr>
-                    <tr>
-                        <th>Цвет:</th>
-                        <td data-t-color></td>
-                    </tr>
-                    <tr>
-                        <th>Пробег:</th>
-                        <td data-t-mileage></td>
-                    </tr>
-                    <tr>
-                        <th>Дата добавления в систему:</th>
-                        <td data-t-date></td>
-                    </tr>
-                    <tr>
-                        <th>Имя техника:</th>
-                        <td data-t-master></td>
-                    </tr>
-                    <tr>
-                        <th>О клиенте:</th>
-                        <td data-t-client></td>
-                    </tr>
-                    <tr>
-                        <th>Страховка:</th>
-                        <td data-t-insurance></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>VIN код:</th>
+                    <td data-t-vin></td>
+                </tr>
+                <tr>
+                    <th>Год:</th>
+                    <td data-t-year></td>
+                </tr>
+                <tr>
+                    <th>Модель:</th>
+                    <td data-t-model></td>
+                </tr>
+                <tr>
+                    <th>Номер машины:</th>
+                    <td data-t-number></td>
+                </tr>
+                <tr>
+                    <th>Цвет:</th>
+                    <td data-t-color></td>
+                </tr>
+                <tr>
+                    <th>Пробег:</th>
+                    <td data-t-mileage></td>
+                </tr>
+                <tr>
+                    <th>Дата добавления в систему:</th>
+                    <td data-t-date></td>
+                </tr>
+                <tr>
+                    <th>Имя техника:</th>
+                    <td data-t-master></td>
+                </tr>
+                <tr>
+                    <th>О клиенте:</th>
+                    <td data-t-client></td>
+                </tr>
+                <tr>
+                    <th>Страховка:</th>
+                    <td data-t-insurance></td>
+                </tr>
+                <tr>
+                    <th>Комментарий:</th>
+                    <td data-t-comment>Здесь Ваш комментарий Здесь Ваш комментарий Здесь Ваш комментарий Здесь Ваш комментарийЗдесь Ваш комментарий</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!-- PROJECT ADD FORM START -->
     <div class="mymodal maymodal_project" data-mymodal-id="add-project" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
         <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Добавить проект</h2>
+            <h2 class="title title_page mb-4">Добавить машину</h2>
             <form method="post" class="form" onsubmit="addProject(event)">
                 <!-- IMAGE INPUT START -->
                 <label class="input-image input-image_16x9 input_group mx-auto">
@@ -4483,8 +4485,14 @@
                     <input type="file" name="image" class="js-form-file" accept=".png,.jpg" required>
                 </label>
                 <!-- IMAGE INPUT END -->
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="title" placeholder="Марка автомобиля*" required>
+                <div class="select select_input mb-3">
+                    <select name="car" class="select__control" required>
+                        <option value="" label="Марка автомобиля*" selected disabled></option>
+                        <option value="0" label="Марка автомобиля 0"></option>
+                        <option value="1" label="Марка автомобиля 1"></option>
+                        <option value="2" label="Марка автомобиля 2"></option>
+                    </select>
+                    <div class="select__icon"></div>
                 </div>
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="vin" placeholder="VIN код*" required>
@@ -4522,32 +4530,23 @@
                     </select>
                     <div class="select__icon"></div>
                 </div>
-                <!-- <div class="input mb-3">
-                    <input type="text" class="input__control" name="color" placeholder="Цвет*" required>
-                </div> -->
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="mileage" placeholder="Пробег*" required>
                 </div>
                 <div class="select select_input mb-3">
-                    <select name="master" class="select__control" required>
-                        <option value="" label="Имя техника*" selected disabled></option>
-                        <option value="0" label="Имя техника 0"></option>
-                        <option value="1" label="Имя техника 1"></option>
-                        <option value="2" label="Имя техника 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="select select_input mb-3">
                     <select name="client" class="select__control" required>
-                        <option value="" label="О клиенте*" selected disabled></option>
-                        <option value="0" label="Имя клтента 0"></option>
-                        <option value="1" label="Имя клтента 1"></option>
-                        <option value="2" label="Имя клтента 2"></option>
+                        <option value="" label="Клиент*" selected disabled></option>
+                        <option value="0" label="Клиент 0"></option>
+                        <option value="1" label="Клиент 1"></option>
+                        <option value="2" label="Клиент 2"></option>
                     </select>
                     <div class="select__icon"></div>
                 </div>
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="insurance" placeholder="Страховка*" required>
+                </div>
+                <div class="input mb-3">
+                    <textarea class="input__control" name="comment" placeholder="Комментарий" rows="6"></textarea>
                 </div>
                 <div class="pt-3">
                     <button class="btn btn_fill w-100" type="submit">Сохранить</button>
@@ -4560,7 +4559,7 @@
     <div class="mymodal maymodal_project" data-mymodal-id="edit-project" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
         <div class="mymodal__content">
-            <h2 class="title title_page mb-4">Редактировать проект</h2>
+            <h2 class="title title_page mb-4">Редактировать машину</h2>
             <form method="post" class="form">
                 <!-- IMAGE INPUT START -->
                 <label class="input-image input-image_16x9 input_group mx-auto">
@@ -4568,8 +4567,14 @@
                     <input type="file" name="image" class="js-form-file" accept=".png,.jpg">
                 </label>
                 <!-- IMAGE INPUT END -->
-                <div class="input mb-3">
-                    <input type="text" class="input__control" name="title" placeholder="Марка автомобиля*" required>
+                <div class="select select_input mb-3">
+                    <select name="car" class="select__control" required>
+                        <option value="" label="Марка автомобиля*" disabled></option>
+                        <option value="0" label="Марка автомобиля 0" selected></option>
+                        <option value="1" label="Марка автомобиля 1"></option>
+                        <option value="2" label="Марка автомобиля 2"></option>
+                    </select>
+                    <div class="select__icon"></div>
                 </div>
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="vin" placeholder="VIN код*" required>
@@ -4587,25 +4592,19 @@
                     <input type="text" class="input__control" name="mileage" placeholder="Пробег*" required>
                 </div>
                 <div class="select select_input mb-3">
-                    <select name="master" class="select__control" required>
-                        <option value="" label="Имя техника*" selected disabled></option>
-                        <option value="0" label="Имя техника 0"></option>
-                        <option value="1" label="Имя техника 1"></option>
-                        <option value="2" label="Имя техника 2"></option>
-                    </select>
-                    <div class="select__icon"></div>
-                </div>
-                <div class="select select_input mb-3">
                     <select name="client" class="select__control" required>
-                        <option value="" label="О клиенте*" selected disabled></option>
-                        <option value="0" label="Имя клтента 0"></option>
-                        <option value="1" label="Имя клтента 1"></option>
-                        <option value="2" label="Имя клтента 2"></option>
+                        <option value="" label="Клиент*" selected disabled></option>
+                        <option value="0" label="Клиент 0"></option>
+                        <option value="1" label="Клиент 1"></option>
+                        <option value="2" label="Клиент 2"></option>
                     </select>
                     <div class="select__icon"></div>
                 </div>
                 <div class="input mb-3">
                     <input type="text" class="input__control" name="insurance" placeholder="Страховка*" required>
+                </div>
+                <div class="input mb-3">
+                    <textarea class="input__control" name="comment" placeholder="Комментарий" rows="6">Здесь Ваш комментарий</textarea>
                 </div>
                 <div class="pt-3">
                     <button class="btn btn_fill w-100" type="submit">Сохранить</button>

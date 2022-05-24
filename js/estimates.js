@@ -354,5 +354,12 @@ $(function() {
     $(document).on("closing", '[data-mymodal-id="estimates-detail-damage"], [data-mymodal-id="estimates-detail-service"], [data-mymodal-id="estimates-detail-additional-service"]', function() {
         $('[data-mymodal-id="detail-estimates"]').mymodal().open()
     })
-
+    $(".js-estimates-date").on("input", function(e) {
+        const isValid = Inputmask.isValid($(this).val(), { alias: "datetime", inputFormat: "dd.mm.yyyy"});
+        if (isValid) {
+            const unformattedDate = Inputmask.unmask($(this).val(), { alias: "datetime", inputFormat: "dd.mm.yyyy", outputFormat: "mm.dd.yyyy"});
+            const weekNumber = getWeekNumber(new Date(unformattedDate))
+            $(this).closest("form").find(".js-estimates-week").val(weekNumber[1])
+        }
+    })
 })
