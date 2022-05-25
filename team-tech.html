@@ -982,6 +982,66 @@
             
         </div>
     </div>    
+    <!-- TECH INFO MODAL -->
+    <div class="mymodal" data-mymodal-id="tech-info-mob" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
+        <div class="mymodal__content js-tech-info-mob pt-4">
+            
+        </div>
+    </div>
+    <!-- EDIT MODAL -->
+    <!-- mymodal edit tech -->
+    <div class="mymodal" data-mymodal-id="edit-tech" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
+        <div class="mymodal__content">
+            <div class="mymodal__header">
+                <h4 class="title title_mymodal">Редактировать</h4>
+            </div>
+            <div class="mymodal__body">
+                <form class="form">
+                    <div class="pt-4 px-3 pb-3">
+                        <!-- IMAGE INPUT START -->
+                        <label class="input-image mx-auto">
+                            <div class="img-origin" style="background-image: url('./img/technitian.jpg');"></div>
+                            <div class="img"></div>
+                            <input type="file" name="image" class="d-none js-form-file" accept=".png,.jpg">
+                        </label>
+                        <div class="input_group text-center">Редактировать фото</div>
+                        <!-- IMAGE INPUT END -->
+                        <label class="input input_group">
+                            <input type="text" name="name" class="input__control" placeholder="Имя и фамилия" value="Андрей Петрович" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" value="+33-1-21-23-12-33" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="email" name="email" class="input__control" placeholder="E-mail" value="msdesdfsd@mail.ua" required>
+                        </label>
+                        <label class="input input_group">
+                            <input type="text" name="telegram" class="input__control tg-mask" value="@tg" placeholder="Телеграм">
+                        </label>
+                        <label class="input input_group">
+                            <input type="text" name="viber" class="input__control phone-mask" placeholder="Вайбер" value="+359 (123) 123-133">
+                        </label>
+                        <div class="select select_input input_group">
+                            <select name="location" class="select__control" required>
+                                <option value="" label="Месторасположение*" disabled></option>
+                                <option value="0" label="Месторасположение 1" selected></option>
+                                <option value="1" label="Месторасположение 2"></option>
+                                <option value="2" label="Месторасположение 3"></option>
+                            </select>
+                            <div class="select__icon"></div>
+                        </div>
+                        <div class="d-flex justify-content-center pb-2">
+                            <button class="btn btn_fill btn_higher w-100">Сохранить</button>
+                        </div>
+                        <p class="text-center text_small text_red pt-2 form__notice">Все поля обязательные! <br>Валидация полей e-mail, пароль, подтверждение пароля <br>e-mail – латинские буквы, цифры знак @</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ESTIMATES -->
     <!-- ESTIMATES AUTO IMAGES START -->
     <div class="mymodal mymodal_estimates" data-mymodal-id="estimates-damage" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
@@ -996,7 +1056,7 @@
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div> <!-- tag for origin image wich was early -->
                                 <div class="img"></div> <!-- new loaded image will appear hear -->
-                                <input type="file" class="estimates__input" name="damage-fl" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-left-front-fender" accept=".png,.jpg"> <!-- fl — front-left  -->
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1006,7 +1066,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Левое переднее крыло"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1018,7 +1078,7 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Левая передняя часть</h4>
+                            <h4 class="title title_damage">Левое переднее крыло</h4>
                         </div>
                     </div>
                     <div class="estimates__wrapper">
@@ -1026,7 +1086,7 @@
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-fm" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-hood" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1036,7 +1096,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Капот"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1056,7 +1116,7 @@
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-fr" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-roof" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1066,7 +1126,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Крыша"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1078,7 +1138,37 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Правая передняя часть</h4>
+                            <h4 class="title title_damage">Крыша</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <input type="file" class="estimates__input" name="damage-right-front-fender" accept=".png,.jpg">
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                            <span class="table__icon table__icon_remove_red"></span>
+                                        </button>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Правое переднее крыло"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                            <span class="table__icon table__icon_edit_red"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правое переднее крыло</h4>
                         </div>
                     </div>
                 </div>
@@ -1088,7 +1178,7 @@
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-lt" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-left-front-door" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1098,7 +1188,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Левая передняя дверь"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1110,13 +1200,13 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Левая дверь</h4>
+                            <h4 class="title title_damage">Левая передняя дверь</h4>
                         </div>
                         <div class="estimates__item">
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-lb" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-left-back-door" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1126,7 +1216,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Левая задняя дверь"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1140,16 +1230,11 @@
                             </label>
                             <h4 class="title title_damage">Левая задняя дверь</h4>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="extimates__car"></div>
-                    </div>
-                    <div class="estimates__wrapper">
                         <div class="estimates__item">
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-rt" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-left-back-fender" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1159,7 +1244,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Левое заднее крыло"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1171,13 +1256,18 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Правая дверь</h4>
+                            <h4 class="title title_damage">Левое заднее крыло</h4>
                         </div>
+                    </div>
+                    <div class="col">
+                        <div class="extimates__car"></div>
+                    </div>
+                    <div class="estimates__wrapper">
                         <div class="estimates__item">
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-rb" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-right-front-door" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1187,7 +1277,35 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Правая передняя дверь"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                            <span class="table__icon table__icon_edit_red"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Правая передняя дверь</h4>
+                        </div>
+                        <div class="estimates__item">
+                            <label class="input-image input-image_1x1">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <input type="file" class="estimates__input" name="damage-right-back-door" accept=".png,.jpg">
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                            <span class="table__icon table__icon_remove_red"></span>
+                                        </button>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Правая задняя дверь"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1201,15 +1319,11 @@
                             </label>
                             <h4 class="title title_damage">Правая задняя дверь</h4>
                         </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-wrap justify-content-between">
-                    <div class="estimates__wrapper">
                         <div class="estimates__item">
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-bl" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-right-back-fender" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1219,7 +1333,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Правая задняя дверь"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1231,15 +1345,17 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Левая задняя часть</h4>
+                            <h4 class="title title_damage">Правое заднее крыло</h4>
                         </div>
                     </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-bm" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-left-rack" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1249,7 +1365,37 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Левая стойка"
+                                        >
+                                            <span class="table__icon table__icon_magnify_red"></span>
+                                        </a>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                            <span class="table__icon table__icon_edit_red"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </label>
+                            <h4 class="title title_damage">Левая стойка</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper estimates__wrapper_2">
+                        <div class="estimates__item">
+                            <label class="input-image input-image_2x1">
+                                <div class="img-origin"></div>
+                                <div class="img"></div>
+                                <input type="file" class="estimates__input" name="damage-trunk" accept=".png,.jpg">
+                                <div class="estimates__options">
+                                    <div class="estimates__option">
+                                        <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                            <span class="table__icon table__icon_remove_red"></span>
+                                        </button>
+                                    </div>
+                                    <div class="estimates__option">
+                                        <a href=""
+                                            data-fancybox
+                                            data-caption="Багажник"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1269,7 +1415,7 @@
                             <label class="input-image input-image_1x1">
                                 <div class="img-origin"></div>
                                 <div class="img"></div>
-                                <input type="file" class="estimates__input" name="damage-br" accept=".png,.jpg">
+                                <input type="file" class="estimates__input" name="damage-right-rack" accept=".png,.jpg">
                                 <div class="estimates__options">
                                     <div class="estimates__option">
                                         <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -1279,7 +1425,7 @@
                                     <div class="estimates__option">
                                         <a href=""
                                             data-fancybox
-                                            data-caption="Левая передняя часть"
+                                            data-caption="Правая стойка"
                                         >
                                             <span class="table__icon table__icon_magnify_red"></span>
                                         </a>
@@ -1291,7 +1437,7 @@
                                     </div>
                                 </div>
                             </label>
-                            <h4 class="title title_damage">Правая задняя часть</h4>
+                            <h4 class="title title_damage">Правая стойка</h4>
                         </div>
                     </div>
                 </div>
@@ -1299,112 +1445,7 @@
         </div>
     </div>
     <!-- ESTIMATES AUTO IMAGES END -->
-    <!-- ESTIMATES DETAIL INFO START -->
-    <div class="mymodal" data-mymodal-id="detail-estimates" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close"></button>
-        <div class="mymodal__content">
-            <header class="mymodal__header">
-                <h4 class="title title_mymodal">Смета</h4>
-            </header>
-            <div class="mymodal__body">
-                <div class="project__image-wrapper">
-                    <img src="./img/land-cruiser-prado.jpg" alt="" data-t-img class="project__image">
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>VIN код:</th>
-                                <td data-t-vin>3132456456</td>
-                            </tr>
-                            <tr>
-                                <th>Год:</th>
-                                <td data-t-year>2020</td>
-                            </tr>
-                            <tr>
-                                <th>Модель:</th>
-                                <td data-t-model>A123123</td>
-                            </tr>
-                            <tr>
-                                <th>Цвет:</th>
-                                <td data-t-color>Белый</td>
-                            </tr>
-                            <tr>
-                                <th>Пробег:</th>
-                                <td data-t-mileage>100</td>
-                            </tr>
-                            <tr>
-                                <th>Дата добавления в систему:</th>
-                                <td data-t-date>10.10.2022</td>
-                            </tr>
-                            <tr>
-                                <th>Имя техника:</th>
-                                <td data-t-master>Техник</td>
-                            </tr>
-                            <tr>
-                                <th>О клиенте:</th>
-                                <td data-t-client>Клиент</td>
-                            </tr>
-                            <tr>
-                                <th>Страховка:</th>
-                                <td data-t-insurance>123124124142</td>
-                            </tr>
-                            <tr>
-                                <th>Урон:</th>
-                                <td>
-                                    <button type="button" class="btn btn_clean d-block" data-mymodal-target="estimates-detail-damage">
-                                        <span class="table__icon table__icon_show"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Выполняемые услуги</th>
-                                <td>
-                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-service">
-                                        <span class="btn__icon btn__icon_magnify me-2"></span>
-                                        <span data-t-services-count>7</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Дополнительные услуги</th>
-                                <td>
-                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-additional-service">
-                                        <span class="btn__icon btn__icon_magnify me-2"></span>
-                                        <span data-t-services-count>1</span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="mymodal__footer">
-                <!-- <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                        <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                    </svg>Скачать смету
-                </a> -->
-                <div class="row">
-                    <div class="col-6">
-                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                            </svg>Скачать PDF
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
-                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
-                            </svg>Скачать Excel
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ADD ESTIMATES FORM | SHOULD BE EDIT -->
+    <!-- ADD ESTIMATES FORM | SHOULD BE EDIT FORM -->
     <div class="mymodal estimates-modal" data-mymodal-id="add-estimates" data-mymodal-options="hashTracking: false">
         <div class="mymodal__content">
             <form class="text-center add-estimates-form" method="post">
@@ -1424,7 +1465,7 @@
                                         <input type="text" class="input__control js-estimates-week" name="date" placeholder="Неделя" readonly>
                                     </div>
                                     <div class="input mb-3">
-                                        <input type="number" class="input__control js-estimates-vin" name="vin" placeholder="VIN Код" required>
+                                        <input type="text" class="input__control js-estimates-vin" name="vin" placeholder="VIN Код" required>
                                     </div>
                                     <div class="input mb-3">
                                         <input type="text" class="input__control  js-estimates-pnr" name="car_number" placeholder="Номер машины" required>
@@ -2169,7 +2210,7 @@
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div> <!-- tag for origin image wich was early -->
                                                     <div class="img"></div> <!-- new loaded image will appear hear -->
-                                                    <input type="file" class="estimates__input" name="damage-fl" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-left-front-fender" accept=".png,.jpg"> <!-- fl — front-left  -->
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2179,7 +2220,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левое переднее крыло"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2191,7 +2232,7 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Левая передняя часть</h4>
+                                                <h4 class="title title_damage">Левое переднее крыло</h4>
                                             </div>
                                         </div>
                                         <div class="estimates__wrapper">
@@ -2199,7 +2240,7 @@
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-fm" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-hood" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2209,7 +2250,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левое переднее крыло"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2229,7 +2270,7 @@
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-fr" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-roof" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2239,7 +2280,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левое переднее крыло"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2251,7 +2292,37 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Правая передняя часть</h4>
+                                                <h4 class="title title_damage">Крыша</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-right-front-fender" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Левое переднее крыло"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правое переднее крыло</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -2261,7 +2332,7 @@
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-lt" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-left-front-door" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2271,7 +2342,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левая передняя дверь"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2283,13 +2354,13 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Левая дверь</h4>
+                                                <h4 class="title title_damage">Левая передняя дверь</h4>
                                             </div>
                                             <div class="estimates__item">
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-lb" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-left-back-door" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2299,7 +2370,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левая задняя дверь"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2313,16 +2384,11 @@
                                                 </label>
                                                 <h4 class="title title_damage">Левая задняя дверь</h4>
                                             </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="extimates__car"></div>
-                                        </div>
-                                        <div class="estimates__wrapper">
                                             <div class="estimates__item">
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-rt" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-left-back-fender" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2332,7 +2398,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левое заднее крыло"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2344,13 +2410,18 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Правая дверь</h4>
+                                                <h4 class="title title_damage">Левое заднее крыло</h4>
                                             </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="extimates__car"></div>
+                                        </div>
+                                        <div class="estimates__wrapper">
                                             <div class="estimates__item">
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-rb" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-right-front-door" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2360,7 +2431,35 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Правая передняя дверь"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Правая передняя дверь</h4>
+                                            </div>
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_1x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-right-back-door" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Правая задняя дверь"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2374,15 +2473,11 @@
                                                 </label>
                                                 <h4 class="title title_damage">Правая задняя дверь</h4>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-wrap justify-content-between">
-                                        <div class="estimates__wrapper">
                                             <div class="estimates__item">
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-bl" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-right-back-fender" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2392,7 +2487,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Правая задняя дверь"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2404,15 +2499,17 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Левая задняя часть</h4>
+                                                <h4 class="title title_damage">Правое заднее крыло</h4>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap justify-content-between">
                                         <div class="estimates__wrapper">
                                             <div class="estimates__item">
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-bm" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-left-rack" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2422,7 +2519,37 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Левая стойка"
+                                                            >
+                                                                <span class="table__icon table__icon_magnify_red"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_edit" type="button" title="Редактировать">
+                                                                <span class="table__icon table__icon_edit_red"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                                <h4 class="title title_damage">Левая стойка</h4>
+                                            </div>
+                                        </div>
+                                        <div class="estimates__wrapper estimates__wrapper_2">
+                                            <div class="estimates__item">
+                                                <label class="input-image input-image_2x1">
+                                                    <div class="img-origin"></div>
+                                                    <div class="img"></div>
+                                                    <input type="file" class="estimates__input" name="damage-trunk" accept=".png,.jpg">
+                                                    <div class="estimates__options">
+                                                        <div class="estimates__option">
+                                                            <button class="btn btn_clean btn_remove" type="button" title="Удалить">
+                                                                <span class="table__icon table__icon_remove_red"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="estimates__option">
+                                                            <a href=""
+                                                                data-fancybox
+                                                                data-caption="Багажник"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2442,7 +2569,7 @@
                                                 <label class="input-image input-image_1x1">
                                                     <div class="img-origin"></div>
                                                     <div class="img"></div>
-                                                    <input type="file" class="estimates__input" name="damage-br" accept=".png,.jpg">
+                                                    <input type="file" class="estimates__input" name="damage-right-rack" accept=".png,.jpg">
                                                     <div class="estimates__options">
                                                         <div class="estimates__option">
                                                             <button class="btn btn_clean btn_remove" type="button" title="Удалить">
@@ -2452,7 +2579,7 @@
                                                         <div class="estimates__option">
                                                             <a href=""
                                                                 data-fancybox
-                                                                data-caption="Левая передняя часть"
+                                                                data-caption="Правая стойка"
                                                             >
                                                                 <span class="table__icon table__icon_magnify_red"></span>
                                                             </a>
@@ -2464,14 +2591,15 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                                                <h4 class="title title_damage">Правая задняя часть</h4>
+                                                <h4 class="title title_damage">Правая стойка</h4>
                                             </div>
                                         </div>
                                     </div>
                                     <hr>
-                                    <label class="input-image input-image_16x9 input_group mx-auto">
+                                    <label class="input-image input-image_t1 input-image_16x9 input_group mx-auto">
                                         <div class="img js-estimate-img"></div>
                                         <input type="file" name="image" class="js-form-file" accept=".png,.jpg">
+                                        <span class="input__label">Загрузить фотографии или документы</span>
                                     </label>
                                 </div>
                                 <div class="pt-5 estimates-footer">
@@ -2527,7 +2655,7 @@
                                             <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn_fill w-100" type="submit">Confirm</button>
+                                            <button class="btn btn_fill w-100" type="submit">Сохранить</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2536,6 +2664,108 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <!-- ADD ESTIMATES FORM END -->
+    <!-- ESTIMATES DETAIL -->
+    <!-- ESTIMATES DETAIL INFO START -->
+    <div class="mymodal" data-mymodal-id="detail-estimates" data-mymodal-options="hashTracking: false">
+        <button data-mymodal-action="close" class="mymodal-close"></button>
+        <div class="mymodal__content">
+            <header class="mymodal__header">
+                <h4 class="title title_mymodal">Смета</h4>
+            </header>
+            <div class="mymodal__body">
+                <div class="project__image-wrapper">
+                    <img src="./img/land-cruiser-prado.jpg" alt="" data-t-img class="project__image">
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>VIN код:</th>
+                                <td data-t-vin>3132456456</td>
+                            </tr>
+                            <tr>
+                                <th>Год:</th>
+                                <td data-t-year>2020</td>
+                            </tr>
+                            <tr>
+                                <th>Модель:</th>
+                                <td data-t-model>A123123</td>
+                            </tr>
+                            <tr>
+                                <th>Цвет:</th>
+                                <td data-t-color>Белый</td>
+                            </tr>
+                            <tr>
+                                <th>Пробег:</th>
+                                <td data-t-mileage>100</td>
+                            </tr>
+                            <tr>
+                                <th>Дата добавления в систему:</th>
+                                <td data-t-date>10.10.2022</td>
+                            </tr>
+                            <tr>
+                                <th>Имя техника:</th>
+                                <td data-t-master>Техник</td>
+                            </tr>
+                            <tr>
+                                <th>О клиенте:</th>
+                                <td data-t-client>Клиент</td>
+                            </tr>
+                            <tr>
+                                <th>Страховка:</th>
+                                <td data-t-insurance>123124124142</td>
+                            </tr>
+                            <tr>
+                                <th>Урон:</th>
+                                <td>
+                                    <button type="button" class="btn btn_clean d-block" data-mymodal-target="estimates-detail-damage">
+                                        <span class="table__icon table__icon_show"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Выполняемые услуги</th>
+                                <td>
+                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-service">
+                                        <span class="btn__icon btn__icon_magnify me-2"></span>
+                                        <span data-t-services-count>7</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Дополнительные услуги</th>
+                                <td>
+                                    <button type="button" class="btn btn_fill d-flex align-items-center" data-mymodal-target="estimates-detail-additional-service">
+                                        <span class="btn__icon btn__icon_magnify me-2"></span>
+                                        <span data-t-services-count>1</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mymodal__footer">
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать PDF
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn_higher btn_fill d-block text-center" href="#file-link" download target="_blank" data-t-file>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="me-1">
+                                <path d="M12.6666 6H9.99992V2H5.99992V6H3.33325L7.99992 10.6667L12.6666 6ZM3.33325 12V13.3333H12.6666V12H3.33325Z" fill="white"/>
+                            </svg>Скачать Excel
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- DETAILT SERVICES MODAL | DATA IS READONLY -->
@@ -2742,8 +2972,50 @@
                             <tr>
                                 <td>Set-up time per vehicle</td>
                                 <td>6,00 WH</td>
-                                <td class="text-center">
-                                    <span class="table__icon table__icon_check"></span>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Set-up time per vehicle</td>
+                                <td>6,00 WH</td>
+                                <td>
+                                    <span class="table__icon table__icon_check mx-auto"></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -2753,7 +3025,7 @@
         </div>
     </div>
     <!-- DETAIL DAMAGE MODAL | SAME AS `estimates-damage` but updating on detail modal is opening and will open detail modal again on closed -->
-    <div class="mymodal  mymodal_estimates" data-mymodal-id="estimates-detail-damage" data-mymodal-options="hashTracking: false">
+    <div class="mymodal mymodal_estimates" data-mymodal-id="estimates-detail-damage" data-mymodal-options="hashTracking: false">
         <button data-mymodal-action="close" class="mymodal-close"></button>
         <div class="mymodal__content">
             <header class="mymodal__header">
@@ -2763,97 +3035,56 @@
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div> 
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Левая передняя часть</h4>
+                            <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="detail" data-caption="Левое переднее крыло" class="input-image input-image_1x1 readonly"> <!-- make data-fancybox empty if haven't an image -->
+                                <div class="img-origin" style="background-image: url('http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg')"></div> 
+                            </a>
+                            <h4 class="title title_damage">Левое переднее крыло</h4>
                         </div>
                     </div>
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
+                            <a href="" data-fancybox data-caption="Капот" class="input-image input-image_1x1 readonly">
                                 <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
+                            </a>
                             <h4 class="title title_damage">Капот</h4>
                         </div>
                     </div>
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
+                            <a href="" data-fancybox data-caption="Крыша" class="input-image input-image_1x1 readonly">
                                 <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Правая передняя часть</h4>
+                            </a>
+                            <h4 class="title title_damage">Крыша</h4>
+                        </div>
+                    </div>
+                    <div class="estimates__wrapper">
+                        <div class="estimates__item">
+                            <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="detail" data-caption="Правое переднее крыло" class="input-image input-image_1x1 readonly"> <!-- make data-fancybox empty if haven't an image -->
+                                <div class="img-origin" style="background-image: url('http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg')"></div> 
+                            </a>
+                            <h4 class="title title_damage">Правое переднее крыло</h4>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Левая дверь</h4>
+                            <a href="" data-fancybox data-caption="Левая передняя дверь" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
+                            <h4 class="title title_damage">Левая передняя дверь</h4>
                         </div>
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
+                            <a href="" data-fancybox data-caption="Левая задняя дверь" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
                             <h4 class="title title_damage">Левая задняя дверь</h4>
+                        </div>
+                        <div class="estimates__item">
+                            <a href="" data-fancybox data-caption="Левое заднее крыло" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
+                            <h4 class="title title_damage">Левое заднее крыло</h4>
                         </div>
                     </div>
                     <div class="col">
@@ -2861,162 +3092,55 @@
                     </div>
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Правая дверь</h4>
+                            <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="detail" data-caption="Правая передняя дверь" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin" style="background-image: url('http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg')"></div> 
+                            </a>
+                            <h4 class="title title_damage">Правая передняя дверь</h4>
                         </div>
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
+                            <a href="" data-fancybox data-caption="Правая задняя дверь" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
                             <h4 class="title title_damage">Правая задняя дверь</h4>
+                        </div>
+                        <div class="estimates__item">
+                            <a href="" data-fancybox data-caption="Правое заднее крыло" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
+                            <h4 class="title title_damage">Правое заднее крыло</h4>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Левая задняя часть</h4>
+                            <a href="" data-fancybox data-caption="Левая стойка" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
+                            <h4 class="title title_damage">Левая стойка</h4>
                         </div>
                     </div>
-                    <div class="estimates__wrapper">
+                    <div class="estimates__wrapper estimates__wrapper_2">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
+                            <a href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" data-fancybox="detail" data-caption="Багажник" class="input-image input-image_2x1 readonly">
+                                <div class="img-origin" style="background-image: url('http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg')"></div> 
+                            </a>
                             <h4 class="title title_damage">Багажник</h4>
                         </div>
                     </div>
                     <div class="estimates__wrapper">
                         <div class="estimates__item">
-                            <label class="input-image input-image_1x1 readonly">
-                                <div class="img-origin"></div>
-                                <div class="img"></div>
-                                <div class="estimates__options">
-                                    <div class="estimates__option">
-                                        <a href=""
-                                            data-fancybox
-                                            data-caption="Левая передняя часть"
-                                        >
-                                            <span class="table__icon table__icon_magnify_red"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </label>
-                            <h4 class="title title_damage">Правая задняя часть</h4>
+                            <a href="" data-fancybox data-caption="Правая стойка" class="input-image input-image_1x1 readonly">
+                                <div class="img-origin"></div> 
+                            </a>
+                            <h4 class="title title_damage">Правая стойка</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- TECH INFO MODAL -->
-    <div class="mymodal" data-mymodal-id="tech-info-mob" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
-        <div class="mymodal__content js-tech-info-mob pt-4">
-            
-        </div>
-    </div>
-    <!-- EDIT MODAL -->
-    <!-- mymodal edit tech -->
-    <div class="mymodal" data-mymodal-id="edit-tech" data-mymodal-options="hashTracking: false">
-        <button data-mymodal-action="close" class="mymodal-close mymodal-close_large"></button>
-        <div class="mymodal__content">
-            <div class="mymodal__header">
-                <h4 class="title title_mymodal">Редактировать</h4>
-            </div>
-            <div class="mymodal__body">
-                <form class="form">
-                    <div class="pt-4 px-3 pb-3">
-                        <!-- IMAGE INPUT START -->
-                        <label class="input-image mx-auto">
-                            <div class="img-origin" style="background-image: url('./img/technitian.jpg');"></div>
-                            <div class="img"></div>
-                            <input type="file" name="image" class="d-none js-form-file" accept=".png,.jpg">
-                        </label>
-                        <div class="input_group text-center">Редактировать фото</div>
-                        <!-- IMAGE INPUT END -->
-                        <label class="input input_group">
-                            <input type="text" name="name" class="input__control" placeholder="Имя и фамилия" value="Андрей Петрович" required>
-                        </label>
-                        <label class="input input_group">
-                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" value="+33-1-21-23-12-33" required>
-                        </label>
-                        <label class="input input_group">
-                            <input type="email" name="email" class="input__control" placeholder="E-mail" value="msdesdfsd@mail.ua" required>
-                        </label>
-                        <label class="input input_group">
-                            <input type="text" name="telegram" class="input__control tg-mask" value="@tg" placeholder="Телеграм">
-                        </label>
-                        <label class="input input_group">
-                            <input type="text" name="viber" class="input__control phone-mask" placeholder="Вайбер" value="+359 (123) 123-133">
-                        </label>
-                        <div class="select select_input input_group">
-                            <select name="location" class="select__control" required>
-                                <option value="" label="Месторасположение*" disabled></option>
-                                <option value="0" label="Месторасположение 1" selected></option>
-                                <option value="1" label="Месторасположение 2"></option>
-                                <option value="2" label="Месторасположение 3"></option>
-                            </select>
-                            <div class="select__icon"></div>
-                        </div>
-                        <div class="d-flex justify-content-center pb-2">
-                            <button class="btn btn_fill btn_higher w-100">Сохранить</button>
-                        </div>
-                        <p class="text-center text_small text_red pt-2 form__notice">Все поля обязательные! <br>Валидация полей e-mail, пароль, подтверждение пароля <br>e-mail – латинские буквы, цифры знак @</p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
     <!-- JAVASCRIPT -->
     <script src="./libs/jquery-3.6.0.min.js"></script>
     <script src="./libs/jquery-migrate-3.3.2.min.js"></script>

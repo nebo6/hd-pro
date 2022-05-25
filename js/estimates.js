@@ -1,15 +1,18 @@
 // estimates
 const dummyEstimatesCar = {
-    fl: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-    fm: "",
-    fr: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
-    lt: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-    lb: "",
-    rt: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
-    rb: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-    bl: "",
-    bm: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
-    br: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+    ["left-front-fender"]: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+    hood: "",
+    roof: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+    ["rigth-front-fender"]: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+    ["left-front-door"]: "",
+    ["right-front-door"]: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+    ["left-back-door"]: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+    ["rigth-back-door"]: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+    ["left-back-fender"]: "",
+    ["right-back-fender"]: "",
+    ["left-rack"]: "",
+    trunk: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+    ["right-rack"]: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
 }
 
 function onEstimatesUpdate(data) {
@@ -354,8 +357,11 @@ $(function() {
     $(document).on("closing", '[data-mymodal-id="estimates-detail-damage"], [data-mymodal-id="estimates-detail-service"], [data-mymodal-id="estimates-detail-additional-service"]', function() {
         $('[data-mymodal-id="detail-estimates"]').mymodal().open()
     })
-    $(".js-estimates-date").on("input", function(e) {
-        const isValid = Inputmask.isValid($(this).val(), { alias: "datetime", inputFormat: "dd.mm.yyyy"});
+    $(".js-estimates-date").on("input change", function(e) {
+        const date = $(this).val();
+        console.log(date);
+        const isValid = Inputmask.isValid(date, { alias: "datetime", inputFormat: "dd.mm.yyyy"});
+        console.log("input", isValid, $(this));
         if (isValid) {
             const unformattedDate = Inputmask.unmask($(this).val(), { alias: "datetime", inputFormat: "dd.mm.yyyy", outputFormat: "mm.dd.yyyy"});
             const weekNumber = getWeekNumber(new Date(unformattedDate))

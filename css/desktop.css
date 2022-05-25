@@ -393,6 +393,19 @@ input[type=number] {
   padding-bottom: 100%;
 }
 
+.input-image_2x1 {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  position: relative;
+}
+
+.input-image_2x1::after {
+  content: '';
+  display: block;
+  padding-bottom: 47.5%;
+}
+
 .input-image_t1 {
   background: #FFFFFF;
   border: 1px solid #EBEEF2;
@@ -2929,6 +2942,8 @@ input[type=number] {
 
 .mymodal_estimates .title_damage {
   font-size: 10px;
+  color: #000;
+  font-weight: 700;
 }
 
 .mymodal_services {
@@ -2950,9 +2965,16 @@ input[type=number] {
 
 .estimates__wrapper {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 28.115%;
-          flex: 0 0 28.115%;
-  max-width: 28.115%;
+      -ms-flex: 0 0 22.89%;
+          flex: 0 0 22.89%;
+  max-width: 22.89%;
+}
+
+.estimates__wrapper_2 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48.193%;
+          flex: 0 0 48.193%;
+  max-width: 48.193%;
 }
 
 .estimates__item {
