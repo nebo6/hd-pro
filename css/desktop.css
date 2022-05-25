@@ -2944,6 +2944,9 @@ input[type=number] {
   font-size: 10px;
   color: #000;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mymodal_services {
@@ -2953,7 +2956,6 @@ input[type=number] {
 .extimates__car {
   width: 100%;
   background: url("../img/estimates-center-car.png") center/contain no-repeat;
-  margin: -26px 0;
   position: relative;
 }
 
