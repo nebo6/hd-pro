@@ -28,8 +28,6 @@ const dummyExpenses = {
     date: "22.11.2022",
     client: 0,
     employee: 0,
-    period_start: "22.11.2022",
-    period_end: "23.11.2022",
     category: 0,
     description: "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст",
     summ: "21 500$"
@@ -40,8 +38,6 @@ function updateExpensesForm(data, id) {
     form.find('[name="date"]').val(data.date)
     form.find('[name="client"]').val(data.client)
     form.find('[name="employee"]').val(data.employee)
-    form.find('[name="period_start"]').val(data.period_start)
-    form.find('[name="period_end"]').val(data.period_end)
     form.find('[name="category"]').val(data.category)
     form.find('[name="description"]').val(data.description)
     form.find('[name="summ"]').val(data.summ)

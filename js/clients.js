@@ -139,7 +139,7 @@ function createFileInput(id) {
     return `<label class="files__upload" data-file-input="${id}">
         <input type="file" name="file[]" class="d-none files__control">
         <div class="row align-items-center justify-content-end">
-            <div class="col-auto"></div>
+            <div class="col-auto">${getLanguage() === "ru" ? "Загрузите файл" : "Upload file"}</div>
             <div class="col-auto">
                 <span class="table__icon table__icon_upload_red"></span>
             </div>

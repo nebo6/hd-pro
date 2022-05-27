@@ -472,12 +472,12 @@
                                     </div>
                                     <div class="col-6 mb-2 mb-lg-3 col-md-4 col-lg-auto ps-lg-0">
                                         <div class="select select_widget">
-                                            <select name="clients" class="select__control">
-                                                <option value="" selected>Клиент</option>
-                                                <option value="0" label="Имя Клиента 0"></option>
-                                                <option value="1" label="Имя Клиента 1"></option>
-                                                <option value="2" label="Имя Клиента 2"></option>
-                                                <option value="3" label="Имя Клиента 3"></option>
+                                            <select name="employee" class="select__control">
+                                                <option value="" selected>Сотрудник</option>
+                                                <option value="0" label="Сотрудник 0"></option>
+                                                <option value="1" label="Сотрудник 1"></option>
+                                                <option value="2" label="Сотрудник 2"></option>
+                                                <option value="3" label="Сотрудник 3"></option>
                                             </select>
                                             <div class="select__icon"></div>
                                         </div>
@@ -1960,12 +1960,6 @@
                     </select>
                     <div class="select__icon"></div>
                 </div>
-                <div class="input input_group">
-                    <input type="text" class="input__control date-mask" name="period_start" placeholder="Период начало" required>
-                </div>
-                <div class="input input_group">
-                    <input type="text" class="input__control date-mask" name="period_end" placeholder="Период конец" required>
-                </div>
                 <div class="select select_input input_group">
                     <select name="category" class="select__control" required>
                         <option value="" selected disabled>Категории</option>
@@ -1981,6 +1975,22 @@
                 </div>
                 <div class="input input_group">
                     <input type="text" class="input__control dollar-mask" name="summ" placeholder="Сумма" required>
+                </div>
+                <!-- CHECK FILE LIST UPLOADING IN clients.js | clientFilesUploaded | createFileInput -->
+                <div class="files">
+                    <div class="files__inputs">
+                        <label class="files__upload" data-file-input="0">
+                            <input type="file" name="file[]" class="d-none files__control">
+                            <div class="row align-items-center justify-content-end">
+                                <div class="col-auto">Загрузите файл</div>
+                                <div class="col-auto">
+                                    <span class="table__icon table__icon_upload_red"></span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="files__list"></div>
                 </div>
                 <div class="pt-3">
                     <button class="btn btn_fill w-100" type="submit">Сохранить</button>

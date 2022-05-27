@@ -110,20 +110,26 @@ function createTechCard(data) {
 // PAINTER START
 let datePainterImages = {
     "04.05.2022": {
-        start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-        end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
+        start_img: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+        end_img: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+        start_time: "08:00",
+        end_time: "17:00"
     },
     "06.05.2022": {
-        start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-        end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
+        start_img: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+        end_img: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+        start_time: "08:00",
+        end_time: "17:00"
     },
     "12.05.2022": {
-        start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
-        end: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg"
+        start_img: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
+        end_img: "http://farm4.staticflickr.com/3864/14420515212_9999c800b4_m.jpg",
+        start_time: "08:00",
+        end_time: "17:00"
     },
     "13.05.2022": {
-        start: "",
-        end: ""
+        start_img: "",
+        end_img: ""
     },
 }
 const dummyPainter = {
@@ -136,8 +142,8 @@ const dummyPainter = {
     wa: "34353535345",
     viber: "viber",
     created: "20.11.2021",
-    summ: "14 500$",
-    paid: "14 500$",
+    summTime: "4 500",
+    monthTime: "120",
     hours: "2",
     photos: "12",
     schedule: datePainterImages
@@ -156,13 +162,13 @@ function initDatepicker(selector, schedule) {
         onSelect: function(t, ui) {
             if (schedule[t]) {
                 Fancybox.show([{
-                    src  : schedule[t].start,
-                    caption : getLanguage() === "ru" ? 'Начало работы' : 'Beginning of work',
-                    thumb   : schedule[t].start
+                    src  : schedule[t].start_img,
+                    caption : getLanguage() === "ru" ? `Начало работы — ${schedule[t].start_time}` : `Beginning of work — ${schedule[t].start_time}`,
+                    thumb   : schedule[t].start_img
                 },{
-                    src  : schedule[t].end,
-                    caption : getLanguage() === "ru" ? 'Конец работы' : 'Ending of work',
-                    thumb   : schedule[t].end
+                    src  : schedule[t].end_img,
+                    caption : getLanguage() === "ru" ? `Конец работы — ${schedule[t].end_time}` : `Ending of work — ${schedule[t].end_time}`,
+                    thumb   : schedule[t].end_img
                 }], {
                     infinite : false
                 });
@@ -216,8 +222,8 @@ function createPainterCard(data) {
     }
 
     temporary.find("[data-t-reg]").text(data.created)
-    temporary.find("[data-t-summ]").text(data.summ)
-    temporary.find("[data-t-paid]").text(data.paid)
+    temporary.find("[data-t-time-summ]").text(data.summTime)
+    temporary.find("[data-t-time-month]").text(data.monthTime)
 
     temporary.find("[data-t-hours]").text(data.hours)
     temporary.find("[data-t-photos]").text(data.photos)
@@ -245,7 +251,7 @@ function onLoadPainterImg(event, callback) {
     // if success get new schedule with new image
     callback({
         ...dummyPainter.schedule,
-        "15.04.2022": {
+        "27.05.2022": {
             start: "http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg",
             end: ""
         },

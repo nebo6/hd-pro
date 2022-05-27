@@ -441,10 +441,9 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
-                                <button 
-                                    class="btn btn_outline btn_with-icon w-100 create-invoice" 
-                                    type="button"
-                                >Сгенерировать счет-фактуру</button>
+                                <div class="input input_widget">
+                                    <input name="search-by-vin" type="text" class="input__control input__control_min" placeholder="Поиск по Гос.номеру">
+                                </div>
                             </div>
                             <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                 <button class="btn btn_outline w-100" type="button" onclick="printDiv('clients')">Print</button>
@@ -4710,7 +4709,7 @@
                                         <span class="input__label">Загрузить фотографии или документы</span>
                                     </label>
                                 </div>
-                                <div class="pt-5 estimates-footer">
+                                <div class="estimates-footer">
                                     <div class="row">
                                         <div class="col-6">
                                             <button class="btn btn_fill w-100 js-estimates-back" type="button">Назад</button>
