@@ -4,13 +4,6 @@
         padding-left: 25px
         padding-right: 25px
         padding-bottom: 0
-    .title_damage
-        font-size: 12px
-        color: #000
-        font-weight: 700
-        white-space: nowrap
-        overflow: hidden
-        text-overflow: ellipsis
 
 .mymodal_services
     max-width: 945px
@@ -18,7 +11,7 @@
 .extimates__car
     width: 100%
     background: url("#{$img-path}/estimates-center-car.png") center / contain no-repeat
-    // margin: -26px 0
+    margin-top: -26px
     position: relative
     &::after
         content: ''
@@ -32,6 +25,18 @@
 .estimates__wrapper_2
     flex: 0 0 48.193%
     max-width: 48.193%
+    
+.estimates__roof
+    position: absolute
+    width: 35.1%
+    height: 24.9%
+    top: 43.85%
+    left: 50%
+    transform: translateX(-50%)
+    .title_damage
+        position: absolute
+        top: 100%
+        color: #f6f6f6
     
 .estimates__item
     margin-bottom: 26px
