@@ -50,43 +50,18 @@ function onInvoicesEdited(id) {
     removeBodyLoader();
 }
 
-function calcVat(price, vat, quantity) { 
-    return {
-        noVat: price*(1-vat)*quantity-0,
-        vat: price*vat*quantity-0
-    }
-}
-
 function calcTotal(price, quantity) { return price*quantity }
 
 function changeTotal(table) {
-    const noVatDivAll = table.find('[data-no-vat]')
-    let noVatDivAllVal = 0
-    const vatDivAll = table.find('[data-vat]')
-    let vatDivAllVal = 0
     const summDivAll = table.find('[data-summ]')
     let summDivAllVal = 0
     // total
-    const noVatDivTotal = table.find('[data-no-vat-total]')
-    const vatDivTotal = table.find('[data-vat-total]')
-    const summDivTotal = table.find('[data-summ-total]')
+    const summDivTotal = table.closest("form").find('[data-summ-total]')
     
-    noVatDivAll.each(function(idx, el) {
-        noVatDivAllVal += $(el).data("no-vat")
-    })
-    vatDivAll.each(function(idx, el) {
-        vatDivAllVal += $(el).data("vat")
-    })
     summDivAll.each(function(idx, el) {
         summDivAllVal += $(el).data("summ")
     })
 
-    noVatDivTotal.data("no-vat-total", noVatDivAllVal);
-    noVatDivTotal.text(noVatDivAllVal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
-
-    vatDivTotal.data("vat-total", vatDivAllVal)
-    vatDivTotal.text(vatDivAllVal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
-    
     summDivTotal.data("summ-total", summDivAllVal)
     summDivTotal.text(summDivAllVal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
 }
@@ -96,47 +71,29 @@ function calcOnTrChange(idx, el) {
     let quantityVal = 1;
     const price = $(el).find(".js-price")
     let priceVal = 0;
-    const vat = $(el).find(".js-vat")
-    let vatVal = 0
-    // row total
-    const noVatDiv = $(el).find('[data-no-vat]')
-    const vatDiv = $(el).find('[data-vat]')
-    const summDiv = $(el).find('[data-summ]')
     // total
     const table = $(el).closest(".js-invoice-table")
     
-    function changeNoVat() {
-        noVatDiv.data("no-vat", calcVat(priceVal, vatVal, quantityVal).noVat)
-        noVatDiv.text(calcVat(priceVal, vatVal, quantityVal).noVat.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
-    }
-    
-    function changeVat() {
-        vatDiv.data("vat", calcVat(priceVal, vatVal, quantityVal).vat)
-        vatDiv.text(calcVat(priceVal, vatVal, quantityVal).vat.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
-    }
-    
     function changeSumm() {
-        summDiv.data("summ", calcTotal(priceVal, quantityVal))
-        summDiv.text(calcTotal(priceVal,quantityVal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
+        $(el).data("summ", calcTotal(priceVal, quantityVal))
+        // summDiv.text(calcTotal(priceVal,quantityVal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"$")
     }
     
     function calculate() {
-        changeNoVat()
-        changeVat()
         changeSumm()
         changeTotal(table)
     }
-    // rewrite input, not working addEventListener bcs of inputmask
-    quantity[0].oninput = function(e) {
+    quantity.on("input", function(e) {
         quantityVal = $(this).val() - 0
         calculate()
-    }
+    })
+    // rewrite input, not working addEventListener bcs of inputmask
     price[0].oninput = function(e) {
         priceVal = $(this).val().replace(/[^\d.]/g, '') - 0
         calculate()
     }
-    vat[0].oninput = function(e) {
-        vatVal = ($(this).val().replace(/[^\d]/g, '') - 0)/100
+    price[0].onchange = function(e) {
+        priceVal = $(this).val().replace(/[^\d.]/g, '') - 0
         calculate()
     }
 }
@@ -202,5 +159,14 @@ $(function() {
             return alertNotice("Внимание","Выберите проект", "info", 5000)
         const modal = $('[data-mymodal-id="add-invoices"]');
         modal.mymodal().open()
+    })
+
+    $(document).on("change", ".js-invoice-client", function(e) {
+        const val = $(this).val();
+        const textarea = $(".js-invoice-address")
+        if (val === "")
+            return textarea.val("")
+        // get address
+        textarea.val("Vasil Levski Nr.2 \n4100 Karlovo City, Bulgaria \nTax Nr: BG324119220 \nEmail: client@mail.com")
     })
 })

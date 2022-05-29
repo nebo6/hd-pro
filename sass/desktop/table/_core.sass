@@ -91,3 +91,10 @@
             &:first-child
                 padding: 0
                 width: 20px
+
+tbody
+    counter-reset: nr
+    tr
+        counter-increment: nr
+    .table-tr-nr::before
+        content: counter(nr)

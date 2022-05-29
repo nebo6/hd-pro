@@ -418,7 +418,7 @@
         <div class="main-content">
             <section class="page-section">
                 <div class="container-fluid">
-                    <!-- PROGRESS -->
+                    <!-- PROGRESS | FF0000 - red | FFE600 - yellow | 3CAC47 - green -->
                     <div class="row flex-row-reverse">
                         <div class="col-md mb-3">
                             <div class="progress">
@@ -438,6 +438,63 @@
                             </div>
                         </div>
                     </div>
+                    <!-- WIDGETS START -->
+                    <div class="widget">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="country" class="select__control">
+                                        <option value="" selected>Страна</option>
+                                        <option value="0" label="Название страны 0"></option>
+                                        <option value="1" label="Название страны 1"></option>
+                                        <option value="2" label="Название страны 2"></option>
+                                        <option value="3" label="Название страны 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="clients" class="select__control">
+                                        <option value="" selected>Клиент</option>
+                                        <option value="0" label="Имя Клиента 0"></option>
+                                        <option value="1" label="Имя Клиента 1"></option>
+                                        <option value="2" label="Имя Клиента 2"></option>
+                                        <option value="3" label="Имя Клиента 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-auto mb-3 ps-lg-0">
+                                <div class="select select_widget">
+                                    <select name="employee" class="select__control">
+                                        <option value="" selected>Сотрудник</option>
+                                        <option value="0" label="Сотрудник 0"></option>
+                                        <option value="1" label="Сотрудник 1"></option>
+                                        <option value="2" label="Сотрудник 2"></option>
+                                        <option value="3" label="Сотрудник 3"></option>
+                                    </select>
+                                    <div class="select__icon"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-start" type="text" class="input__control input__control_min date-mask" placeholder="Период начало">
+                                        </div>
+                                    </div>
+                                    <span class="col-auto mb-3 mb-md-3 ps-md-0 d-none d-md-block">—</span>
+                                    <div class="col-6 mb-3 mb-md-3 col-md-auto ps-md-0 ">
+                                        <div class="input input_widget">
+                                            <input name="widget-period-end" type="text" class="input__control input__control_min date-mask" placeholder="Период конец">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- WIDGETS END -->
                     <!-- STATISTIC -->
                     <div class="statistics__list statistics__list_type_1 mb-lg-4">
                         <div class="row justify-content-between">
@@ -632,7 +689,9 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1">
+                            <!-- gap -->
+                            <div class="statistics__wrapper statistics__wrapper_type_1"></div>
+                            <!-- <a href="?bonus" class="statistics__wrapper statistics__wrapper_type_1">
                                 <div class="statistics statistics_type_1">
                                     <div class="row align-items-center">
                                         <div class="col-auto pe-2">
@@ -646,7 +705,7 @@
                                         Количество выплаченных <br>бонусов для менеджеров
                                     </div>
                                 </div>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <!-- charts start -->
