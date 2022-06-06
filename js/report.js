@@ -142,19 +142,23 @@ function onWeekReportStatusChanged(event, id) {
 
 $(function() {
     $(document).on("click", ".js-remove-expenses-report", function(e) {
+        e.stopPropagation()
         const id = $(this).closest("[data-expenses-row]").data("expenses-row");
         onRemoveExpenses(id)
     })
-    $(document).on("click", ".js-edit-expenses-report", function() {
+    $(document).on("click", ".js-edit-expenses-report", function(e) {
+        e.stopPropagation()
         const id = $(this).closest("[data-expenses-row]").data("expenses-row");
         onEditExpenses(id)
     })
     // copies
     $(document).on("click", ".js-remove-income-report", function(e) {
+        e.stopPropagation()
         const id = $(this).closest("[data-income-row]").data("income-row");
         onRemoveIncome(id)
     })
-    $(document).on("click", ".js-edit-income-report", function() {
+    $(document).on("click", ".js-edit-income-report", function(e) {
+        e.stopPropagation()
         const id = $(this).closest("[data-income-row]").data("income-row");
         onEditIncome(id)
     })
