@@ -441,6 +441,12 @@
                                             <input name="search-by-vin" type="text" class="input__control input__control_min" placeholder="Поиск по VIN-коду">
                                         </div>
                                     </div>
+                                    <div class="col-sm-6 col-md-auto mb-3 ps-lg-0">
+                                        <button 
+                                            class="btn btn_outline btn_with-icon w-100 create-invoice" 
+                                            type="button"
+                                        >Сгенерировать счет-фактуру</button>
+                                    </div>
                                     <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                         <button class="btn btn_outline w-100" type="button" onclick="printDiv('clients')">Print</button>
                                     </div>
@@ -567,6 +573,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th></th>
                                             <th>ID</th>
                                             <th class="text-center">Статус работы</th>
                                             <th>Дата</th>
@@ -581,6 +588,12 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>0</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -605,6 +618,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>1</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -629,6 +648,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>2</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -653,6 +678,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>3</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -677,6 +708,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>4</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -701,6 +738,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>5</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -725,6 +768,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -749,6 +798,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -773,6 +828,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -797,6 +858,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -821,6 +888,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -845,6 +918,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -869,6 +948,12 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
+                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
+                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
+                                                </label>
+                                            </td>
                                             <td>6</td>
                                             <td class="text-center">
                                                 <div class="radio__list radio__list_table">
@@ -898,7 +983,11 @@
                             <!-- MOB -->
                             <div class="row d-lg-none">
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>
@@ -958,7 +1047,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>
@@ -1018,7 +1111,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>
@@ -1078,7 +1175,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>
@@ -1138,7 +1239,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>
@@ -1198,7 +1303,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <div class='table_card-wrapper'>
+                                    <div class='table_card-wrapper position-relative'>
+                                        <label class="input input_checkbox invoice-checkbox px-2 pt-2" onclick="event.stopPropagation()">
+                                            <input class="input__control me-0 js-for-invoice-mob" value="0" type="checkbox" name="project[]">
+                                            <div class="checkbox__icon checkbox__icon_larger"></div>
+                                        </label>
                                         <table class="table table_card">
                                             <tbody>
                                                 <tr>

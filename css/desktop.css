@@ -1162,10 +1162,6 @@ input[type=number] {
   max-height: calc(100vh - 86px);
 }
 
-.table-responsive .table {
-  white-space: nowrap;
-}
-
 .table-responsive.pb_150 {
   padding-bottom: 150px;
 }

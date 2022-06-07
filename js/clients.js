@@ -53,8 +53,9 @@ function updateModal(client) {
         }]
     */
     if (files.length) {
-        template.find("[data-t-web]")
+        template.find("[data-t-files]")
             .attr("href", files[0].href)
+            .attr("title", files[0].title)
             .text(files[0].title)
         
             console.log(files);
@@ -64,7 +65,7 @@ function updateModal(client) {
             for(let i = 1; i < files.length; i++) {
                 tr += `<tr>
                     <th></th>
-                    <td><a href="${files[i].href}" target="_blank" class="link-nowrap">${files[i].title}</a></td>
+                    <td><a href="${files[i].href}" target="_blank" class="link-nowrap" title="${files[i].title}">${files[i].title}</a></td>
                 </tr>`
             }
             $(tr).appendTo(template.find('tbody'))
@@ -89,7 +90,7 @@ const clientDummyData = {
     viber: "acc",
     telegram: "olzh_zh",
     whatsapp: "77777777777",
-    web: "www.somesite.com",
+    web: "https://www.somesite.com",
     files: [{
         id: 0,
         title: "Название_Файла.docx",
