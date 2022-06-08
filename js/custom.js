@@ -99,7 +99,8 @@ function printDiv(selector) {
 function initializeTelMask() {
     $(".phone-mask").intlTelInput({
         initialCountry: "bg", // 359
-        onlyCountries: ["bg", "fr"]
+        onlyCountries: ["bg", "fr"],
+        autoFormat: false
     }).inputmask({
         mask: [ "+35\\9 (999) 999-999", "+33-9-99-99-99-99" ],
         keepStatic: false,
@@ -125,6 +126,12 @@ function initializeTelMask() {
         }
     })
 }
+
+// it could usefull with modal. Plugin won't work correctly with modal
+// function reinitTelMask() {
+//     $(".phone-mask").intlTelInput("destroy");
+//     initializeTelMask()
+// }
 
 $(function() {
     $('.js-form-file').on("change", onFileSelected)
