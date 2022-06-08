@@ -96,6 +96,36 @@ function printDiv(selector) {
     setTimeout(function(){newWin.close();},100);
 }
 
+function initializeTelMask() {
+    $(".phone-mask").intlTelInput({
+        initialCountry: "bg", // 359
+        onlyCountries: ["bg", "fr"]
+    }).inputmask({
+        mask: [ "+35\\9 (999) 999-999", "+33-9-99-99-99-99" ],
+        keepStatic: false,
+        greedy: false,
+        clearMaskOnLostFocus: true
+    }).on("countrychange", function() {
+        const country = $(this).intlTelInput("getSelectedCountryData").iso2
+        if (country === "fr") {
+            $(this).inputmask({
+                mask: [ "+33-9-99-99-99-99", "+35\\9 (999) 999-999" ],
+                keepStatic: false,
+                greedy: false,
+                clearMaskOnLostFocus: true
+            })
+        }
+        if (country === "bg") {
+            $(this).inputmask({
+                mask: [ "+35\\9 (999) 999-999", "+33-9-99-99-99-99" ],
+                keepStatic: false,
+                greedy: false,
+                clearMaskOnLostFocus: true
+            })
+        }
+    })
+}
+
 $(function() {
     $('.js-form-file').on("change", onFileSelected)
     $(".dollar-mask").inputmask({
@@ -109,12 +139,7 @@ $(function() {
         alias: 'datetime',
         inputFormat: 'dd.mm.yyyy',
     })
-    $(".phone-mask").inputmask({
-        mask: [ "+33-9-99-99-99-99", "+35\\9 (999) 999-999" ],
-        keepStatic: false,
-        greedy: false,
-        clearMaskOnLostFocus: true
-    })
+    initializeTelMask()
     $(".website-mask").inputmask({
         mask: "https://[*|.]{*}",
         greedy: false,
