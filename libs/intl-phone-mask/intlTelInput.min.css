@@ -3,3 +3,6 @@
 .iti {
     width: 100%;
 }
+.iti__country-list {
+    overflow: auto;
+}

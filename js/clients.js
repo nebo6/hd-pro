@@ -220,6 +220,9 @@ function onCLientAdd() {
         onClientAddSubmited(data); // on client ADD submited
     };
     $('[data-mymodal-id="form-client"] .form').replaceWith(form)
+    // reinit for countries mask
+    reinitTelMask()
+    // reinit for countries mask
     $('[data-mymodal-id="form-client"]').mymodal().open()
 
 }
@@ -249,6 +252,7 @@ function onClientEdited(id) {
     };
     $('[data-mymodal-id="form-client"] .form').replaceWith(updatedForm)
     $('[data-mymodal-id="form-client"]').mymodal().open()
+    reinitTelMask()
     // clear removed files list on form closed
     $(document).on("closed", '[data-mymodal-id="form-client"]', function() {
         filesToRemove = [];

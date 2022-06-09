@@ -96,42 +96,55 @@ function printDiv(selector) {
     setTimeout(function(){newWin.close();},100);
 }
 
-function initializeTelMask() {
-    $(".phone-mask").intlTelInput({
-        initialCountry: "bg", // 359
-        onlyCountries: ["bg", "fr"],
-        autoFormat: false
-    }).inputmask({
-        mask: [ "+35\\9 (999) 999-999", "+33-9-99-99-99-99" ],
-        keepStatic: false,
-        greedy: false,
-        clearMaskOnLostFocus: true
-    }).on("countrychange", function() {
-        const country = $(this).intlTelInput("getSelectedCountryData").iso2
-        if (country === "fr") {
-            $(this).inputmask({
-                mask: [ "+33-9-99-99-99-99", "+35\\9 (999) 999-999" ],
-                keepStatic: false,
-                greedy: false,
-                clearMaskOnLostFocus: true
-            })
-        }
-        if (country === "bg") {
-            $(this).inputmask({
-                mask: [ "+35\\9 (999) 999-999", "+33-9-99-99-99-99" ],
-                keepStatic: false,
-                greedy: false,
-                clearMaskOnLostFocus: true
+function initializeTelMask(reinit) {
+    $(".phone-mask").each(function(idx, el) {
+        // problems with clone / all clonable has elements has "template" in class name
+        if (!$(el).closest("[class*='template']").length) {
+            $(el).inputmask({
+                mask: "+35\\9 (999) 999-999",
+                clearMaskOnLostFocus: true,
             })
         }
     })
+    $(".phone-flag").each(function(idx, el) {
+        // problems with clone / all clonable has elements has "template" in class name
+        if (!$(el).closest("[class*='template']").length) {
+            $(el).intlTelInput({
+                initialCountry: "bg", // 359
+                onlyCountries: ["bg", "fr"],
+                autoPlaceholder: "aggressive",
+            }).on("countrychange", function() {
+                const country = $(this).intlTelInput("getSelectedCountryData").iso2;
+                const phone = $(this).closest(".phone-mask-wrapper").find(".phone-mask")
+                if (country === "fr") {
+                    phone.val("").inputmask({
+                        mask: "+33-9-99-99-99-99",
+                        clearMaskOnLostFocus: true,
+                        onincomplete: function() {
+                            $(this).val("");
+                        }
+                    }).focus()
+                }
+                if (country === "bg") {
+                    phone.val("").inputmask({
+                        mask: "+35\\9 (999) 999-999",
+                        clearMaskOnLostFocus: true,
+                        onincomplete: function() {
+                            $(this).val("");
+                        }
+                    }).focus()
+                }
+            })
+        }
+    })
+    
 }
 
 // it could usefull with modal. Plugin won't work correctly with modal
-// function reinitTelMask() {
-//     $(".phone-mask").intlTelInput("destroy");
-//     initializeTelMask()
-// }
+function reinitTelMask() {
+    $(".phone-flag").intlTelInput("destroy");
+    initializeTelMask()
+}
 
 $(function() {
     $('.js-form-file').on("change", onFileSelected)

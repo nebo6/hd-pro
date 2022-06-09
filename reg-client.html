@@ -65,23 +65,32 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="input input_group">
-                                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Telefon">
+                                            <div class="phone-mask-wrapper">
+                                                <input type="text" name="phone-flag" class="input__control phone-flag">
+                                                <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" required>
+                                            </div>
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="input input_group">
-                                            <input type="text" inputmode="tel" class="input__control phone-mask" name="viber" placeholder="Viber">
-                                        </div>
+                                        <label class="input input_group">
+                                            <div class="phone-mask-wrapper">
+                                                <input type="text" name="viber-flag" class="input__control phone-flag">
+                                                <input type="tel" name="viber" class="input__control phone-mask" placeholder="Вайбер">
+                                            </div>
+                                        </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="input input_group">
+                                        <label class="input input_group">
                                             <input type="text" class="input__control tg-mask" name="telegram" placeholder="Telegram">
-                                        </div>
+                                        </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="input input_group">
-                                            <input type="text" inputmode="tel" class="input__control phone-mask" name="whatsapp" placeholder="WhatsApp">
-                                        </div>
+                                        <label class="input input_group">
+                                            <div class="phone-mask-wrapper">
+                                                <input type="text" name="whatsapp-flag" class="input__control phone-flag">
+                                                <input type="tel" name="whatsapp" class="input__control phone-mask" placeholder="WhatsApp">
+                                            </div>
+                                        </label>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="input input_group">

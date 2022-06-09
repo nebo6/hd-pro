@@ -1013,7 +1013,10 @@
                             <input type="text" name="name" class="input__control" placeholder="Имя и фамилия" value="Андрей Петрович" required>
                         </label>
                         <label class="input input_group">
-                            <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" value="+33-1-21-23-12-33" required>
+                            <div class="phone-mask-wrapper">
+                                <input type="text" name="phone-flag" class="input__control phone-flag">
+                                <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" value="+33-1-21-23-12-33" required>
+                            </div>
                         </label>
                         <label class="input input_group">
                             <input type="email" name="email" class="input__control" placeholder="E-mail" value="msdesdfsd@mail.ua" required>
@@ -1022,7 +1025,10 @@
                             <input type="text" name="telegram" class="input__control tg-mask" value="@tg" placeholder="Телеграм">
                         </label>
                         <label class="input input_group">
-                            <input type="text" name="viber" class="input__control phone-mask" placeholder="Вайбер" value="+359 (123) 123-133">
+                            <div class="phone-mask-wrapper">
+                                <input type="text" name="viber-flag" class="input__control phone-flag">
+                                <input type="tel" name="viber" class="input__control phone-mask" placeholder="Вайбер" value="+359 (123) 123-133">
+                            </div>
                         </label>
                         <div class="select select_input input_group">
                             <select name="location" class="select__control" required>

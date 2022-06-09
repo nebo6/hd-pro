@@ -2493,12 +2493,20 @@
             </div>
             <div class="col-md-12">
                 <label class="input input_group">
-                    <input type="tel" name="phone" class="input__control phone-mask" placeholder="Telefon">
+                    <div class="phone-mask-wrapper">
+                        <input type="text" name="phone-flag" class="input__control phone-flag">
+                        <input type="tel" name="phone" class="input__control phone-mask" placeholder="Номер телефона" required>
+                    </div>
                 </label>
             </div>
             <div class="col-md-12">
                 <div class="input input_group">
-                    <input type="text" inputmode="tel" class="input__control phone-mask" name="viber" placeholder="Viber">
+                    <label class="input input_group">
+                        <div class="phone-mask-wrapper">
+                            <input type="text" name="viber-flag" class="input__control phone-flag">
+                            <input type="text" name="viber" class="input__control phone-mask" placeholder="Viber">
+                        </div>
+                    </label>
                 </div>
             </div>
             <div class="col-md-12">

@@ -312,6 +312,26 @@ input[type=number] {
   outline: 0;
 }
 
+.phone-mask-wrapper {
+  position: relative;
+}
+
+.phone-mask-wrapper .iti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: auto;
+}
+
+.phone-mask-wrapper .phone-flag {
+  display: none;
+}
+
+.phone-mask-wrapper .phone-mask {
+  padding-left: 52px;
+}
+
 .input-image {
   display: block;
   width: 64px;
