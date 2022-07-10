@@ -4624,48 +4624,87 @@
         <button data-mymodal-action="close" class="mymodal-close"></button>
         <div class="mymodal__content">
             <header class="mymodal__header">
-                <h4 class="title title_mymodal">Счет-фактура №<span data-invoice-number>1</span></h4>
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h4 class="title title_mymodal pe-0">Счет-фактура №<span data-invoice-number>1</span></h4>
+                    </div>
+                    <div class="col-auto me-5">
+                        <div class="position-relative" data-dropdown-parent>
+                            <button class="btn btn_fill btn_with-icon" type="button" data-dropdown-target="actions" >
+                                <span class="btn__icon btn__icon_plus btn__icon_left"></span>
+                                Действия
+                            </button>
+                            <div class="dropdown dropdown_header arrow" data-dropdown="actions">
+                                <ul class="dropdown__list">
+                                    <li class="dropdown__item">
+                                        <a href="/" class="dropdown__action"> 
+                                            <span class="dropdown__icon dropdown__icon_preview"></span>
+                                            <span class="dropdown__text" data-title="Посмотреть">Посмотреть PDF</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                    <li class="dropdown__item">
+                                        <a href="/" class="dropdown__action" download=""> 
+                                            <span class="dropdown__icon dropdown__icon_download"></span>
+                                            <span class="dropdown__text" data-title="Посмотреть">Скачать PDF</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                    <li class="dropdown__item">
+                                        <a href="/" class="dropdown__action"> 
+                                            <span class="dropdown__icon dropdown__icon_email"></span>
+                                            <span class="dropdown__text" data-title="Отправить на почту">Отправить на почту</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                    <li class="dropdown__item">
+                                        <a href="/" class="dropdown__action"> 
+                                            <span class="dropdown__icon dropdown__icon_excel"></span>
+                                            <span class="dropdown__text" data-title="Скачать Excel">Скачать Excel</span> <!-- data-title required for dropdown__action correct hover effect -->
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </header>
             <div class="mymodal__body">
                 <form method="post" class="invoice-form">
                     <div class="row justify-content-between">
                         <div class="col-6 col-sm">
                             <div class="invoice__logo mb-2"><img src="./img/logo.svg" width="80"></div>
-                            <h4>Название компании</h4>
-                            <p class="mb-0">Адрес компании</p>
-                            <p class="mb-0">Phone: 33-443-222233</p>
-                            <p class="mb-0">Email: email@gmail.com</p>
+                            <h4>HD PRO Ltd</h4>
+                            <p class="mb-0">Vasil Levski Nr.3</p>
+                            <p class="mb-0">4300 Karlovo City, Bulgaria</p>
+                            <p class="mb-0">Tax Nr: BG205119220</p>
+                            <p class="mb-0">Email: haildentpro@mail.com</p>
                         </div>
                         <div class="col-6 col-sm-auto">
-                            <h4>Счет-фактура №1</h4>
+                            <h4 class="d-flex">
+                                <div class="col">Счет-фактура №</div>
+                                <div class="col-auto">
+                                    <input 
+                                        type="text" 
+                                        class="input__control py-0 px-1" 
+                                        placeholder="1" 
+                                        name="invoice_number" 
+                                        required
+                                        value="1"
+                                        style="width: 84px"
+                                    >
+                                </div>
+                            </h4>
                             <div class="d-flex flex-wrap">
-                                <span class="col-auto">Дата выставления: </span>
+                                <span class="col-auto">Дата: </span>
                                 <div class="col-auto ms-1">
                                     <input 
                                         type="text" 
                                         class="input__control py-0 px-1 date-mask" 
                                         placeholder="dd.mm.yyyy" 
-                                        name="payday" 
+                                        name="date" 
                                         required
                                         style="width: 84px"
                                     >
                                 </div>
                             </div>
-                            <div class="d-flex flex-wrap">
-                                <span class="col-auto">Дата окончания: </span>
-                                <div class="col-auto ms-1">
-                                    <input 
-                                        type="text" 
-                                        class="input__control py-0 px-1 date-mask" 
-                                        placeholder="dd.mm.yyyy" 
-                                        name="deadline" 
-                                        required
-                                        style="width: 84px"
-                                    >
-                                </div>
-                            </div>
-                            <!-- <p class="mb-0">Дата выставления: 20.10.2022</p> -->
-                            <!-- <p class="mb-0">Дата окончания: 20.11.2022</p> -->
                         </div>
                     </div>
                     <div class="invoice-form__client mb-5"> <!-- logo img height -->
@@ -4675,7 +4714,7 @@
                             </div>
                             <div class="col-auto">
                                 <div class="select select_widget">
-                                    <select name="clients" class="select__control">
+                                    <select name="clients" class="select__control js-invoice-client">
                                         <option value="" selected>Несколько клиентов</option>
                                         <option value="0" label="Имя Клиента 0"></option>
                                         <option value="1" label="Имя Клиента 1"></option>
@@ -4686,95 +4725,117 @@
                                 </div>
                             </div>
                         </h4>
-                        <textarea name="address" rows="3" placeholder="Адрес получателя" class="w-100 p-1"></textarea>
+                        <textarea
+                            name="address" 
+                            rows="4" 
+                            placeholder="Адрес получателя" 
+                            class="w-100 p-1 js-invoice-address" 
+                            required></textarea>
                     </div>
                     <div class="table-responsive mb-5">
                         <table class="table table_left_short table_inherit mb-3 js-invoice-table">
                             <thead>
                                 <tr>
-                                    <td><span style="width: 20px; display: block;"></span></td>
-                                    <th>Наименование</th>
-                                    <th class="text-center">Количество</th>
-                                    <th style="padding-left: 18px;">Цена</th>
-                                    <th class="text-center">НДС</th>
-                                    <th class="text-right">Цена без НДС</th>
-                                    <th class="text-right">Цена НДС</th>
-                                    <th class="text-right">Валовая стоимость</th>
+                                    <th><span style="width: 20px; display: block;"></span></th>
+                                    <th>Nr.</th>
+                                    <th>Car Model</th>
+                                    <th>Licence Plate</th>
+                                    <th>VIN</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr data-summ="0">
                                     <td></td>
+                                    <td class="table-tr-nr"></td>
                                     <td>
-                                        <input 
-                                            type="text" 
-                                            class="input__control" 
-                                            required
-                                            name="title[]"
-                                            placeholder="Нименование"
-                                            style="min-width: 120px"
-                                        >
+                                        <div class="input input_widget">
+                                            <input 
+                                                type="text" 
+                                                class="input__control input__control_min" 
+                                                required
+                                                name="title[]"
+                                                placeholder="Car Model"
+                                                style="min-width: 120px">
+                                        </div>
                                     </td>
-                                    <td class="text-center">
-                                        <input 
-                                            type="number"
-                                            min="1"
-                                            step="1"
-                                            class="input__control text-center js-quantity" 
-                                            value="1" 
-                                            required
-                                            name="quantity[]"
-                                            style="width: 80px"
-                                        >
+                                    <td>
+                                        <div class="input input_widget">
+                                            <input 
+                                                type="text"
+                                                class="input__control input__control_min" 
+                                                required
+                                                name="licence-plate[]"
+                                                placeholder="Licence Plate"
+                                                style="min-width: 120px">
+                                        </div>
                                     </td>
-                                    <td class="text-center">
-                                        <input 
-                                            type="text" 
-                                            class="input__control dollar-mask js-price" 
-                                            inputmode="numeric" 
-                                            required
-                                            value="0"
-                                            name="price[]"
-                                            style="min-width: 120px"
-                                        >
+                                    <td>
+                                        <div class="input input_widget">
+                                            <input 
+                                                type="text"
+                                                class="input__control input__control_min" 
+                                                required
+                                                name="vin[]"
+                                                placeholder="VIN"
+                                                style="min-width: 120px" >
+                                        </div>
                                     </td>
-                                    <td class="text-center">
-                                        <input 
-                                            type="text" 
-                                            class="input__control percentage-mask js-vat" 
-                                            inputmode="numeric" 
-                                            value="0" 
-                                            required
-                                            style="width: 50px"
-                                            name="vat[]"
-                                        >
+                                    <td>
+                                        <div class="input input_widget">
+                                            <input 
+                                                type="number"
+                                                min="1"
+                                                step="1"
+                                                class="input__control input__control_min js-quantity" 
+                                                value="1" 
+                                                required
+                                                placeholder="Quantity"
+                                                name="quantity[]"
+                                                style="width: 80px">
+                                        </div>
                                     </td>
-                                    <td class="text-right" data-no-vat="0">0.00$</td>
-                                    <td class="text-right" data-vat="0">0.00$</td>
-                                    <td class="text-right" data-summ="0">0.00$</td>
+                                    <td>
+                                        <div class="input input_widget">
+                                            <input 
+                                                type="text" 
+                                                class="input__control input__control_min dollar-mask js-price" 
+                                                inputmode="numeric" 
+                                                required
+                                                value="0"
+                                                name="price[]"
+                                                placeholder="Price"
+                                                style="min-width: 120px">
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
+                            <!-- <td class="text-right" data-no-vat="0">0.00$</td>
+                            <td class="text-right" data-vat="0">0.00$</td>
+                            <td class="text-right" data-summ="0">0.00$</td> -->
                             <tfoot>
                                 <tr>
-                                    <th colspan="3">
+                                    <th colspan="7">
                                         <button class="btn btn_fill btn_with-icon d-flex add-btn" type="button">
                                             <span class="btn__icon btn__icon_plus btn__icon_left"></span>
                                             Добавить
                                         </button>
                                     </th>
-                                    <th style="padding-left: 18px;">Всего</th>
-                                    <th></th>
-                                    <th class="text-right" data-no-vat-total="0">0.00$</th>
-                                    <th class="text-right" data-vat-total="0">0.00$</th>
-                                    <th class="text-right" data-summ-total="0">0.00$</th>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
                     <div class="row">
-                        <div class="col-8 col-sm-6 col-md-4 ms-auto">
-                            <div class="input input_widget mb-3">
-                                <input type="text" class="input__control dollar-mask" name="summ-to-pay" placeholder="Общая сумма на оплату*" required>
+                        <h4 class="col-8 col-sm-6 col-md-4 ms-auto">VAT: 0%</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-8 col-sm-6 col-md-4 ms-auto">Total Price: <span data-summ-total="0">0.00$</span></h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 col-sm-6 col-md-4 ms-auto mb-2">
+                            <div class="input input_widget">
+                                <input type="text" class="input__control" name="paid_price" placeholder="Paid price">
                             </div>
                         </div>
                     </div>
@@ -4782,15 +4843,21 @@
                         <div class="col-8 col-sm-6 col-md-4 ms-auto">
                             <div class="select select_input input_widget mb-3">
                                 <select name="status" class="select__control" required>
-                                    <option value="" label="Статус*" selected disabled></option>
-                                    <option value="0" label="Оплачен"></option>
-                                    <option value="1" label="Предоплата"></option>
-                                    <option value="2" label="Остаток "></option>
+                                    <option value="" label="Status*" selected disabled></option>
+                                    <option value="0" label="Paid"></option>
+                                    <option value="1" label="Prepayment"></option>
+                                    <option value="2" label="Remainder"></option>
                                 </select>
                                 <div class="select__icon"></div>
                             </div>
                         </div>
                     </div>
+                    <p>
+                        BANK DETAILS <br>
+                        UniCredit Bulbank <br>
+                        ACOUNT No: BG34UNCR70001523332757 <br>
+                        SWIFT CODE: UNCRBGSF
+                    </p>
                     <div class="row justify-content-center mt-3">
                         <div class="col-auto">
                             <button class="btn btn_fill w-100" type="submit">Добавить</button>

@@ -824,7 +824,20 @@
                             <p class="mb-0">Email: haildentpro@mail.com</p>
                         </div>
                         <div class="col-6 col-sm-auto">
-                            <h4>Счет-фактура №1</h4>
+                            <h4 class="d-flex">
+                                <div class="col">Счет-фактура №</div>
+                                <div class="col-auto">
+                                    <input 
+                                        type="text" 
+                                        class="input__control py-0 px-1" 
+                                        placeholder="1" 
+                                        name="invoice_number" 
+                                        required
+                                        value="1"
+                                        style="width: 84px"
+                                    >
+                                </div>
+                            </h4>
                             <div class="d-flex flex-wrap">
                                 <span class="col-auto">Дата: </span>
                                 <div class="col-auto ms-1">
@@ -966,13 +979,20 @@
                         <h4 class="col-8 col-sm-6 col-md-4 ms-auto">Total Price: <span data-summ-total="0">0.00$</span></h4>
                     </div>
                     <div class="row">
+                        <div class="col-8 col-sm-6 col-md-4 ms-auto mb-2">
+                            <div class="input input_widget">
+                                <input type="text" class="input__control" name="paid_price" placeholder="Paid price">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-8 col-sm-6 col-md-4 ms-auto">
                             <div class="select select_input input_widget mb-3">
                                 <select name="status" class="select__control" required>
-                                    <option value="" label="Статус*" selected disabled></option>
-                                    <option value="0" label="Оплачен"></option>
-                                    <option value="1" label="Предоплата"></option>
-                                    <option value="2" label="Остаток "></option>
+                                    <option value="" label="Status*" selected disabled></option>
+                                    <option value="0" label="Paid"></option>
+                                    <option value="1" label="Prepayment"></option>
+                                    <option value="2" label="Remainder"></option>
                                 </select>
                                 <div class="select__icon"></div>
                             </div>
@@ -1174,6 +1194,9 @@
                     </div>
                     <div class="row">
                         <h4 class="col-8 col-sm-6 col-md-4 ms-auto text-right">Total Price: 3 194.64$</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-8 col-sm-6 col-md-4 ms-auto text-right">Paid Price: 1 194.64$</h4>
                     </div>
                     <div class="d-flex justify-content-end align-items-center">
                         <div class="col-auto me-1">Статус: </div>
