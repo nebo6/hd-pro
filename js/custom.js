@@ -137,7 +137,6 @@ function initializeTelMask(reinit) {
             })
         }
     })
-    
 }
 
 // it could usefull with modal. Plugin won't work correctly with modal

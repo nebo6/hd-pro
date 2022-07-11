@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' 
+    name='viewport'>
+    <title>Invoices Detail PDF</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 13px;
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            caption-side: bottom;
+            border-collapse: collapse;
+        }
+        .table thead {
+            background: #DB2927;
+            color: #ffffff;
+        }
+        .table tbody {
+            color: #90A0B7;
+        }
+        .table tbody th {
+            color: #8D9BAF;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #F7F7F7;
+        }
+        .table tr,
+        .table td,
+        .table th {
+            padding: 8px;
+            border-color: inherit;
+            border-style: solid;
+            border-width: 0;
+            text-align: left;
+        }
+        .table tr:first-child,
+        .table td:first-child,
+        .table th:first-child {
+            padding-left: 22px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .table tr:last-child,
+        .table td:last-child,
+        .table th:last-child {
+            padding-right: 22px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .table__status {
+            display: block;
+            width: 80px;
+            color: #fff;
+            font-size: 10px;
+            line-height: 14px;
+            border-radius: 50px;
+            text-align: center;
+        }
+        .green {
+            background-color: #2DC959;
+        }
+        .orange {
+            background-color: #FFB800;
+        }
+        .red {
+            background-color: #DB2927;
+        }
+        
+        h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .row {
+            margin-top: 0;
+        }
+        .justify-content-between {
+            justify-content: space-between;
+        }
+        p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        .mb-8 {
+            margin-bottom: 8px;
+        }
+        .mb-48 {
+            margin-bottom: 48px;
+        }
+        .mt-70 {
+            margin-top: 70px;
+        }
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td valign="top">
+                    <div class="mb-8"><img src="./img/logo.svg" width="80"></div>
+                    <h4>HD PRO Ltd</h4>
+                    <p>Vasil Levski Nr.3</p>
+                    <p>4300 Karlovo City, Bulgaria</p>
+                    <p>Tax Nr: BG205119220</p>
+                    <p>Email: haildentpro@mail.com</p>
+                </td>
+                <td valign="top" align="right">
+                    <h4>Счет-фактура №1</h4>
+                    <p>Дата: 20.10.2022</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="mt-70 mb-48"> <!-- logo img height -->
+                        <h4>Получатель: Клиент</h4>
+                        <p>
+                            Vasil Levski Nr.3 <br>
+                            4300 Karlovo City, Bulgaria <br>
+                            Tax Nr: BG205119220 <br>
+                            Email: haildentpro@mail.com
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="table-responsive mb-48">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nr.</th>
+                        <th>Car Model</th>
+                        <th>Licence Plate</th>
+                        <th>VIN</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Toyota Land Cruiser</td>
+                        <td>A 211 ADD</td>
+                        <td>213-132564</td>
+                        <td>12</td>
+                        <td>133.11$</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Toyota Land Cruiser</td>
+                        <td>A 211 ADD</td>
+                        <td>213-132564</td>
+                        <td>12</td>
+                        <td>133.11$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 class="text-right">VAT: 0%</h4>
+        <h4 class="text-right">Total Price: 3 194.64$</h4>
+        <h4 class="text-right">Paid Price: 1 194.64$</h4>
+        <div class="text-right">
+            Статус: <strong>Оплачен</strong>
+        </div>
+        <p>
+            BANK DETAILS <br>
+            UniCredit Bulbank <br>
+            ACOUNT No: BG34UNCR70001523332757 <br>
+            SWIFT CODE: UNCRBGSF
+        </p>
+    </div>
+</body>
+</html>
