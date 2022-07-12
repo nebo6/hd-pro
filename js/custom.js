@@ -101,7 +101,7 @@ function initializeTelMask(reinit) {
         // problems with clone / all clonable has elements has "template" in class name
         if (!$(el).closest("[class*='template']").length) {
             $(el).inputmask({
-                mask: "+35\\9 (999) 999-999",
+                mask: "+35\\9 999 999 999",
                 clearMaskOnLostFocus: true,
             })
         }
@@ -111,29 +111,19 @@ function initializeTelMask(reinit) {
         if (!$(el).closest("[class*='template']").length) {
             $(el).intlTelInput({
                 initialCountry: "bg", // 359
-                onlyCountries: ["bg", "fr"],
-                autoPlaceholder: "aggressive",
+                preferredCountries: ["bg", "fr"],
+                utilsScript: "/libs/intl-phone-mask/utils.js",
             }).on("countrychange", function() {
-                const country = $(this).intlTelInput("getSelectedCountryData").iso2;
+                const dialCode = $(this).intlTelInput("getSelectedCountryData").dialCode.replace(/9/g,"\\9");
+                const numberMask = $(this).attr("placeholder").replace(/\d/g, "9");
                 const phone = $(this).closest(".phone-mask-wrapper").find(".phone-mask")
-                if (country === "fr") {
-                    phone.val("").inputmask({
-                        mask: "+33-9-99-99-99-99",
-                        clearMaskOnLostFocus: true,
-                        onincomplete: function() {
-                            $(this).val("");
-                        }
-                    }).focus()
-                }
-                if (country === "bg") {
-                    phone.val("").inputmask({
-                        mask: "+35\\9 (999) 999-999",
-                        clearMaskOnLostFocus: true,
-                        onincomplete: function() {
-                            $(this).val("");
-                        }
-                    }).focus()
-                }
+                phone.val("").inputmask({
+                    mask: `+${dialCode} ${numberMask}`,
+                    clearMaskOnLostFocus: true,
+                    onincomplete: function() {
+                        $(this).val("");
+                    }
+                }).focus()
             })
         }
     })
