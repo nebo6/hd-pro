@@ -2621,6 +2621,10 @@ tbody .table-tr-nr::before {
   font-size: 11px;
 }
 
+.notifications__description p {
+  margin-bottom: 0;
+}
+
 .notifications__title {
   font-size: 20px;
   text-align: left;
@@ -2641,6 +2645,10 @@ tbody .table-tr-nr::before {
 
 .preview__content {
   color: #1E1E1E;
+}
+
+.preview__content p {
+  margin-bottom: 0;
 }
 
 .dashboard__total-stats-wrapper {
