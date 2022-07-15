@@ -2884,6 +2884,33 @@ tbody .table-tr-nr::before {
   }
 }
 
+.pagination {
+  display: inline-block;
+  text-align: center;
+}
+
+.pagination a {
+  float: left;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #DB2927;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: #DB2927;
+  color: white;
+  border: 1px solid #DB2927;
+  pointer-events: none;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #DB2927;
+  color: #fff;
+}
+
 .mymodal-wrapper {
   overflow-x: hidden;
 }
