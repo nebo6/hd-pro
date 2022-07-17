@@ -168,4 +168,9 @@ $(function() {
         mask: "@[*|_]{*}"
     })
     if (window.Fancybox) Fancybox.defaults.Hash = false;
+    $(".select.no-print select").on("change", function() {
+        const name = $(this).attr("name")
+        const text = this.options[this.selectedIndex].innerHTML
+        $(".select-for-print[data-name='"+name+"']").text(text)
+    })
 })
