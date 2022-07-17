@@ -448,10 +448,10 @@
                                         >Сгенерировать счет-фактуру</button>
                                     </div>
                                     <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                        <button class="btn btn_outline w-100" type="button" onclick="printDiv('clients')">Print</button>
+                                        <button class="btn btn_outline w-100" type="button" onclick="printDiv('report-week')">Print</button>
                                     </div>
                                     <div class="col-6 col-md-auto mb-3 ps-lg-0">
-                                        <button class="btn btn_outline w-100" type="button" onclick="excel('clients')">Excel</button>
+                                        <button class="btn btn_outline w-100" type="button" onclick="excel('report-week')">Excel</button>
                                     </div>
                                     <div class="col-6 col-md-auto mb-3 ps-lg-0">
                                         <div class="select select_widget">
@@ -570,10 +570,10 @@
                             <!-- WIDGETS END -->
                             <!-- DESKTOP -->
                             <div class="table-responsive d-none d-lg-block">
-                                <table class="table">
+                                <table class="table" id="report-week">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th class="no-print"></th>
                                             <th>ID</th>
                                             <th class="text-center">Статус работы</th>
                                             <th>Дата</th>
@@ -588,7 +588,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -596,7 +596,7 @@
                                             </td>
                                             <td>0</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[0]" checked value="0" onchange="onWeekReportStatusChanged(event, 0)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -607,6 +607,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
+                                                <div class="d-none">В работе</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
@@ -618,7 +619,7 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -626,7 +627,7 @@
                                             </td>
                                             <td>1</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[1]" checked value="0" onchange="onWeekReportStatusChanged(event, 0)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -637,6 +638,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
+                                                <div class="d-none">В работе</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
@@ -648,7 +650,7 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -656,7 +658,7 @@
                                             </td>
                                             <td>2</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[2]" checked value="0" onchange="onWeekReportStatusChanged(event, 2)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -667,6 +669,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
+                                                <div class="d-none">Выполнено</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
@@ -678,7 +681,7 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -686,7 +689,7 @@
                                             </td>
                                             <td>3</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[3]" checked value="0" onchange="onWeekReportStatusChanged(event, 3)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -697,6 +700,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
+                                                <div class="d-none">В работе</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
@@ -708,7 +712,7 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -716,7 +720,7 @@
                                             </td>
                                             <td>4</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[4]" checked value="0" onchange="onWeekReportStatusChanged(event, 4)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -727,6 +731,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
+                                                <div class="d-none">В работе</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
@@ -738,7 +743,7 @@
                                             <td>1000$</td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="no-print">
                                                 <label class="input input_checkbox" onclick="event.stopPropagation()">
                                                     <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
                                                     <div class="checkbox__icon checkbox__icon_larger"></div>
@@ -746,7 +751,7 @@
                                             </td>
                                             <td>5</td>
                                             <td class="text-center">
-                                                <div class="radio__list radio__list_table">
+                                                <div class="radio__list radio__list_table no-print">
                                                     <label class="input input_radio">
                                                         <input type="radio" class="input__control" name="week-report[5]" checked value="0" onchange="onWeekReportStatusChanged(event, 5)"> <!-- onEstimatesChanged(event, id) -->
                                                         <span class="input__label input__label_green">В работе</span>
@@ -757,216 +762,7 @@
                                                     </label>
                                                     <input type="hidden" class="radio__prev" value="0">
                                                 </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
-                                            </td>
-                                            <td>15.03.22</td>
-                                            <td>Make & model</td>
-                                            <td>232356775412222</td>
-                                            <td>Легковые C-класса</td>
-                                            <td>Желтый</td>
-                                            <td>Антон Анисимов</td>
-                                            <td>126</td>
-                                            <td>1000$</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="input input_checkbox" onclick="event.stopPropagation()">
-                                                    <input class="input__control me-0 js-for-invoice" value="0" type="checkbox" name="report[]">
-                                                    <div class="checkbox__icon checkbox__icon_larger"></div>
-                                                </label>
-                                            </td>
-                                            <td>6</td>
-                                            <td class="text-center">
-                                                <div class="radio__list radio__list_table">
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" checked value="0" onchange="onWeekReportStatusChanged(event, 6)"> <!-- onEstimatesChanged(event, id) -->
-                                                        <span class="input__label input__label_green">В работе</span>
-                                                    </label>
-                                                    <label class="input input_radio">
-                                                        <input type="radio" class="input__control" name="week-report[6]" value="1" onchange="onWeekReportStatusChanged(event, 6)">
-                                                        <span class="input__label input__label_green">Выполнено</span>
-                                                    </label>
-                                                    <input type="hidden" class="radio__prev" value="0">
-                                                </div>
+                                                <div class="d-none">В работе</div>
                                             </td>
                                             <td>15.03.22</td>
                                             <td>Make & model</td>
