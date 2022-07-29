@@ -114,7 +114,7 @@ function initializeTelMask(reinit) {
                 preferredCountries: ["bg", "fr"],
                 utilsScript: "/libs/intl-phone-mask/utils.js",
             }).on("countrychange", function() {
-                const dialCode = $(this).intlTelInput("getSelectedCountryData").dialCode.replace(/9/g,"\\9");
+                const dialCode = $(this).intlTelInput("getSelectedCountryData").dialCode.replace(/9/g,"\\9").replace(/^0/,"");
                 const numberMask = $(this).attr("placeholder").replace(/\d/g, "9");
                 const phone = $(this).closest(".phone-mask-wrapper").find(".phone-mask")
                 phone.val("").inputmask({
